@@ -196,6 +196,19 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Assemblers\AttackMoveAssembler.cs" />
+    <Compile Include="Assemblers\BillAssembler.cs" />
+    <Compile Include="Assemblers\CardAssembler.cs" />
+    <Compile Include="Assemblers\CombatAssembler.cs" />
+    <Compile Include="Assemblers\CommentAssembler.cs" />
+    <Compile Include="Assemblers\NotificationAssembler.cs" />
+    <Compile Include="Assemblers\PackAssembler.cs" />
+    <Compile Include="Assemblers\ProductAssembler.cs" />
+    <Compile Include="Assemblers\TokenPackAssembler.cs" />
+    <Compile Include="Assemblers\TradeOffAssembler.cs" />
+    <Compile Include="Assemblers\UserCardAssembler.cs" />
+    <Compile Include="Assemblers\UserPackAssembler.cs" />
+    <Compile Include="Assemblers\VirtualUserAssembler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -218,6 +231,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\usuario.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
