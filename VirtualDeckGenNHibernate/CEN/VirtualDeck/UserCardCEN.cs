@@ -39,7 +39,7 @@ public IUserCardCAD get_IUserCardCAD ()
         return this._IUserCardCAD;
 }
 
-public void Modify (int p_UserCard_OID, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum p_rarity, int p_speed, int p_defense, int p_attack, int p_health, int p_level, int p_experience, string p_name, string p_img, Nullable<DateTime> p_purchaseDate)
+public void Modify (int p_UserCard_OID, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_speed, int p_defense, int p_attack, int p_health, int p_level, int p_experience, string p_name, string p_img, Nullable<DateTime> p_purchaseDate)
 {
         UserCardEN userCardEN = null;
 
@@ -107,6 +107,10 @@ public void AssignPack (int p_UserCard_OID, int p_userPack_OID)
 public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> UserCardsByUser (int p_user)
 {
         return _IUserCardCAD.UserCardsByUser (p_user);
+}
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> UserCardsNotInTradeByUser (int p_user)
+{
+        return _IUserCardCAD.UserCardsNotInTradeByUser (p_user);
 }
 }
 }

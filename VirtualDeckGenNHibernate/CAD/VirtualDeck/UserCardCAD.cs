@@ -514,5 +514,35 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 
         return result;
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> UserCardsNotInTradeByUser (int p_user)
+{
+        System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserCardEN self where FROM UserCardEN as card where card.User.Id = :p_user and card not in (select OfferedUserCard from TradeOffEN as trade where trade.State  = 1)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserCardENuserCardsNotInTradeByUserHQL");
+                query.SetParameter ("p_user", p_user);
+
+                result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in UserCardCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

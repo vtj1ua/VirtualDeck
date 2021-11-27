@@ -94,7 +94,7 @@ public void ModifyDefault (UserPackEN userPack)
                 userPackEN.PurchaseDate = userPack.PurchaseDate;
 
 
-                userPackEN.Type = userPack.Type;
+                userPackEN.Rarity = userPack.Rarity;
 
 
 
@@ -174,7 +174,7 @@ public void Modify (UserPackEN userPack)
                 userPackEN.PurchaseDate = userPack.PurchaseDate;
 
 
-                userPackEN.Type = userPack.Type;
+                userPackEN.Rarity = userPack.Rarity;
 
                 session.Update (userPackEN);
                 SessionCommit ();

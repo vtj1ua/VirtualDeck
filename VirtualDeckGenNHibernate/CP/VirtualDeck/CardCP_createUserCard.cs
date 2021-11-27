@@ -48,7 +48,7 @@ public int CreateUserCard (int p_card, int p_seed)
 
                 //Anadir valores aleatorios a las estadisticas
                 CardTypeEnum type = baseCard.Type;
-                CardRarityEnum rarity = baseCard.Rarity;
+                RarityEnum rarity = baseCard.Rarity;
                 int health = baseCard.Health + rnd.Next (-10, 10);
                 int attack = baseCard.Attack + rnd.Next (-10, 10);
                 int defense = baseCard.Defense + rnd.Next (-10, 10);

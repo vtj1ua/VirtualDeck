@@ -39,7 +39,7 @@ public IUserPackCAD get_IUserPackCAD ()
         return this._IUserPackCAD;
 }
 
-public void Modify (int p_UserPack_OID, Nullable<DateTime> p_purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.PackTypeEnum p_type)
+public void Modify (int p_UserPack_OID, Nullable<DateTime> p_purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity)
 {
         UserPackEN userPackEN = null;
 
@@ -47,7 +47,7 @@ public void Modify (int p_UserPack_OID, Nullable<DateTime> p_purchaseDate, Virtu
         userPackEN = new UserPackEN ();
         userPackEN.Id = p_UserPack_OID;
         userPackEN.PurchaseDate = p_purchaseDate;
-        userPackEN.Type = p_type;
+        userPackEN.Rarity = p_rarity;
         //Call to UserPackCAD
 
         _IUserPackCAD.Modify (userPackEN);

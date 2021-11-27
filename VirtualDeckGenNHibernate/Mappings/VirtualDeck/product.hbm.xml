@@ -24,6 +24,9 @@
 					<property name="Img" type="string"> 
 						<column name="img"  not-null="true"/>
 					</property>
+					<property name="RegistryDate" type="date"> 
+						<column name="registryDate"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -51,6 +54,8 @@
 					      	</key>
 							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN"/>
 					    </bag>
+					
+			
 					
 					
 					

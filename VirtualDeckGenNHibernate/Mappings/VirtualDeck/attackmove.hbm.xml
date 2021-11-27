@@ -18,6 +18,9 @@
 					<property name="Type" > 
 						<column name="type"  not-null="true"/>
 					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -66,6 +69,8 @@
 									<column name="FK_idCombat_idCombat"/> 
       						</many-to-many>
     					</bag>
+			
+					
 					
 					
 					

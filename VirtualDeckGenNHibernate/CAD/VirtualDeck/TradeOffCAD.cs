@@ -311,5 +311,67 @@ public int Publish (TradeOffEN tradeOff)
 
         return tradeOff.Id;
 }
+
+public void AssignExchanger (int p_TradeOff_OID, int p_exchanger_OID)
+{
+        VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN tradeOffEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                tradeOffEN = (TradeOffEN)session.Load (typeof(TradeOffEN), p_TradeOff_OID);
+                tradeOffEN.Exchanger = (VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN)session.Load (typeof(VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN), p_exchanger_OID);
+
+                tradeOffEN.Exchanger.ExchangedTradeOffs.Add (tradeOffEN);
+
+
+
+                session.Update (tradeOffEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in TradeOffCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void AssignGivenUserCard (int p_TradeOff_OID, int p_givenUserCard_OID)
+{
+        VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN tradeOffEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                tradeOffEN = (TradeOffEN)session.Load (typeof(TradeOffEN), p_TradeOff_OID);
+                tradeOffEN.GivenUserCard = (VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN)session.Load (typeof(VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN), p_givenUserCard_OID);
+
+                tradeOffEN.GivenUserCard.GivenTradeOffs.Add (tradeOffEN);
+
+
+
+                session.Update (tradeOffEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in TradeOffCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

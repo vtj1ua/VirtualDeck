@@ -19,9 +19,9 @@ namespace VirtualDeckGenNHibernate.CEN.VirtualDeck
 {
 public partial class PackCEN
 {
-public int New_ (string p_name, string p_description, int p_price, string p_img, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.PackTypeEnum p_type, int p_maxNumCards, int p_minNumCards)
+public int New_ (string p_name, string p_description, int p_price, string p_img, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_maxNumCards, int p_minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_cardTypes, System.Collections.Generic.IList<float> p_cardsRarityProbabilities)
 {
-        /*PROTECTED REGION ID(VirtualDeckGenNHibernate.CEN.VirtualDeck_Pack_new__customized) START*/
+        /*PROTECTED REGION ID(VirtualDeckGenNHibernate.CEN.VirtualDeck_Pack_new__customized) ENABLED START*/
 
         PackEN packEN = null;
 
@@ -37,11 +37,15 @@ public int New_ (string p_name, string p_description, int p_price, string p_img,
 
         packEN.Img = p_img;
 
-        packEN.Type = p_type;
+        packEN.Rarity = p_rarity;
 
         packEN.MaxNumCards = p_maxNumCards;
 
         packEN.MinNumCards = p_minNumCards;
+
+        packEN.CardTypes = p_cardTypes;
+
+        packEN.RegistryDate = DateTime.Now;
 
         //Call to PackCAD
 

@@ -79,5 +79,17 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 {
         return _ITradeOffCAD.TradesByCardName (p_cardName);
 }
+public void AssignExchanger (int p_TradeOff_OID, int p_exchanger_OID)
+{
+        //Call to TradeOffCAD
+
+        _ITradeOffCAD.AssignExchanger (p_TradeOff_OID, p_exchanger_OID);
+}
+public void AssignGivenUserCard (int p_TradeOff_OID, int p_givenUserCard_OID)
+{
+        //Call to TradeOffCAD
+
+        _ITradeOffCAD.AssignGivenUserCard (p_TradeOff_OID, p_givenUserCard_OID);
+}
 }
 }

@@ -34,5 +34,9 @@ System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOf
 
 
 int Publish (TradeOffEN tradeOff);
+
+void AssignExchanger (int p_TradeOff_OID, int p_exchanger_OID);
+
+void AssignGivenUserCard (int p_TradeOff_OID, int p_givenUserCard_OID);
 }
 }

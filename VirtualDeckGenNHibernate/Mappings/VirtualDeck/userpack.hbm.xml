@@ -15,8 +15,8 @@
 					<property name="PurchaseDate" type="date"> 
 						<column name="purchaseDate"  not-null="true"/>
 					</property>
-					<property name="Type" > 
-						<column name="type"  not-null="true"/>
+					<property name="Rarity" > 
+						<column name="rarity"  not-null="true"/>
 					</property>
 			
 			

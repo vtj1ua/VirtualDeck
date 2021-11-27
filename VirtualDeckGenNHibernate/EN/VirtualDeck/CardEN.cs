@@ -45,7 +45,7 @@ private int speed;
 /**
  *	Atributo rarity
  */
-private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum rarity;
+private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity;
 
 
 
@@ -103,7 +103,7 @@ public virtual int Speed {
 
 
 
-public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum Rarity {
+public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum Rarity {
         get { return rarity; } set { rarity = value;  }
 }
 
@@ -138,21 +138,21 @@ public CardEN() : base ()
 
 
 
-public CardEN(int id, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, int health, int attack, int defense, int speed, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum rarity, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> tradeOffs, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN> attackMoves, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards
-              , string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills
+public CardEN(int id, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, int health, int attack, int defense, int speed, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> tradeOffs, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN> attackMoves, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards
+              , string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, Nullable<DateTime> registryDate
               )
 {
-        this.init (Id, type, health, attack, defense, speed, rarity, tradeOffs, attackMoves, userCards, name, description, price, img, comments, bills);
+        this.init (Id, type, health, attack, defense, speed, rarity, tradeOffs, attackMoves, userCards, name, description, price, img, comments, bills, registryDate);
 }
 
 
 public CardEN(CardEN card)
 {
-        this.init (Id, card.Type, card.Health, card.Attack, card.Defense, card.Speed, card.Rarity, card.TradeOffs, card.AttackMoves, card.UserCards, card.Name, card.Description, card.Price, card.Img, card.Comments, card.Bills);
+        this.init (Id, card.Type, card.Health, card.Attack, card.Defense, card.Speed, card.Rarity, card.TradeOffs, card.AttackMoves, card.UserCards, card.Name, card.Description, card.Price, card.Img, card.Comments, card.Bills, card.RegistryDate);
 }
 
 private void init (int id
-                   , VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, int health, int attack, int defense, int speed, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum rarity, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> tradeOffs, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN> attackMoves, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills)
+                   , VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, int health, int attack, int defense, int speed, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> tradeOffs, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN> attackMoves, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, Nullable<DateTime> registryDate)
 {
         this.Id = id;
 
@@ -186,6 +186,8 @@ private void init (int id
         this.Comments = comments;
 
         this.Bills = bills;
+
+        this.RegistryDate = registryDate;
 }
 
 public override bool Equals (object obj)

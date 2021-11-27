@@ -39,7 +39,7 @@ public IProductCAD get_IProductCAD ()
         return this._IProductCAD;
 }
 
-public int New_ (string p_name, string p_description, int p_price, string p_img)
+public int New_ (string p_name, string p_description, int p_price, string p_img, Nullable<DateTime> p_registryDate)
 {
         ProductEN productEN = null;
         int oid;
@@ -54,13 +54,15 @@ public int New_ (string p_name, string p_description, int p_price, string p_img)
 
         productEN.Img = p_img;
 
+        productEN.RegistryDate = p_registryDate;
+
         //Call to ProductCAD
 
         oid = _IProductCAD.New_ (productEN);
         return oid;
 }
 
-public void Modify (int p_Product_OID, string p_name, string p_description, int p_price, string p_img)
+public void Modify (int p_Product_OID, string p_name, string p_description, int p_price, string p_img, Nullable<DateTime> p_registryDate)
 {
         ProductEN productEN = null;
 
@@ -71,6 +73,7 @@ public void Modify (int p_Product_OID, string p_name, string p_description, int 
         productEN.Description = p_description;
         productEN.Price = p_price;
         productEN.Img = p_img;
+        productEN.RegistryDate = p_registryDate;
         //Call to ProductCAD
 
         _IProductCAD.Modify (productEN);

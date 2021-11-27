@@ -294,7 +294,7 @@ public System.Collections.Generic.IList<VirtualUserEN> ReadAll (int first, int s
         return result;
 }
 
-public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> UserByName (string p_userName)
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> UsersByName (string p_userName)
 {
         System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> result;
         try
@@ -302,8 +302,38 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
                 SessionInitializeTransaction ();
                 //String sql = @"FROM VirtualUserEN self where FROM VirtualUserEN as u WHERE u.UserName LIKE :p_userName";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("VirtualUserENuserByNameHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("VirtualUserENusersByNameHQL");
                 query.SetParameter ("p_userName", p_userName);
+
+                result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in VirtualUserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> UsersByEmail (string p_email)
+{
+        System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM VirtualUserEN self where FROM VirtualUserEN as user where user.Email = :p_email";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("VirtualUserENusersByEmailHQL");
+                query.SetParameter ("p_email", p_email);
 
                 result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN>();
                 SessionCommit ();

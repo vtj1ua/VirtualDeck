@@ -146,5 +146,6 @@
 		  <query name="UserCardENuserCardsByNameHQL"><![CDATA[FROM UserCardEN as uc WHERE uc.User.Id = :p_user AND uc.Name LIKE :p_name]]></query>
 		  <query name="UserCardENuserCardsByBaseCardHQL"><![CDATA[FROM UserCardEN as uc WHERE uc.User.Id = :p_user AND uc.Card.Id = :p_baseCard]]></query>
 		  <query name="UserCardENuserCardsByUserHQL"><![CDATA[FROM UserCardEN as card where card.User.Id = :p_user]]></query>
+		  <query name="UserCardENuserCardsNotInTradeByUserHQL"><![CDATA[FROM UserCardEN as card where card.User.Id = :p_user and card not in (select OfferedUserCard from TradeOffEN as trade where trade.State  = 1)]]></query>
 		</hibernate-mapping>
 	

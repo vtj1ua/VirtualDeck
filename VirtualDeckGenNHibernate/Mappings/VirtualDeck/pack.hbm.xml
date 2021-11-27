@@ -16,8 +16,8 @@
 
 			
 					
-					<property name="Type" > 
-						<column name="type"  not-null="true"/>
+					<property name="Rarity" > 
+						<column name="rarity"  not-null="true"/>
 					</property>
 					<property name="MaxNumCards" type="integer"> 
 						<column name="maxNumCards"  not-null="true"/>
@@ -25,8 +25,14 @@
 					<property name="MinNumCards" type="integer"> 
 						<column name="minNumCards"  not-null="true"/>
 					</property>
-			
-			
+					<property name="CardTypes" > 
+						<column name="cardTypes"  not-null="true"/>
+					</property>
+					<bag name="CardsRarityProbabilities" table="cardsRarityProbabilities"> 
+						<key>
+						</key>
+						<element column="CardsRarityProbabilities" type="float"/> 
+    				</bag>
 			
 			
 		  			
@@ -40,6 +46,12 @@
 					    </bag>
 					
 			
+			
+			
+			
+			
+					
+					
 					
 					
 					
@@ -49,7 +61,7 @@
 		 </joined-subclass>
 		  
 		  <query name="PackENReadAllHQL">from PackEN</query>
-		  <query name="PackENpacksByTypeHQL"><![CDATA[ FROM PackEN as pack where pack.Type=:p_type]]></query>
+		  <query name="PackENpacksByRarityHQL"><![CDATA[ FROM PackEN as pack where pack.Rarity = :p_rarity]]></query>
 		  <query name="PackENpacksByNameOrDescriptionHQL"><![CDATA[FROM PackEN as pack where pack.Name like :p_name or pack.Description like :p_name]]></query>
 		</hibernate-mapping>
 	

@@ -44,5 +44,8 @@ void DessasignUser (int p_UserCard_OID, int p_user_OID);
 void AssignPack (int p_UserCard_OID, int p_userPack_OID);
 
 System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> UserCardsByUser (int p_user);
+
+
+System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> UserCardsNotInTradeByUser (int p_user);
 }
 }

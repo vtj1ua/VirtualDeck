@@ -54,6 +54,13 @@ private System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck
 
 
 
+/**
+ *	Atributo description
+ */
+private string description;
+
+
+
 
 
 
@@ -99,6 +106,12 @@ public virtual System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.Virt
 
 
 
+public virtual string Description {
+        get { return description; } set { description = value;  }
+}
+
+
+
 
 
 public AttackMoveEN()
@@ -111,20 +124,20 @@ public AttackMoveEN()
 
 
 
-public AttackMoveEN(int id, string name, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> cards, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats1, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats2
+public AttackMoveEN(int id, string name, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> cards, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats1, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats2, string description
                     )
 {
-        this.init (Id, name, type, userCards, cards, combats1, combats2);
+        this.init (Id, name, type, userCards, cards, combats1, combats2, description);
 }
 
 
 public AttackMoveEN(AttackMoveEN attackMove)
 {
-        this.init (Id, attackMove.Name, attackMove.Type, attackMove.UserCards, attackMove.Cards, attackMove.Combats1, attackMove.Combats2);
+        this.init (Id, attackMove.Name, attackMove.Type, attackMove.UserCards, attackMove.Cards, attackMove.Combats1, attackMove.Combats2, attackMove.Description);
 }
 
 private void init (int id
-                   , string name, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> cards, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats1, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats2)
+                   , string name, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> cards, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats1, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats2, string description)
 {
         this.Id = id;
 
@@ -140,6 +153,8 @@ private void init (int id
         this.Combats1 = combats1;
 
         this.Combats2 = combats2;
+
+        this.Description = description;
 }
 
 public override bool Equals (object obj)

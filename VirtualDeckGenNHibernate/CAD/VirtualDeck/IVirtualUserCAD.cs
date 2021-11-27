@@ -33,6 +33,10 @@ VirtualUserEN ReadOID (int id
 System.Collections.Generic.IList<VirtualUserEN> ReadAll (int first, int size);
 
 
-System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> UserByName (string p_userName);
+System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> UsersByName (string p_userName);
+
+
+
+System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> UsersByEmail (string p_email);
 }
 }

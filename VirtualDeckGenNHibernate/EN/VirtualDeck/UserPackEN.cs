@@ -20,9 +20,9 @@ private Nullable<DateTime> purchaseDate;
 
 
 /**
- *	Atributo type
+ *	Atributo rarity
  */
-private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.PackTypeEnum type;
+private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity;
 
 
 
@@ -62,8 +62,8 @@ public virtual Nullable<DateTime> PurchaseDate {
 
 
 
-public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.PackTypeEnum Type {
-        get { return type; } set { type = value;  }
+public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum Rarity {
+        get { return rarity; } set { rarity = value;  }
 }
 
 
@@ -95,27 +95,27 @@ public UserPackEN()
 
 
 
-public UserPackEN(int id, Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.PackTypeEnum type, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN pack
+public UserPackEN(int id, Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN pack
                   )
 {
-        this.init (Id, purchaseDate, type, user, userCards, pack);
+        this.init (Id, purchaseDate, rarity, user, userCards, pack);
 }
 
 
 public UserPackEN(UserPackEN userPack)
 {
-        this.init (Id, userPack.PurchaseDate, userPack.Type, userPack.User, userPack.UserCards, userPack.Pack);
+        this.init (Id, userPack.PurchaseDate, userPack.Rarity, userPack.User, userPack.UserCards, userPack.Pack);
 }
 
 private void init (int id
-                   , Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.PackTypeEnum type, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN pack)
+                   , Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN pack)
 {
         this.Id = id;
 
 
         this.PurchaseDate = purchaseDate;
 
-        this.Type = type;
+        this.Rarity = rarity;
 
         this.User = user;
 

@@ -88,9 +88,11 @@
 		 </joined-subclass>
 		  
 		  <query name="CardENReadAllHQL">from CardEN</query>
-		  <query name="CardENcardsByTypeHQL"><![CDATA[FROM CardEN as card where card.Type = :p_type]]></query>
-		  <query name="CardENcardsByRarityHQL"><![CDATA[FROM CardEN as card where card.Rarity = :p_rarity]]></query>
+		  <query name="CardENcardsByTypeHQL"><![CDATA[FROM CardEN as card where (card.Type & :p_type) != 0]]></query>
+		  <query name="CardENcardsByRarityHQL"><![CDATA[FROM CardEN as card where  (card.Rarity & :p_rarity) != 0]]></query>
 		  <query name="CardENcardsByNameOrDescriptionHQL"><![CDATA[FROM CardEN as card where card.Description like :p_cardName or card.Name like :p_cardName]]></query>
-		  <query name="CardENcardsByPriceHQL"><![CDATA[FROM CardEN as card where card.Price = :p_price]]></query>
+		  <query name="CardENcardsByPriceHQL"><![CDATA[FROM CardEN as card where card.Price >= :p_min_price AND card.Price <= :p_max_price]]></query>
+		  <query name="CardENcardsByMaxRarityHQL"><![CDATA[FROM CardEN as card where card.Rarity <= :p_rarity]]></query>
+		  <query name="CardENcardsByTypeAndRarityHQL"><![CDATA[FROM CardEN as card WHERE (card.Type & :p_type) != 0 AND (card.Rarity & :p_rarity) != 0 ORDER BY card.Rarity ASC]]></query>
 		</hibernate-mapping>
 	

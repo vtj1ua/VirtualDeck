@@ -22,7 +22,7 @@ private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type;
 /**
  *	Atributo rarity
  */
-private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum rarity;
+private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity;
 
 
 
@@ -153,7 +153,7 @@ public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum Type
 
 
 
-public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum Rarity {
+public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum Rarity {
         get { return rarity; } set { rarity = value;  }
 }
 
@@ -267,7 +267,7 @@ public UserCardEN()
 
 
 
-public UserCardEN(int id, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum rarity, int speed, int defense, int attack, int health, int level, int experience, string name, string img, Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN userPack, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> offeredTradeOffs, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN> attackMoves, VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN card, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> givenTradeOffs
+public UserCardEN(int id, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, int speed, int defense, int attack, int health, int level, int experience, string name, string img, Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN userPack, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> offeredTradeOffs, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN> attackMoves, VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN card, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> givenTradeOffs
                   )
 {
         this.init (Id, type, rarity, speed, defense, attack, health, level, experience, name, img, purchaseDate, user, userPack, offeredTradeOffs, attackMoves, card, combats, givenTradeOffs);
@@ -280,7 +280,7 @@ public UserCardEN(UserCardEN userCard)
 }
 
 private void init (int id
-                   , VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum rarity, int speed, int defense, int attack, int health, int level, int experience, string name, string img, Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN userPack, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> offeredTradeOffs, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN> attackMoves, VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN card, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> givenTradeOffs)
+                   , VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, int speed, int defense, int attack, int health, int level, int experience, string name, string img, Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN userPack, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> offeredTradeOffs, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN> attackMoves, VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN card, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN> combats, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> givenTradeOffs)
 {
         this.Id = id;
 

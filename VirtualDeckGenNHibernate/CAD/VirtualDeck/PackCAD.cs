@@ -91,14 +91,20 @@ public void ModifyDefault (PackEN pack)
                 SessionInitializeTransaction ();
                 PackEN packEN = (PackEN)session.Load (typeof(PackEN), pack.Id);
 
-                packEN.Type = pack.Type;
+
+                packEN.Rarity = pack.Rarity;
 
 
                 packEN.MaxNumCards = pack.MaxNumCards;
 
 
-
                 packEN.MinNumCards = pack.MinNumCards;
+
+
+                packEN.CardTypes = pack.CardTypes;
+
+
+                packEN.CardsRarityProbabilities = pack.CardsRarityProbabilities;
 
                 session.Update (packEN);
                 SessionCommit ();
@@ -164,13 +170,22 @@ public void Modify (PackEN pack)
                 packEN.Img = pack.Img;
 
 
-                packEN.Type = pack.Type;
+                packEN.RegistryDate = pack.RegistryDate;
+
+
+                packEN.Rarity = pack.Rarity;
 
 
                 packEN.MaxNumCards = pack.MaxNumCards;
 
 
                 packEN.MinNumCards = pack.MinNumCards;
+
+
+                packEN.CardTypes = pack.CardTypes;
+
+
+                packEN.CardsRarityProbabilities = pack.CardsRarityProbabilities;
 
                 session.Update (packEN);
                 SessionCommit ();
@@ -274,16 +289,16 @@ public System.Collections.Generic.IList<PackEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> PacksByType (VirtualDeckGenNHibernate.Enumerated.VirtualDeck.PackTypeEnum ? p_type)
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> PacksByRarity (VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum ? p_rarity)
 {
         System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PackEN self where  FROM PackEN as pack where pack.Type=:p_type";
+                //String sql = @"FROM PackEN self where  FROM PackEN as pack where pack.Rarity = :p_rarity";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("PackENpacksByTypeHQL");
-                query.SetParameter ("p_type", p_type);
+                IQuery query = (IQuery)session.GetNamedQuery ("PackENpacksByRarityHQL");
+                query.SetParameter ("p_rarity", p_rarity);
 
                 result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN>();
                 SessionCommit ();

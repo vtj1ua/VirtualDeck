@@ -39,7 +39,7 @@ public IAttackMoveCAD get_IAttackMoveCAD ()
         return this._IAttackMoveCAD;
 }
 
-public int New_ (string p_name, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type)
+public int New_ (string p_name, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type, string p_description)
 {
         AttackMoveEN attackMoveEN = null;
         int oid;
@@ -50,13 +50,15 @@ public int New_ (string p_name, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.
 
         attackMoveEN.Type = p_type;
 
+        attackMoveEN.Description = p_description;
+
         //Call to AttackMoveCAD
 
         oid = _IAttackMoveCAD.New_ (attackMoveEN);
         return oid;
 }
 
-public void Modify (int p_AttackMove_OID, string p_name, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type)
+public void Modify (int p_AttackMove_OID, string p_name, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type, string p_description)
 {
         AttackMoveEN attackMoveEN = null;
 
@@ -65,6 +67,7 @@ public void Modify (int p_AttackMove_OID, string p_name, VirtualDeckGenNHibernat
         attackMoveEN.Id = p_AttackMove_OID;
         attackMoveEN.Name = p_name;
         attackMoveEN.Type = p_type;
+        attackMoveEN.Description = p_description;
         //Call to AttackMoveCAD
 
         _IAttackMoveCAD.Modify (attackMoveEN);

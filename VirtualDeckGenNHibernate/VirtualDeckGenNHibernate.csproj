@@ -121,6 +121,7 @@
 			
 			
 			
+			<Compile Include="CEN\VirtualDeck\VirtualUserCEN_Login.cs" />
 			
 			<Compile Include="CEN\VirtualDeck\VirtualUserCEN_Logout.cs" />
 			
@@ -128,6 +129,7 @@
 			
 			
 			<Compile Include="CEN\VirtualDeck\VirtualUserCEN_SearchCombat.cs" />
+			
 			
 	<Compile Include="EN\VirtualDeck\TokenPackEN.cs" />
 	<Compile Include="CEN\VirtualDeck\TokenPackCEN.cs" />
@@ -167,6 +169,7 @@
 	<Compile Include="CAD\VirtualDeck\ICardCAD.cs" />
 	<Compile Include="CAD\VirtualDeck\CardCAD.cs" />
 	<Compile Include="CP\VirtualDeck\CardCP.cs" />
+			<Compile Include="CEN\VirtualDeck\CardCEN_New_.cs" />
 			
 			
 			
@@ -181,6 +184,8 @@
 			<Compile Include="CP\VirtualDeck\CardCP_GetUserRecommendedCards.cs" />
 			
 			<Compile Include="CP\VirtualDeck\CardCP_PurchaseUserCard.cs" />
+			
+			
 			
 	<Compile Include="EN\VirtualDeck\PackEN.cs" />
 	<Compile Include="CEN\VirtualDeck\PackCEN.cs" />
@@ -231,6 +236,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\VirtualDeck\TradeOffEN.cs" />
 	<Compile Include="CEN\VirtualDeck\TradeOffCEN.cs" />
 	<Compile Include="CAD\VirtualDeck\ITradeOffCAD.cs" />
@@ -244,6 +250,8 @@
 			
 			
 			<Compile Include="CEN\VirtualDeck\TradeOffCEN_Publish.cs" />
+			
+			
 			
 	<Compile Include="EN\VirtualDeck\CombatEN.cs" />
 	<Compile Include="CEN\VirtualDeck\CombatCEN.cs" />
@@ -290,9 +298,8 @@
 			
 			
 	<Compile Include="Enumerated\VirtualDeck\CombatStatusEnum.cs" />
-	<Compile Include="Enumerated\VirtualDeck\CardRarityEnum.cs" />
+	<Compile Include="Enumerated\VirtualDeck\RarityEnum.cs" />
 	<Compile Include="Enumerated\VirtualDeck\CardTypeEnum.cs" />
-	<Compile Include="Enumerated\VirtualDeck\PackTypeEnum.cs" />
 	<Compile Include="Enumerated\VirtualDeck\TradeStateEnum.cs" />
 	<Compile Include="Enumerated\VirtualDeck\TypeNotificationEnum.cs" />
 	

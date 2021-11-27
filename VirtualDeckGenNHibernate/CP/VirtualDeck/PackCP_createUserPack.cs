@@ -13,8 +13,9 @@ using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 
 
 
+
 /*PROTECTED REGION ID(usingVirtualDeckGenNHibernate.CP.VirtualDeck_Pack_createUserPack) ENABLED START*/
-//  references to other libraries
+using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
 /*PROTECTED REGION END*/
 
 namespace VirtualDeckGenNHibernate.CP.VirtualDeck
@@ -48,9 +49,28 @@ public int CreateUserPack (int p_pack, int p_user, int p_seed)
 
                 //PackCAD
 
+
                 PackEN packEN = packCEN.ReadOID (p_pack);
+                IList<float> cardProbabilities = packEN.CardsRarityProbabilities;
                 int numCards = rnd.Next (packEN.MinNumCards, packEN.MaxNumCards + 1);
 
+                
+                if (cardProbabilities.Count > 7)
+                 throw new Exception("El tamanyo de la lista de probabilidades de las cartas no puede ser mayor que 7");
+                
+                float probabilitySum = 0.0f;
+                int currentRarity = (int) RarityEnum.Basic;
+                RarityEnum cardRarities = RarityEnum.None;
+                for(int i = 0;i < cardProbabilities.Count; ++i)
+                {
+                    if(cardProbabilities[i] != 0.0f)
+                    {
+                        cardRarities |= (RarityEnum) currentRarity;
+                        probabilitySum += cardProbabilities[i];
+                    }
+                    currentRarity <<= 1;
+                }
+                
                 //Cambiar para que genere cartas dependiendo del tipo
                 IList<CardEN> cards = cardCEN.ReadAll (0, 50); //Leer hasta el numero maximo de cartas
                 List<UserCardEN> userCards = new List<UserCardEN>();
@@ -64,7 +84,7 @@ public int CreateUserPack (int p_pack, int p_user, int p_seed)
                 }
 
                 //Deberia tener tambien la foto del sobre
-                userPackID = userPackCEN.New_ (packEN.Type, p_user, userCards, p_pack);
+                userPackID = userPackCEN.New_ (p_user, userCards, p_pack, packEN.Rarity);
 
                 // Write here your custom transaction ...
 

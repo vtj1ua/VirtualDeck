@@ -39,7 +39,7 @@ public IPackCAD get_IPackCAD ()
         return this._IPackCAD;
 }
 
-public void Modify (int p_Pack_OID, string p_name, string p_description, int p_price, string p_img, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.PackTypeEnum p_type, int p_maxNumCards, int p_minNumCards)
+public void Modify (int p_Pack_OID, string p_name, string p_description, int p_price, string p_img, Nullable<DateTime> p_registryDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_maxNumCards, int p_minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_cardTypes, System.Collections.Generic.IList<float> p_cardsRarityProbabilities)
 {
         PackEN packEN = null;
 
@@ -50,9 +50,12 @@ public void Modify (int p_Pack_OID, string p_name, string p_description, int p_p
         packEN.Description = p_description;
         packEN.Price = p_price;
         packEN.Img = p_img;
-        packEN.Type = p_type;
+        packEN.RegistryDate = p_registryDate;
+        packEN.Rarity = p_rarity;
         packEN.MaxNumCards = p_maxNumCards;
         packEN.MinNumCards = p_minNumCards;
+        packEN.CardTypes = p_cardTypes;
+        packEN.CardsRarityProbabilities = p_cardsRarityProbabilities;
         //Call to PackCAD
 
         _IPackCAD.Modify (packEN);
@@ -80,9 +83,9 @@ public System.Collections.Generic.IList<PackEN> ReadAll (int first, int size)
         list = _IPackCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> PacksByType (VirtualDeckGenNHibernate.Enumerated.VirtualDeck.PackTypeEnum ? p_type)
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> PacksByRarity (VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum ? p_rarity)
 {
-        return _IPackCAD.PacksByType (p_type);
+        return _IPackCAD.PacksByRarity (p_rarity);
 }
 public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> PacksByNameOrDescription (string p_name)
 {

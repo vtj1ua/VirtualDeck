@@ -162,6 +162,7 @@
 		 </class>	
 		  
 		  <query name="VirtualUserENReadAllHQL">from VirtualUserEN</query>
-		  <query name="VirtualUserENuserByNameHQL"><![CDATA[FROM VirtualUserEN as u WHERE u.UserName LIKE :p_userName]]></query>
+		  <query name="VirtualUserENusersByNameHQL"><![CDATA[FROM VirtualUserEN as u WHERE u.UserName LIKE :p_userName]]></query>
+		  <query name="VirtualUserENusersByEmailHQL"><![CDATA[FROM VirtualUserEN as user where user.Email = :p_email]]></query>
 		</hibernate-mapping>
 	

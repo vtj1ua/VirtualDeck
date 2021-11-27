@@ -100,6 +100,9 @@ public void ModifyDefault (AttackMoveEN attackMove)
 
 
 
+
+                attackMoveEN.Description = attackMove.Description;
+
                 session.Update (attackMoveEN);
                 SessionCommit ();
         }
@@ -156,6 +159,9 @@ public void Modify (AttackMoveEN attackMove)
 
 
                 attackMoveEN.Type = attackMove.Type;
+
+
+                attackMoveEN.Description = attackMove.Description;
 
                 session.Update (attackMoveEN);
                 SessionCommit ();

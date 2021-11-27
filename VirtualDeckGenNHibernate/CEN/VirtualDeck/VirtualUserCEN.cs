@@ -64,17 +64,6 @@ public void Destroy (int id
         _IVirtualUserCAD.Destroy (id);
 }
 
-public string Login (int p_VirtualUser_OID, string p_pass)
-{
-        string result = null;
-        VirtualUserEN en = _IVirtualUserCAD.ReadOIDDefault (p_VirtualUser_OID);
-
-        if (en != null && en.Pass.Equals (Utils.Util.GetEncondeMD5 (p_pass)))
-                result = this.GetToken (en.Id);
-
-        return result;
-}
-
 public VirtualUserEN ReadOID (int id
                               )
 {
@@ -91,9 +80,13 @@ public System.Collections.Generic.IList<VirtualUserEN> ReadAll (int first, int s
         list = _IVirtualUserCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> UserByName (string p_userName)
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> UsersByName (string p_userName)
 {
-        return _IVirtualUserCAD.UserByName (p_userName);
+        return _IVirtualUserCAD.UsersByName (p_userName);
+}
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN> UsersByEmail (string p_email)
+{
+        return _IVirtualUserCAD.UsersByEmail (p_email);
 }
 
 

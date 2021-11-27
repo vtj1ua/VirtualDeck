@@ -54,6 +54,13 @@ private System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck
 
 
 
+/**
+ *	Atributo registryDate
+ */
+private Nullable<DateTime> registryDate;
+
+
+
 
 
 
@@ -99,6 +106,12 @@ public virtual System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.Virt
 
 
 
+public virtual Nullable<DateTime> RegistryDate {
+        get { return registryDate; } set { registryDate = value;  }
+}
+
+
+
 
 
 public ProductEN()
@@ -109,20 +122,20 @@ public ProductEN()
 
 
 
-public ProductEN(int id, string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills
+public ProductEN(int id, string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, Nullable<DateTime> registryDate
                  )
 {
-        this.init (Id, name, description, price, img, comments, bills);
+        this.init (Id, name, description, price, img, comments, bills, registryDate);
 }
 
 
 public ProductEN(ProductEN product)
 {
-        this.init (Id, product.Name, product.Description, product.Price, product.Img, product.Comments, product.Bills);
+        this.init (Id, product.Name, product.Description, product.Price, product.Img, product.Comments, product.Bills, product.RegistryDate);
 }
 
 private void init (int id
-                   , string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills)
+                   , string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, Nullable<DateTime> registryDate)
 {
         this.Id = id;
 
@@ -138,6 +151,8 @@ private void init (int id
         this.Comments = comments;
 
         this.Bills = bills;
+
+        this.RegistryDate = registryDate;
 }
 
 public override bool Equals (object obj)

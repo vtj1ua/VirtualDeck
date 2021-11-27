@@ -104,6 +104,9 @@ public void ModifyDefault (ProductEN product)
 
 
 
+
+                productEN.RegistryDate = product.RegistryDate;
+
                 session.Update (productEN);
                 SessionCommit ();
         }
@@ -166,6 +169,9 @@ public void Modify (ProductEN product)
 
 
                 productEN.Img = product.Img;
+
+
+                productEN.RegistryDate = product.RegistryDate;
 
                 session.Update (productEN);
                 SessionCommit ();
