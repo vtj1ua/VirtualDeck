@@ -3,20 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VirtualDeckGenNHibernate.CAD.VirtualDeck;
 using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Models;
+using VirtualDeckWeb.Assemblers;
 
 namespace VirtualDeckWeb.Controllers
 {
-    public class CardController : Controller
+    public class CardController : BasicController
     {
         // GET: Card
         public ActionResult Index()
         {
-            CardCEN cardCEN = new CardCEN();
-            List<CardEN> cardEN = cardCEN.ReadAll(1, 50).ToList();
+            SessionInitialize();
+            CardCAD cardCad = new CardCAD(session);
+            CardCEN cardCEN = new CardCEN(cardCad);
 
-            return View(cardEN);
+            List<CardEN> cardEN = cardCEN.ReadAll(0, -1).ToList();
+            IEnumerable<CardsViewModels> listView = new CardAssembler().ConvertListENToModel(cardEN);
+            SessionClose();
+
+            return View(listView);
         }
 
         // GET: Card/Details/5

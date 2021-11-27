@@ -9,6 +9,39 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<!-- Nuevo ----------------------------------------------------------------------------->
+<div>
+    <div class="contenedor">
+        <div class="fondo">
+            <div class="tipo">
+                <img src="./legendary.png" alt="typeCard">
+                <div class="info">
+                    <h3>@Html.DisplayNameFor(model => model.Name)</h3>
+                    <img src="./@Html.DisplayNameFor(model => model.Img)" alt="@Html.DisplayNameFor(model => model.Img)">
+                    <div class="estadisticas">
+                        <h4>Ataque</h4>
+                        <p class="puntos">@Html.DisplayNameFor(model => model.Attack)</p>
+                        <h4>Vida</h4>
+                        <p class="puntos">@Html.DisplayNameFor(model => model.Health)</p>
+                        <h4>Defensa</h4>
+                        <p class="puntos">@Html.DisplayNameFor(model => model.Defense)</p>
+                        <h4>Velocidad</h4>
+                        <p class="puntos">@Html.DisplayNameFor(model => model.Speed)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>@Html.DisplayNameFor(model => model.Description)</p>
+        <div>
+            <button>Comprar carta</button>
+            <p>@Html.DisplayNameFor(model => model.Price)</p>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------->
+
+
 <table class="table">
     <tr>
         <th>
