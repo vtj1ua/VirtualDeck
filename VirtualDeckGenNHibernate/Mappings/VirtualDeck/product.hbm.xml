@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				<class name="ProductEN" table="Product"> 
+				  	
+						<id name="Id" column="idProduct" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
+					<property name="Price" type="integer"> 
+						<column name="price"  not-null="true"/>
+					</property>
+					<property name="Img" type="string"> 
+						<column name="img"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Comments" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_idProduct_idProduct"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Bills" >
+							<key>
+							
+								
+								<column name="FK_idProduct_idProduct"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ProductENReadAllHQL">from ProductEN</query>
+		</hibernate-mapping>
+	

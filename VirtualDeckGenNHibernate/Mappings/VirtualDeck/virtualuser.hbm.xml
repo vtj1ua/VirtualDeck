@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				<class name="VirtualUserEN" table="VirtualUser"> 
+				  	
+						<id name="Id" column="idVirtualUser" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Pass" type="string"> 
+						<column name="pass"  not-null="true"/>
+					</property>
+					<property name="UserName" type="string"> 
+						<column name="userName"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  unique="true" not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
+					<property name="Tokens" type="integer"> 
+						<column name="tokens"  not-null="true"/>
+					</property>
+					<property name="Img" type="string"> 
+						<column name="img"  not-null="true"/>
+					</property>
+					<property name="CombatStatus" > 
+						<column name="combatStatus"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="UserCards" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_idVirtualUser_idUser"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="PublishedTradeOffs" >
+							<key>
+							
+								
+								<column name="FK_idVirtualUser_idUser"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Comments" >
+							<key>
+							
+								
+								<column name="FK_idVirtualUser_idUser"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="UserPacks" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_idVirtualUser_idUser"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Bills" >
+							<key>
+							
+								
+								<column name="FK_idVirtualUser_idUser"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Notifications" >
+							<key>
+							
+								
+								<column name="FK_idVirtualUser_idUser"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Combats" table="[virtualUser_combat]"  >
+							<key>
+								
+									<column name="FK_idVirtualUser_idVirtualUser"/> 
+							</key>
+      						<many-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN">
+									<column name="FK_idCombat_idCombat"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="CombatsWon" >
+							<key>
+							
+								
+								<column name="FK_idVirtualUser_idVirtualUser"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="ExchangedTradeOffs" >
+							<key>
+							
+								
+								<column name="FK_idVirtualUser_idVirtualUser"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="VirtualUserENReadAllHQL">from VirtualUserEN</query>
+		  <query name="VirtualUserENuserByNameHQL"><![CDATA[FROM VirtualUserEN as u WHERE u.UserName LIKE :p_userName]]></query>
+		</hibernate-mapping>
+	

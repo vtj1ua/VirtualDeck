@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				<class name="UserCardEN" table="UserCard"> 
+				  	
+						<id name="Id" column="idUserCard" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Type" > 
+						<column name="type"  not-null="true"/>
+					</property>
+					<property name="Rarity" > 
+						<column name="rarity"  not-null="true"/>
+					</property>
+					<property name="Speed" type="integer"> 
+						<column name="speed"  not-null="true"/>
+					</property>
+					<property name="Defense" type="integer"> 
+						<column name="defense"  not-null="true"/>
+					</property>
+					<property name="Attack" type="integer"> 
+						<column name="attack"  not-null="true"/>
+					</property>
+					<property name="Health" type="integer"> 
+						<column name="health"  not-null="true"/>
+					</property>
+					<property name="Level" type="integer"> 
+						<column name="level"  not-null="true"/>
+					</property>
+					<property name="Experience" type="integer"> 
+						<column name="experience"  not-null="true"/>
+					</property>
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Img" type="string"> 
+						<column name="img"  not-null="true"/>
+					</property>
+					<property name="PurchaseDate" type="date"> 
+						<column name="purchaseDate"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="User" class="VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN" >	
+								<column name="FK_idVirtualUser_idUser"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="UserPack" class="VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN" >	
+								<column name="FK_idUserPack_idUserPack"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="OfferedTradeOffs" >
+							<key>
+							
+								
+								<column name="FK_idUserCard_idUserCard"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="AttackMoves" table="[userCard_attackMove]"  >
+							<key>
+								
+									<column name="FK_idUserCard_idUserCard"/> 
+							</key>
+      						<many-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN">
+									<column name="FK_idAttackMove_idAttackMove"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="Card" class="VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN" >	
+								<column name="FK_idProduct_idCard"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Combats" table="[combat_userCard]" inverse="true" >
+							<key>
+								
+									<column name="FK_idUserCard_idUserCard"/> 
+							</key>
+      						<many-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.CombatEN">
+									<column name="FK_idCombat_idCombat"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="GivenTradeOffs" >
+							<key>
+							
+								
+								<column name="FK_idUserCard_idGivenUserCard"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UserCardENReadAllHQL">from UserCardEN</query>
+		  <query name="UserCardENuserCardsByNameHQL"><![CDATA[FROM UserCardEN as uc WHERE uc.User.Id = :p_user AND uc.Name LIKE :p_name]]></query>
+		  <query name="UserCardENuserCardsByBaseCardHQL"><![CDATA[FROM UserCardEN as uc WHERE uc.User.Id = :p_user AND uc.Card.Id = :p_baseCard]]></query>
+		  <query name="UserCardENuserCardsByUserHQL"><![CDATA[FROM UserCardEN as card where card.User.Id = :p_user]]></query>
+		</hibernate-mapping>
+	

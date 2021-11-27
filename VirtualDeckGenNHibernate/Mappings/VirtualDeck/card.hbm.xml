@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				
+<joined-subclass name="CardEN" extends="VirtualDeckGenNHibernate.EN.VirtualDeck.ProductEN" table="Card"> 
+	<key>
+    	
+				<column name="idProduct"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="Type" > 
+						<column name="type"  not-null="true"/>
+					</property>
+					<property name="Health" type="integer"> 
+						<column name="health"  not-null="true"/>
+					</property>
+					<property name="Attack" type="integer"> 
+						<column name="attack"  not-null="true"/>
+					</property>
+					<property name="Defense" type="integer"> 
+						<column name="defense"  not-null="true"/>
+					</property>
+					<property name="Speed" type="integer"> 
+						<column name="speed"  not-null="true"/>
+					</property>
+					<property name="Rarity" > 
+						<column name="rarity"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="TradeOffs" >
+							<key>
+							
+								
+								<column name="FK_idProduct_idCard"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="AttackMoves" table="[card_attackMove]"  >
+							<key>
+								
+									<column name="FK_idProduct_idCard"/> 
+							</key>
+      						<many-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN">
+									<column name="FK_idAttackMove_idAttackMove"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="UserCards" >
+							<key>
+							
+								
+								<column name="FK_idProduct_idCard"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="CardENReadAllHQL">from CardEN</query>
+		  <query name="CardENcardsByTypeHQL"><![CDATA[FROM CardEN as card where card.Type = :p_type]]></query>
+		  <query name="CardENcardsByRarityHQL"><![CDATA[FROM CardEN as card where card.Rarity = :p_rarity]]></query>
+		  <query name="CardENcardsByNameOrDescriptionHQL"><![CDATA[FROM CardEN as card where card.Description like :p_cardName or card.Name like :p_cardName]]></query>
+		  <query name="CardENcardsByPriceHQL"><![CDATA[FROM CardEN as card where card.Price = :p_price]]></query>
+		</hibernate-mapping>
+	

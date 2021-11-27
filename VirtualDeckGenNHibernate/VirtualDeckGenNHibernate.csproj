@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+		<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		  <PropertyGroup>
+		    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		    <ProductVersion>8.0.30703</ProductVersion>
+		    <SchemaVersion>2.0</SchemaVersion>
+		    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
+		    <OutputType>Library</OutputType>
+		    <AppDesignerFolder>Properties</AppDesignerFolder>
+		    <RootNamespace>VirtualDeckGenNHibernate</RootNamespace>
+		    <AssemblyName>VirtualDeckGenNHibernate</AssemblyName>
+		    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+		    <FileAlignment>512</FileAlignment>
+		    <PublishUrl>publish\</PublishUrl>
+		    <Install>true</Install>
+		    <InstallFrom>Disk</InstallFrom>
+		    <UpdateEnabled>false</UpdateEnabled>
+		    <UpdateMode>Foreground</UpdateMode>
+		    <UpdateInterval>7</UpdateInterval>
+		    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+		    <UpdatePeriodically>false</UpdatePeriodically>
+		    <UpdateRequired>false</UpdateRequired>
+		    <MapFileExtensions>true</MapFileExtensions>
+		    <ApplicationRevision>0</ApplicationRevision>
+		    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+		    <IsWebBootstrapper>false</IsWebBootstrapper>
+		    <UseApplicationTrust>false</UseApplicationTrust>
+		    <BootstrapperEnabled>true</BootstrapperEnabled>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		    <DebugSymbols>true</DebugSymbols>
+		    <DebugType>full</DebugType>
+		    <Optimize>false</Optimize>
+		    <OutputPath>bin\Debug\</OutputPath>
+		    <DefineConstants>DEBUG;TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		    <DebugType>pdbonly</DebugType>
+		    <Optimize>true</Optimize>
+		    <OutputPath>bin\Release\</OutputPath>
+		    <DefineConstants>TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		<ItemGroup>
+		    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\VirtualDeckGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+		    </Reference>
+		    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\VirtualDeckGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\VirtualDeckGenNHibernate\AppLib\NHibernate.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\VirtualDeckGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\VirtualDeckGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+		    </Reference>
+		    <Reference Include="Newtonsoft.Json, Version=4.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\VirtualDeckGenNHibernate\AppLib\Newtonsoft.Json.dll</HintPath>
+		    </Reference>
+		     <Reference Include="jose-jwt, Version=4.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\VirtualDeckGenNHibernate\AppLib\jose-jwt.dll</HintPath>
+		    </Reference>
+		    <Reference Include="System" />
+		    <Reference Include="System.Core">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    
+		    <Reference Include="System.Transactions" />
+		    <Reference Include="System.Xml.Linq">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data.DataSetExtensions">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data" />
+		    <Reference Include="System.Xml" />
+		</ItemGroup>
+		
+		<ItemGroup>
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\Antlr3.Runtime.dll" />
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\Iesi.Collections.dll" />
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\log4net.dll" />
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\NHibernate.dll" />
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\nunit.core.dll" />
+		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\nunit.framework.dll" />
+  		    <Content Include="..\VirtualDeckGenNHibernate\AppLib\jose-jwt.dll" />
+  		</ItemGroup>
+  		
+		<ItemGroup>
+			<Compile Include="NHibernateHelper.cs" />
+		    <Compile Include="Utils\Util.cs" />
+		    <Compile Include="Exceptions\ModelException.cs"/>
+		    <Compile Include="Exceptions\DataLayerException.cs"/>
+		    
+	<Compile Include="CAD\BasicCAD.cs"/>
+	<Compile Include="CP\BasicCP.cs"/>
+	<Compile Include="EN\VirtualDeck\VirtualUserEN.cs" />
+	<Compile Include="CEN\VirtualDeck\VirtualUserCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\IVirtualUserCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\VirtualUserCAD.cs" />
+	<Compile Include="CP\VirtualDeck\VirtualUserCP.cs" />
+			<Compile Include="CEN\VirtualDeck\VirtualUserCEN_New_.cs" />
+			
+			
+			
+			
+			<Compile Include="CEN\VirtualDeck\VirtualUserCEN_Logout.cs" />
+			
+			
+			
+			
+			<Compile Include="CEN\VirtualDeck\VirtualUserCEN_SearchCombat.cs" />
+			
+	<Compile Include="EN\VirtualDeck\TokenPackEN.cs" />
+	<Compile Include="CEN\VirtualDeck\TokenPackCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\ITokenPackCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\TokenPackCAD.cs" />
+	<Compile Include="CP\VirtualDeck\TokenPackCP.cs" />
+			
+			
+			
+			
+			
+			<Compile Include="CP\VirtualDeck\TokenPackCP_PurchaseTokenPack.cs" />
+			
+	<Compile Include="EN\VirtualDeck\CommentEN.cs" />
+	<Compile Include="CEN\VirtualDeck\CommentCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\ICommentCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\CommentCAD.cs" />
+	<Compile Include="CP\VirtualDeck\CommentCP.cs" />
+			<Compile Include="CEN\VirtualDeck\CommentCEN_Publish.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\VirtualDeck\ProductEN.cs" />
+	<Compile Include="CEN\VirtualDeck\ProductCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\IProductCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\ProductCAD.cs" />
+	<Compile Include="CP\VirtualDeck\ProductCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\VirtualDeck\CardEN.cs" />
+	<Compile Include="CEN\VirtualDeck\CardCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\ICardCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\CardCAD.cs" />
+	<Compile Include="CP\VirtualDeck\CardCP.cs" />
+			
+			
+			
+			<Compile Include="CP\VirtualDeck\CardCP_CreateUserCard.cs" />
+			
+			
+			
+			
+			
+			
+			
+			<Compile Include="CP\VirtualDeck\CardCP_GetUserRecommendedCards.cs" />
+			
+			<Compile Include="CP\VirtualDeck\CardCP_PurchaseUserCard.cs" />
+			
+	<Compile Include="EN\VirtualDeck\PackEN.cs" />
+	<Compile Include="CEN\VirtualDeck\PackCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\IPackCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\PackCAD.cs" />
+	<Compile Include="CP\VirtualDeck\PackCP.cs" />
+			<Compile Include="CEN\VirtualDeck\PackCEN_New_.cs" />
+			
+			
+			
+			
+			
+			
+			
+			<Compile Include="CP\VirtualDeck\PackCP_CreateUserPack.cs" />
+			
+			<Compile Include="CP\VirtualDeck\PackCP_PurchaseUserPack.cs" />
+			
+	<Compile Include="EN\VirtualDeck\UserPackEN.cs" />
+	<Compile Include="CEN\VirtualDeck\UserPackCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\IUserPackCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\UserPackCAD.cs" />
+	<Compile Include="CP\VirtualDeck\UserPackCP.cs" />
+			<Compile Include="CEN\VirtualDeck\UserPackCEN_New_.cs" />
+			
+			
+			
+			<Compile Include="CP\VirtualDeck\UserPackCP_OpenPack.cs" />
+			
+			
+			
+			
+	<Compile Include="EN\VirtualDeck\UserCardEN.cs" />
+	<Compile Include="CEN\VirtualDeck\UserCardCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\IUserCardCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\UserCardCAD.cs" />
+	<Compile Include="CP\VirtualDeck\UserCardCP.cs" />
+			<Compile Include="CEN\VirtualDeck\UserCardCEN_New_.cs" />
+			
+			
+			<Compile Include="CP\VirtualDeck\UserCardCP_DestroyCard.cs" />
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	<Compile Include="EN\VirtualDeck\TradeOffEN.cs" />
+	<Compile Include="CEN\VirtualDeck\TradeOffCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\ITradeOffCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\TradeOffCAD.cs" />
+	<Compile Include="CP\VirtualDeck\TradeOffCP.cs" />
+			
+			
+			<Compile Include="CP\VirtualDeck\TradeOffCP_Trade.cs" />
+			
+			
+			
+			
+			<Compile Include="CEN\VirtualDeck\TradeOffCEN_Publish.cs" />
+			
+	<Compile Include="EN\VirtualDeck\CombatEN.cs" />
+	<Compile Include="CEN\VirtualDeck\CombatCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\ICombatCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\CombatCAD.cs" />
+	<Compile Include="CP\VirtualDeck\CombatCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\VirtualDeck\AttackMoveEN.cs" />
+	<Compile Include="CEN\VirtualDeck\AttackMoveCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\IAttackMoveCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\AttackMoveCAD.cs" />
+	<Compile Include="CP\VirtualDeck\AttackMoveCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\VirtualDeck\NotificationEN.cs" />
+	<Compile Include="CEN\VirtualDeck\NotificationCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\INotificationCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\NotificationCAD.cs" />
+	<Compile Include="CP\VirtualDeck\NotificationCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\VirtualDeck\BillEN.cs" />
+	<Compile Include="CEN\VirtualDeck\BillCEN.cs" />
+	<Compile Include="CAD\VirtualDeck\IBillCAD.cs" />
+	<Compile Include="CAD\VirtualDeck\BillCAD.cs" />
+	<Compile Include="CP\VirtualDeck\BillCP.cs" />
+			
+			
+			<Compile Include="CEN\VirtualDeck\BillCEN_CreateAssociateToken.cs" />
+			
+			<Compile Include="CEN\VirtualDeck\BillCEN_CreateAssociateProduct.cs" />
+			
+			
+			
+			
+	<Compile Include="Enumerated\VirtualDeck\CombatStatusEnum.cs" />
+	<Compile Include="Enumerated\VirtualDeck\CardRarityEnum.cs" />
+	<Compile Include="Enumerated\VirtualDeck\CardTypeEnum.cs" />
+	<Compile Include="Enumerated\VirtualDeck\PackTypeEnum.cs" />
+	<Compile Include="Enumerated\VirtualDeck\TradeStateEnum.cs" />
+	<Compile Include="Enumerated\VirtualDeck\TypeNotificationEnum.cs" />
+	
+	
+
+		    
+	
+
+		    <Compile Include="Properties\AssemblyInfo.cs" />
+		    <Compile Include="Properties\Settings.Designer.cs">
+		      <AutoGen>True</AutoGen>
+		      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+		      <DependentUpon>Settings.settings</DependentUpon>
+		    </Compile>
+		  </ItemGroup>
+		  <ItemGroup>
+		  
+	<EmbeddedResource Include="Mappings\VirtualDeck\virtualuser.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\tokenpack.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\comment.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\product.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\card.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\pack.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\userpack.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\usercard.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\tradeoff.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\combat.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\attackmove.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\notification.hbm.xml" />
+	<EmbeddedResource Include="Mappings\VirtualDeck\bill.hbm.xml" />
+	
+	
+
+		  </ItemGroup>
+		  <ItemGroup>
+		    <Content Include="hibernate.cfg.xml">
+		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		    </Content>
+		  </ItemGroup>
+		  <ItemGroup>
+		    <None Include="app.config" />
+		    <None Include="Properties\Settings.settings">
+		      <Generator>SettingsSingleFileGenerator</Generator>
+		      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		    </None>
+		        <None Include="Resources\xsd\nhibernate-configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\xsd\nhibernate-mapping.xsd">
+      <SubType>Designer</SubType>
+    </None>
+		  </ItemGroup>
+	 	
+		
+	
+		<ItemGroup>
+		    <ProjectReference Include="..\APIExterna\APIExterna.csproj">
+		      <Project>{4ade35c8-a0c3-49da-9e1a-11a53ca19214}</Project>
+		      <Name>APIExterna</Name>
+		    </ProjectReference>
+	    </ItemGroup>
+	    
+		  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+		  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+		       Other similar extension points exist, see Microsoft.Common.targets.
+		  <Target Name="BeforeBuild">
+		  </Target>
+		  <Target Name="AfterBuild">
+		  </Target>
+		  -->
+		</Project>

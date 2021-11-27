@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				<class name="BillEN" table="Bill"> 
+				  	
+						<id name="Id" column="idBill" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Date" type="date"> 
+						<column name="date"  not-null="true"/>
+					</property>
+					<property name="Amount" type="integer"> 
+						<column name="amount"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Product" class="VirtualDeckGenNHibernate.EN.VirtualDeck.ProductEN" >	
+								<column name="FK_idProduct_idProduct"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="TokenPack" class="VirtualDeckGenNHibernate.EN.VirtualDeck.TokenPackEN" >	
+								<column name="FK_idTokenPack_idTokenPack"/> 
+						</many-to-one>
+											 					
+			
+			
+		  			
+						<many-to-one name="User" class="VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN" >	
+								<column name="FK_idVirtualUser_idUser"/> 
+						</many-to-one>
+											 					
+			
+		  			
+					
+							   <one-to-one name="Notification" class="VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN" property-ref="Bill" />							
+					 
+						
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="BillENReadAllHQL">from BillEN</query>
+		  <query name="BillENbillsByUserHQL"><![CDATA[FROM BillEN as bill where bill.User = :p_user]]></query>
+		</hibernate-mapping>
+	

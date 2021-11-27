@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				<class name="CommentEN" table="Comment"> 
+				  	
+						<id name="Id" column="idComment" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Text" type="string"> 
+						<column name="text"  not-null="true"/>
+					</property>
+					<property name="PublishDate" type="date"> 
+						<column name="publishDate"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Product" class="VirtualDeckGenNHibernate.EN.VirtualDeck.ProductEN" >	
+								<column name="FK_idProduct_idProduct"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="User" class="VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN" >	
+								<column name="FK_idVirtualUser_idUser"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CommentENReadAllHQL">from CommentEN</query>
+		</hibernate-mapping>
+	

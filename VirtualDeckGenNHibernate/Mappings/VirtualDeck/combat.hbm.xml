@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				<class name="CombatEN" table="Combat"> 
+				  	
+						<id name="Id" column="idCombat" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Date" type="date"> 
+						<column name="date"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="AttackMovesUserCard1" table="[attackMove_combat]" inverse="true" >
+							<key>
+								
+									<column name="FK_idCombat_idCombat"/> 
+							</key>
+      						<many-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN">
+									<column name="FK_idAttackMove_idAttackMove"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="UserCards" table="[combat_userCard]"  >
+							<key>
+								
+									<column name="FK_idCombat_idCombat"/> 
+							</key>
+      						<many-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN">
+									<column name="FK_idUserCard_idUserCard"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="AttackMovesUserCard2" table="[attackMove_combat_2]" inverse="true" >
+							<key>
+								
+									<column name="FK_idCombat_idCombat"/> 
+							</key>
+      						<many-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.AttackMoveEN">
+									<column name="FK_idAttackMove_idAttackMovesCard2"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Users" table="[virtualUser_combat]" inverse="true" >
+							<key>
+								
+									<column name="FK_idCombat_idCombat"/> 
+							</key>
+      						<many-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN">
+									<column name="FK_idVirtualUser_idVirtualUser"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="Winner" class="VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN" >	
+								<column name="FK_idVirtualUser_idVirtualUser"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CombatENReadAllHQL">from CombatEN</query>
+		</hibernate-mapping>
+	

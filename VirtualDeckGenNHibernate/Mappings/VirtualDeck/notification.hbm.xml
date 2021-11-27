@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				<class name="NotificationEN" table="Notification"> 
+				  	
+						<id name="Id" column="idNotification" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Type" > 
+						<column name="type"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+					
+							<many-to-one name="Bill" class="VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN" >
+								<column name="FK_idBill_idBill"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+						<many-to-one name="User" class="VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN" >	
+								<column name="FK_idVirtualUser_idUser"/> 
+						</many-to-one>
+											 					
+			
+			
+		  			
+					
+							   <one-to-one name="TradeOff" class="VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN" property-ref="Notification" />							
+					 
+						
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="NotificationENReadAllHQL">from NotificationEN</query>
+		</hibernate-mapping>
+	

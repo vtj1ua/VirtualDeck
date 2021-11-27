@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				<class name="UserPackEN" table="UserPack"> 
+				  	
+						<id name="Id" column="idUserPack" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="PurchaseDate" type="date"> 
+						<column name="purchaseDate"  not-null="true"/>
+					</property>
+					<property name="Type" > 
+						<column name="type"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="User" class="VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN" >	
+								<column name="FK_idVirtualUser_idUser"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="UserCards" >
+							<key>
+							
+								
+								<column name="FK_idUserPack_idUserPack"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Pack" class="VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN" >	
+								<column name="FK_idProduct_idPack"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UserPackENReadAllHQL">from UserPackEN</query>
+		  <query name="UserPackENuserPacksByUserHQL"><![CDATA[FROM UserPackEN as pack where pack.User.Id = :p_user]]></query>
+		</hibernate-mapping>
+	

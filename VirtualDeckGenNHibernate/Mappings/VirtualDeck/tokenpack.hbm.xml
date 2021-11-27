@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="VirtualDeckGenNHibernate"
+		                   namespace="VirtualDeckGenNHibernate.EN.VirtualDeck">
+		    
+		    
+			
+				<class name="TokenPackEN" table="TokenPack"> 
+				  	
+						<id name="Id" column="idTokenPack" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Img" type="string"> 
+						<column name="img"  not-null="true"/>
+					</property>
+					<property name="Price" type="double"> 
+						<column name="price"  not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
+					<property name="Tokens" type="integer"> 
+						<column name="tokens"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Bills" >
+							<key>
+							
+								
+								<column name="FK_idTokenPack_idTokenPack"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="TokenPackENReadAllHQL">from TokenPackEN</query>
+		</hibernate-mapping>
+	
