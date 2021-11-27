@@ -25,9 +25,8 @@ namespace VirtualDeckWeb.Assemblers
             card.DefenseCard = en.Defense;
             card.SpeedCard = en.Speed;
             card.RarityCard = en.Rarity;
+
             return card;
-
-
         }
         public IList<CardsViewModels> ConvertListENToModel(IList<CardEN> ens)
         {

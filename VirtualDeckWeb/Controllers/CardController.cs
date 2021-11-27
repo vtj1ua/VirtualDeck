@@ -20,8 +20,8 @@ namespace VirtualDeckWeb.Controllers
             CardCAD cardCad = new CardCAD(session);
             CardCEN cardCEN = new CardCEN(cardCad);
 
-            List<CardEN> cardEN = cardCEN.ReadAll(0, -1).ToList();
-            IEnumerable<CardsViewModels> listView = new CardAssembler().ConvertListENToModel(cardEN);
+            IList<CardEN> cardEN = cardCEN.ReadAll(0, -1);
+            IEnumerable<CardsViewModels> listView = new CardAssembler().ConvertListENToModel(cardEN).ToList();
             SessionClose();
 
             return View(listView);

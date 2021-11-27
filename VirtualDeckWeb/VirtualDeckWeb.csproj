@@ -44,9 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+    <Reference Include="Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\VirtualDeckGenNHibernate\AppLib\Antlr3.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\entrega1\VirtualDeckGen\VirtualDeckGenNHibernate\AppLib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Castle.DynamicProxy2">
       <HintPath>..\VirtualDeckGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
@@ -222,6 +222,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\Borders\common.png" />
+    <Content Include="Resources\Borders\epic.png" />
+    <Content Include="Resources\Borders\legendary.png" />
+    <Content Include="Resources\Borders\mitic.png" />
+    <Content Include="Resources\Borders\rare.png" />
+    <Content Include="Resources\Borders\uncommon.png" />
+    <Content Include="Resources\Type\martin.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

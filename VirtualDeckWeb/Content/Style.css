@@ -19,6 +19,7 @@
 }
 
     .contenedor > p {
+        margin: revert;
         padding-top: 1em;
         margin-left: 2em;
         margin-right: 2em;
@@ -32,8 +33,8 @@
 
         .contenedor > div:last-child > button {
             padding: 0;
-            width: 9em;
-            height: 3em;
+            width: 8.5em;
+            height: 2.5em;
             background: black;
             color: white;
             border: none;
@@ -113,7 +114,9 @@ img {
 }
 
     .estadisticas > h4 {
-        margin: 0.3em 0em;
+        margin: inherit;
+        font-size: inherit;
+        margin: 0.1em 0em;
         margin-left: 0.7em;
     }
 

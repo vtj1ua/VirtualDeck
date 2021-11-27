@@ -1,7 +1,8 @@
-﻿@model IEnumerable<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN>
+﻿@model IEnumerable<VirtualDeckWeb.Models.CardsViewModels>
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -10,63 +11,60 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<!-- Nuevo ----------------------------------------------------------------------------->
-<div>
-    <div class="contenedor">
-        <div class="fondo">
-            <div class="tipo">
-                <img src="./legendary.png" alt="typeCard">
-                <div class="info">
-                    <h3>@Html.DisplayNameFor(model => model.Name)</h3>
-                    <img src="./@Html.DisplayNameFor(model => model.Img)" alt="@Html.DisplayNameFor(model => model.Img)">
-                    <div class="estadisticas">
-                        <h4>Ataque</h4>
-                        <p class="puntos">@Html.DisplayNameFor(model => model.Attack)</p>
-                        <h4>Vida</h4>
-                        <p class="puntos">@Html.DisplayNameFor(model => model.Health)</p>
-                        <h4>Defensa</h4>
-                        <p class="puntos">@Html.DisplayNameFor(model => model.Defense)</p>
-                        <h4>Velocidad</h4>
-                        <p class="puntos">@Html.DisplayNameFor(model => model.Speed)</p>
-                    </div>
+<div class="contenedor">
+    <div class="fondo">
+        <div class="tipo">
+            <img src="~/Resources/Borders/mitic.png" alt="electric">
+            <div class="info">
+                <h3>@Html.DisplayNameFor(model => model.NameCard)</h3>
+                <img src="~/Resources/Type/martin.png" alt="martin">
+                <div class="estadisticas">
+                    <h4>Ataque</h4>
+                    <p class="puntos">50</p>
+                    <h4>Vida</h4>
+                    <p class="puntos">39</p>
+                    <h4>Defensa</h4>
+                    <p class="puntos">80</p>
+                    <h4>Velocidad</h4>
+                    <p class="puntos">12</p>
                 </div>
+
             </div>
         </div>
-        <p>@Html.DisplayNameFor(model => model.Description)</p>
-        <div>
-            <button>Comprar carta</button>
-            <p>@Html.DisplayNameFor(model => model.Price)</p>
-        </div>
+    </div>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, molestiae!</p>
+    <div>
+        <button>Comprar carta</button>
+        <p>1000 X</p>
     </div>
 </div>
-<!---------------------------------------------------------------------------------->
 
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.ImgCard)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.NameCard)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.CardDescription)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Img)
+            @Html.DisplayNameFor(model => model.PriceCard)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Health)
+            @Html.DisplayNameFor(model => model.HealthCard)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Attack)
+            @Html.DisplayNameFor(model => model.AttackCard)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Defense)
+            @Html.DisplayNameFor(model => model.DefenseCard)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Speed)
+            @Html.DisplayNameFor(model => model.SpeedCard)
         </th>
         <th></th>
     </tr>
@@ -74,33 +72,33 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.ImgCard)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.NameCard)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
+            @Html.DisplayFor(modelItem => item.CardDescription)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Img)
+            @Html.DisplayFor(modelItem => item.PriceCard)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Health)
+            @Html.DisplayFor(modelItem => item.HealthCard)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Attack)
+            @Html.DisplayFor(modelItem => item.AttackCard)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Defense)
+            @Html.DisplayFor(modelItem => item.DefenseCard)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Speed)
+            @Html.DisplayFor(modelItem => item.SpeedCard)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

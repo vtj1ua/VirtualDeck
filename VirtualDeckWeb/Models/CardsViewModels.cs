@@ -42,47 +42,41 @@ namespace VirtualDeckWeb.Models
 
 
 
-        [Display(Prompt = "Precio de la carta", Description = "Precio de la carta", Name = "Precio")]
-        [Required(ErrorMessage = "el precio Debe de estar indicado")]
-        [DataType(DataType.Currency, ErrorMessage = "Precio de la carta")]
-        [Range(minimum: 0, maximum: 400, ErrorMessage = "Precio de la carta")]
+        [Display(Prompt = "Type de la carta", Description = "Type de la carta", Name = "Type")]
+        [Required(ErrorMessage = "el Type Debe de estar indicado")]
+        [Range(minimum: 0, maximum: 400, ErrorMessage = "Type de la carta")]
         public CardTypeEnum TypeCard { get; set; }
 
 
-        [Display(Prompt = "Precio de la carta", Description = "Precio de la carta", Name = "Precio")]
-        [Required(ErrorMessage = "el precio Debe de estar indicado")]
-        [DataType(DataType.Currency, ErrorMessage = "Precio de la carta")]
-        [Range(minimum: 0, maximum: 400, ErrorMessage = "Precio de la carta")]
+        [Display(Prompt = "Health de la carta", Description = "Health de la carta", Name = "Health")]
+        [Required(ErrorMessage = "el Health Debe de estar indicado")]
+        [Range(minimum: 0, maximum: 400, ErrorMessage = "Health de la carta")]
         public int HealthCard { get; set; }
 
 
-        [Display(Prompt = "Precio de la carta", Description = "Precio de la carta", Name = "Precio")]
-        [Required(ErrorMessage = "el precio Debe de estar indicado")]
-        [DataType(DataType.Currency, ErrorMessage = "Precio de la carta")]
-        [Range(minimum: 0, maximum: 400, ErrorMessage = "Precio de la carta")]
+        [Display(Prompt = "Attack de la carta", Description = "Attack de la carta", Name = "Attack")]
+        [Required(ErrorMessage = "el Attack Debe de estar indicado")]
+        [Range(minimum: 0, maximum: 400, ErrorMessage = "Attack de la carta")]
         public int AttackCard { get; set; }
 
 
 
-        [Display(Prompt = "Precio de la carta", Description = "Precio de la carta", Name = "Precio")]
-        [Required(ErrorMessage = "el precio Debe de estar indicado")]
-        [DataType(DataType.Currency, ErrorMessage = "Precio de la carta")]
-        [Range(minimum: 0, maximum: 400, ErrorMessage = "Precio de la carta")]
+        [Display(Prompt = "Defense de la carta", Description = "Defense de la carta", Name = "Defense")]
+        [Required(ErrorMessage = "el Defense Debe de estar indicado")]
+        [Range(minimum: 0, maximum: 400, ErrorMessage = "Defense de la carta")]
         public int DefenseCard { get; set; }
 
 
 
-        [Display(Prompt = "Precio de la carta", Description = "Precio de la carta", Name = "Precio")]
-        [Required(ErrorMessage = "el precio Debe de estar indicado")]
-        [DataType(DataType.Currency, ErrorMessage = "Precio de la carta")]
-        [Range(minimum: 0, maximum: 400, ErrorMessage = "Precio de la carta")]
+        [Display(Prompt = "Speed de la carta", Description = "Speed de la carta", Name = "Speed")]
+        [Required(ErrorMessage = "el Speed Debe de estar indicado")]
+        [Range(minimum: 0, maximum: 400, ErrorMessage = "Speed de la carta")]
         public int SpeedCard { get; set; }
 
 
-        [Display(Prompt = "Precio de la carta", Description = "Precio de la carta", Name = "Precio")]
-        [Required(ErrorMessage = "el precio Debe de estar indicado")]
-        [DataType(DataType.Currency, ErrorMessage = "Precio de la carta")]
-        [Range(minimum: 0, maximum: 400, ErrorMessage = "Precio de la carta")]
+        [Display(Prompt = "Rarity de la carta", Description = "Rarity de la carta", Name = "Rarity")]
+        [Required(ErrorMessage = "el Rarity Debe de estar indicado")]
+        [Range(minimum: 0, maximum: 400, ErrorMessage = "Rarity de la carta")]
         public CardRarityEnum RarityCard { get; set; }
     }
 }
