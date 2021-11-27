@@ -80,14 +80,14 @@ namespace VirtualDeckWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    VirtualUserCEN cli = new VirtualUserCEN();
+                    /*VirtualUserCEN cli = new VirtualUserCEN();
                     string token = cli.Login(model.Email, model.Password);
                     if (token != null) return RedirectToLocal(returnUrl);
                     else
                     {
                         ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
                         return View(model);
-                    }
+                    }*/
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
