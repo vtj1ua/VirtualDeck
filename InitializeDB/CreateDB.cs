@@ -154,13 +154,6 @@ public static void InitializeData ()
                 Console.WriteLine ("    -UserCardCP_OpenPack");
                 Console.WriteLine ();
 
-
-
-
-
-
-
-
                 //ATTACKS
                 AttackMoveCEN attackMoveCEN = new AttackMoveCEN ();
                 int idAttack1 = attackMoveCEN.New_ ("Cola draco", CardTypeEnum.Dragon);
@@ -168,8 +161,6 @@ public static void InitializeData ()
                 int idAttack3 = attackMoveCEN.New_ ("Torton gurdo", CardTypeEnum.Dragon);
                 int idAttack4 = attackMoveCEN.New_ ("Torton", CardTypeEnum.Fighting);
                 int idAttack5 = attackMoveCEN.New_ ("Bola eléctrica", CardTypeEnum.Fire);
-
-
 
                 //BASE CARDS
                 CardCEN cardCEN = new CardCEN ();
@@ -185,14 +176,12 @@ public static void InitializeData ()
                 int segundo = cardCEN.New_ ("Card2", "Carta 2", 5, "card2.img", CardTypeEnum.Bug, 4, 27, 2, 4, CardRarityEnum.Basic, new List<int> { idAttack4 });
                 int tercero = cardCEN.New_ ("Card3", "Carta 3", 45, "card3.img", CardTypeEnum.Fire, 5, 2, 2, 90, CardRarityEnum.Common, new List<int> { idAttack4 });
 
-
                 //BASE PACKS
                 PackCEN packCEN = new PackCEN ();
                 int idpack1 = packCEN.New_ ("pack1", "pack 1", 20, "foto", PackTypeEnum.Basic, 3, 4);
                 int idpack2 = packCEN.New_ ("pack2", "pack 2", 21, "foto", PackTypeEnum.OnlyFire, 3, 4);
                 int idpack3 = packCEN.New_ ("pack3", "pack 2", 22, "foto", PackTypeEnum.OnlyFire, 3, 4);
                 int idpack4 = packCEN.New_ ("pack4", "pack 4", 23, "foto", PackTypeEnum.Rare, 3, 4);
-
 
                 //VIRTUALUSERS y USER CARD
                 VirtualUserCEN virtualUserCEN = new VirtualUserCEN ();
@@ -210,7 +199,6 @@ public static void InitializeData ()
                         100, 100, 50, 100, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum.Mythical, new List<int>() {
                                 idAttack1
                         });
-
 
                 //HAY QUE IMPLEMENTAR EL CREATE USER CARD
                 UserCardCEN userCardCEN = new UserCardCEN ();
