@@ -18,7 +18,8 @@ namespace VirtualDeckWeb.Assemblers
             user.Description = en.Description;
             user.Tokens = en.Tokens;
             user.Img = en.Img;
-            user.CombatStatus = en.CombatStatus;
+            user.CombatStatus = (int)en.CombatStatus;
+            user.NumCards = en.UserCards.Count;
             return user;
 
 

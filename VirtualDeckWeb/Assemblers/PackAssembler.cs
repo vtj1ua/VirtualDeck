@@ -16,9 +16,11 @@ namespace VirtualDeckWeb.Assemblers
             pack.Description = en.Description;
             pack.Price = en.Price;
             pack.Img = en.Img;
-            pack.Type = en.Type;
+            pack.RegistryDate = en.RegistryDate;
             pack.MaxNumCards = en.MaxNumCards;
             pack.MinNumCards = en.MinNumCards;
+            pack.CardTypes = en.CardTypes;
+            pack.Rarity = en.Rarity;
             return pack;
 
 

@@ -16,6 +16,7 @@ namespace VirtualDeckWeb.Assemblers
             prod.Description = en.Description;
             prod.Price = en.Price;
             prod.Img = en.Img;
+            prod.RegistryDate = en.RegistryDate;
             return prod;
 
 
