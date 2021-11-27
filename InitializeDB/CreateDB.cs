@@ -190,31 +190,63 @@ public static void InitializeData ()
                 int virtualUser3 = virtualUserCEN.New_ ("virtualUser12345", "Pepito123", "Pepito123@email.com");
                 int virtualUser4 = virtualUserCEN.New_ ("virtualUser12345", "Juan123", "Juan123@email.com");
 
-                int card1 = cardCEN.New_ ("Pikachu", "Descripcion carta 1", 1000, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
+                int card1 = cardCEN.New_("Pikachu", "Descripcion carta 1", 1000, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
+                         100, 100, 50, 100, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum.Mythical, new List<int>() {
+                                idAttack1
+                         });
+
+                int card2 = cardCEN.New_("Martin", "Descripcion carta 2", 10, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
+                        100, 100, 50, 100, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum.Mythical, new List<int>() {
+                                idAttack1
+                        });
+                int card3 = cardCEN.New_("Martin", "Descripcion carta 2", 10, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
                         100, 100, 50, 100, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum.Mythical, new List<int>() {
                                 idAttack1
                         });
 
-                int card2 = cardCEN.New_ ("Martin", "Descripcion carta 2", 10, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
-                        100, 100, 50, 100, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardRarityEnum.Mythical, new List<int>() {
-                                idAttack1
-                        });
 
                 //HAY QUE IMPLEMENTAR EL CREATE USER CARD
-                UserCardCEN userCardCEN = new UserCardCEN ();
-                int ucard1 = userCardCEN.New_ (CardTypeEnum.Fighting, CardRarityEnum.Mythical,
+                UserCardCEN userCardCEN = new UserCardCEN();
+                int ucard1 = userCardCEN.New_(CardTypeEnum.Fighting, CardRarityEnum.Mythical,
                         100, 50, 100, 100, "Pikarchu", "", new List<int>() {
                                 idAttack1
                         }, card1);
 
-                userCardCEN.AssignUser (ucard1, virtualUser1);
+                userCardCEN.AssignUser(ucard1, virtualUser1);
 
-                int ucard2 = userCardCEN.New_ (CardTypeEnum.Fighting, CardRarityEnum.Mythical,
+                int ucard3 = userCardCEN.New_(CardTypeEnum.Fighting, CardRarityEnum.Mythical,
+                        100, 50, 100, 100, "Pikarcasdfasdfasdfasdfhu", "", new List<int>() {
+                                idAttack1
+                        }, card3);
+
+                userCardCEN.AssignUser(ucard3, virtualUser1);
+
+                int ucard2 = userCardCEN.New_(CardTypeEnum.Fighting, CardRarityEnum.Mythical,
                         100, 100, 50, 100, "Martin", "", new List<int>() {
                                 idAttack1
                         }, card2);
 
-                userCardCEN.AssignUser (ucard2, virtualUser2);
+                userCardCEN.AssignUser(ucard2, virtualUser2);
+
+                int ucard4 = userCardCEN.New_(CardTypeEnum.Fighting, CardRarityEnum.Mythical,
+                        100, 50, 100, 100, "Pikarcasdfasdfasdfasdfhu", "", new List<int>() {
+                                idAttack1
+                        }, card3);
+
+                userCardCEN.AssignUser(ucard4, virtualUser1);
+
+                int ucard5 = userCardCEN.New_(CardTypeEnum.Fighting, CardRarityEnum.Mythical,
+                        100, 100, 50, 100, "Martin", "", new List<int>() {
+                                idAttack1
+                        }, card2);
+
+                userCardCEN.AssignUser(ucard5, virtualUser1);
+
+                int ucard6 = userCardCEN.New_(CardTypeEnum.Fighting, CardRarityEnum.Mythical,
+                        100, 100, 50, 100, "Martin", "", new List<int>() {
+                                idAttack1
+                        }, card2);
+                userCardCEN.AssignUser(ucard6, virtualUser1);
 
 
 
@@ -226,10 +258,11 @@ public static void InitializeData ()
 
 
                 //PUBLISHED TRADEOFFS
-                TradeOffCEN tradeOffCEN = new TradeOffCEN ();
-                tradeOffCEN.Publish (virtualUser1, card1, ucard1);
-                tradeOffCEN.Publish (virtualUser2, card2, ucard2);
-
+                TradeOffCEN tradeOffCEN = new TradeOffCEN();
+                int tradeId = tradeOffCEN.Publish(virtualUser2, card2, ucard2);
+                tradeOffCEN.Publish(virtualUser1, card3, ucard3);
+                tradeOffCEN.Publish(virtualUser1, card1, ucard4);
+                tradeOffCEN.Publish(virtualUser1, card1, ucard5);
 
 
 
@@ -788,14 +821,59 @@ public static void InitializeData ()
                         num++;
                 }
 
+                Console.WriteLine("Todas las cartas de un usuario que no esten en un trade");
+                Console.WriteLine("-------------------------------------------");
+               /* foreach (var card in userCardCEN.UserCardsNotInTradeOffByUser(virtualUser1))
+                {
+                    Console.WriteLine(card.Id);
+                }
+                
+                */
+                Console.WriteLine("Todas las cartas del usuario");
+                Console.WriteLine("-------------------------------------------");
+                foreach (var card in userCardCEN.UserCardsByUser(virtualUser1))
+                {
+                    Console.WriteLine(card.Id);
+                }
+
+                Console.WriteLine("Todas las cartas del usuario 1 antes del trade");
+                Console.WriteLine("-------------------------------------------");
+                foreach (var card in userCardCEN.UserCardsByUser(virtualUser1))
+                {
+                    Console.WriteLine(card.Id);
+                }
+
+                Console.WriteLine("Todas las cartas del usuario 2 antes del trade");
+                Console.WriteLine("-------------------------------------------");
+                foreach (var card in userCardCEN.UserCardsByUser(virtualUser2))
+                {
+                    Console.WriteLine(card.Id);
+                }
+
+                TradeOffCP tradeOffCP = new TradeOffCP();
+                tradeOffCP.Trade(tradeId, ucard5);
+
+                Console.WriteLine("Todas las cartas del usuario 1 despues del trade");
+                Console.WriteLine("-------------------------------------------");
+                foreach (var card in userCardCEN.UserCardsByUser(virtualUser1))
+                {
+                    Console.WriteLine(card.Id);
+                }
+
+                Console.WriteLine("Todas las cartas del usuario 2 despues del trade");
+                Console.WriteLine("-------------------------------------------");
+                foreach (var card in userCardCEN.UserCardsByUser(virtualUser2))
+                {
+                    Console.WriteLine(card.Id);
+                }
 
 
 
 
 
                 /*PROTECTED REGION END*/
-        }
-        catch (Exception ex)
+            }
+            catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);
                 throw ex;
