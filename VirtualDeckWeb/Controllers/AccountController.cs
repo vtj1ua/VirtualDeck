@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Controllers
@@ -147,7 +148,7 @@ namespace VirtualDeckWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(VirtualUserViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -156,7 +157,12 @@ namespace VirtualDeckWeb.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    VirtualUserCEN virtualuser = new VirtualUserCEN();
+
+
+                    virtualuser.New_(model.userName, model.Email, model.Password);
+
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
