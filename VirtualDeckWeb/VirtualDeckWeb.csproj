@@ -196,16 +196,44 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Assemblers\AttackMoveAssembler.cs" />
+    <Compile Include="Assemblers\BillAssembler.cs" />
+    <Compile Include="Assemblers\CardAssembler.cs" />
+    <Compile Include="Assemblers\CombatAssembler.cs" />
+    <Compile Include="Assemblers\CommentAssembler.cs" />
+    <Compile Include="Assemblers\NotificationAssembler.cs" />
+    <Compile Include="Assemblers\PackAssembler.cs" />
+    <Compile Include="Assemblers\ProductAssembler.cs" />
+    <Compile Include="Assemblers\TokenPackAssembler.cs" />
+    <Compile Include="Assemblers\TradeOffAssembler.cs" />
+    <Compile Include="Assemblers\UserCardAssembler.cs" />
+    <Compile Include="Assemblers\UserPackAssembler.cs" />
+    <Compile Include="Assemblers\VirtualUserAssembler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AttackMoveViewModel.cs" />
+    <Compile Include="Models\BillViewModel.cs" />
+    <Compile Include="Models\CardViewModel.cs" />
+    <Compile Include="Models\CombatViewModel.cs" />
+    <Compile Include="Models\CommentViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NotificationViewModel.cs" />
+    <Compile Include="Models\PackViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\TokenPackViewModel.cs" />
+    <Compile Include="Models\TradeOffViewModel.cs" />
+    <Compile Include="Models\UserCardViewModel.cs" />
+    <Compile Include="Models\UserPackViewModel.cs" />
+    <Compile Include="Models\VirtualUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -214,10 +242,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\usuario.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -266,9 +296,16 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Card\Index.cshtml" />
+    <Content Include="Views\Shop\Cards.cshtml" />
+    <Content Include="Views\Shop\Packs.cshtml" />
+    <Content Include="Views\Shop\TokenPacks.cshtml" />
+    <Content Include="Views\Shop\CardDetails.cshtml" />
+    <Content Include="Views\Shop\PackDetails.cshtml" />
+    <Content Include="Views\Shop\TokenPackDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Basic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
