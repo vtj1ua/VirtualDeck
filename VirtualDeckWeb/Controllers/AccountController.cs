@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -9,7 +10,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using VirtualDeckGenNHibernate.CEN.VirtualDeck;
+using VirtualDeckGenNHibernate.EN.VirtualDeck;
 using VirtualDeckWeb.Models;
+
+
+//-----------------------------------------------DESCOMENTAR LINEA 86------------------------------------------------------------------
+
 
 namespace VirtualDeckWeb.Controllers
 {
@@ -80,6 +86,11 @@ namespace VirtualDeckWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    VirtualUserCEN virtUser = new VirtualUserCEN();
+                   /* IList<VirtualUserEN> listaUsu = virtUser.UsersByEmail(model.Email);
+
+                    if (listaUsu.Count > 0)
+                        Session["VirtualUser"] = listaUsu[0];*/
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -162,7 +173,7 @@ namespace VirtualDeckWeb.Controllers
 
 
                     virtualuser.New_(model.userName, model.Email, model.Password);
-
+                    Session["VirtualUser"] = virtualuser.ReadOID(model.Id);
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
