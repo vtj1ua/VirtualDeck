@@ -229,9 +229,13 @@
     <Content Include="Resources\Borders\Mythical.png" />
     <Content Include="Resources\Borders\Rare.png" />
     <Content Include="Resources\Borders\Uncommon.png" />
+    <Content Include="Resources\Type\cablePelao.png" />
+    <Content Include="Resources\Type\fly.png" />
     <Content Include="Resources\Type\jhonyChispas.png" />
     <Content Include="Resources\Type\martin.png" />
+    <Content Include="Resources\Type\mortadelo.png" />
     <Content Include="Resources\Type\noel.png" />
+    <Content Include="Resources\Type\rakitic.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
