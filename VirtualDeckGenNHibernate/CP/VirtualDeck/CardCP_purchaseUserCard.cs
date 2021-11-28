@@ -42,7 +42,7 @@ public void PurchaseUserCard (int p_card, int p_user, int p_amount)
                 UserCardCAD userCardCAD = new UserCardCAD (session);
                 UserCardCEN userCardCEN = new UserCardCEN (userCardCAD);
 
-                BillCP billCP = new BillCP(session);
+                BillCP billCP = new BillCP (session);
 
                 CardCP cardCP = new CardCP (session);
 

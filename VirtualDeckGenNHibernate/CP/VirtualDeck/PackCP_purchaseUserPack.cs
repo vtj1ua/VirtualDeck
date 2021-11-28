@@ -38,7 +38,7 @@ public System.Collections.Generic.IList<int> PurchaseUserPack (int p_pack, int p
                 VirtualUserCAD virtualUserCAD = new VirtualUserCAD (session);
                 VirtualUserCEN virtualUserCEN = new VirtualUserCEN (virtualUserCAD);
 
-                BillCP billCP = new BillCP(session);
+                BillCP billCP = new BillCP (session);
 
                 PackCP packCP = new PackCP (session);
 

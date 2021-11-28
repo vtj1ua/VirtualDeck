@@ -49,7 +49,7 @@ public void PurchaseTokenPack (int p_oid, int p_userId)
 
                 //falta crear factura y notificacion
 
-                billCP = new BillCP(session);
+                billCP = new BillCP (session);
                 billCP.CreateAssociateToken (p_userId, p_oid);
 
                 notificationCAD = new NotificationCAD (session);

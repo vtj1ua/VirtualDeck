@@ -22,7 +22,7 @@ namespace VirtualDeckWeb.Controllers
 
             /* Paginación */
             IList<CardEN> cardEN = cardCEN.ReadAll(0, -1);
-            IEnumerable<CardsViewModels> listView = new CardAssembler().ConvertListENToModel(cardEN).ToList();
+            IEnumerable<CardViewModel> listView = new CardAssembler().ConvertListENToModel(cardEN).ToList();
             SessionClose();
 
             return View(listView);

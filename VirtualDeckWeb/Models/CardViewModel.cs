@@ -35,5 +35,9 @@ namespace VirtualDeckWeb.Models
         public int Speed { get; set; }
 
         public RarityEnum Rarity { get; set; }
+
+        public string BackgroundImage { get; set; }
+
+        public string BackgroundColorClass { get; set; }
     }
 }

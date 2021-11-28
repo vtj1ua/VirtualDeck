@@ -12,29 +12,27 @@ using VirtualDeckGenNHibernate.CAD.VirtualDeck;
 
 public class BasicController: Controller
 {
-    public class BasicController : Controller
+    protected ISession session;
+    
+    protected BasicController()
     {
-protected ISession session;
-
-protected BasicController()
-{
-}
-
-protected void SessionInitialize ()
-{
-        if (session == null) {
-                session = NHibernateHelper.OpenSession ();
-        }
-}
-
-
-protected void SessionClose ()
-{
-        if (session != null && session.IsOpen) {
-                session.Close ();
-                session.Dispose ();
-                session = null;
-        }
-}
+    }
+    
+    protected void SessionInitialize ()
+    {
+            if (session == null) {
+                    session = NHibernateHelper.OpenSession ();
+            }
+    }
+    
+    
+    protected void SessionClose ()
+    {
+            if (session != null && session.IsOpen) {
+                    session.Close ();
+                    session.Dispose ();
+                    session = null;
+            }
+    }
 }
 
