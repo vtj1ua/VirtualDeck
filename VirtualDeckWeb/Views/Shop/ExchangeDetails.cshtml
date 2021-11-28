@@ -1,0 +1,58 @@
+﻿@model VirtualDeckWeb.Models.TradeOffViewModel
+
+@{
+    ViewBag.Title = "ExchangeDetails";
+}
+
+<h2>Datos del intercambio</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Id)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nameCard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameCard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nameUserCard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameUserCard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imgCard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imgCard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imgUserCard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imgUserCard)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

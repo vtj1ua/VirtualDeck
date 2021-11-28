@@ -1,0 +1,30 @@
+﻿@model IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>
+
+@{
+    ViewBag.Title = "ExchangeCardsDetails";
+}
+
+<h2>Cartas del Usuario</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Imagen
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Img)
+        </td>
+    </tr>
+}
+
+</table>

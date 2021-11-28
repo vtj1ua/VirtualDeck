@@ -11,5 +11,14 @@ namespace VirtualDeckWeb.Models
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public TradeStateEnum State { get; set; }
+
+        public string NameCard { get; set; }
+        public string NameUserCard { get; set; }
+
+        public string ImgCard { get; set; }
+
+        public string ImgUserCard { get; set; }
+
+        public int Owner { get; set; }
     }
 }

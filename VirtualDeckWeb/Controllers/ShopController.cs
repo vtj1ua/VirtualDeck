@@ -81,22 +81,52 @@ namespace VirtualDeckWeb.Controllers
             return View(model);
         }
 
+        public ActionResult Market()
+        {
+            SessionInitialize();
+            TradeOffCAD trad = new TradeOffCAD(session);
+            TradeOffCEN tradcen = new TradeOffCEN(trad);
+            IList<TradeOffEN> trads = tradcen.ReadAll(0, -1);
+            IEnumerable<TradeOffViewModel> listaTrads = new TradeOffAssembler().ConvertListENToModel(trads).ToList();
+            SessionClose();
+            return View(listaTrads);
+        }
+
+        public ActionResult ExchangeCardsDetails(int id)
+        {
+            SessionInitialize();
+            TradeOffCAD TradeOffCAD = new TradeOffCAD(session);
+            TradeOffCEN TradeOffCEN = new TradeOffCEN(TradeOffCAD);
+            TradeOffEN TradeOffEN = TradeOffCEN.ReadOID(id);
+            VirtualUserCEN viccen = new VirtualUserCEN();
+            //VirtualUserEN vicen = viccen.UserByName($_SESSION["login"]);
+            UserCardCEN cardcen = new UserCardCEN();
+            //IList<UserCardEN> carden = cardcen.UserCardsByBaseCard(vicen.Id, TradeOffEN.DesiredCard.Id);
+
+            IList<UserCardEN> carden = cardcen.ReadAll(0, -1);
+            IEnumerable<UserCardViewModel> cards = new UserCardAssembler().ConvertListENToModel(carden).ToList();
+            SessionClose();
+            return View(cards);
+        }
+
 
         // GET: Shop/Create
-        public ActionResult Create()
+        public ActionResult PublishExchange()
         {
             return View();
         }
 
         // POST: Shop/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult PublishExchange(TradeOffViewModel trad)
         {
             try
             {
                 // TODO: Add insert logic here
+                TradeOffCEN tradcen = new TradeOffCEN();
+                //tradcen.Publish(trad.Owner, trad.DesiredCard, trad.OfferedUserCard);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Market");
             }
             catch
             {
