@@ -155,6 +155,33 @@ public static void InitializeData ()
                 Console.WriteLine ();
 
                 AttackMoveCEN attackMoveCEN = new AttackMoveCEN ();
+                /*
+                int idAttack1 = attackMoveCEN.New_ ("Cola draco", CardTypeEnum.Dragon);
+                int idAttack2 = attackMoveCEN.New_ ("Defensa de acero", CardTypeEnum.Dragon);
+                int idAttack3 = attackMoveCEN.New_ ("Torton gurdo", CardTypeEnum.Dragon);
+                int idAttack4 = attackMoveCEN.New_ ("Torton", CardTypeEnum.Fighting);
+                int idAttack5 = attackMoveCEN.New_ ("Bola eléctrica", CardTypeEnum.Fire);
+                */
+                /*
+                int idAttack = attackMoveCEN.New_("Puño fuerte", CardTypeEnum.Fighting, "Puñetazo muy duro y con mucha intensidad");
+                int idAttack1 = attackMoveCEN.New_("Placaje", CardTypeEnum.Normal, "Placaje con todo el cuerpo que puede llegar a tirar al rival");
+                int idAttack2 = attackMoveCEN.New_("Calambrazo", CardTypeEnum.Electric, "Chispazo que te electrocutará como no tengas cuidado");
+                int idAttack3 = attackMoveCEN.New_("Patadón", CardTypeEnum.Fighting, "Patada aeréa en el pecho");
+                int idAttack4 = attackMoveCEN.New_("Caida libre", CardTypeEnum.Flying, "Caída desde el cielo que aplastará a tus rivales");
+                int idAttack5 = attackMoveCEN.New_("Lanzallamas", CardTypeEnum.Dragon, "Lanza fuego por la boca para intentar hacer ceniza al rival");
+                int idAttack6 = attackMoveCEN.New_("Congelar", CardTypeEnum.Ice, "Congela al rival a través del vaho que expulsa por la boca ya que sale muy frío");
+                int idAttack7 = attackMoveCEN.New_("Mareo", CardTypeEnum.Psychic, "Aturde al contrario con un gas tóxico");
+                int idAttack8 = attackMoveCEN.New_("Mascazo", CardTypeEnum.Ground, "Golpe impresionante que te hará quedar exhausto");
+                int idAttack9 = attackMoveCEN.New_("Modo Topo", CardTypeEnum.Grass, "Se escabulle debajo de tierra para sorprender al rival y atacarle");
+                int idAttack10 = attackMoveCEN.New_("Pedrolo", CardTypeEnum.Rock, "Lanza una piedra muy grande que aplasta al rival");
+                int idAttack11 = attackMoveCEN.New_("Vino maldito", CardTypeEnum.Poison, "Bebida con buena apariencia que al final no es lo que parece");
+                int idAttack12 = attackMoveCEN.New_("Arrastre nuclear", CardTypeEnum.Bug, "Se arrastra hasta el rival como un gusano y explota");
+                int idAttack13 = attackMoveCEN.New_("Invisibilidad", CardTypeEnum.Ghost, "Desaparición visual para sorprender al rival ya que no sabe por donde le van a atacar");
+                int idAttack14 = attackMoveCEN.New_("Pesao", CardTypeEnum.Psychic, "Ser pesado es una cualidad que no muchos manejan");
+                int idAttack15 = attackMoveCEN.New_("Gas Fatídico", CardTypeEnum.Poison, "Gas putrefacto que ahogará a cualquier rival que lo inhale");
+                int idAttack16 = attackMoveCEN.New_("Cola Dragon", CardTypeEnum.Dragon, "Golpe con la cola que hará caer a cualquier rival al que le aseste un golpe");
+                int idAttack17 = attackMoveCEN.New_("Manguerazo", CardTypeEnum.Water, "Torrente de agua muy potente");
+                */
                 CardCEN cardCEN = new CardCEN ();
 
                 /*
@@ -257,7 +284,55 @@ public static void InitializeData ()
                  * //WATER CARDS
                  *
                  */
+                int idAttack = attackMoveCEN.New_("Puño fuerte", CardTypeEnum.Fighting);
+                int idAttack1 = attackMoveCEN.New_("Placaje", CardTypeEnum.Normal);
+                int idAttack2 = attackMoveCEN.New_("Calambrazo", CardTypeEnum.Electric);
+                int idAttack3 = attackMoveCEN.New_("Patadón", CardTypeEnum.Fighting);
+                int idAttack4 = attackMoveCEN.New_("Caida libre", CardTypeEnum.Flying);
+                int idAttack5 = attackMoveCEN.New_("Lanzallamas", CardTypeEnum.Dragon);
+                int idAttack6 = attackMoveCEN.New_("Congelar", CardTypeEnum.Ice);
+                int idAttack7 = attackMoveCEN.New_("Mareo", CardTypeEnum.Psychic);
+                int idAttack8 = attackMoveCEN.New_("Mascazo", CardTypeEnum.Ground);
+                int idAttack9 = attackMoveCEN.New_("Modo Topo", CardTypeEnum.Grass);
+                int idAttack10 = attackMoveCEN.New_("Pedrolo", CardTypeEnum.Rock);
+                int idAttack11 = attackMoveCEN.New_("Vino maldito", CardTypeEnum.Poison);
+                int idAttack12 = attackMoveCEN.New_("Arrastre nuclear", CardTypeEnum.Bug);
+                int idAttack13 = attackMoveCEN.New_("Invisibilidad", CardTypeEnum.Ghost);
+                int idAttack14 = attackMoveCEN.New_("Pesao", CardTypeEnum.Psychic);
+                int idAttack15 = attackMoveCEN.New_("Gas Fatídico", CardTypeEnum.Poison);
+                int idAttack16 = attackMoveCEN.New_("Cola Dragon", CardTypeEnum.Dragon);
+                int idAttack17 = attackMoveCEN.New_("Manguerazo", CardTypeEnum.Water);
+
+                /* --------------- NEW ------------------------------*/
+
                 //BASE CARDS
+                CardCEN cardCEN = new CardCEN ();
+                
+                int cartaPrueba = cardCEN.New_ ("Martín", "Dragon antiguo basado en el choque del cielo y la tierra", 2000, "martin.png", CardTypeEnum.Dragon, 100, 90, 50, 70, CardRarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba1 = cardCEN.New_ ("Sr Ogro", "Ogro bien vestido", 1600, "martin.png", CardTypeEnum.Normal, 70, 60, 80, 30, CardRarityEnum.Legendary, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba2 = cardCEN.New_ ("Dasdingo", "Seeeeh colegaa", 1200, "martin.png", CardTypeEnum.Fighting, 60, 50, 60, 50, CardRarityEnum.Epic, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba3 = cardCEN.New_ ("En-Zhot", "Dragon caido", 1000, "martin.png", CardTypeEnum.Dragon, 100, 20, 10, 100, CardRarityEnum.Rare, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba4 = cardCEN.New_ ("AccesibleBot", "Robot muy accesible creado por Tim Berners Lee", 800, "martin.png", CardTypeEnum.Electric, 30, 40, 50, 60, CardRarityEnum.Uncommon, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba5 = cardCEN.New_ ("Secuaz Arierep", "Prisionero de la 'Guerra de los 4 mares'", 600, "martin.png", CardTypeEnum.Ghost, 20, 30, 20, 40, CardRarityEnum.Common, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba6 = cardCEN.New_ ("Token no fungible", "Literalmente un token no fungible", 400, "martin.png", CardTypeEnum.Ghost, 10, 20, 10, 10, CardRarityEnum.Basic, new List<int> { idAttack1, idAttack2, idAttack3 });
+                
+                /* ------------------------ BUENAS -----------------*/
+                
+                int cartaPrueba7 = cardCEN.New_("Papa Noel", "Regalos para todos", 400, "noel.png", CardTypeEnum.Ice, 10, 20, 10, 10, CardRarityEnum.Legendary, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba8 = cardCEN.New_("Jhony chispas", "Electrocutado por un cable", 400, "jhonyChispas.png", CardTypeEnum.Electric, 10, 20, 10, 10, CardRarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int carta1 = cardCEN.New_("Mortadelo", "Personaje cómico que te sucumbe con su labia y sus bromas", 3200, "mortadelo.png", CardTypeEnum.Normal, 46, 24, 18, 30, CardRarityEnum.Rare, new List<int> { idAttack, idAttack3, idAttack7 });
+                int carta2 = cardCEN.New_("Mosca mutante", "Mitad mosca, mitad hombre. Se dice que está mutando como el de la mosca", 2500, "fly.png", CardTypeEnum.Flying, 39, 21, 18, 36, CardRarityEnum.Uncommon, new List<int> { idAttack4, idAttack8, idAttack14 });
+                int carta3 = cardCEN.New_("Cable pelao", "Tremendo cable pelao ", 2000, "cablePelao.png", CardTypeEnum.Electric, 100, 90, 50, 70, CardRarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int carta4 = cardCEN.New_("Jonhymelavo", "El Jonhy. De calle. Va más doblado que una salchicha doblada", 4700, "rakitic.png", CardTypeEnum.Ground, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack8, idAttack, idAttack3 });
+                int carta5 = cardCEN.New_("La dama gorda", "Un Fantasma que va rondando castillos.", 4700, "damaGorda.png", CardTypeEnum.Ghost, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack6, idAttack15, idAttack });
+                int carta6 = cardCEN.New_("Jack Sparrago", "El pirata más temido de todo poniente", 4700, "jack.png", CardTypeEnum.Water, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack13, idAttack14, idAttack17 });
+                int carta7 = cardCEN.New_("El Diego", "Una especie de Dios argentino. Se le da bien eso del fútbol", 4700, "eldiego.png", CardTypeEnum.Grass, 55, 60, 18, 48, CardRarityEnum.Legendary, new List<int> { idAttack9, idAttack3, idAttack7 });
+                int carta8 = cardCEN.New_("Tri-Spiddie", "Que Spiderman será el real", 4700, "memeSpiderman.png", CardTypeEnum.Fighting, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack4, idAttack1, idAttack3 });
+                int carta9 = cardCEN.New_("Baby Yoda", "Más pequeño que un átomo. Cuidado que se enfada.", 8000, "babyYoda.png", CardTypeEnum.Ground, 30, 60, 40, 10, CardRarityEnum.Legendary, new List<int> { idAttack9, idAttack13, idAttack8 });
+                int carta10 = cardCEN.New_("Worms", "Parecen adorables pero controlan las armas que da gusto...", 4700, "worm.png", CardTypeEnum.Bug, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack8, idAttack9, idAttack12 });
+                int carta11 = cardCEN.New_("Perro motociclón", "Rápido como el viento y más fuerte que un camión, aquí tenemos al perro motociclón", 4700, "perroMotociclon.png", CardTypeEnum.Flying, 66, 12, 90, 23, CardRarityEnum.Basic, new List<int> { idAttack1, idAttack8, idAttack7 });
+
+                /* ---------------------------------------------------------*/
                 int idAttack1 = attackMoveCEN.New_ ("Cola draco", CardTypeEnum.Dragon, "Descripcion ataque 1");
                 int idAttack2 = attackMoveCEN.New_ ("Defensa de acero", CardTypeEnum.Dragon, "Descripcion ataque 2");
                 int idAttack3 = attackMoveCEN.New_ ("Torton gurdo", CardTypeEnum.Dragon, "Descripcion ataque 3");
@@ -271,6 +346,9 @@ public static void InitializeData ()
                 int cartaPrueba4 = cardCEN.New_ ("AccesibleBot", "Robot muy accesible creado por Tim Berners Lee", 800, "urlAlAImagen", CardTypeEnum.Electric, 30, 40, 50, 60, RarityEnum.Uncommon, new List<int> { idAttack1, idAttack2, idAttack3 });
                 int cartaPrueba5 = cardCEN.New_ ("Secuaz Arierep", "Prisionero de la 'Guerra de los 4 mares'", 600, "urlAlAImagen", CardTypeEnum.Ghost, 20, 30, 20, 40, RarityEnum.Common, new List<int> { idAttack1, idAttack2, idAttack3 });
                 int cartaPrueba6 = cardCEN.New_ ("Token no fungible", "Literalmente un token no fungible", 400, "urlAlAImagen", CardTypeEnum.Ghost, 10, 20, 10, 10, RarityEnum.Basic, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int primero = cardCEN.New_ ("Card1", "Carta 1", 12, "martin.png", CardTypeEnum.Electric, 45, 23, 12, 34, CardRarityEnum.Epic, new List<int> { idAttack4 });
+                int segundo = cardCEN.New_ ("Card2", "Carta 2", 5, "martin.png", CardTypeEnum.Bug, 4, 27, 2, 4, CardRarityEnum.Basic, new List<int> { idAttack4 });
+                int tercero = cardCEN.New_ ("Card3", "Carta 3", 45, "martin.png", CardTypeEnum.Fire, 5, 2, 2, 90, CardRarityEnum.Common, new List<int> { idAttack4 });
 
                 int primero = cardCEN.New_ ("Card1", "Carta 1", 12, "card1.img", CardTypeEnum.Electric, 45, 23, 12, 34, RarityEnum.Epic, new List<int> { idAttack4 });
                 int segundo = cardCEN.New_ ("Card2", "Carta 2", 5, "card2.img", CardTypeEnum.Bug, 4, 27, 2, 4, RarityEnum.Basic, new List<int> { idAttack4 });

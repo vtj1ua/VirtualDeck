@@ -44,9 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+    <Reference Include="Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\VirtualDeckGenNHibernate\AppLib\Antlr3.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\entrega1\VirtualDeckGen\VirtualDeckGenNHibernate\AppLib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Castle.DynamicProxy2">
       <HintPath>..\VirtualDeckGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
@@ -196,19 +196,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Assemblers\AttackMoveAssembler.cs" />
-    <Compile Include="Assemblers\BillAssembler.cs" />
-    <Compile Include="Assemblers\CardAssembler.cs" />
-    <Compile Include="Assemblers\CombatAssembler.cs" />
-    <Compile Include="Assemblers\CommentAssembler.cs" />
-    <Compile Include="Assemblers\NotificationAssembler.cs" />
-    <Compile Include="Assemblers\PackAssembler.cs" />
-    <Compile Include="Assemblers\ProductAssembler.cs" />
-    <Compile Include="Assemblers\TokenPackAssembler.cs" />
-    <Compile Include="Assemblers\TradeOffAssembler.cs" />
-    <Compile Include="Assemblers\UserCardAssembler.cs" />
-    <Compile Include="Assemblers\UserPackAssembler.cs" />
-    <Compile Include="Assemblers\VirtualUserAssembler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\CardController.cs" />
@@ -247,6 +234,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\Borders\Basic.png" />
+    <Content Include="Resources\Borders\Common.png" />
+    <Content Include="Resources\Borders\Epic.png" />
+    <Content Include="Resources\Borders\Legendary.png" />
+    <Content Include="Resources\Borders\Mythical.png" />
+    <Content Include="Resources\Borders\Rare.png" />
+    <Content Include="Resources\Borders\Uncommon.png" />
+    <Content Include="Resources\Type\babyYoda.png" />
+    <Content Include="Resources\Type\cablePelao.png" />
+    <Content Include="Resources\Type\damaGorda.png" />
+    <Content Include="Resources\Type\eldiego.png" />
+    <Content Include="Resources\Type\fly.png" />
+    <Content Include="Resources\Type\jack.png" />
+    <Content Include="Resources\Type\jhonyChispas.png" />
+    <Content Include="Resources\Type\martin.png" />
+    <Content Include="Resources\Type\memeSpiderman.png" />
+    <Content Include="Resources\Type\mortadelo.png" />
+    <Content Include="Resources\Type\noel.png" />
+    <Content Include="Resources\Type\perroMotociclon.png" />
+    <Content Include="Resources\Type\rakitic.png" />
+    <Content Include="Resources\Type\worm.png" />
     <Content Include="Resources\usuario.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

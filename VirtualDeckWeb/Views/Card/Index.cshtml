@@ -1,7 +1,8 @@
-﻿@model IEnumerable<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN>
+﻿@model IEnumerable<VirtualDeckWeb.Models.CardsViewModels>
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -9,67 +10,46 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Img)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Health)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Attack)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Defense)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Speed)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Img)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Health)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Attack)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Defense)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Speed)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
 
-</table>
+
+
+
+
+<div class="gridProducts">
+    @foreach (var item in Model)
+    {
+        <div class="contenedor">
+            <div class="fondo">
+                <div class="tipo">
+                    <img class="@Html.DisplayFor(modelItem => item.TypeCard)"  src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.RarityCard)" alt="electric">
+                    <div class="info">
+                        <h3>@Html.DisplayFor(modelItem => item.NameCard)</h3>
+                        <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.ImgCard) " alt="@Html.DisplayFor(modelItem => item.ImgCard)">
+                        <div class="estadisticas">
+                            <h4>Ataque</h4>
+                            <p class="puntos">@Html.DisplayFor(modelItem => item.AttackCard)</p>
+                            <h4>Vida</h4>
+                            <p class="puntos">@Html.DisplayFor(modelItem => item.HealthCard)</p>
+                            <h4>Defensa</h4>
+                            <p class="puntos">@Html.DisplayFor(modelItem => item.DefenseCard)</p>
+                            <h4>Velocidad</h4>
+                            <p class="puntos">@Html.DisplayFor(modelItem => item.SpeedCard)</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <p>@Html.DisplayFor(modelItem => item.CardDescription)</p>
+            <div>
+                <button>@Html.ActionLink("Comprar", "ModelPurchaseCard", new { id = item.IdCard }) </button>
+                <p>@Html.DisplayFor(modelItem => item.PriceCard)</p>
+            </div>
+        </div>
+    }
+</div>
+
+
+@Html.ActionLink("Edit", "Edit", new { /*id = item.IdCard */}) |
+@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
