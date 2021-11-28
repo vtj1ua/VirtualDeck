@@ -39,7 +39,7 @@ public IUserCardCAD get_IUserCardCAD ()
         return this._IUserCardCAD;
 }
 
-public void Modify (int p_UserCard_OID, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_speed, int p_defense, int p_attack, int p_health, int p_level, int p_experience, string p_name, string p_img, Nullable<DateTime> p_purchaseDate)
+public void Modify (int p_UserCard_OID, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_speed, int p_defense, int p_attack, int p_health, int p_level, int p_experience, string p_name, string p_img, Nullable<DateTime> p_purchaseDate, double p_quality)
 {
         UserCardEN userCardEN = null;
 
@@ -57,6 +57,7 @@ public void Modify (int p_UserCard_OID, VirtualDeckGenNHibernate.Enumerated.Virt
         userCardEN.Name = p_name;
         userCardEN.Img = p_img;
         userCardEN.PurchaseDate = p_purchaseDate;
+        userCardEN.Quality = p_quality;
         //Call to UserCardCAD
 
         _IUserCardCAD.Modify (userCardEN);

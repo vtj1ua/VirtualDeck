@@ -34,5 +34,8 @@ System.Collections.Generic.IList<BillEN> ReadAll (int first, int size);
 
 
 System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> BillsByUser (int p_user);
+
+
+System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> CardBillsByUser (int p_user);
 }
 }

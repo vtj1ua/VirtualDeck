@@ -343,5 +343,35 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 
         return result;
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> CardBillsByUser (int p_user)
+{
+        System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM BillEN self where SELECT bill FROM BillEN as bill, CardEN as card WHERE bill.User = :p_user AND bill.Product IS NOT NULL AND bill.Product.Id = card.Id ORDER BY bill.Date DESC";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("BillENcardBillsByUserHQL");
+                query.SetParameter ("p_user", p_user);
+
+                result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in BillCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

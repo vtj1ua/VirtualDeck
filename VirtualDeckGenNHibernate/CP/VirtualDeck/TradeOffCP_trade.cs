@@ -42,7 +42,7 @@ public void Trade (int p_oid, int p_givenUserCard)
 
                 //asigno al intercambio el exchanger
                 tradeOffCEN.AssignExchanger (p_oid, userCardEN.User.Id);
-                tradeOffCEN.AssignGivenUserCard(p_oid, p_givenUserCard);
+                tradeOffCEN.AssignGivenUserCard (p_oid, p_givenUserCard);
 
                 if (userCardEN.Card.Id.Equals (tradeOffEN.DesiredCard.Id)) {
                         tradeOffEN.State = TradeStateEnum.Accepted;

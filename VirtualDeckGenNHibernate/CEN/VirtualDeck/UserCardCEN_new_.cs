@@ -19,7 +19,7 @@ namespace VirtualDeckGenNHibernate.CEN.VirtualDeck
 {
 public partial class UserCardCEN
 {
-public int New_ (VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_speed, int p_defense, int p_attack, int p_health, string p_name, string p_img, System.Collections.Generic.IList<int> p_attackMoves, int p_card)
+public int New_ (VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_speed, int p_defense, int p_attack, int p_health, string p_name, string p_img, System.Collections.Generic.IList<int> p_attackMoves, int p_card, double p_quality)
 {
         /*PROTECTED REGION ID(VirtualDeckGenNHibernate.CEN.VirtualDeck_UserCard_new__customized) ENABLED START*/
 

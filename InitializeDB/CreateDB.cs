@@ -179,18 +179,10 @@ public static void InitializeData ()
 
                 //BASE PACKS
                 PackCEN packCEN = new PackCEN ();
-                int idpack1 = packCEN.New_ ("pack1", "pack 1", 20, "foto", RarityEnum.Basic, 3, 4, CardTypeEnum.All, new List<float>() {
-                                50.0f, 50.0f
-                        });
-                int idpack2 = packCEN.New_ ("pack2", "pack 2", 21, "foto", RarityEnum.Common, 3, 4, CardTypeEnum.All, new List<float>() {
-                                50.0f, 50.0f
-                        });
-                int idpack3 = packCEN.New_ ("pack3", "pack 2", 22, "foto", RarityEnum.Epic, 3, 4, CardTypeEnum.All, new List<float>() {
-                                50.0f, 50.0f
-                        });
-                int idpack4 = packCEN.New_ ("pack4", "pack 4", 23, "foto", RarityEnum.Legendary, 3, 4, CardTypeEnum.All, new List<float>() {
-                                50.0f, 50.0f
-                        });
+                int idpack1 = packCEN.New_ ("pack1", "pack 1", 20, "foto", RarityEnum.Basic, 3, 4, CardTypeEnum.All, RarityEnum.All);
+                int idpack2 = packCEN.New_ ("pack2", "pack 2", 21, "foto", RarityEnum.Common, 3, 4, CardTypeEnum.All, RarityEnum.All);
+                int idpack3 = packCEN.New_ ("pack3", "pack 2", 22, "foto", RarityEnum.Epic, 3, 4, CardTypeEnum.All, RarityEnum.All);
+                int idpack4 = packCEN.New_ ("pack4", "pack 4", 23, "foto", RarityEnum.Legendary, 3, 4, CardTypeEnum.All, RarityEnum.All);
 
                 //VIRTUALUSERS y USER CARD
                 VirtualUserCEN virtualUserCEN = new VirtualUserCEN ();
@@ -214,14 +206,14 @@ public static void InitializeData ()
                 int ucard1 = userCardCEN.New_ (CardTypeEnum.Fighting, RarityEnum.Mythical,
                         100, 50, 100, 100, "Pikarchu", "", new List<int>() {
                                 idAttack1
-                        }, card1);
+                        }, card1, 1.0f);
 
                 userCardCEN.AssignUser (ucard1, virtualUser1);
 
                 int ucard2 = userCardCEN.New_ (CardTypeEnum.Fighting, RarityEnum.Mythical,
                         100, 100, 50, 100, "Martin", "", new List<int>() {
                                 idAttack1
-                        }, card2);
+                        }, card2, 1.0f);
 
                 userCardCEN.AssignUser (ucard2, virtualUser2);
 
@@ -672,21 +664,11 @@ public static void InitializeData ()
 
                 Console.WriteLine ("\n\n");
 
-                int pack1 = packCEN.New_ ("Basico", "Descripcion", 500, "", RarityEnum.Common, 5, 1, CardTypeEnum.All, new List<float>(){
-                                50.0f, 50.0f
-                        });
-                int pack2 = packCEN.New_ ("Raro", "Descripcion", 600, "", RarityEnum.Mythical, 6, 3, CardTypeEnum.All, new List<float>() {
-                                50.0f, 50.0f
-                        });
-                int pack3 = packCEN.New_ ("Especial", "Descripcion", 700, "", RarityEnum.Legendary, 7, 4, CardTypeEnum.All, new List<float>() {
-                                50.0f, 50.0f
-                        });
-                int pack4 = packCEN.New_ ("Fuego", "Descripcion", 800, "", RarityEnum.Epic, 8, 5, CardTypeEnum.All, new List<float>() {
-                                50.0f, 50.0f
-                        });
-                int pack5 = packCEN.New_ ("Hierba", "Descripcion", 900, "", RarityEnum.Rare, 10, 5, CardTypeEnum.All, new List<float>() {
-                                50.0f, 50.0f
-                        });
+                int pack1 = packCEN.New_ ("Basico", "Descripcion", 500, "", RarityEnum.Common, 5, 1, CardTypeEnum.All, RarityEnum.All);
+                int pack2 = packCEN.New_ ("Raro", "Descripcion", 600, "", RarityEnum.Mythical, 6, 3, CardTypeEnum.All, RarityEnum.All);
+                int pack3 = packCEN.New_ ("Especial", "Descripcion", 700, "", RarityEnum.Legendary, 7, 4, CardTypeEnum.All, RarityEnum.All);
+                int pack4 = packCEN.New_ ("Fuego", "Descripcion", 800, "", RarityEnum.Epic, 8, 5, CardTypeEnum.Fire, RarityEnum.All);
+                int pack5 = packCEN.New_ ("Hierba", "Descripcion", 900, "", RarityEnum.Rare, 10, 5, CardTypeEnum.All, RarityEnum.All);
 
                 PackEN purchasedPack1 = new PackCEN ().ReadOID (pack1);
 
@@ -808,9 +790,19 @@ public static void InitializeData ()
                 }
 
 
+                Console.WriteLine ("\n\n");
+
+                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
+                Console.WriteLine ("+         CARTAS RECOMENDADAS              +");
+                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
+
+                IList<CardEN> recommendedCards = cardCP.GetUserRecommendedCards (virtualUser1);
+                foreach (CardEN card in recommendedCards) {
+                        printBaseCard (card);
+                }
 
 
-
+                //FROM BillEN as bill WHERE bill.User = :p_user AND bill.Product IS NOT NULL AND bill.Product.class = Card ORDER BY bill.Date DESC
 
                 /*PROTECTED REGION END*/
         }

@@ -94,5 +94,6 @@
 		  <query name="CardENcardsByPriceHQL"><![CDATA[FROM CardEN as card where card.Price >= :p_min_price AND card.Price <= :p_max_price]]></query>
 		  <query name="CardENcardsByMaxRarityHQL"><![CDATA[FROM CardEN as card where card.Rarity <= :p_rarity]]></query>
 		  <query name="CardENcardsByTypeAndRarityHQL"><![CDATA[FROM CardEN as card WHERE (card.Type & :p_type) != 0 AND (card.Rarity & :p_rarity) != 0 ORDER BY card.Rarity ASC]]></query>
+		  <query name="CardENcardsByRegistryDateHQL"><![CDATA[FROM CardEN as card ORDER BY card.RegistryDate DESC LIMIT 10]]></query>
 		</hibernate-mapping>
 	

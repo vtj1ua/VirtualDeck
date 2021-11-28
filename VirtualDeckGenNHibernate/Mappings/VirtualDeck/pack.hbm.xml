@@ -28,11 +28,9 @@
 					<property name="CardTypes" > 
 						<column name="cardTypes"  not-null="true"/>
 					</property>
-					<bag name="CardsRarityProbabilities" table="cardsRarityProbabilities"> 
-						<key>
-						</key>
-						<element column="CardsRarityProbabilities" type="float"/> 
-    				</bag>
+					<property name="CardRarities" > 
+						<column name="cardRarities"  not-null="true"/>
+					</property>
 			
 			
 		  			

@@ -43,9 +43,9 @@ private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum cardTypes;
 
 
 /**
- *	Atributo cardsRarityProbabilities
+ *	Atributo cardRarities
  */
-private System.Collections.Generic.IList<float> cardsRarityProbabilities;
+private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum cardRarities;
 
 
 
@@ -82,8 +82,8 @@ public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum Card
 
 
 
-public virtual System.Collections.Generic.IList<float> CardsRarityProbabilities {
-        get { return cardsRarityProbabilities; } set { cardsRarityProbabilities = value;  }
+public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum CardRarities {
+        get { return cardRarities; } set { cardRarities = value;  }
 }
 
 
@@ -97,21 +97,21 @@ public PackEN() : base ()
 
 
 
-public PackEN(int id, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN> userPacks, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, int maxNumCards, int minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum cardTypes, System.Collections.Generic.IList<float> cardsRarityProbabilities
+public PackEN(int id, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN> userPacks, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, int maxNumCards, int minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum cardTypes, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum cardRarities
               , string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, Nullable<DateTime> registryDate
               )
 {
-        this.init (Id, userPacks, rarity, maxNumCards, minNumCards, cardTypes, cardsRarityProbabilities, name, description, price, img, comments, bills, registryDate);
+        this.init (Id, userPacks, rarity, maxNumCards, minNumCards, cardTypes, cardRarities, name, description, price, img, comments, bills, registryDate);
 }
 
 
 public PackEN(PackEN pack)
 {
-        this.init (Id, pack.UserPacks, pack.Rarity, pack.MaxNumCards, pack.MinNumCards, pack.CardTypes, pack.CardsRarityProbabilities, pack.Name, pack.Description, pack.Price, pack.Img, pack.Comments, pack.Bills, pack.RegistryDate);
+        this.init (Id, pack.UserPacks, pack.Rarity, pack.MaxNumCards, pack.MinNumCards, pack.CardTypes, pack.CardRarities, pack.Name, pack.Description, pack.Price, pack.Img, pack.Comments, pack.Bills, pack.RegistryDate);
 }
 
 private void init (int id
-                   , System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN> userPacks, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, int maxNumCards, int minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum cardTypes, System.Collections.Generic.IList<float> cardsRarityProbabilities, string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, Nullable<DateTime> registryDate)
+                   , System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserPackEN> userPacks, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, int maxNumCards, int minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum cardTypes, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum cardRarities, string name, string description, int price, string img, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> comments, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, Nullable<DateTime> registryDate)
 {
         this.Id = id;
 
@@ -126,7 +126,7 @@ private void init (int id
 
         this.CardTypes = cardTypes;
 
-        this.CardsRarityProbabilities = cardsRarityProbabilities;
+        this.CardRarities = cardRarities;
 
         this.Name = name;
 

@@ -58,5 +58,6 @@
 		  
 		  <query name="BillENReadAllHQL">from BillEN</query>
 		  <query name="BillENbillsByUserHQL"><![CDATA[FROM BillEN as bill where bill.User = :p_user]]></query>
+		  <query name="BillENcardBillsByUserHQL"><![CDATA[SELECT bill FROM BillEN as bill, CardEN as card WHERE bill.User = :p_user AND bill.Product IS NOT NULL AND bill.Product.Id = card.Id ORDER BY bill.Date DESC]]></query>
 		</hibernate-mapping>
 	

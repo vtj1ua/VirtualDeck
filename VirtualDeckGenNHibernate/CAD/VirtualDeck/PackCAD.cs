@@ -104,7 +104,7 @@ public void ModifyDefault (PackEN pack)
                 packEN.CardTypes = pack.CardTypes;
 
 
-                packEN.CardsRarityProbabilities = pack.CardsRarityProbabilities;
+                packEN.CardRarities = pack.CardRarities;
 
                 session.Update (packEN);
                 SessionCommit ();
@@ -185,7 +185,7 @@ public void Modify (PackEN pack)
                 packEN.CardTypes = pack.CardTypes;
 
 
-                packEN.CardsRarityProbabilities = pack.CardsRarityProbabilities;
+                packEN.CardRarities = pack.CardRarities;
 
                 session.Update (packEN);
                 SessionCommit ();

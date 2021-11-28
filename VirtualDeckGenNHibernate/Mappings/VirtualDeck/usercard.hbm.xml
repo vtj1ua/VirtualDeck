@@ -45,6 +45,9 @@
 					<property name="PurchaseDate" type="date"> 
 						<column name="purchaseDate"  not-null="true"/>
 					</property>
+					<property name="Quality" type="double"> 
+						<column name="quality"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -119,6 +122,8 @@
 					      	</key>
 							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN"/>
 					    </bag>
+					
+			
 					
 					
 					

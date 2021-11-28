@@ -49,14 +49,28 @@ public int CreateUserCard (int p_card, int p_seed)
                 //Anadir valores aleatorios a las estadisticas
                 CardTypeEnum type = baseCard.Type;
                 RarityEnum rarity = baseCard.Rarity;
-                int health = baseCard.Health + rnd.Next (-10, 10);
-                int attack = baseCard.Attack + rnd.Next (-10, 10);
-                int defense = baseCard.Defense + rnd.Next (-10, 10);
-                int speed = baseCard.Speed + rnd.Next (-10, 10);
+                int minRange = 0;
+                int maxRange = 0;
+                switch(rarity)
+                {
+                    case RarityEnum.Basic: minRange = -10; maxRange = 10; break;
+                    case RarityEnum.Common: minRange = -5; maxRange = 15; break;
+                    case RarityEnum.Uncommon: minRange = 0; maxRange = 20; break;
+                    case RarityEnum.Rare: minRange = 0; maxRange = 25; break;
+                    case RarityEnum.Epic: minRange = 0; maxRange = 35; break;
+                    case RarityEnum.Legendary: minRange = 0; maxRange = 45; break;
+                    case RarityEnum.Mythical: minRange = 0; maxRange = 55; break;
+                }
+
+                int health = baseCard.Health + rnd.Next (minRange, maxRange + 1);
+                int attack = baseCard.Attack + rnd.Next(minRange, maxRange + 1);
+                int defense = baseCard.Defense + rnd.Next(minRange, maxRange + 1);
+                int speed = baseCard.Speed + rnd.Next(minRange, maxRange + 1);
+                double quality = rnd.NextDouble();
                 string name = baseCard.Name;
                 string image = baseCard.Img;
 
-                userCardID = userCardCEN.New_ (type, rarity, speed, defense, attack, health, name, image, attacksIDs, p_card);
+                userCardID = userCardCEN.New_ (type, rarity, speed, defense, attack, health, name, image, attacksIDs, p_card, quality);
 
                 // Write here your custom transaction ...
 

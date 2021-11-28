@@ -108,5 +108,9 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 {
         return _ICardCAD.CardsByTypeAndRarity (p_type, p_rarity);
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> CardsByRegistryDate ()
+{
+        return _ICardCAD.CardsByRegistryDate ();
+}
 }
 }

@@ -50,5 +50,8 @@ System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN>
 
 
 System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> CardsByTypeAndRarity (VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum? p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum ? p_rarity);
+
+
+System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> CardsByRegistryDate ();
 }
 }

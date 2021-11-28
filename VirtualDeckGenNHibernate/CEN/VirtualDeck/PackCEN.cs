@@ -39,7 +39,7 @@ public IPackCAD get_IPackCAD ()
         return this._IPackCAD;
 }
 
-public void Modify (int p_Pack_OID, string p_name, string p_description, int p_price, string p_img, Nullable<DateTime> p_registryDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_maxNumCards, int p_minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_cardTypes, System.Collections.Generic.IList<float> p_cardsRarityProbabilities)
+public void Modify (int p_Pack_OID, string p_name, string p_description, int p_price, string p_img, Nullable<DateTime> p_registryDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_maxNumCards, int p_minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_cardTypes, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_cardRarities)
 {
         PackEN packEN = null;
 
@@ -55,7 +55,7 @@ public void Modify (int p_Pack_OID, string p_name, string p_description, int p_p
         packEN.MaxNumCards = p_maxNumCards;
         packEN.MinNumCards = p_minNumCards;
         packEN.CardTypes = p_cardTypes;
-        packEN.CardsRarityProbabilities = p_cardsRarityProbabilities;
+        packEN.CardRarities = p_cardRarities;
         //Call to PackCAD
 
         _IPackCAD.Modify (packEN);

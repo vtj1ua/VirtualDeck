@@ -19,13 +19,18 @@ namespace VirtualDeckGenNHibernate.CEN.VirtualDeck
 {
 public partial class PackCEN
 {
-public int New_ (string p_name, string p_description, int p_price, string p_img, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_maxNumCards, int p_minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_cardTypes, System.Collections.Generic.IList<float> p_cardsRarityProbabilities)
+public int New_ (string p_name, string p_description, int p_price, string p_img, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_maxNumCards, int p_minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_cardTypes, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_cardRarities)
 {
         /*PROTECTED REGION ID(VirtualDeckGenNHibernate.CEN.VirtualDeck_Pack_new__customized) ENABLED START*/
 
         PackEN packEN = null;
 
         int oid;
+
+        if (p_cardTypes == Enumerated.VirtualDeck.CardTypeEnum.None)
+            throw new Exception("El sobre debe contener algun tipo  de carta");
+        if (p_cardRarities == Enumerated.VirtualDeck.RarityEnum.None)
+            throw new Exception ("El sobre debe contener alguna rareza de cartas");
 
         //Initialized PackEN
         packEN = new PackEN ();
@@ -45,8 +50,9 @@ public int New_ (string p_name, string p_description, int p_price, string p_img,
 
         packEN.CardTypes = p_cardTypes;
 
-        packEN.RegistryDate = DateTime.Now;
+        packEN.CardRarities = p_cardRarities;
 
+        packEN.RegistryDate = DateTime.Now;
         //Call to PackCAD
 
         oid = _IPackCAD.New_ (packEN);

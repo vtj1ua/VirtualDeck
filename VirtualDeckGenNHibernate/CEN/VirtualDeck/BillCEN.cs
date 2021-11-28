@@ -79,5 +79,9 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 {
         return _IBillCAD.BillsByUser (p_user);
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> CardBillsByUser (int p_user)
+{
+        return _IBillCAD.CardBillsByUser (p_user);
+}
 }
 }

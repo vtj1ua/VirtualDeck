@@ -130,6 +130,9 @@ public void ModifyDefault (UserCardEN userCard)
 
 
 
+
+                userCardEN.Quality = userCard.Quality;
+
                 session.Update (userCardEN);
                 SessionCommit ();
         }
@@ -226,6 +229,9 @@ public void Modify (UserCardEN userCard)
 
 
                 userCardEN.PurchaseDate = userCard.PurchaseDate;
+
+
+                userCardEN.Quality = userCard.Quality;
 
                 session.Update (userCardEN);
                 SessionCommit ();
