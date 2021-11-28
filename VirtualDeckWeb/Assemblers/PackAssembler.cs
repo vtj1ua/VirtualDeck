@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
 {
@@ -16,11 +17,11 @@ namespace VirtualDeckWeb.Assemblers
             pack.Description = en.Description;
             pack.Price = en.Price;
             pack.Img = en.Img;
-            pack.RegistryDate = en.RegistryDate;
+            //pack.RegistryDate = en.RegistryDate;
             pack.MaxNumCards = en.MaxNumCards;
             pack.MinNumCards = en.MinNumCards;
-            pack.CardTypes = en.CardTypes;
-            pack.Rarity = en.Rarity;
+            //pack.CardTypes = en.CardTypes;
+            //pack.Rarity = en.Rarity;
             return pack;
 
 

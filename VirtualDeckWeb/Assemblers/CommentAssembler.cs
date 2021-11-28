@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
 {
@@ -13,7 +14,7 @@ namespace VirtualDeckWeb.Assemblers
             CommentViewModel comment = new CommentViewModel();
             comment.Id = en.Id;
             comment.Text = en.Text;
-            comment.PublishDate = en.PublishDate;
+            comment.PublishDate = (DateTime)en.PublishDate;
             return comment;
 
 

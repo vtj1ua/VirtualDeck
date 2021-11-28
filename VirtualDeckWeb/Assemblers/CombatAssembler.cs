@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
 {
@@ -12,7 +13,7 @@ namespace VirtualDeckWeb.Assemblers
         {
             CombatViewModel combat = new CombatViewModel();
             combat.Id = en.Id;
-            combat.Date = en.Date;
+            combat.Date = (DateTime)en.Date;
             return combat;
 
 

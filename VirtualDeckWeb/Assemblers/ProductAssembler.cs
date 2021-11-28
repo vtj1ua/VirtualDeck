@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
 {
@@ -16,7 +17,7 @@ namespace VirtualDeckWeb.Assemblers
             prod.Description = en.Description;
             prod.Price = en.Price;
             prod.Img = en.Img;
-            prod.RegistryDate = en.RegistryDate;
+            //prod.RegistryDate = en.RegistryDate;
             return prod;
 
 

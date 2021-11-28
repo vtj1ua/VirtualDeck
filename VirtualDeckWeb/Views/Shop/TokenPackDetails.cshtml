@@ -1,0 +1,57 @@
+﻿@model VirtualDeckWeb.Models.TokenPackViewModel
+
+@{
+    ViewBag.Title = "TokenPackDetails";
+}
+
+<h2>COMPRAR PACK DE TOKENS</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            Precio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Imagen
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Img)
+        </dd>
+
+        <dt>
+            Tokens
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tokens)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Volver", "TokenPacks")
+</p>

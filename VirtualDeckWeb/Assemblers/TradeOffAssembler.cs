@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
 {
@@ -12,7 +13,7 @@ namespace VirtualDeckWeb.Assemblers
         {
             TradeOffViewModel tradeOff = new TradeOffViewModel();
             tradeOff.Id = en.Id;
-            tradeOff.Date = en.Date;
+            tradeOff.Date = (DateTime)en.Date;
             tradeOff.State = en.State;
             return tradeOff;
 

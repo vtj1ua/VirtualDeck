@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
 {
@@ -12,7 +13,7 @@ namespace VirtualDeckWeb.Assemblers
         {
             UserCardViewModel userCard = new UserCardViewModel();
             userCard.Id = en.Id;
-            userCard.Type = en.Name;
+            userCard.Type = en.Type;
             userCard.Rarity = en.Rarity;
             userCard.Speed = en.Speed;
             userCard.Defense = en.Defense;
@@ -22,7 +23,7 @@ namespace VirtualDeckWeb.Assemblers
             userCard.Experience = en.Experience;
             userCard.Name = en.Name;
             userCard.Img = en.Img;
-            userCard.PurchaseDate = en.PurchaseDate;
+            userCard.PurchaseDate = (DateTime)en.PurchaseDate;
             return userCard;
 
 

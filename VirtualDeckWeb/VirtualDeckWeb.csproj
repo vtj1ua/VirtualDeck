@@ -219,9 +219,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AttackMoveViewModel.cs" />
+    <Compile Include="Models\BillViewModel.cs" />
     <Compile Include="Models\CardViewModel.cs" />
+    <Compile Include="Models\CombatViewModel.cs" />
+    <Compile Include="Models\CommentViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NotificationViewModel.cs" />
+    <Compile Include="Models\PackViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\TokenPackViewModel.cs" />
+    <Compile Include="Models\TradeOffViewModel.cs" />
+    <Compile Include="Models\UserCardViewModel.cs" />
+    <Compile Include="Models\UserPackViewModel.cs" />
+    <Compile Include="Models\VirtualUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -285,6 +297,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Card\Index.cshtml" />
     <Content Include="Views\Shop\Cards.cshtml" />
+    <Content Include="Views\Shop\Packs.cshtml" />
+    <Content Include="Views\Shop\TokenPacks.cshtml" />
+    <Content Include="Views\Shop\CardDetails.cshtml" />
+    <Content Include="Views\Shop\PackDetails.cshtml" />
+    <Content Include="Views\Shop\TokenPackDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
 {
@@ -12,7 +13,7 @@ namespace VirtualDeckWeb.Assemblers
         {
             UserPackViewModel userPack = new UserPackViewModel();
             userPack.Id = en.Id;
-            userPack.PurchaseDate = en.PurchaseDate;
+            userPack.PurchaseDate = (DateTime)en.PurchaseDate;
             userPack.Type = en.Type;
             return userPack;
 

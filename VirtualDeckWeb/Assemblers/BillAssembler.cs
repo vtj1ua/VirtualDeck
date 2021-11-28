@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
 {
@@ -12,7 +13,7 @@ namespace VirtualDeckWeb.Assemblers
         {
             BillViewModel bill = new BillViewModel();
             bill.Id = en.Id;
-            bill.Date = en.Date;
+            bill.Date = (DateTime)en.Date;
             bill.Amount = en.Amount;
             return bill;
 

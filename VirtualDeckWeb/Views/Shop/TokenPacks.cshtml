@@ -1,7 +1,7 @@
-﻿@model IEnumerable<VirtualDeckWeb.Models.CardViewModel>
+﻿@model IEnumerable<VirtualDeckWeb.Models.TokenPackViewModel>
 
 @{
-    ViewBag.Title = "Cards";
+    ViewBag.Title = "TokenPacks";
 }
 
 <ul class="nav justify-content-center">
@@ -16,13 +16,10 @@
     </li>
 </ul>
 
-<h2>Cartas</h2>
+<h2>Packs de Tokens</h2>
 
 <table class="table">
     <tr>
-        <th>
-            Imagen
-        </th>
         <th>
             Nombre
         </th>
@@ -33,25 +30,16 @@
             Precio
         </th>
         <th>
-            Vida
+            Imagen
         </th>
         <th>
-            Ataque
-        </th>
-        <th>
-            Defensa
-        </th>
-        <th>
-            Velocidad
+            Tokens
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Img)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
@@ -62,19 +50,13 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Health)
+            @Html.DisplayFor(modelItem => item.Img)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Attack)
+            @Html.DisplayFor(modelItem => item.Tokens)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Defense)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Speed)
-        </td>
-        <td>
-            @Html.ActionLink("Comprar", "CardDetails", new { id=item.Id })
+            @Html.ActionLink("Comprar", "TokenPackDetails", new { id=item.Id })
         </td>
     </tr>
 }
