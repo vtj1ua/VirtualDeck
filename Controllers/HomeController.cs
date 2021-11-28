@@ -15,28 +15,28 @@ namespace VirtualDeckWeb.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Página sobre mi";
+            ViewBag.Message = "Virtual Deck";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Página de contacto";
+            ViewBag.Message = "Contacta con el servicio técnico";
 
             return View();
         }
 
         public ActionResult Tienda()
         {
-            ViewBag.Message = "Página de la tienda";
+            ViewBag.Message = "En esta página podrás acceder a la tienda, donde podrás comprar carta, sobres y tokens";
 
             return View();
         }
 
         public ActionResult Usuarios()
         {
-            ViewBag.Message = "Página de usuarios";
+            ViewBag.Message = "En esta págia podrás buscar otros usuarios y ver su perfil dentro del juego";
 
             return View();
         }
