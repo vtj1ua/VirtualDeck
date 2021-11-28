@@ -2,10 +2,6 @@
     --fuente: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-* {
-    font-family: var(--fuente);
-}
-
 .contenedor {
     position: relative;
     background: rgb(231, 231, 231);
@@ -16,6 +12,8 @@
     z-index: -3;
     box-sizing: content-box;
     padding: 1px;
+    font-family: var(--fuente);
+    margin-bottom: 2em;
 }
 
     .contenedor > p {
@@ -27,13 +25,13 @@
 
     .contenedor > div:last-child {
         display: grid;
-        grid-template-columns: 70% 30%;
-        margin-bottom: 1em;
+        grid-template-columns: 60% 40%;
+        margin-bottom: 1em
     }
 
         .contenedor > div:last-child > button {
             padding: 0;
-            width: 8.5em;
+            width: 8em;
             height: 2.5em;
             background: black;
             color: white;
@@ -63,10 +61,9 @@
 
     .tipo > img {
         z-index: 2;
-        filter: invert(14%) sepia(98%) saturate(2781%) hue-rotate(206deg) brightness(102%) contrast(109%);
     }
 
-img {
+.contenedor img {
     border-radius: 5px;
     width: 100%;
     overflow: hidden;
@@ -123,4 +120,74 @@ img {
 .puntos {
     margin: auto;
     display: block;
+}
+
+.gridProducts{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}
+
+
+/* --------------------------- Type cards --------------------------------------*/
+
+.electric {
+    filter: invert(89%) sepia(69%) saturate(1192%) hue-rotate(331deg) brightness(111%) contrast(107%);
+}
+
+.fire {
+    filter: invert(70%) sepia(71%) saturate(4608%) hue-rotate(356deg) brightness(98%) contrast(97%);
+}
+
+.water {
+    filter: invert(40%) sepia(18%) saturate(5221%) hue-rotate(177deg) brightness(86%) contrast(92%);
+}
+
+.poison {
+    filter: invert(22%) sepia(80%) saturate(4897%) hue-rotate(279deg) brightness(88%) contrast(105%);
+}
+
+.psychic {
+    filter: invert(15%) sepia(65%) saturate(6311%) hue-rotate(329deg) brightness(94%) contrast(97%);
+}
+
+.normal {
+    filter: invert(100%) sepia(2%) saturate(5248%) hue-rotate(87deg) brightness(87%) contrast(78%);
+}
+
+.ground {
+    filter: invert(84%) sepia(39%) saturate(618%) hue-rotate(3deg) brightness(96%) contrast(88%);
+}
+
+.rock {
+    filter: invert(39%) sepia(23%) saturate(762%) hue-rotate(9deg) brightness(98%) contrast(86%);
+}
+
+.ice {
+    filter: invert(44%) sepia(96%) saturate(353%) hue-rotate(137deg) brightness(91%) contrast(98%);
+}
+
+.grass {
+    filter: invert(36%) sepia(99%) saturate(1106%) hue-rotate(67deg) brightness(97%) contrast(93%);
+}
+
+.ghost {
+    filter: invert(44%) sepia(11%) saturate(2370%) hue-rotate(239deg) brightness(86%) contrast(89%);
+}
+
+.flying {
+    filter: invert(61%) sepia(45%) saturate(388%) hue-rotate(126deg) brightness(100%) contrast(86%);
+}
+
+.fighting {
+    filter: invert(18%) sepia(97%) saturate(7438%) hue-rotate(354deg) brightness(93%) contrast(93%);
+}
+
+.dragon {
+    filter: invert(34%) sepia(14%) saturate(5699%) hue-rotate(233deg) brightness(112%) contrast(105%);
+}
+
+.bug {
+    filter: invert(100%) sepia(42%) saturate(2421%) hue-rotate(350deg) brightness(97%) contrast(78%);
 }

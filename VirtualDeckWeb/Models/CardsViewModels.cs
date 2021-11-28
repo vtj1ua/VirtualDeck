@@ -45,7 +45,9 @@ namespace VirtualDeckWeb.Models
         [Display(Prompt = "Type de la carta", Description = "Type de la carta", Name = "Type")]
         [Required(ErrorMessage = "el Type Debe de estar indicado")]
         [Range(minimum: 0, maximum: 400, ErrorMessage = "Type de la carta")]
-        public CardTypeEnum TypeCard { get; set; }
+        [StringLength(maximumLength: 400, ErrorMessage = "Type de la carta")]
+
+        public string TypeCard { get; set; }
 
 
         [Display(Prompt = "Health de la carta", Description = "Health de la carta", Name = "Health")]
@@ -76,7 +78,8 @@ namespace VirtualDeckWeb.Models
 
         [Display(Prompt = "Rarity de la carta", Description = "Rarity de la carta", Name = "Rarity")]
         [Required(ErrorMessage = "el Rarity Debe de estar indicado")]
-        [Range(minimum: 0, maximum: 400, ErrorMessage = "Rarity de la carta")]
-        public CardRarityEnum RarityCard { get; set; }
+        [StringLength(maximumLength: 400, ErrorMessage = "Longitud de la carta")]
+
+        public string RarityCard { get; set; }
     }
 }

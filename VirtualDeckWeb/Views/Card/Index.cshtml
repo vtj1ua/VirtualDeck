@@ -11,96 +11,45 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<div class="contenedor">
-    <div class="fondo">
-        <div class="tipo">
-            <img src="~/Resources/Borders/mitic.png" alt="electric">
-            <div class="info">
-                <h3>@Html.DisplayNameFor(model => model.NameCard)</h3>
-                <img src="~/Resources/Type/martin.png" alt="martin">
-                <div class="estadisticas">
-                    <h4>Ataque</h4>
-                    <p class="puntos">50</p>
-                    <h4>Vida</h4>
-                    <p class="puntos">39</p>
-                    <h4>Defensa</h4>
-                    <p class="puntos">80</p>
-                    <h4>Velocidad</h4>
-                    <p class="puntos">12</p>
-                </div>
 
+
+
+
+
+<div class="gridProducts">
+    @foreach (var item in Model)
+    {
+        <div class="contenedor">
+            <div class="fondo">
+                <div class="tipo">
+                    <img class="@Html.DisplayFor(modelItem => item.TypeCard)"  src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.RarityCard)" alt="electric">
+                    <div class="info">
+                        <h3>@Html.DisplayFor(modelItem => item.NameCard)</h3>
+                        <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.ImgCard) " alt="@Html.DisplayFor(modelItem => item.ImgCard)">
+                        <div class="estadisticas">
+                            <h4>Ataque</h4>
+                            <p class="puntos">@Html.DisplayFor(modelItem => item.AttackCard)</p>
+                            <h4>Vida</h4>
+                            <p class="puntos">@Html.DisplayFor(modelItem => item.HealthCard)</p>
+                            <h4>Defensa</h4>
+                            <p class="puntos">@Html.DisplayFor(modelItem => item.DefenseCard)</p>
+                            <h4>Velocidad</h4>
+                            <p class="puntos">@Html.DisplayFor(modelItem => item.SpeedCard)</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <p>@Html.DisplayFor(modelItem => item.CardDescription)</p>
+            <div>
+                <button>@Html.ActionLink("Comprar", "ModelPurchaseCard", new { id = item.IdCard }) </button>
+                <p>@Html.DisplayFor(modelItem => item.PriceCard)</p>
             </div>
         </div>
-    </div>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, molestiae!</p>
-    <div>
-        <button>Comprar carta</button>
-        <p>1000 X</p>
-    </div>
+    }
 </div>
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ImgCard)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NameCard)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CardDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PriceCard)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HealthCard)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AttackCard)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DefenseCard)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SpeedCard)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImgCard)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameCard)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CardDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PriceCard)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HealthCard)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AttackCard)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DefenseCard)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SpeedCard)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
-</table>
+@Html.ActionLink("Edit", "Edit", new { /*id = item.IdCard */}) |
+@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })

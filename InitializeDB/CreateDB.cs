@@ -173,17 +173,21 @@ public static void InitializeData ()
 
                 //BASE CARDS
                 CardCEN cardCEN = new CardCEN ();
-                int cartaPrueba = cardCEN.New_ ("PEPEPEEPEPEPE", "Dragon antiguo basado en el choque del cielo y la tierra", 2000, "urlAlAImagen", CardTypeEnum.Dragon, 100, 90, 50, 70, CardRarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba1 = cardCEN.New_ ("Sr Ogro", "Ogro bien vestido", 1600, "urlAlAImagen", CardTypeEnum.Normal, 70, 60, 80, 30, CardRarityEnum.Legendary, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba2 = cardCEN.New_ ("Dasdingo", "Seeeeh colegaa", 1200, "urlAlAImagen", CardTypeEnum.Fighting, 60, 50, 60, 50, CardRarityEnum.Epic, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba3 = cardCEN.New_ ("En-Zhot", "Dragon caido", 1000, "urlAlAImagen", CardTypeEnum.Dragon, 100, 20, 10, 100, CardRarityEnum.Rare, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba4 = cardCEN.New_ ("AccesibleBot", "Robot muy accesible creado por Tim Berners Lee", 800, "urlAlAImagen", CardTypeEnum.Electric, 30, 40, 50, 60, CardRarityEnum.Uncommon, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba5 = cardCEN.New_ ("Secuaz Arierep", "Prisionero de la 'Guerra de los 4 mares'", 600, "urlAlAImagen", CardTypeEnum.Ghost, 20, 30, 20, 40, CardRarityEnum.Common, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba6 = cardCEN.New_ ("Token no fungible", "Literalmente un token no fungible", 400, "urlAlAImagen", CardTypeEnum.Ghost, 10, 20, 10, 10, CardRarityEnum.Basic, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba = cardCEN.New_ ("Martín", "Dragon antiguo basado en el choque del cielo y la tierra", 2000, "martin.png", CardTypeEnum.Dragon, 100, 90, 50, 70, CardRarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba1 = cardCEN.New_ ("Sr Ogro", "Ogro bien vestido", 1600, "martin.png", CardTypeEnum.Normal, 70, 60, 80, 30, CardRarityEnum.Legendary, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba2 = cardCEN.New_ ("Dasdingo", "Seeeeh colegaa", 1200, "martin.png", CardTypeEnum.Fighting, 60, 50, 60, 50, CardRarityEnum.Epic, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba3 = cardCEN.New_ ("En-Zhot", "Dragon caido", 1000, "martin.png", CardTypeEnum.Dragon, 100, 20, 10, 100, CardRarityEnum.Rare, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba4 = cardCEN.New_ ("AccesibleBot", "Robot muy accesible creado por Tim Berners Lee", 800, "martin.png", CardTypeEnum.Electric, 30, 40, 50, 60, CardRarityEnum.Uncommon, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba5 = cardCEN.New_ ("Secuaz Arierep", "Prisionero de la 'Guerra de los 4 mares'", 600, "martin.png", CardTypeEnum.Ghost, 20, 30, 20, 40, CardRarityEnum.Common, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba6 = cardCEN.New_ ("Token no fungible", "Literalmente un token no fungible", 400, "martin.png", CardTypeEnum.Ghost, 10, 20, 10, 10, CardRarityEnum.Basic, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba7 = cardCEN.New_("Papa Noel", "Regalos para todos", 400, "noel.png", CardTypeEnum.Ice, 10, 20, 10, 10, CardRarityEnum.Legendary, new List<int> { idAttack1, idAttack2, idAttack3 });
+                int cartaPrueba8 = cardCEN.New_("Jhony chispas", "Electrocutado por un cable", 400, "jhonyChispas.png", CardTypeEnum.Electric, 10, 20, 10, 10, CardRarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
 
-                int primero = cardCEN.New_ ("Card1", "Carta 1", 12, "card1.img", CardTypeEnum.Electric, 45, 23, 12, 34, CardRarityEnum.Epic, new List<int> { idAttack4 });
-                int segundo = cardCEN.New_ ("Card2", "Carta 2", 5, "card2.img", CardTypeEnum.Bug, 4, 27, 2, 4, CardRarityEnum.Basic, new List<int> { idAttack4 });
-                int tercero = cardCEN.New_ ("Card3", "Carta 3", 45, "card3.img", CardTypeEnum.Fire, 5, 2, 2, 90, CardRarityEnum.Common, new List<int> { idAttack4 });
+
+
+                int primero = cardCEN.New_ ("Card1", "Carta 1", 12, "martin.png", CardTypeEnum.Electric, 45, 23, 12, 34, CardRarityEnum.Epic, new List<int> { idAttack4 });
+                int segundo = cardCEN.New_ ("Card2", "Carta 2", 5, "martin.png", CardTypeEnum.Bug, 4, 27, 2, 4, CardRarityEnum.Basic, new List<int> { idAttack4 });
+                int tercero = cardCEN.New_ ("Card3", "Carta 3", 45, "martin.png", CardTypeEnum.Fire, 5, 2, 2, 90, CardRarityEnum.Common, new List<int> { idAttack4 });
 
 
                 //BASE PACKS
