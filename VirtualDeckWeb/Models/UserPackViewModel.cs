@@ -10,6 +10,6 @@ namespace VirtualDeckWeb.Models
     {
         public int Id { get; set; }
         public DateTime PurchaseDate { get; set; }
-        public PackTypeEnum Type { get; set; }
+        public RarityEnum Rarity { get; set; }
     }
 }

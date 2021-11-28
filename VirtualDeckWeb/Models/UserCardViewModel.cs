@@ -10,7 +10,7 @@ namespace VirtualDeckWeb.Models
     {
         public int Id { get; set; }
         public CardTypeEnum Type { get; set; }
-        public CardRarityEnum Rarity { get; set; }
+        public RarityEnum Rarity { get; set; }
         public int Speed { get; set; }
         public int Defense { get; set; }
         public int Attack { get; set; }

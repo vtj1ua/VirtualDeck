@@ -34,6 +34,6 @@ namespace VirtualDeckWeb.Models
 
         public int Speed { get; set; }
 
-        public CardRarityEnum Rarity { get; set; }
+        public RarityEnum Rarity { get; set; }
     }
 }
