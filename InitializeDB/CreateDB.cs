@@ -228,12 +228,16 @@ public static void InitializeData ()
                 int cartaPrueba7 = cardCEN.New_("Papa Noel", "Regalos para todos", 400, "noel.png", CardTypeEnum.Ice, 10, 20, 10, 10, CardRarityEnum.Legendary, new List<int> { idAttack1, idAttack2, idAttack3 });
                 int cartaPrueba8 = cardCEN.New_("Jhony chispas", "Electrocutado por un cable", 400, "jhonyChispas.png", CardTypeEnum.Electric, 10, 20, 10, 10, CardRarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
                 int carta1 = cardCEN.New_("Mortadelo", "Personaje cómico que te sucumbe con su labia y sus bromas", 3200, "mortadelo.png", CardTypeEnum.Normal, 46, 24, 18, 30, CardRarityEnum.Rare, new List<int> { idAttack, idAttack3, idAttack7 });
-                int carta2 = cardCEN.New_("MoscaMutante", "Mitad mosca, mitad hombre. Se dice que está mutando como el de la mosca", 2500, "fly.png", CardTypeEnum.Flying, 39, 21, 18, 36, CardRarityEnum.Uncommon, new List<int> { idAttack4, idAttack8, idAttack14 });
+                int carta2 = cardCEN.New_("Mosca mutante", "Mitad mosca, mitad hombre. Se dice que está mutando como el de la mosca", 2500, "fly.png", CardTypeEnum.Flying, 39, 21, 18, 36, CardRarityEnum.Uncommon, new List<int> { idAttack4, idAttack8, idAttack14 });
                 int carta3 = cardCEN.New_("Cable pelao", "Tremendo cable pelao ", 2000, "cablePelao.png", CardTypeEnum.Electric, 100, 90, 50, 70, CardRarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
                 int carta4 = cardCEN.New_("Jonhymelavo", "El Jonhy. De calle. Va más doblado que una salchicha doblada", 4700, "rakitic.png", CardTypeEnum.Ground, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack8, idAttack, idAttack3 });
-
-
-
+                int carta5 = cardCEN.New_("La dama gorda", "Un Fantasma que va rondando castillos.", 4700, "damaGorda.png", CardTypeEnum.Ghost, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack6, idAttack15, idAttack });
+                int carta6 = cardCEN.New_("Jack Sparrago", "El pirata más temido de todo poniente", 4700, "jack.png", CardTypeEnum.Water, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack13, idAttack14, idAttack17 });
+                int carta7 = cardCEN.New_("El Diego", "Una especie de Dios argentino. Se le da bien eso del fútbol", 4700, "eldiego.png", CardTypeEnum.Grass, 55, 60, 18, 48, CardRarityEnum.Legendary, new List<int> { idAttack9, idAttack3, idAttack7 });
+                int carta8 = cardCEN.New_("Tri-Spiddie", "Que Spiderman será el real", 4700, "memeSpiderman.png", CardTypeEnum.Fighting, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack4, idAttack1, idAttack3 });
+                int carta9 = cardCEN.New_("Baby Yoda", "Más pequeño que un átomo. Cuidado que se enfada.", 8000, "babyYoda.png", CardTypeEnum.Ground, 30, 60, 40, 10, CardRarityEnum.Legendary, new List<int> { idAttack9, idAttack13, idAttack8 });
+                int carta10 = cardCEN.New_("Worms", "Parecen adorables pero controlan las armas que da gusto...", 4700, "worm.png", CardTypeEnum.Bug, 25, 40, 36, 10, CardRarityEnum.Basic, new List<int> { idAttack8, idAttack9, idAttack12 });
+                int carta11 = cardCEN.New_("Perro motociclón", "Rápido como el viento y más fuerte que un camión, aquí tenemos al perro motociclón", 4700, "perroMotociclon.png", CardTypeEnum.Flying, 66, 12, 90, 23, CardRarityEnum.Basic, new List<int> { idAttack1, idAttack8, idAttack7 });
 
                 /* ---------------------------------------------------------*/
 

@@ -38,7 +38,7 @@ namespace VirtualDeckWeb.Models
         [Required(ErrorMessage = "el precio Debe de estar indicado")]
         [DataType(DataType.Currency, ErrorMessage = "Precio de la carta")]
         [Range(minimum:0, maximum: 400, ErrorMessage = "Precio de la carta")]
-        public double PriceCard { get; set; }
+        public int PriceCard { get; set; }
 
 
 
