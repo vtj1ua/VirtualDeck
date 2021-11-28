@@ -1,37 +1,50 @@
-﻿using System;
+﻿using VirtualDeckWeb.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckGenNHibernate.CAD.VirtualDeck;
+using VirtualDeckWeb.Assemblers;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Controllers
 {
-    public class CardController : Controller
+    public class VirtualUserController : BasicController
     {
-        // GET: Card
+        // GET: VirtualUser
         public ActionResult Index()
         {
-            CardCEN cardCEN = new CardCEN();
-            List<CardEN> cardEN = cardCEN.ReadAll(1, 50).ToList();
-
-            return View(cardEN);
-        }
-
-        // GET: Card/Details/5
-        public ActionResult Details(int id)
-        {
+            SessionInitialize();
+            VirtualUserCAD virtualUserCAD = new VirtualUserCAD(session);
+            VirtualUserCEN virtualUserCEN = new VirtualUserCEN(virtualUserCAD);
+            List<VirtualUserEN> virtualUserEN = virtualUserCEN.ReadAll(0, -1).ToList();
+            IEnumerable<VirtualUserViewModel> model = new VirtualUserAssembler().ConvertListENToModel(virtualUserEN);
+            SessionClose();
             return View();
         }
 
-        // GET: Card/Create
+        // GET: VirtualUser/Details/5
+        public ActionResult Details(int id)
+        {
+            SessionInitialize();
+            VirtualUserCAD virtualUserCAD = new VirtualUserCAD(session);
+            VirtualUserCEN virtualUserCEN = new VirtualUserCEN(virtualUserCAD);
+            VirtualUserEN virtualUserEN = virtualUserCEN.ReadOID(id);
+            VirtualUserViewModel model = new VirtualUserAssembler().ConvertENToModelUI(virtualUserEN);
+            SessionClose();
+            return View(model);
+        }
+
+        // GET: VirtualUser/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Card/Create
+        // POST: VirtualUser/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -47,13 +60,13 @@ namespace VirtualDeckWeb.Controllers
             }
         }
 
-        // GET: Card/Edit/5
+        // GET: VirtualUser/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Card/Edit/5
+        // POST: VirtualUser/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -69,13 +82,13 @@ namespace VirtualDeckWeb.Controllers
             }
         }
 
-        // GET: Card/Delete/5
+        // GET: VirtualUser/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Card/Delete/5
+        // POST: VirtualUser/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
