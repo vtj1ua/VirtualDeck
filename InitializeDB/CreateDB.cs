@@ -154,17 +154,116 @@ public static void InitializeData ()
                 Console.WriteLine ("    -UserCardCP_OpenPack");
                 Console.WriteLine ();
 
-                //ATTACKS
                 AttackMoveCEN attackMoveCEN = new AttackMoveCEN ();
+                CardCEN cardCEN = new CardCEN ();
 
+                /*
+                 * //ATTACKS
+                 *
+                 *
+                 * //BUG ATTACKS
+                 * int bugAttack1 = attackMoveCEN.New_("", CardTypeEnum.Bug, "");
+                 * int bugAttack2 = attackMoveCEN.New_("", CardTypeEnum.Bug, "");
+                 *
+                 * //DRAGON ATTACKS
+                 * int dragonAttack1 = attackMoveCEN.New_("", CardTypeEnum.Dragon, "");
+                 * int dragonAttack2 = attackMoveCEN.New_("", CardTypeEnum.Dragon, "");
+                 *
+                 * //ELECTRIC ATTACKS
+                 * int electricAttack1 = attackMoveCEN.New_("", CardTypeEnum.Electric, "");
+                 * int electricAttack2 = attackMoveCEN.New_("", CardTypeEnum.Electric, "");
+                 *
+                 * //FIGHTING ATTACKS
+                 * int fightingAttack1 = attackMoveCEN.New_("", CardTypeEnum.Fighting, "");
+                 * int fightingAttack2 = attackMoveCEN.New_("", CardTypeEnum.Fighting, "");
+                 *
+                 * //FIRE ATTACKS
+                 * int fireAttack1 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
+                 * int fireAttack2 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
+                 *
+                 * //FLYING ATTACKS
+                 * int flyingAttack1 = attackMoveCEN.New_("", CardTypeEnum.Flying, "");
+                 * int flyingAttack2 = attackMoveCEN.New_("", CardTypeEnum.Flying, "");
+                 *
+                 * //GHOST ATTACKS
+                 * int ghostAttack1 = attackMoveCEN.New_("", CardTypeEnum.Ghost, "");
+                 * int ghostAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ghost, "");
+                 *
+                 * //GRASS ATTACKS
+                 * int grassAttack1 = attackMoveCEN.New_("", CardTypeEnum.Grass, "");
+                 * int grassAttack2 = attackMoveCEN.New_("", CardTypeEnum.Grass, "");
+                 *
+                 * //GROUND ATTACKS
+                 * int groundAttack1 = attackMoveCEN.New_("", CardTypeEnum.Ground, "");
+                 * int groundAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ground, "");
+                 *
+                 * //ICE ATTACKS
+                 * int iceAttack1 = attackMoveCEN.New_("", CardTypeEnum.Ice, "");
+                 * int iceAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ice, "");
+                 *
+                 * //NORMAL ATTACKS
+                 * int normalAttack1 = attackMoveCEN.New_("", CardTypeEnum.Normal, "");
+                 * int normalAttack2 = attackMoveCEN.New_("", CardTypeEnum.Normal, "");
+                 *
+                 * //POISON ATTACKS
+                 * int poisonAttack1 = attackMoveCEN.New_("", CardTypeEnum.Poison, "");
+                 * int poisonAttack2 = attackMoveCEN.New_("", CardTypeEnum.Poison, "");
+                 *
+                 * //PSYCHIC ATTACKS
+                 * int psychicAttack1 = attackMoveCEN.New_("", CardTypeEnum.Psychic, "");
+                 * int psychicAttack2 = attackMoveCEN.New_("", CardTypeEnum.Psychic, "");
+                 *
+                 * //ROCK ATTACKS
+                 * int rockAttack1 = attackMoveCEN.New_("", CardTypeEnum.Rock, "");
+                 * int rockAttack2 = attackMoveCEN.New_("", CardTypeEnum.Rock, "");
+                 *
+                 * //WATER ATTACKS
+                 * int waterAttack1 = attackMoveCEN.New_("", CardTypeEnum.Water, "");
+                 * int waterAttack2 = attackMoveCEN.New_("", CardTypeEnum.Water, "");
+                 *
+                 * //CARDS - VADS
+                 *
+                 *
+                 * //BUG CARDS
+                 *
+                 * //DRAGON CARDS
+                 *
+                 * //ELECTRIC CARDS
+                 *
+                 * //FIGHTING CARDS
+                 *
+                 * //FIRE CARDS
+                 *
+                 * //FLYING CARDS
+                 *
+                 * //GHOST CARDS
+                 *
+                 * //GRASS CARDS
+                 *
+                 * //GROUND CARDS
+                 *
+                 * //ICE CARDS
+                 *
+                 * //NORMAL CARDS
+                 * int normalCard1 = cardCEN.New_("Perro panson", "Todo chiquito, todo panson", 1000, "", CardTypeEnum.Normal,
+                 *  30, 10, 25, 10, RarityEnum.Basic, new List<int> { });
+                 *
+                 * //POISON CARDS
+                 *
+                 * //PSYCHIC CARDS
+                 *
+                 * //ROCK CARDS
+                 *
+                 * //WATER CARDS
+                 *
+                 */
+                //BASE CARDS
                 int idAttack1 = attackMoveCEN.New_ ("Cola draco", CardTypeEnum.Dragon, "Descripcion ataque 1");
                 int idAttack2 = attackMoveCEN.New_ ("Defensa de acero", CardTypeEnum.Dragon, "Descripcion ataque 2");
                 int idAttack3 = attackMoveCEN.New_ ("Torton gurdo", CardTypeEnum.Dragon, "Descripcion ataque 3");
                 int idAttack4 = attackMoveCEN.New_ ("Torton", CardTypeEnum.Fighting, "Descripcion ataque 4");
                 int idAttack5 = attackMoveCEN.New_ ("Bola eléctrica", CardTypeEnum.Fire, "Descripcion ataque 5");
 
-                //BASE CARDS
-                CardCEN cardCEN = new CardCEN ();
                 int cartaPrueba = cardCEN.New_ ("El pepe nuevo 2", "Dragon antiguo basado en el choque del cielo y la tierra", 2000, "urlAlAImagen", CardTypeEnum.Dragon, 100, 90, 50, 70, RarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
                 int cartaPrueba1 = cardCEN.New_ ("Sr Ogro", "Ogro bien vestido", 1600, "urlAlAImagen", CardTypeEnum.Normal, 70, 60, 80, 30, RarityEnum.Legendary, new List<int> { idAttack1, idAttack2, idAttack3 });
                 int cartaPrueba2 = cardCEN.New_ ("Dasdingo", "Seeeeh colegaa", 1200, "urlAlAImagen", CardTypeEnum.Fighting, 60, 50, 60, 50, RarityEnum.Epic, new List<int> { idAttack1, idAttack2, idAttack3 });

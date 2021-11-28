@@ -254,6 +254,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\VirtualDeck\CombatEN.cs" />
 	<Compile Include="CEN\VirtualDeck\CombatCEN.cs" />
 	<Compile Include="CAD\VirtualDeck\ICombatCAD.cs" />
@@ -291,9 +292,10 @@
 	<Compile Include="CP\VirtualDeck\BillCP.cs" />
 			
 			
-			<Compile Include="CEN\VirtualDeck\BillCEN_CreateAssociateToken.cs" />
+			<Compile Include="CP\VirtualDeck\BillCP_CreateAssociateToken.cs" />
 			
-			<Compile Include="CEN\VirtualDeck\BillCEN_CreateAssociateProduct.cs" />
+			<Compile Include="CP\VirtualDeck\BillCP_CreateAssociateProduct.cs" />
+			
 			
 			
 			

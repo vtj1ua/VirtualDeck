@@ -373,5 +373,44 @@ public void AssignGivenUserCard (int p_TradeOff_OID, int p_givenUserCard_OID)
                 SessionClose ();
         }
 }
+
+public void AssignNotification (int p_TradeOff_OID, System.Collections.Generic.IList<int> p_notifications_OIDs)
+{
+        VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN tradeOffEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                tradeOffEN = (TradeOffEN)session.Load (typeof(TradeOffEN), p_TradeOff_OID);
+                VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN notificationsENAux = null;
+                if (tradeOffEN.Notifications == null) {
+                        tradeOffEN.Notifications = new System.Collections.Generic.List<VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN>();
+                }
+
+                foreach (int item in p_notifications_OIDs) {
+                        notificationsENAux = new VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN ();
+                        notificationsENAux = (VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN)session.Load (typeof(VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN), item);
+                        notificationsENAux.TradeOff = tradeOffEN;
+
+                        tradeOffEN.Notifications.Add (notificationsENAux);
+                }
+
+
+                session.Update (tradeOffEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in TradeOffCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

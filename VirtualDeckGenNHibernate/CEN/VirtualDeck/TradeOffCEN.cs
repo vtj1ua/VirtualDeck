@@ -91,5 +91,11 @@ public void AssignGivenUserCard (int p_TradeOff_OID, int p_givenUserCard_OID)
 
         _ITradeOffCAD.AssignGivenUserCard (p_TradeOff_OID, p_givenUserCard_OID);
 }
+public void AssignNotification (int p_TradeOff_OID, System.Collections.Generic.IList<int> p_notifications_OIDs)
+{
+        //Call to TradeOffCAD
+
+        _ITradeOffCAD.AssignNotification (p_TradeOff_OID, p_notifications_OIDs);
+}
 }
 }

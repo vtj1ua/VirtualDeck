@@ -48,9 +48,9 @@ private VirtualDeckGenNHibernate.Enumerated.VirtualDeck.TradeStateEnum state;
 
 
 /**
- *	Atributo notification
+ *	Atributo notifications
  */
-private VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN notification;
+private System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN> notifications;
 
 
 
@@ -107,8 +107,8 @@ public virtual VirtualDeckGenNHibernate.Enumerated.VirtualDeck.TradeStateEnum St
 
 
 
-public virtual VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN Notification {
-        get { return notification; } set { notification = value;  }
+public virtual System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN> Notifications {
+        get { return notifications; } set { notifications = value;  }
 }
 
 
@@ -129,24 +129,25 @@ public virtual VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN GivenUserCard 
 
 public TradeOffEN()
 {
+        notifications = new System.Collections.Generic.List<VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN>();
 }
 
 
 
-public TradeOffEN(int id, Nullable<DateTime> date, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN owner, VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN desiredCard, VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN offeredUserCard, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.TradeStateEnum state, VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN notification, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN exchanger, VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN givenUserCard
+public TradeOffEN(int id, Nullable<DateTime> date, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN owner, VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN desiredCard, VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN offeredUserCard, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.TradeStateEnum state, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN> notifications, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN exchanger, VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN givenUserCard
                   )
 {
-        this.init (Id, date, owner, desiredCard, offeredUserCard, state, notification, exchanger, givenUserCard);
+        this.init (Id, date, owner, desiredCard, offeredUserCard, state, notifications, exchanger, givenUserCard);
 }
 
 
 public TradeOffEN(TradeOffEN tradeOff)
 {
-        this.init (Id, tradeOff.Date, tradeOff.Owner, tradeOff.DesiredCard, tradeOff.OfferedUserCard, tradeOff.State, tradeOff.Notification, tradeOff.Exchanger, tradeOff.GivenUserCard);
+        this.init (Id, tradeOff.Date, tradeOff.Owner, tradeOff.DesiredCard, tradeOff.OfferedUserCard, tradeOff.State, tradeOff.Notifications, tradeOff.Exchanger, tradeOff.GivenUserCard);
 }
 
 private void init (int id
-                   , Nullable<DateTime> date, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN owner, VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN desiredCard, VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN offeredUserCard, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.TradeStateEnum state, VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN notification, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN exchanger, VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN givenUserCard)
+                   , Nullable<DateTime> date, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN owner, VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN desiredCard, VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN offeredUserCard, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.TradeStateEnum state, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN> notifications, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN exchanger, VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN givenUserCard)
 {
         this.Id = id;
 
@@ -161,7 +162,7 @@ private void init (int id
 
         this.State = state;
 
-        this.Notification = notification;
+        this.Notifications = notifications;
 
         this.Exchanger = exchanger;
 

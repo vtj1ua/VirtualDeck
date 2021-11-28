@@ -13,69 +13,82 @@ using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 
 
 
+
 /*PROTECTED REGION ID(usingVirtualDeckGenNHibernate.CP.VirtualDeck_Bill_createAssociateToken) ENABLED START*/
-//  references to other libraries
+using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
 /*PROTECTED REGION END*/
 
 namespace VirtualDeckGenNHibernate.CP.VirtualDeck
 {
 public partial class BillCP : BasicCP
 {
-public VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN CreateAssociateToken (int p_amount, int p_user)
+public VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN CreateAssociateToken (int p_user, int p_tokenPack)
 {
-        /*PROTECTED REGION ID(VirtualDeckGenNHibernate.CP.VirtualDeck_Bill_createAssociateToken) ENABLED START*/
+            /*PROTECTED REGION ID(VirtualDeckGenNHibernate.CP.VirtualDeck_Bill_createAssociateToken) ENABLED START*/
 
-        IBillCAD billCAD = null;
-        BillCEN billCEN = null;
+            IBillCAD billCAD = null;
+            BillCEN billCEN = null;
+            NotificationCAD notificationCAD = null;
+            NotificationCEN notificationCEN = null;
 
-        VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN result = null;
-
-
-        try
-        {
-                SessionInitializeTransaction ();
-                billCAD = new BillCAD (session);
-                billCEN = new  BillCEN (billCAD);
+            VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN result = null;
 
 
+            try
+            {
+                SessionInitializeTransaction();
+                billCAD = new BillCAD(session);
+                billCEN = new BillCEN(billCAD);
+
+                notificationCAD = new NotificationCAD(session);
+                notificationCEN = new NotificationCEN(notificationCAD);
 
 
                 int oid;
                 //Initialized BillEN
                 BillEN billEN;
-                billEN = new BillEN ();
+                billEN = new BillEN();
+
+                billEN.Date = DateTime.Now;
+                billEN.Amount = 1;
 
 
-                billEN.Amount = p_amount;
-
-
-                if (p_user != -1) {
-                        billEN.User = new VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN ();
-                        billEN.User.Id = p_user;
+                if (p_user != -1)
+                {
+                    billEN.User = new VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN();
+                    billEN.User.Id = p_user;
+                }
+                if (p_tokenPack != -1)
+                {
+                    billEN.TokenPack = new VirtualDeckGenNHibernate.EN.VirtualDeck.TokenPackEN();
+                    billEN.TokenPack.Id = p_tokenPack;
                 }
 
-                //Call to BillCAD
 
-                oid = billCAD.CreateAssociateToken (billEN);
-                result = billCAD.ReadOIDDefault (oid);
+                int idNotification = notificationCEN.New_(p_user, TypeNotificationEnum.Bill);
 
 
+                oid = billCAD.CreateAssociateToken(billEN);
+                billCEN.AssignNotification(oid, idNotification);
+                result = billCAD.ReadOIDDefault(oid);
 
-                SessionCommit ();
-        }
-        catch (Exception ex)
-        {
-                SessionRollBack ();
+
+
+                SessionCommit();
+            }
+            catch (Exception ex)
+            {
+                SessionRollBack();
                 throw ex;
-        }
-        finally
-        {
-                SessionClose ();
-        }
-        return result;
+            }
+            finally
+            {
+                SessionClose();
+            }
+            return result;
 
 
-        /*PROTECTED REGION END*/
-}
+            /*PROTECTED REGION END*/
+        }
 }
 }

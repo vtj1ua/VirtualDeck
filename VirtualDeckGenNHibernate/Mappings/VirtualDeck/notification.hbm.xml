@@ -34,10 +34,10 @@
 			
 			
 		  			
-					
-							   <one-to-one name="TradeOff" class="VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN" property-ref="Notification" />							
-					 
-						
+						<many-to-one name="TradeOff" class="VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN" >	
+								<column name="FK_idTradeOff_idTradeOff"/> 
+						</many-to-one>
+											 					
 					
 					
 					

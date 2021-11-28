@@ -37,5 +37,8 @@ System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN>
 
 
 System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> CardBillsByUser (int p_user);
+
+
+void AssignNotification (int p_Bill_OID, int p_notification_OID);
 }
 }

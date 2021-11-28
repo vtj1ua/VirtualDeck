@@ -38,5 +38,7 @@ int Publish (TradeOffEN tradeOff);
 void AssignExchanger (int p_TradeOff_OID, int p_exchanger_OID);
 
 void AssignGivenUserCard (int p_TradeOff_OID, int p_givenUserCard_OID);
+
+void AssignNotification (int p_TradeOff_OID, System.Collections.Generic.IList<int> p_notifications_OIDs);
 }
 }

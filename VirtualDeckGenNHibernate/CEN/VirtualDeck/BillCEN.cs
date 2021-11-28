@@ -83,5 +83,11 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 {
         return _IBillCAD.CardBillsByUser (p_user);
 }
+public void AssignNotification (int p_Bill_OID, int p_notification_OID)
+{
+        //Call to BillCAD
+
+        _IBillCAD.AssignNotification (p_Bill_OID, p_notification_OID);
+}
 }
 }

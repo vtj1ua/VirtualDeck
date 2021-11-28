@@ -38,8 +38,7 @@ public System.Collections.Generic.IList<int> PurchaseUserPack (int p_pack, int p
                 VirtualUserCAD virtualUserCAD = new VirtualUserCAD (session);
                 VirtualUserCEN virtualUserCEN = new VirtualUserCEN (virtualUserCAD);
 
-                BillCAD billCAD = new BillCAD (session);
-                BillCEN billCEN = new BillCEN (billCAD);
+                BillCP billCP = new BillCP(session);
 
                 PackCP packCP = new PackCP (session);
 
@@ -53,7 +52,7 @@ public System.Collections.Generic.IList<int> PurchaseUserPack (int p_pack, int p
                 }
 
                 //Crear factura
-                billCEN.CreateAssociateProduct (p_user, p_pack, p_amount);
+                billCP.CreateAssociateProduct (p_user, p_pack, p_amount);
 
                 //Crear los sobres y asignarlos
                 for (int i = 0; i < p_amount; ++i) {

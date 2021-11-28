@@ -373,5 +373,36 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 
         return result;
 }
+public void AssignNotification (int p_Bill_OID, int p_notification_OID)
+{
+        VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN billEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                billEN = (BillEN)session.Load (typeof(BillEN), p_Bill_OID);
+                billEN.Notification = (VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN)session.Load (typeof(VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN), p_notification_OID);
+
+                billEN.Notification.Bill = billEN;
+
+
+
+
+                session.Update (billEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in BillCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

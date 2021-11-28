@@ -42,12 +42,15 @@
 			
 			
 		  			
+						<bag name="Notifications" >
+							<key>
+							
+								
+								<column name="FK_idTradeOff_idTradeOff"/>
+					      	</key>
+							<one-to-many class="VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN"/>
+					    </bag>
 					
-							<many-to-one name="Notification" class="VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN" >
-								<column name="FK_idNotification_idNotification"/> 
-        					</many-to-one>
-					 
-						
 			
 		  			
 						<many-to-one name="Exchanger" class="VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN" >	

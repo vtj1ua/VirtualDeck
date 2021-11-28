@@ -28,9 +28,9 @@ public int New_ (string p_name, string p_description, int p_price, string p_img,
         int oid;
 
         if (p_cardTypes == Enumerated.VirtualDeck.CardTypeEnum.None)
-            throw new Exception("El sobre debe contener algun tipo  de carta");
+                throw new Exception ("El sobre debe contener algun tipo  de carta");
         if (p_cardRarities == Enumerated.VirtualDeck.RarityEnum.None)
-            throw new Exception ("El sobre debe contener alguna rareza de cartas");
+                throw new Exception ("El sobre debe contener alguna rareza de cartas");
 
         //Initialized PackEN
         packEN = new PackEN ();

@@ -53,7 +53,7 @@ public int CreateUserPack (int p_pack, int p_user, int p_seed)
                 PackEN packEN = packCEN.ReadOID (p_pack);
                 int numCards = rnd.Next (packEN.MinNumCards, packEN.MaxNumCards + 1);
 
-                IList<CardEN> cards = cardCEN.CardsByTypeAndRarity(packEN.CardTypes, packEN.CardRarities);
+                IList<CardEN> cards = cardCEN.CardsByTypeAndRarity (packEN.CardTypes, packEN.CardRarities);
                 List<UserCardEN> userCards = new List<UserCardEN>();
                 for (int i = 0; i < numCards; ++i) {
                         int index = rnd.Next (0, cards.Count);

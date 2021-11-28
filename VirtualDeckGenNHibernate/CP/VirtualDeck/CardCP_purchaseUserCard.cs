@@ -42,8 +42,7 @@ public void PurchaseUserCard (int p_card, int p_user, int p_amount)
                 UserCardCAD userCardCAD = new UserCardCAD (session);
                 UserCardCEN userCardCEN = new UserCardCEN (userCardCAD);
 
-                BillCAD billCAD = new BillCAD (session);
-                BillCEN billCEN = new BillCEN (billCAD);
+                BillCP billCP = new BillCP(session);
 
                 CardCP cardCP = new CardCP (session);
 
@@ -57,12 +56,10 @@ public void PurchaseUserCard (int p_card, int p_user, int p_amount)
                 }
 
                 //Crear factura
-                billCEN.CreateAssociateProduct (p_user, p_card, p_amount);
+                billCP.CreateAssociateProduct (p_user, p_card, p_amount);
 
                 //Crear las cartas y asignarselas
                 for (int i = 0; i < p_amount; ++i) {
-                        //System.Threading.Thread.Sleep(1);
-
                         int cardId = cardCP.CreateUserCard (p_card, rnd.Next ());
 
                         userCardCEN.AssignUser (cardId, p_user);
