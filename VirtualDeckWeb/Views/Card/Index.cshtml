@@ -12,12 +12,14 @@
 </p>
 
 <div class="gridProducts">
+
+
     @foreach (var item in Model)
     {
         <div class="contenedor">
             <div class="fondo">
                 <div class="tipo">
-                    <img class="@Html.DisplayFor(modelItem => item.BackgroundColorClass)"  src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.BackgroundImage)" alt="electric">
+                    <img class="@Html.DisplayFor(modelItem => item.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.BackgroundImage)" alt="electric">
                     <div class="info">
                         <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
                         <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.Img) " alt="@Html.DisplayFor(modelItem => item.Img)">
@@ -41,6 +43,28 @@
                 <p>@Html.DisplayFor(modelItem => item.Price)</p>
             </div>
         </div>
+        
+        Html.RenderPartial("~/Views/Shared/CardDetailsPartialView.cshtml", item);
+
+        <!--
+        <div class="virtual-card">
+            <img class="@Html.DisplayFor(modelItem => item.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.BackgroundImage)" alt="electric">
+            <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.Img) " alt="@Html.DisplayFor(modelItem => item.Img)">
+            <div class="info">
+                <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                <div class="estadisticas">
+                    <h4>Ataque</h4>
+                    <p class="puntos">@Html.DisplayFor(modelItem => item.Attack)</p>
+                    <h4>Vida</h4>
+                    <p class="puntos">@Html.DisplayFor(modelItem => item.Health)</p>
+                    <h4>Defensa</h4>
+                    <p class="puntos">@Html.DisplayFor(modelItem => item.Defense)</p>
+                    <h4>Velocidad</h4>
+                    <p class="puntos">@Html.DisplayFor(modelItem => item.Speed)</p>
+                </div>
+            </div>
+        </div>
+            -->
     }
 </div>
 

@@ -2,6 +2,11 @@
     --fuente: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+* 
+{
+    box-sizing: border-box;
+}
+
 .contenedor {
     position: relative;
     background: rgb(231, 231, 231);
@@ -11,6 +16,7 @@
     border-radius: 5px;
     z-index: -3;
     box-sizing: content-box;
+    
     padding: 1px;
     font-family: var(--fuente);
     margin-bottom: 2em;
@@ -127,6 +133,25 @@
     grid-template-columns: repeat(4, 25%);
 }
 
+.virtual-card {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.virtual-card > img {
+    overflow: hidden;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.virtual-card > img:last-of-type {
+    object-fit: cover;
+    z-index: -1;
+}
 
 /* --------------------------- Type cards --------------------------------------*/
 
