@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -9,6 +10,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using VirtualDeckGenNHibernate.CEN.VirtualDeck;
+using VirtualDeckGenNHibernate.EN.VirtualDeck;
 using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Controllers
@@ -80,14 +82,24 @@ namespace VirtualDeckWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    /*VirtualUserCEN cli = new VirtualUserCEN();
-                    string token = cli.Login(model.Email, model.Password);
-                    if (token != null) return RedirectToLocal(returnUrl);
+                    VirtualUserCEN virtualUserCEN = new VirtualUserCEN();
+                    string token = virtualUserCEN.Login(model.Email, model.Password);
+
+                    if (token != null) 
+                    {
+                        IList<VirtualUserEN> users = virtualUserCEN.UsersByEmail(model.Email);
+                        if(users.Count > 0)
+                        {
+
+                            Session["User"] = users[0];
+                        }
+                        return RedirectToLocal(returnUrl);
+                    } 
                     else
                     {
                         ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
                         return View(model);
-                    }*/
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -155,7 +167,7 @@ namespace VirtualDeckWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterVirtualUserViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -164,7 +176,11 @@ namespace VirtualDeckWeb.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    VirtualUserCEN virtualUserCEN = new VirtualUserCEN();
+                    int userId = virtualUserCEN.New_(model.Password, model.Username, model.Email);
+                    Session["User"] = virtualUserCEN.ReadOID(userId);
+
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -400,6 +416,7 @@ namespace VirtualDeckWeb.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session["User"] = null;
             return RedirectToAction("Index", "Home");
         }
 

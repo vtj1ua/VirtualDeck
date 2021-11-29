@@ -229,6 +229,7 @@
     <Compile Include="Models\NotificationViewModel.cs" />
     <Compile Include="Models\PackViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\RegisterVirtualUserViewModel.cs" />
     <Compile Include="Models\TokenPackViewModel.cs" />
     <Compile Include="Models\TradeOffViewModel.cs" />
     <Compile Include="Models\UserCardViewModel.cs" />
