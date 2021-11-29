@@ -1,0 +1,21 @@
+﻿@model IEnumerable<VirtualDeckWeb.Models.TokenPackViewModel>
+
+<!------------------------------------------- NEW --------------------------------------------------->
+
+<div class="gridProducts">
+    @foreach (var item in Model)
+    {
+        <div class="contenedorPack">
+            <div>
+                <img src="~/Resources/token.png" alt="token">
+            </div>
+            <div>
+                <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                <p>@Html.DisplayFor(modelItem => item.Price)€</p>
+                <button>@Html.ActionLink("Comprar", "ModelPurchaseCard", new { id = item.Id }) </button>
+            </div>
+            
+        </div>
+    }
+</div>

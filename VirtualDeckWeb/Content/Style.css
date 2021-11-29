@@ -193,3 +193,78 @@
 .img-cabecera{
     width:8em;
 }
+
+
+/*#################################### CARLO #################################################*/
+
+.contenedorPack {
+    position: relative;
+    background: rgb(231, 231, 231);
+    width: 18em;
+    height: auto;
+    min-height: 30em;
+    border-radius: 5px;
+    z-index: -3;
+    font-family: var(--fuente);
+    margin-bottom: 2em;
+}
+
+    .contenedorPack > div:first-child {
+        background: rgb(255, 174, 0);
+        height: 10em;
+        border-start-start-radius: 5px;
+        border-start-end-radius: 5px;
+    }
+    /*
+        .contenedorPack > div:first-child::before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 2em;
+            height: 35%;
+            background: linear-gradient(130deg, rgba(255, 174, 0), rgba(255, 255, 255, 0.4),rgb(255, 174, 0));
+            object-fit: cover;
+            animation: mov 3s ease infinite;
+            transform: translateY(-100%);
+        }
+
+        @keyframes mov {
+            0% {
+                transform: translateX(800), rotateZ(130deg);
+                
+            }
+            100% {
+                transform: translateY(-100%), rotateZ(130deg);
+            }
+        }
+        */
+
+
+.contenedorPack > div:first-child img {
+    position: absolute;
+    width: 8em;
+    left: calc(50% - 4em);
+    margin: auto;
+    display: block;
+    margin-top: 6em;
+}
+
+        .contenedorPack > div:last-child {
+           margin-top: 5em;
+           text-align: center;
+        }
+
+            .contenedorPack > div:last-child > button {
+                padding: 0;
+                width: 8em;
+                height: 2.5em;
+                background: black;
+                color: white;
+                border: none;
+                border-radius: 50px;
+            }
+
+
+
+
+

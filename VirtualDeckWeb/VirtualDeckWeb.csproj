@@ -215,6 +215,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\VirtualUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -256,6 +257,7 @@
     <Content Include="Resources\Borders\Mythical.png" />
     <Content Include="Resources\Borders\Rare.png" />
     <Content Include="Resources\Borders\Uncommon.png" />
+    <Content Include="Resources\token.png" />
     <Content Include="Resources\Type\babyYoda.png" />
     <Content Include="Resources\Type\cablePelao.png" />
     <Content Include="Resources\Type\damaGorda.png" />
@@ -327,6 +329,7 @@
     <Content Include="Views\Shop\TokenPackDetails.cshtml" />
     <Content Include="Views\VirtualUser\Details.cshtml" />
     <Content Include="Views\VirtualUser\Index.cshtml" />
+    <Content Include="Views\Token\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
