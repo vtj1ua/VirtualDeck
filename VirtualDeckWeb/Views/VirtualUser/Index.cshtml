@@ -1,4 +1,4 @@
-﻿@model IEnumerable<VirtualDeckWeb.Assemblers.VirtualUserViewModel>
+﻿@model IEnumerable<VirtualDeckWeb.Models.VirtualUserViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -20,21 +20,22 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Img)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumCards)
-        </td>
-        <td>
-            @Html.ActionLink("Detalles", "Details", new { id = item.Id })
-        </td>
-    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumCards)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id })
+            </td>
+        </tr>
     }
 
 </table>

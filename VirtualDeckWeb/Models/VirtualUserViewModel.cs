@@ -1,4 +1,10 @@
-﻿namespace VirtualDeckWeb.Assemblers
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace VirtualDeckWeb.Models
 {
     public class VirtualUserViewModel
     {

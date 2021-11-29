@@ -1,29 +1,21 @@
-﻿@model VirtualDeckWeb.Assemblers.VirtualUserViewModel
+﻿@model VirtualDeckWeb.Models.VirtualUserViewModel
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.UserName)</h2>
 
 <div>
-    <h4>VirtualUserViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.Pass)
+            @Html.DisplayNameFor(model => model.Img)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Pass)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
+            @Html.DisplayFor(model => model.Img)
         </dd>
 
         <dt>
@@ -48,22 +40,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Tokens)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Img)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Img)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CombatStatus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CombatStatus)
         </dd>
 
         <dt>

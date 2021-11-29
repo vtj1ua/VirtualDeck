@@ -9,6 +9,7 @@ using NHibernate.Exceptions;
 using VirtualDeckGenNHibernate.Exceptions;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
 using VirtualDeckGenNHibernate.CAD.VirtualDeck;
+using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
 
 
 /*PROTECTED REGION ID(usingVirtualDeckGenNHibernate.CEN.VirtualDeck_Bill_createAssociateProduct) ENABLED START*/
@@ -41,6 +42,13 @@ public int CreateAssociateProduct (int p_user, int p_product, int p_amount)
                 billEN.User = new VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN ();
                 billEN.User.Id = p_user;
         }
+
+        NotificationCEN notificationCEN = new NotificationCEN();
+        int idNotification = notificationCEN.New_(p_user, TypeNotificationEnum.Bill);
+
+        BillCEN billCEN = new BillCEN();
+            billCEN.assignNotification();
+
 
         //Call to BillCAD
 
