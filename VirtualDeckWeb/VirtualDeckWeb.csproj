@@ -327,6 +327,7 @@
     <Content Include="Views\Shop\TokenPackDetails.cshtml" />
     <Content Include="Views\VirtualUser\Details.cshtml" />
     <Content Include="Views\VirtualUser\Index.cshtml" />
+    <Content Include="Views\VirtualUser\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
