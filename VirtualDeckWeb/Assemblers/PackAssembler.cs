@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
 using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
@@ -16,12 +17,87 @@ namespace VirtualDeckWeb.Assemblers
             pack.Name = en.Name;
             pack.Description = en.Description;
             pack.Price = en.Price;
-            pack.Img = en.Img;
-            //pack.RegistryDate = en.RegistryDate;
+            pack.RegistryDate = (DateTime)en.RegistryDate;
             pack.MaxNumCards = en.MaxNumCards;
             pack.MinNumCards = en.MinNumCards;
-            //pack.CardTypes = en.CardTypes;
-            //pack.Rarity = en.Rarity;
+            
+/*
+            switch (en.CardTypes)
+            {
+                case CardTypeEnum.Electric:
+                    pack.CardTypes = "electric";
+                    break;
+                case CardTypeEnum.Fire:
+                    card.BackgroundColorClass = "fire";
+                    break;
+                case CardTypeEnum.Water:
+                    card.BackgroundColorClass = "water";
+                    break;
+                case CardTypeEnum.Poison:
+                    card.BackgroundColorClass = "poison";
+                    break;
+                case CardTypeEnum.Psychic:
+                    card.BackgroundColorClass = "psychic";
+                    break;
+                case CardTypeEnum.Normal:
+                    card.BackgroundColorClass = "normal";
+                    break;
+                case CardTypeEnum.Ground:
+                    card.BackgroundColorClass = "ground";
+                    break;
+                case CardTypeEnum.Rock:
+                    card.BackgroundColorClass = "rock";
+                    break;
+                case CardTypeEnum.Ice:
+                    card.BackgroundColorClass = "ice";
+                    break;
+                case CardTypeEnum.Grass:
+                    card.BackgroundColorClass = "grass";
+                    break;
+                case CardTypeEnum.Ghost:
+                    card.BackgroundColorClass = "ghost";
+                    break;
+                case CardTypeEnum.Flying:
+                    card.BackgroundColorClass = "flying";
+                    break;
+                case CardTypeEnum.Fighting:
+                    card.BackgroundColorClass = "fighting";
+                    break;
+                case CardTypeEnum.Dragon:
+                    card.BackgroundColorClass = "dragon";
+                    break;
+                case CardTypeEnum.Bug:
+                    card.BackgroundColorClass = "bug";
+                    break;
+            }
+*/
+            switch (en.Rarity)
+            {
+                case RarityEnum.Basic:
+                    pack.Img = "Basic.png";
+                    break;
+                case RarityEnum.Common:
+                    pack.Img = "Common.png";
+                    break;
+                case RarityEnum.Uncommon:
+                    pack.Img = "Uncommon.png";
+                    break;
+                case RarityEnum.Rare:
+                    pack.Img = "Rare.png";
+                    break;
+                case RarityEnum.Epic:
+                    pack.Img = "Epic.png";
+                    break;
+                case RarityEnum.Legendary:
+                    pack.Img = "Legendary.png";
+                    break;
+                case RarityEnum.Mythical:
+                    pack.Img = "Mythical.png";
+                    break;
+                default:
+                    pack.Img = "Common.png";
+                    break;
+            }
             return pack;
 
 
