@@ -215,6 +215,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\VirtualUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -324,6 +325,8 @@
     <Content Include="Views\Shop\CardDetails.cshtml" />
     <Content Include="Views\Shop\PackDetails.cshtml" />
     <Content Include="Views\Shop\TokenPackDetails.cshtml" />
+    <Content Include="Views\VirtualUser\Details.cshtml" />
+    <Content Include="Views\VirtualUser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
