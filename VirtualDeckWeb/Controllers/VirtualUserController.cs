@@ -9,6 +9,8 @@ using VirtualDeckGenNHibernate.CAD.VirtualDeck;
 using VirtualDeckWeb.Assemblers;
 using VirtualDeckWeb.Models;
 using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
+using System.IO;
+using System.Diagnostics;
 
 namespace VirtualDeckWeb.Controllers
 {
@@ -34,6 +36,7 @@ namespace VirtualDeckWeb.Controllers
             VirtualUserCEN virtualUserCEN = new VirtualUserCEN(virtualUserCAD);
             VirtualUserEN virtualUserEN = virtualUserCEN.ReadOID(id);
             VirtualUserViewModel model = new VirtualUserAssembler().ConvertENToModelUI(virtualUserEN);
+            ViewData["idUser"] = model.Id;
             SessionClose();
             return View(model);
         }
@@ -56,28 +59,53 @@ namespace VirtualDeckWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(VirtualUserViewModel usu)
+        public ActionResult Edit(VirtualUserViewModel usu, HttpPostedFileBase file)
         {
+            Debug.WriteLine(usu.UserName);
+            string fileName = "", path = "";
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                Debug.WriteLine("file no null");
+                // extract only the fielname
+                fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                path = Path.Combine(Server.MapPath("~/Resources"), fileName);
+                //string pathDef = path.Replace(@"\\", @"\");
+                file.SaveAs(path);
+            }
+            Debug.WriteLine(fileName);
+
+            //RECORDAR->RENDERACTION PARA PARTIAL VIEW
+
             try
             {
+                Debug.WriteLine(usu.CombatStatus);
+                VirtualUserEN vicen = Session["user"] as VirtualUserEN;
                 VirtualUserCEN cen = new VirtualUserCEN();
-                switch (usu.CombatStatus)
+                if (fileName == "")
                 {
-                    case 1:
-                        cen.Modify(usu.Id, usu.Pass, usu.UserName, usu.Email, usu.Description, usu.Tokens, usu.Img, CombatStatusEnum.Inactive);
-                        break;
-                    case 2:
-                        cen.Modify(usu.Id, usu.Pass, usu.UserName, usu.Email, usu.Description, usu.Tokens, usu.Img, CombatStatusEnum.Searching);
-                        break;
+                    fileName = vicen.Img;
+                }
+                //cen.Modify(vicen.Id, vicen.Pass, usu.UserName, vicen.Email, usu.Description, vicen.Tokens, fileName, vicen.CombatStatus);
+                
+
+                IList<VirtualUserEN> vicen1 = cen.UsersByEmail(vicen.Email);
+                if (vicen1.Count > 0)
+                {
+                    Session["user"] = vicen1[0];
+                    VirtualUserEN vicen2 = Session["user"] as VirtualUserEN;
+                    Debug.WriteLine(vicen2.Id);
+                    Debug.WriteLine(vicen2.Pass);
+                    Debug.WriteLine(vicen2.UserName);
+                    Debug.WriteLine(vicen2.Email);
+                    Debug.WriteLine(vicen2.Description);
+                    Debug.WriteLine(vicen2.Tokens);
+                    Debug.WriteLine(vicen2.Img);
+                    Debug.WriteLine(vicen2.CombatStatus);
                 }
 
-                IList<VirtualUserEN> vicen = cen.UsersByEmail(usu.Email);
-                if (vicen.Count > 0)
-                {
-                    Session["user"] = vicen[0];
-                }
-
-                return RedirectToAction("Details", new { id = usu.Id });
+                return RedirectToAction("Details", new { Id=vicen.Id});
             }
             catch
             {
