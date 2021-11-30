@@ -11,63 +11,65 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
+<div class="virtual-card-container">
+    @foreach (var item in Model)
+    {
+        <div class="virtual-card">
+            <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.Img) " alt="@Html.DisplayFor(modelItem => item.Img)">
+            <img class="@Html.DisplayFor(modelItem => item.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.BackgroundImage)" alt="electric">
+            
+            <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+            <div>
+                <h4>Ataque</h4>
+                <p>@Html.DisplayFor(modelItem => item.Attack)</p>
+                <h4>Vida</h4>
+                <p>@Html.DisplayFor(modelItem => item.Health)</p>
+                <h4>Defensa</h4>
+                <p>@Html.DisplayFor(modelItem => item.Defense)</p>
+                <h4>Velocidad</h4>
+                <p>@Html.DisplayFor(modelItem => item.Speed)</p>
+            </div>
+        </div>
+
+        //Html.RenderPartial("~/Views/Shared/CardDetailsPartialView.cshtml", item);
+    }
+</div>
+<!--
 <div class="gridProducts">
 
 
-    @foreach (var item in Model)
-    {
+    
+
         <div class="contenedor">
             <div class="fondo">
                 <div class="tipo">
-                    <img class="@Html.DisplayFor(modelItem => item.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.BackgroundImage)" alt="electric">
+                    <img class="" src="~/Resources/Borders/" alt="electric">
                     <div class="info">
-                        <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                        <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.Img) " alt="@Html.DisplayFor(modelItem => item.Img)">
+                        <h3></h3>
+                        <img src="~/Resources/Type/ " alt="">
                         <div class="estadisticas">
                             <h4>Ataque</h4>
-                            <p class="puntos">@Html.DisplayFor(modelItem => item.Attack)</p>
+                            <p class="puntos"></p>
                             <h4>Vida</h4>
-                            <p class="puntos">@Html.DisplayFor(modelItem => item.Health)</p>
+                            <p class="puntos"></p>
                             <h4>Defensa</h4>
-                            <p class="puntos">@Html.DisplayFor(modelItem => item.Defense)</p>
+                            <p class="puntos"></p>
                             <h4>Velocidad</h4>
-                            <p class="puntos">@Html.DisplayFor(modelItem => item.Speed)</p>
+                            <p class="puntos"></p>
                         </div>
 
                     </div>
                 </div>
             </div>
-            <p>@Html.DisplayFor(modelItem => item.Description)</p>
+            <p></p>
             <div>
-                <button>@Html.ActionLink("Comprar", "ModelPurchaseCard", new { id = item.Id }) </button>
-                <p>@Html.DisplayFor(modelItem => item.Price)</p>
+                <button></button>
+                <p></p>
             </div>
         </div>
-        
-        Html.RenderPartial("~/Views/Shared/CardDetailsPartialView.cshtml", item);
-
-        <!--
-        <div class="virtual-card">
-            <img class="@Html.DisplayFor(modelItem => item.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.BackgroundImage)" alt="electric">
-            <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.Img) " alt="@Html.DisplayFor(modelItem => item.Img)">
-            <div class="info">
-                <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                <div class="estadisticas">
-                    <h4>Ataque</h4>
-                    <p class="puntos">@Html.DisplayFor(modelItem => item.Attack)</p>
-                    <h4>Vida</h4>
-                    <p class="puntos">@Html.DisplayFor(modelItem => item.Health)</p>
-                    <h4>Defensa</h4>
-                    <p class="puntos">@Html.DisplayFor(modelItem => item.Defense)</p>
-                    <h4>Velocidad</h4>
-                    <p class="puntos">@Html.DisplayFor(modelItem => item.Speed)</p>
-                </div>
-            </div>
-        </div>
-            -->
-    }
+    
 </div>
-
+    -->
 
 @Html.ActionLink("Edit", "Edit", new { /*id = item.IdCard */}) |
 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

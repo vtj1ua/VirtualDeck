@@ -133,31 +133,81 @@
     grid-template-columns: repeat(4, 25%);
 }
 
+.virtual-card-container 
+{
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    
+}
+
 .virtual-card {
     position: relative;
-    display: flex;
-    overflow: hidden;
+    width: 16em;
+    min-height: 30em;
+    color: aliceblue;
+    margin: 2em;
 }
 
 .virtual-card > img {
     overflow: hidden;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    
     width: 100%;
     height: 100%;
 }
 
-.virtual-card > img:last-of-type {
+.virtual-card > img:first-of-type {
     object-fit: cover;
-    z-index: -1;
+}
+
+.virtual-card > img:last-of-type {
+    top: 0%;
+    left: 0%;
+    position:absolute;
+} 
+
+.virtual-card>h3
+{
+    background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
+    text-align: center;
+    width: 100%;
+    top: 10%;
+    position: absolute;
+}
+
+.virtual-card > div {
+    bottom: 10%;
+    position: absolute;
+    width: 100%;
+    font-weight: bold;
+    background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
+    
+    display: grid;
+    letter-spacing: .2em;
+    grid-template-columns: 70% 30%;
+    
+    justify-items: center;
+    align-items: center;
+}
+
+.virtual-card>div>h4{
+    font-size: inherit;
+    font-weight: inherit;
+    justify-self: center;
+    padding: 0;
+    margin: 0;
+}
+
+.virtual-card>div>p{
+    font-size: inherit;
+    justify-self: start;
+    padding: 0;
+    margin: 0;
 }
 
 /* --------------------------- Type cards --------------------------------------*/
-
-.electric {
-    filter: invert(89%) sepia(69%) saturate(1192%) hue-rotate(331deg) brightness(111%) contrast(107%);
-}
+    .electric {
+        filter: invert(89%) sepia(69%) saturate(1192%) hue-rotate(331deg) brightness(111%) contrast(107%);
+    }
 
 .fire {
     filter: invert(70%) sepia(71%) saturate(4608%) hue-rotate(356deg) brightness(98%) contrast(97%);
