@@ -226,6 +226,7 @@
             object-fit: cover;
             animation: mov 3s ease infinite;
             transform: translateY(-100%);
+            overflow: hidden;
         }
 
         @keyframes mov {
@@ -236,8 +237,8 @@
             100% {
                 transform: translateY(-100%), rotateZ(130deg);
             }
-        }
-        */
+        }*/
+        
 
 
 .contenedorPack > div:first-child img {

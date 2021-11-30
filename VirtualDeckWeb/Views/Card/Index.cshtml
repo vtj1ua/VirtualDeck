@@ -37,10 +37,11 @@
             </div>
             <p>@Html.DisplayFor(modelItem => item.Description)</p>
             <div>
-                <button>@Html.ActionLink("Comprar", "ModelPurchaseCard", new { id = item.Id }) </button>
+                <button>@Html.ActionLink("Comprar", "Token", new { id = item.Id }) </button>
                 <p>@Html.DisplayFor(modelItem => item.Price)</p>
             </div>
         </div>
+        @Html.ActionLink("Comprar", "Token", new { id = item.Id }) 
     }
 </div>
 
