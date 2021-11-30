@@ -352,6 +352,34 @@ public static void InitializeData ()
                 int idpack3 = packCEN.New_ ("pack3", "pack 2", 22, "foto", RarityEnum.Epic, 3, 4, CardTypeEnum.All, RarityEnum.All);
                 int idpack4 = packCEN.New_ ("pack4", "pack 4", 23, "foto", RarityEnum.Legendary, 3, 4, CardTypeEnum.All, RarityEnum.All);
 
+                packCEN.New_("Sobre básico pequeño", "Sobre que contiene entre 1 y 5 cartas básicas", 100, "", RarityEnum.Basic, 1, 5, CardTypeEnum.All, RarityEnum.Basic);
+                packCEN.New_("Sobre básico mediano", "Sobre que contiene entre 5 y 10 cartas básicas", 300, "", RarityEnum.Basic, 5, 10, CardTypeEnum.All, RarityEnum.Basic);
+                packCEN.New_("Sobre básico grande", "Sobre que contiene entre 10 y 15 cartas básicas", 500, "", RarityEnum.Basic, 10, 15, CardTypeEnum.All, RarityEnum.Basic);
+
+                packCEN.New_("Sobre común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas y comunes", 150, "", RarityEnum.Common, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                packCEN.New_("Sobre común mediano", "Sobre que contiene entre 5 y 10 cartas básicas y comunes", 350, "", RarityEnum.Common, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                packCEN.New_("Sobre común grande", "Sobre que contiene entre 10 y 15 cartas básicas y comunes", 550, "", RarityEnum.Common, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+
+                packCEN.New_("Sobre poco común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes y poco comunes", 200, "", RarityEnum.Uncommon, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                packCEN.New_("Sobre poco común mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes y poco comunes", 400, "", RarityEnum.Uncommon, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                packCEN.New_("Sobre poco común grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes y poco comunes", 600, "", RarityEnum.Uncommon, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+
+                packCEN.New_("Sobre raro pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes, poco comunes y raras", 250, "", RarityEnum.Rare, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
+                packCEN.New_("Sobre raro mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes, poco comunes y raras", 450, "", RarityEnum.Rare, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
+                packCEN.New_("Sobre raro grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes, poco comunes y raras", 650, "", RarityEnum.Rare, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
+
+                packCEN.New_("Sobre épico pequeño", "Sobre que contiene entre 1 y 5 cartas comunes, poco comunes, raras y épicas", 300, "", RarityEnum.Epic, 1, 5, CardTypeEnum.All, RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
+                packCEN.New_("Sobre épico mediano", "Sobre que contiene entre 5 y 10 cartas comunes, poco comunes, raras y épicas", 500, "", RarityEnum.Epic, 5, 10, CardTypeEnum.All, RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
+                packCEN.New_("Sobre épico grande", "Sobre que contiene entre 10 y 15 cartas comunes, poco comunes, raras y épicas", 700, "", RarityEnum.Epic, 10, 15, CardTypeEnum.All, RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
+
+                packCEN.New_("Sobre legendario pequeño", "Sobre que contiene entre 1 y 5 cartas poco comunes, raras, épicas y legendarias", 350, "", RarityEnum.Legendary, 1, 5, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
+                packCEN.New_("Sobre legendario mediano", "Sobre que contiene entre 5 y 10 cartas poco comunes, raras, épicas y legendarias", 550, "", RarityEnum.Legendary, 5, 10, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
+                packCEN.New_("Sobre legendario grande", "Sobre que contiene entre 10 y 15 cartas poco comunes, raras, épicas y legendarias", 750, "", RarityEnum.Legendary, 10, 15, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
+
+                packCEN.New_("Sobre mítico pequeño", "Sobre que contiene entre 1 y 5 cartas raras, épicas, legendarias y míticas", 400, "", RarityEnum.Legendary, 1, 5, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
+                packCEN.New_("Sobre mítico mediano", "Sobre que contiene entre 5 y 10 cartas raras, épicas, legendarias y míticas", 600, "", RarityEnum.Legendary, 5, 10, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
+                packCEN.New_("Sobre mítico grande", "Sobre que contiene entre 10 y 15 cartas raras, épicas, legendarias y míticas", 800, "", RarityEnum.Legendary, 10, 15, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
+
                 //VIRTUALUSERS y USER CARD
                 VirtualUserCEN virtualUserCEN = new VirtualUserCEN ();
                 int virtualUser1 = virtualUserCEN.New_ ("Pass", "Usuario 1", "email@gmail.com");
