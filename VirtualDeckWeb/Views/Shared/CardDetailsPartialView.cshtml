@@ -1,19 +1,18 @@
 ﻿@model VirtualDeckWeb.Models.CardViewModel
 
 <div class="virtual-card">
-    <img class="@Html.DisplayFor(modelItem => Model.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => Model.BackgroundImage)" alt="electric">
     <img src="~/Resources/Type/@Html.DisplayFor(modelItem => Model.Img) " alt="@Html.DisplayFor(modelItem => Model.Img)">
-    <div class="info">
-        <h3>@Html.DisplayFor(modelItem => Model.Name)</h3>
-        <div class="estadisticas">
-            <h4>Ataque</h4>
-            <p class="puntos">@Html.DisplayFor(modelItem => Model.Attack)</p>
-            <h4>Vida</h4>
-            <p class="puntos">@Html.DisplayFor(modelItem => Model.Health)</p>
-            <h4>Defensa</h4>
-            <p class="puntos">@Html.DisplayFor(modelItem => Model.Defense)</p>
-            <h4>Velocidad</h4>
-            <p class="puntos">@Html.DisplayFor(modelItem => Model.Speed)</p>
-        </div>
+    <img class="@Html.DisplayFor(modelItem => Model.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => Model.BackgroundImage)" alt="electric">
+
+    <h3>@Html.DisplayFor(modelItem => Model.Name)</h3>
+    <div>
+        <h4>Ataque</h4>
+        <p>@Html.DisplayFor(modelItem => Model.Attack)</p>
+        <h4>Vida</h4>
+        <p>@Html.DisplayFor(modelItem => Model.Health)</p>
+        <h4>Defensa</h4>
+        <p>@Html.DisplayFor(modelItem => Model.Defense)</p>
+        <h4>Velocidad</h4>
+        <p>@Html.DisplayFor(modelItem => Model.Speed)</p>
     </div>
 </div>

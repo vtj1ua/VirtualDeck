@@ -11,28 +11,57 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<div class="virtual-card-container">
-    @foreach (var item in Model)
-    {
-        <div class="virtual-card">
-            <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.Img) " alt="@Html.DisplayFor(modelItem => item.Img)">
-            <img class="@Html.DisplayFor(modelItem => item.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.BackgroundImage)" alt="electric">
-            
-            <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-            <div>
-                <h4>Ataque</h4>
-                <p>@Html.DisplayFor(modelItem => item.Attack)</p>
-                <h4>Vida</h4>
-                <p>@Html.DisplayFor(modelItem => item.Health)</p>
-                <h4>Defensa</h4>
-                <p>@Html.DisplayFor(modelItem => item.Defense)</p>
-                <h4>Velocidad</h4>
-                <p>@Html.DisplayFor(modelItem => item.Speed)</p>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="virtual-card">
+                <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.Img) " alt="@Html.DisplayFor(modelItem => item.Img)">
+                <img class="@Html.DisplayFor(modelItem => item.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.BackgroundImage)" alt="electric">
+
+                <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                <table>
+                    <tr>
+                        <td>Ataque</td>
+                        <td>@Html.DisplayFor(modelItem => item.Attack)</td>
+                    </tr>
+                    <tr>
+                        <td>Vida</td>
+                        <td>@Html.DisplayFor(modelItem => item.Health)</td>
+                    </tr>
+                    <tr>
+                        <td>Defensa</td>
+                        <td>@Html.DisplayFor(modelItem => item.Defense)</td>
+                    </tr>
+                    <tr>
+                        <td>Velocidad</td>
+                        <td>@Html.DisplayFor(modelItem => item.Speed)</td>
+                    </tr>
+                </table>
+                <!--
+                <div>
+                    <h4>Ataque</h4>
+                    <p>@Html.DisplayFor(modelItem => item.Attack)</p>
+                    <h4>Vida</h4>
+                    <p>@Html.DisplayFor(modelItem => item.Health)</p>
+                    <h4>Defensa</h4>
+                    <p>@Html.DisplayFor(modelItem => item.Defense)</p>
+                    <h4>Velocidad</h4>
+                    <p>@Html.DisplayFor(modelItem => item.Speed)</p>
+                </div>
+                -->
             </div>
         </div>
+            /*
+            <div>
+                @Html.Partial("~/Views/Shared/CardDetailsPartialView.cshtml", item)
+            </div>
+            */
 
-        //Html.RenderPartial("~/Views/Shared/CardDetailsPartialView.cshtml", item);
-    }
+            
+        }
+    </div>
 </div>
 <!--
 <div class="gridProducts">
@@ -54,11 +83,27 @@
                             <p class="puntos"></p>
                             <h4>Defensa</h4>
                             <p class="puntos"></p>
-                            <h4>Velocidad</h4>
+           
+             * 
+             * 
+             * 
+             *             
+             * 
+             * 
+             *     
+             * 
+             * 
+             * 
+             * 
+             * 
+             * 
+             * 
+             *  <h4>Velocidad</h4>
                             <p class="puntos"></p>
                         </div>
 
-                    </div>
+   
+             *                  </div>
                 </div>
             </div>
             <p></p>
