@@ -264,6 +264,7 @@
     <Content Include="Resources\PackRarities\Mythical.png" />
     <Content Include="Resources\PackRarities\Rare.png" />
     <Content Include="Resources\PackRarities\Uncommon.png" />
+    <Content Include="Resources\token.png" />
     <Content Include="Resources\Type\babyYoda.png" />
     <Content Include="Resources\Type\cablePelao.png" />
     <Content Include="Resources\Type\damaGorda.png" />
@@ -335,8 +336,10 @@
     <Content Include="Views\Shop\TokenPackDetails.cshtml" />
     <Content Include="Views\VirtualUser\Details.cshtml" />
     <Content Include="Views\VirtualUser\Index.cshtml" />
-    <Content Include="Views\Pack\Index.cshtml" />
-    <Content Include="Views\Pack\Details.cshtml" />
+    <Content Include="Views\Shared\PackListPartial.cshtml" />
+    <Content Include="Views\Shared\PackPartial.cshtml" />
+    <Content Include="Views\Shared\CardListPartial.cshtml" />
+    <Content Include="Views\Shared\CardPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

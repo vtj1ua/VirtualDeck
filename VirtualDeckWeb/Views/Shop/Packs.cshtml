@@ -4,6 +4,7 @@
     ViewBag.Title = "Packs";
 }
 
+
 <ul class="nav justify-content-center">
     <li class="nav-item">
         @Html.ActionLink("Cartas", "Cards")
@@ -18,59 +19,10 @@
 
 <h2>Sobres</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            Nombre
-        </th>
-        <th>
-            Descripción
-        </th>
-        <th>
-            Precio
-        </th>
-        <th>
-            Imagen
-        </th>
-        <th>
-            Fecha de Registro
-        </th>
-        <th>
-            Máximo de cartas
-        </th>
-        <th>
-            Mínimo de cartas
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Img)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegistryDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaxNumCards)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MinNumCards)
-        </td>
-        <td>
-            @Html.ActionLink("Comprar", "PackDetails", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+<form asp-controller="ShopController" asp-action="Packs">
+    <input type="text" name="search" placeholder="Introduce el nombre o descripción del pack" />
+    <button type="submit">Buscar</button>
+</form>
+<div class="container">
+    @Html.Partial("PackListPartial", Model)
+</div>

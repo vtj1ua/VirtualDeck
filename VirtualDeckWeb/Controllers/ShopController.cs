@@ -25,14 +25,23 @@ namespace VirtualDeckWeb.Controllers
             return View(listaCards);
         }
 
-        public ActionResult Packs()
+        public ActionResult Packs(String search)
         {
             SessionInitialize();
+
             PackCAD packcad = new PackCAD(session);
             PackCEN packcen = new PackCEN(packcad);
-            IList<PackEN> packs = packcen.ReadAll(0, -1);
+            IList<PackEN> packs = null;
+
+            if (search != null && search != "")
+                packs = packcen.PacksByNameOrDescription(search);
+            else
+                packs = packcen.ReadAll(0, -1);
+
             IEnumerable<PackViewModel> listaPacks = new PackAssembler().ConvertListENToModel(packs).ToList();
+
             SessionClose();
+
             return View(listaPacks);
         }
 

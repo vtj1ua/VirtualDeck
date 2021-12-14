@@ -3,17 +3,15 @@
 }
 
 .contenedor {
-    position: relative;
     background: rgb(231, 231, 231);
-    width: 18em;
+    
     height: auto;
     min-height: 30em;
     border-radius: 5px;
-    z-index: -3;
-    box-sizing: content-box;
+box-sizing: content-box;
     padding: 1px;
-    font-family: var(--fuente);
     margin-bottom: 2em;
+    padding-top: 1.5em;
 }
 
     .contenedor > p {
@@ -48,20 +46,14 @@
 .fondo {
     position: relative;
     left: calc(50% - 7.5em);
-    top: 1em;
     width: 15em;
     height: 20.6em;
-    z-index: -2;
 }
 
-.tipo {
-    width: 100%;
-    height: 100%;
-}
 
-    .tipo > img {
-        z-index: 2;
-    }
+.tipo > img {
+
+}
 
 .contenedor img {
     border-radius: 5px;
@@ -76,15 +68,13 @@
     top: 0%;
     left: 0%;
     overflow: hidden;
-    z-index: -1;
     object-fit: cover;
 }
 
 .info > h3 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    z-index: 0;
-    width: 100%;
+width: 100%;
     padding: 0.3em 0em;
     top: 3%;
     color: aliceblue;
@@ -97,8 +87,7 @@
     font-size: 14px;
     background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
     position: absolute;
-    z-index: -1;
-    width: 100%;
+width: 100%;
     top: 60%;
     color: aliceblue;
     letter-spacing: 3px;
@@ -120,7 +109,7 @@
     display: block;
 }
 
-.gridProducts{
+.gridProducts {
     width: 100%;
     height: 100%;
     display: grid;
@@ -190,10 +179,167 @@
     filter: invert(100%) sepia(42%) saturate(2421%) hue-rotate(350deg) brightness(97%) contrast(78%);
 }
 
-.img-cabecera{
-    width:8em;
+.img-cabecera {
+    width: 8em;
+}
+
+
+/#################################### CARLO #################################################/
+
+
+.contenedorPack {
+    background: inherit;
+    background-color: inherit;
+    position: relative;
+    background-color: rgb(231, 231, 231);
+    height: auto;
+    min-height: 30em;
+    border-radius: 5px;
+    z-index: -3;
+    font-family: var(--fuente);
+    margin-bottom: 2em;
+}
+
+.fondoContenedorPacks {
+    background: inherit;
+    background-color: inherit;
+    position: relative;
+    background-color: rgb(231, 231, 231);
+    height: auto;
+    min-height: 30em;
+    border-radius: 5px;
+    z-index: -3;
+    font-family: var(--fuente);
+    margin-bottom: 2em;
+}
+
+.contenedorPack > div:first-child {
+    background: rgb(255, 174, 0);
+    height: 10em;
+    border-start-start-radius: 5px;
+    border-start-end-radius: 5px;
+}
+    /*
+        .contenedorPack > div:first-child::before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 2em;
+            height: 35%;
+            background: linear-gradient(130deg, rgba(255, 174, 0), rgba(255, 255, 255, 0.4),rgb(255, 174, 0));
+            object-fit: cover;
+            animation: mov 3s ease infinite;
+            transform: translateY(-100%);
+            overflow: hidden;
+        }
+
+        @keyframes mov {
+            0% {
+                transform: translateX(800), rotateZ(130deg);
+                
+            }
+            100% {
+                transform: translateY(-100%), rotateZ(130deg);
+            }
+        }*/
+
+
+
+    .contenedorPack > div:first-child img {
+        position: absolute;
+        width: 8em;
+        left: calc(50% - 4em);
+        margin: auto;
+        display: block;
+        margin-top: 6em;
+    }
+
+.contenedorPack > div:last-child {
+    margin-top: 5em;
+    text-align: center;
+ 
+}
+
+    .contenedorPack > div:last-child > button {
+        padding: 0;
+        width: 8em;
+        height: 2.5em;
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 50px;
+    }
+
+/*############################################# MARCO ##################################################*/
+
+.shop-container 
+{
+    background: rgb(231, 231, 231);
+    padding: 1em;
+    margin: 1em 0.5em;
+    min-width: 18em;
+    border-radius: 5px;
 }
 
 
 
-/*############################################# MARCO ##################################################*/
+
+
+.virtual-card {
+    position: relative;
+    width: 15em;
+    height: 20em;
+    color: aliceblue;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    .virtual-card > img {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+        .virtual-card > img:first-of-type {
+            object-fit: cover;
+        }
+
+        .virtual-card > img:last-of-type {
+            top: 0%;
+            left: 0%;
+            position: absolute;
+        }
+
+    .virtual-card > h3 {
+        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
+        text-align: center;
+        width: 100%;
+        top: 10%;
+        position: absolute;
+    }
+
+    .virtual-card > div {
+        bottom: 10%;
+        position: absolute;
+        width: 100%;
+        font-weight: bold;
+        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
+        display: grid;
+        letter-spacing: .2em;
+        grid-template-columns: 70% 30%;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .virtual-card > table {
+        bottom: 10%;
+        position: absolute;
+        width: 100%;
+        font-weight: bold;
+        text-align: center;
+        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
+    }
+
+    .virtual-card table tr > td:first-of-type {
+        width: 50%;
+    }

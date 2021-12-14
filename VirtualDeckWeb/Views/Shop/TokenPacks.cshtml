@@ -18,47 +18,24 @@
 
 <h2>Packs de Tokens</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            Nombre
-        </th>
-        <th>
-            Descripción
-        </th>
-        <th>
-            Precio
-        </th>
-        <th>
-            Imagen
-        </th>
-        <th>
-            Tokens
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Img)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tokens)
-        </td>
-        <td>
-            @Html.ActionLink("Comprar", "TokenPackDetails", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+<!------------------------------------------- NEW --------------------------------------------------->
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
+                <div class="fondoContenedorPacks contenedorPack">
+                    <div>
+                        <img src="~/Resources/token.png" alt="token">
+                    </div>
+                    <div>
+                        <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                        <p>@Html.DisplayFor(modelItem => item.Price)€</p>
+                        <button>@Html.ActionLink("Comprar", "ModelPurchaseCard", new { id = item.Id }) </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
