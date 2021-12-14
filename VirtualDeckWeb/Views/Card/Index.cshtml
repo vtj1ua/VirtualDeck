@@ -16,23 +16,22 @@
     {
         <div class="contenedor">
             <div class="fondo">
-                <div class="tipo">
+                <div class="info">
+                    <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.Img) " alt="@Html.DisplayFor(modelItem => item.Img)">
+                    <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
                     <img class="@Html.DisplayFor(modelItem => item.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => item.BackgroundImage)" alt="electric">
-                    <div class="info">
-                        <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                        <img src="~/Resources/Type/@Html.DisplayFor(modelItem => item.Img) " alt="@Html.DisplayFor(modelItem => item.Img)">
-                        <div class="estadisticas">
-                            <h4>Ataque</h4>
-                            <p class="puntos">@Html.DisplayFor(modelItem => item.Attack)</p>
-                            <h4>Vida</h4>
-                            <p class="puntos">@Html.DisplayFor(modelItem => item.Health)</p>
-                            <h4>Defensa</h4>
-                            <p class="puntos">@Html.DisplayFor(modelItem => item.Defense)</p>
-                            <h4>Velocidad</h4>
-                            <p class="puntos">@Html.DisplayFor(modelItem => item.Speed)</p>
-                        </div>
 
+                    <div class="estadisticas">
+                        <h4>Ataque</h4>
+                        <p class="puntos">@Html.DisplayFor(modelItem => item.Attack)</p>
+                        <h4>Vida</h4>
+                        <p class="puntos">@Html.DisplayFor(modelItem => item.Health)</p>
+                        <h4>Defensa</h4>
+                        <p class="puntos">@Html.DisplayFor(modelItem => item.Defense)</p>
+                        <h4>Velocidad</h4>
+                        <p class="puntos">@Html.DisplayFor(modelItem => item.Speed)</p>
                     </div>
+
                 </div>
             </div>
             <p>@Html.DisplayFor(modelItem => item.Description)</p>
@@ -41,9 +40,42 @@
                 <p>@Html.DisplayFor(modelItem => item.Price)</p>
             </div>
         </div>
-        @Html.ActionLink("Comprar", "Token", new { id = item.Id }) 
     }
 </div>
+
+
+<div class="contenedor">
+    <div class="fondo">
+        <img class="electric" src="~/Resources/Borders/Basic.png" alt="electric">
+        <div class="info">
+            <h3>Matin</h3>
+            <img src="~/Resources/Type/noel.png" alt="fffffff">
+            <div class="estadisticas">
+                <h4>Ataque</h4>
+                <p class="puntos">33</p>
+                <h4>Vida</h4>
+                <p class="puntos">22</p>
+                <h4>Defensa</h4>
+                <p class="puntos">33</p>
+                <h4>Velocidad</h4>
+                <p class="puntos">44</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing.
+    </p>
+    <div>
+        <button>Comprar</button>
+        <p>1000</p>
+    </div>
+</div>
+
+
+
+
+
+
 
 
 @Html.ActionLink("Edit", "Edit", new { /*id = item.IdCard */}) |
