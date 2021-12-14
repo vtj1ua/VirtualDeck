@@ -270,5 +270,36 @@ public System.Collections.Generic.IList<CommentEN> ReadAll (int first, int size)
 
         return result;
 }
+
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> CommentsByProduct (int p_product)
+{
+        System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM CommentEN self where FROM CommentEN as co WHERE co.Producto.Id = :p_product";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("CommentENcommentsByProductHQL");
+                query.SetParameter ("p_product", p_product);
+
+                result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in CommentCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

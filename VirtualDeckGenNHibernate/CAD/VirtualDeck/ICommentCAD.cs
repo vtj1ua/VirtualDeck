@@ -29,5 +29,8 @@ CommentEN ReadOID (int id
 
 
 System.Collections.Generic.IList<CommentEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> CommentsByProduct (int p_product);
 }
 }

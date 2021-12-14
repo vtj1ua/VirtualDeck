@@ -15,6 +15,8 @@ namespace VirtualDeckWeb.Assemblers
             comment.Id = en.Id;
             comment.Text = en.Text;
             comment.PublishDate = (DateTime)en.PublishDate;
+            comment.UserId = en.User.Id;
+            comment.UserName = en.User.UserName;
             return comment;
 
 

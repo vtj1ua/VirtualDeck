@@ -29,5 +29,7 @@ namespace VirtualDeckWeb.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<VirtualDeckWeb.Models.CommentViewModel> CommentViewModels { get; set; }
     }
 }
