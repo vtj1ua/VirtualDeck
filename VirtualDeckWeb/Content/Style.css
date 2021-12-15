@@ -31,34 +31,34 @@ body
     margin-bottom: 2em;
 }
 
-    .contenedor > p {
-        margin: revert;
-        padding-top: 1em;
-        margin-left: 2em;
-        margin-right: 2em;
-    }
+.contenedor > p {
+    margin: revert;
+    padding-top: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
 
-    .contenedor > div:last-child {
-        display: grid;
-        grid-template-columns: 60% 40%;
-        margin-bottom: 1em
-    }
+.contenedor > div:last-child {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin-bottom: 1em
+}
 
-        .contenedor > div:last-child > button {
-            padding: 0;
-            width: 8em;
-            height: 2.5em;
-            background: black;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            margin-left: 2em;
-        }
+.contenedor > div:last-child > button {
+    padding: 0;
+    width: 8em;
+    height: 2.5em;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    margin-left: 2em;
+}
 
-        .contenedor > div:last-child > p {
-            margin: auto;
-            margin-right: 2em;
-        }
+.contenedor > div:last-child > p {
+    margin: auto;
+    margin-right: 2em;
+}
 
 .fondo {
     position: relative;
@@ -74,9 +74,9 @@ body
     height: 100%;
 }
 
-    .tipo > img {
-        z-index: 2;
-    }
+.tipo > img {
+    z-index: 2;
+}
 
 .contenedor img {
     border-radius: 5px;
@@ -123,12 +123,12 @@ body
     text-align: center;
 }
 
-    .estadisticas > h4 {
-        margin: inherit;
-        font-size: inherit;
-        margin: 0.1em 0em;
-        margin-left: 0.7em;
-    }
+.estadisticas > h4 {
+    margin: inherit;
+    font-size: inherit;
+    margin: 0.1em 0em;
+    margin-left: 0.7em;
+}
 
 .puntos {
     margin: auto;
