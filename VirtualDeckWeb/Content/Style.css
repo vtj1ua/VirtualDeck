@@ -9,21 +9,12 @@
     --green: #14CC60;
 }
 
-.contenedor {
-    position: relative;
-    background: rgb(231, 231, 231);
-    width: 18em;
-    height: auto;
-    min-height: 30em;
-    border-radius: 5px;
-    z-index: -3;
-    box-sizing: content-box;
-    padding: 1px;
-    font-family: var(--fuente);
-    margin-bottom: 2em;
+body {
+    font-family: var(--font);
+    background-color: var(--dark);
+    color: var(--light);
 }
-
-.shop-container {
+    .shop-container {
     background: var(--light-dark);
     padding: 2em 1em 1em 1em;
     box-sizing: content-box;
