@@ -22,6 +22,7 @@ namespace VirtualDeckWeb.Models
         [ScaffoldColumn(false)]
         public string Email { get; set; }
 
+
         [Display(Prompt = "Descripción del usuario", Description = "Descripción del usuario", Name = "Descripción ")]
         [StringLength(maximumLength: 200, ErrorMessage = "La descripcion no puede tener más de 400 caracteres")]
         public string Description { get; set; }

@@ -256,6 +256,8 @@
     <Content Include="Resources\Borders\Mythical.png" />
     <Content Include="Resources\Borders\Rare.png" />
     <Content Include="Resources\Borders\Uncommon.png" />
+    <Content Include="Resources\cardIcon.png" />
+    <Content Include="Resources\token.png" />
     <Content Include="Resources\Type\babyYoda.png" />
     <Content Include="Resources\Type\cablePelao.png" />
     <Content Include="Resources\Type\damaGorda.png" />

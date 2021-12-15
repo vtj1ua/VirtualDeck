@@ -39,7 +39,7 @@ public int New_ (String p_pass, string p_userName, string p_email)
 
         virtualUserEN.Tokens = 0;
 
-        virtualUserEN.Img = "default image path";
+        virtualUserEN.Img = "usuario.png";
 
         virtualUserEN.CombatStatus = CombatStatusEnum.Inactive;
         //Call to VirtualUserCAD

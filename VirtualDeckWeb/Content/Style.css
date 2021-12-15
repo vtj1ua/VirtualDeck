@@ -1,8 +1,23 @@
-﻿:root {
-    --fuente: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap'); 
+
+:root
+{
+    --font: Roboto, 'Arial Narrow', Arial, sans-serif;
+    --primary: #3454D1;
+    --dark: #212529;
+    --light-dark: #505050;
+    --light: #FFF;
+    --red: #F02D3A;
+    --green: 14CC60;
 }
 
-.contenedor {
+body {
+    font-family: var(--font);
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+    .contenedor {
     position: relative;
     background: rgb(231, 231, 231);
     width: 18em;
@@ -192,4 +207,236 @@
 
 .img-cabecera{
     width:8em;
+}
+
+.list{
+    margin-right:0 !important;
+}
+
+.listTop{
+    padding-right:0 !important;
+}
+
+.ListUsers {
+    display: grid;
+    grid-template-columns: 10% 50% 23% 15%;
+    align-items: center;
+    margin-top: 1em;
+    border: 2.5px solid;
+    padding: .5em;
+}
+
+.ListUsers>h3{
+    margin:0;
+    margin-left:1em;
+}
+
+.ListUsers>img{
+    display:block;
+    margin:auto;
+    width:4em;
+    max-width:4em;
+    height:auto;
+    border-radius:50%;
+    border:1px solid;
+}
+
+.ListUsers>h3>span>img, .userInfoCards>span>img{
+    width:1.5em;
+    margin-bottom:.3em;
+    margin-left:.3em;
+}
+
+.userInfoTokens > span > img {
+    width: 1em;
+    margin-bottom: .3em;
+    margin-left: .3em;
+}
+.userInfoTokens>span{
+    padding: .5em;
+    background-color:var(--light-dark);
+    color:var(--light);
+    border-radius:6px;
+}
+
+.centerDiv{
+    display:grid;
+    justify-content:center;
+}
+
+.userInfoContainer{
+    width:auto !important;
+}
+
+.formUsers>input[type="text"]{
+    border-radius: 6px;
+    color: var(--dark);
+}
+
+.action-button {
+    text-decoration: none;
+    color: var(--light);
+}
+
+.ListUsers > button, .action-button {
+    background-color: var(--primary);
+    border: none;
+    padding: .5em;
+    text-align: center;
+}
+
+    .ListUsers > button:hover, .bot-userInfo:hover, .action-button:hover {
+        background-color: #A1B0EA;
+        text-decoration: none;
+    }
+
+.action-button, acept-button, cancel-button {
+    width: 8em;
+    height: 2.5em;
+    border-radius: 0.5em;
+    padding: .5em;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    color: var(--light);
+    margin: auto;
+    text-align: center;
+}
+
+
+.action-button {
+    background-color: var(--primary);
+}
+
+    .action-button:hover {
+        background-color: #A1B0EA;
+        text-decoration: none;
+    }
+
+.formUsers{
+    display:flex;
+    justify-content:center;
+    margin:2em;
+}
+
+.formUsers>input{
+    margin-left:.5em;
+}
+
+@media all and (max-width:500px){
+    .ListUsers{
+        display:grid;
+        grid-template-columns:none !important;
+    }
+
+        .ListUsers > h3 {
+            text-align: center !important;
+            margin: 0 !important;
+        }
+}
+
+@media all and (min-width:501px) and (max-width:767px){
+    .ListUsers {
+        display: grid !important;
+        grid-template-columns: 10% 40% 30% 15% !important;
+    }
+}
+
+@media all and (min-width: 768px){
+    .listTop{
+        width: auto !important;
+    }
+}
+
+.userInfo {
+    display: grid;
+    grid-template-columns: 220px 40% 30.5%;
+}
+
+    .userInfo > img {
+        width: 15em;
+        border: 1px solid;
+    }
+
+.userInfo>div:not(.userInfo>div:first-child){
+    margin-top:1em;
+}
+
+
+
+.nameDesc>p{
+    margin-top:1em;
+}
+
+.userInfo > div > h3 {
+    margin: 0;
+}
+
+.gridUserInfo{
+    display:block;
+}
+
+.bot-userInfo {
+    width: 8em;
+    height: 2.5em;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    color: var(--light);
+    text-align: center;
+    background-color: var(--primary);
+}
+
+.bot-userInfo>a {
+    text-decoration:none;
+    color:var(--light);
+}
+
+.nameDesc>div, .gridUserInfo>div{
+    display:grid;
+    align-items:end;
+}
+
+@media all and (max-width:660px){
+    .userInfo{
+        grid-template-columns:none;
+    }
+
+    .nameDesc>div, .gridUserInfo>div{
+        display:grid;
+        justify-content:center;
+    }
+
+    .nameDesc > h3 {
+        text-align: center;
+    }
+
+    .userInfo>img{
+        margin:auto;
+    }
+
+    .userInfo > div:not(.userInfo>div:first-child) {
+        display:grid;
+        justify-content:center;
+        border-top:1px solid;
+        padding-top:1em;
+    }
+}
+
+@media all and (min-width:661px){
+    .nameDesc {
+        display: grid;
+        grid-template-rows: 15% 60% 25%;
+    }
+
+    .gridUserInfo {
+        display: grid;
+        grid-template-rows: 20% 20% 20% 40%;
+    }
+
+    .userInfoContainer {
+        width: auto !important;
+    }
 }
