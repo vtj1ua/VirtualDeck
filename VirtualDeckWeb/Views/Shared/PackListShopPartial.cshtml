@@ -1,0 +1,20 @@
+﻿@model IEnumerable<VirtualDeckWeb.Models.PackViewModel>
+<div class="container">
+    <div class="row ">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="shop-container">
+
+                    @Html.Partial("PackPartial", item)
+                    <div>
+                        @Html.ActionLink("Ver detalle", "Details", new { id = item.Id }, new { @class = "action-button" })
+                        <p>@Html.DisplayFor(modelItem => item.Price)<img src="~/Resources/token.png" alt="Tokens"><img /></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

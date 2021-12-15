@@ -31,8 +31,8 @@
                     <div>
                         <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
                         <p>@Html.DisplayFor(modelItem => item.Description)</p>
-                        <p>@Html.DisplayFor(modelItem => item.Price)€</p>
-                        <button>@Html.ActionLink("Comprar", "ModelPurchaseCard", new { id = item.Id }) </button>
+                        <p>@Html.DisplayFor(modelItem => item.Price) €</p>
+                        @Html.ActionLink("Comprar", "ModelPurchaseCard", new { id = item.Id }, new { @class = "action-button" })
                     </div>
                 </div>
             </div>

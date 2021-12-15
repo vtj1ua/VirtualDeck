@@ -336,10 +336,12 @@
     <Content Include="Views\Shop\TokenPackDetails.cshtml" />
     <Content Include="Views\VirtualUser\Details.cshtml" />
     <Content Include="Views\VirtualUser\Index.cshtml" />
-    <Content Include="Views\Shared\PackListPartial.cshtml" />
+    <Content Include="Views\Shared\PackListShopPartial.cshtml" />
     <Content Include="Views\Shared\PackPartial.cshtml" />
-    <Content Include="Views\Shared\CardListPartial.cshtml" />
+    <Content Include="Views\Shared\CardListShopPartial.cshtml" />
     <Content Include="Views\Shared\CardPartial.cshtml" />
+    <Content Include="Views\Shared\CardListPartial.cshtml" />
+    <Content Include="Views\Shared\PackListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

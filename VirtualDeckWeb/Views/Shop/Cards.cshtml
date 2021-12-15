@@ -16,7 +16,14 @@
     </li>
 </ul>
 
+
+<form asp-controller="ShopController" asp-action="Cards">
+    <input type="text" name="search" placeholder="Introduce el nombre o descripción de la carta" />
+    <button type="submit">Buscar</button>
+</form>
+
 <h2>Cartas</h2>
-<div class="container">
-    @Html.Partial("CardListPartial", Model)
-</div>
+
+@Html.Partial("CardListShopPartial", Model)
+
+

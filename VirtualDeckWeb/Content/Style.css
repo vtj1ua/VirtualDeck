@@ -1,47 +1,51 @@
-﻿:root {
-    --fuente: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+:root {
+    --font: Roboto, 'Arial Narrow', Arial, sans-serif;
+    --primary: #3454D1;
+    --dark: #212529;
+    --light-dark: #505050;
+    --light: #FFF;
+    --red: #F02D3A;
+    --green: #14CC60;
 }
 
-.contenedor {
-    background: rgb(231, 231, 231);
-    
-    height: auto;
-    min-height: 30em;
+body {
+    font-family: var(--font);
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.shop-container {
+    background: var(--light-dark);
+    padding: 2em 1em 1em 1em;
+    box-sizing: content-box;
+    margin: 1em 0.5em;
+    min-width: 18em;
     border-radius: 5px;
-box-sizing: content-box;
-    padding: 1px;
-    margin-bottom: 2em;
-    padding-top: 1.5em;
 }
 
-    .contenedor > p {
-        margin: revert;
-        padding-top: 1em;
-        margin-left: 2em;
-        margin-right: 2em;
-    }
 
-    .contenedor > div:last-child {
-        display: grid;
-        grid-template-columns: 60% 40%;
-        margin-bottom: 1em
-    }
+.shop-container > div:last-child {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin-bottom: 1em;
+    margin-top:1em;
+}
 
-        .contenedor > div:last-child > button {
-            padding: 0;
-            width: 8em;
-            height: 2.5em;
-            background: black;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            margin-left: 2em;
-        }
+.shop-container > div:last-child > div {
+    margin:auto;
+}
 
-        .contenedor > div:last-child > p {
-            margin: auto;
-            margin-right: 2em;
-        }
+.shop-container > div:last-child > p {
+    margin: auto;
+}
+
+.shop-container > div:last-child > p > img {
+    width: 1em;
+    margin-left: 0.5em;
+    padding-bottom: 0.25em;
+}
+
 
 .fondo {
     position: relative;
@@ -55,7 +59,7 @@ box-sizing: content-box;
 
 }
 
-.contenedor img {
+.shop-container img {
     border-radius: 5px;
     width: 100%;
     overflow: hidden;
@@ -87,7 +91,7 @@ width: 100%;
     font-size: 14px;
     background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
     position: absolute;
-width: 100%;
+    width: 100%;
     top: 60%;
     color: aliceblue;
     letter-spacing: 3px;
@@ -109,12 +113,6 @@ width: 100%;
     display: block;
 }
 
-.gridProducts {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 25%);
-}
 
 
 /* --------------------------- Type cards --------------------------------------*/
@@ -191,7 +189,7 @@ width: 100%;
     background: inherit;
     background-color: inherit;
     position: relative;
-    background-color: rgb(231, 231, 231);
+    background-color: var(--light-dark);
     height: auto;
     min-height: 30em;
     border-radius: 5px;
@@ -204,7 +202,7 @@ width: 100%;
     background: inherit;
     background-color: inherit;
     position: relative;
-    background-color: rgb(231, 231, 231);
+    background-color: var(--light-dark);
     height: auto;
     min-height: 30em;
     border-radius: 5px;
@@ -214,72 +212,64 @@ width: 100%;
 }
 
 .contenedorPack > div:first-child {
-    background: rgb(255, 174, 0);
+    background: var(--primary);
     height: 10em;
     border-start-start-radius: 5px;
     border-start-end-radius: 5px;
 }
-    /*
-        .contenedorPack > div:first-child::before {
-            content: '';
-            position: absolute;
-            display: block;
-            width: 2em;
-            height: 35%;
-            background: linear-gradient(130deg, rgba(255, 174, 0), rgba(255, 255, 255, 0.4),rgb(255, 174, 0));
-            object-fit: cover;
-            animation: mov 3s ease infinite;
-            transform: translateY(-100%);
-            overflow: hidden;
-        }
+/*
+.contenedorPack > div:first-child::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 2em;
+    height: 35%;
+    background: linear-gradient(130deg, rgba(255, 174, 0), rgba(255, 255, 255, 0.4),rgb(255, 174, 0));
+    object-fit: cover;
+    animation: mov 3s ease infinite;
+    transform: translateY(-100%);
+    overflow: hidden;
+}
 
-        @keyframes mov {
-            0% {
-                transform: translateX(800), rotateZ(130deg);
+@keyframes mov {
+    0% {
+        transform: translateX(800), rotateZ(130deg);
                 
-            }
-            100% {
-                transform: translateY(-100%), rotateZ(130deg);
-            }
-        }*/
-
-
-
-    .contenedorPack > div:first-child img {
-        position: absolute;
-        width: 8em;
-        left: calc(50% - 4em);
-        margin: auto;
-        display: block;
-        margin-top: 6em;
     }
+    100% {
+        transform: translateY(-100%), rotateZ(130deg);
+    }
+}*/
+
+
+
+.contenedorPack > div:first-child img {
+    position: absolute;
+    width: 8em;
+    left: calc(50% - 4em);
+    margin: auto;
+    display: block;
+    margin-top: 6em;
+}
 
 .contenedorPack > div:last-child {
     margin-top: 5em;
     text-align: center;
- 
 }
 
-    .contenedorPack > div:last-child > button {
-        padding: 0;
-        width: 8em;
-        height: 2.5em;
-        background: black;
-        color: white;
-        border: none;
-        border-radius: 50px;
-    }
 
 /*############################################# MARCO ##################################################*/
 
-.shop-container 
-{
-    background: rgb(231, 231, 231);
+
+
+.profile-container {
     padding: 1em;
-    margin: 1em 0.5em;
+    margin: 1em 0.25em;
     min-width: 18em;
     border-radius: 5px;
 }
+
+
 
 
 
@@ -314,7 +304,7 @@ width: 100%;
         background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
         text-align: center;
         width: 100%;
-        top: 10%;
+        top: 5%;
         position: absolute;
     }
 
@@ -343,3 +333,49 @@ width: 100%;
     .virtual-card table tr > td:first-of-type {
         width: 50%;
     }
+
+
+
+
+
+    /*#################################BUTTONS###################################*/
+
+.action-button, .acept-button, .cancel-button {
+    width: 8em;
+    height: 2.5em;
+    border-radius: 0.5em;
+    padding: .4em;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    color: var(--light);
+    margin: auto;
+    text-align: center;
+    background-color: var(--dark);
+}
+
+.action-button {
+    border: 3px solid var(--primary);
+}
+.acept-button {
+    border: 3px solid var(--green);
+}
+.cancel-button {
+    border: 3px solid var(--red);
+}
+
+.action-button:hover {
+    background-color: var(--primary);
+    text-decoration: none;
+    color: var(--light);
+}
+.acept-button:hover {
+    background-color: var(--green);
+    text-decoration: none;
+    color: var(--light);
+}
+.cancel-button:hover {
+    background-color: var(--red);
+    text-decoration: none;
+    color: var(--light);
+}

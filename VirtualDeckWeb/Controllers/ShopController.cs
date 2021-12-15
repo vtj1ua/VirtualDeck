@@ -14,12 +14,17 @@ namespace VirtualDeckWeb.Controllers
     public class ShopController : BasicController
     {
         // GET: Shop
-        public ActionResult Cards()
+        public ActionResult Cards(String search)
         {
             SessionInitialize();
             CardCAD cardcad = new CardCAD(session);
             CardCEN cardcen = new CardCEN(cardcad);
-            IList<CardEN> cards = cardcen.ReadAll(0, -1);
+            IList<CardEN> cards = null;
+            if (search != null && search != "")
+                cards = cardcen.CardsByNameOrDescription("%" + search + "%");
+            else
+                cards = cardcen.ReadAll(0, -1);
+
             IEnumerable<CardViewModel> listaCards = new CardAssembler().ConvertListENToModel(cards).ToList();
             SessionClose();
             return View(listaCards);
@@ -34,7 +39,7 @@ namespace VirtualDeckWeb.Controllers
             IList<PackEN> packs = null;
 
             if (search != null && search != "")
-                packs = packcen.PacksByNameOrDescription(search);
+                packs = packcen.PacksByNameOrDescription("%"+search+"%");
             else
                 packs = packcen.ReadAll(0, -1);
 
