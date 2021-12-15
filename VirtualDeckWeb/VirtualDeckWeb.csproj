@@ -342,6 +342,7 @@
     <Content Include="Views\Shared\CardPartial.cshtml" />
     <Content Include="Views\Shared\CardListPartial.cshtml" />
     <Content Include="Views\Shared\PackListPartial.cshtml" />
+    <Content Include="Views\VirtualUser\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

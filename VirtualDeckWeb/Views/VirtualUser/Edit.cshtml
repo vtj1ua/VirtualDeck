@@ -1,0 +1,77 @@
+﻿@model VirtualDeckWeb.Models.VirtualUserViewModel
+@using VirtualDeckGenNHibernate.EN.VirtualDeck;
+@using VirtualDeckWeb.Assemblers;
+@using VirtualDeckWeb.Models;
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+@{
+        VirtualUserEN user = Session["User"] as VirtualUserEN;
+        if (user != null)
+        {
+        <h2>Edit</h2>
+
+        using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Editar</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+<div class="form-group">
+    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @Value = user.UserName } })
+        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @Value = user.Description } })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Img, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <div class="editor-field">
+            <img height="100" width="100" src="~/Resources/@Model.Img" />
+        </div>
+        <div>
+            <input type="file" name="file" />
+        </div>
+    </div>
+</div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="MODIFICAR" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+        }
+
+        <div>
+            @Html.ActionLink("Volver", "Details", new { Id = user.Id })
+        </div>
+    }
+    else
+    {
+        //MOSTRAR MENSAJE DE NO SE PUEDE ACCEDER
+        <p>No se puede acceder a esta página si no estás logueado</p>
+    }
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

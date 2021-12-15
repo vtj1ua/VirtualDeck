@@ -19,7 +19,9 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink(username + "!", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @if(user!=null){
+                @Html.ActionLink(username + "!", "Details", "VirtualUser", new { Id = user.Id }, htmlAttributes: new { id = "user" })
+            }
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
     </ul>
