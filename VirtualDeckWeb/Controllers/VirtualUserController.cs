@@ -17,12 +17,19 @@ namespace VirtualDeckWeb.Controllers
     public class VirtualUserController : BasicController
     {
         // GET: VirtualUser
-        public ActionResult Index()
+        public ActionResult Index(String search)
         {
             SessionInitialize();
+
             VirtualUserCAD virtualUserCAD = new VirtualUserCAD(session);
             VirtualUserCEN virtualUserCEN = new VirtualUserCEN(virtualUserCAD);
-            List<VirtualUserEN> virtualUserEN = virtualUserCEN.ReadAll(0, -1).ToList();
+            IList<VirtualUserEN> virtualUserEN = null;
+
+            if (search != null && search != "")
+                virtualUserEN = virtualUserCEN.UsersByName("%" + search + "%");
+            else
+                virtualUserEN = virtualUserCEN.ReadAll(0, -1).ToList();
+
             IEnumerable<VirtualUserViewModel> model = new VirtualUserAssembler().ConvertListENToModel(virtualUserEN);
             SessionClose();
             return View(model);
