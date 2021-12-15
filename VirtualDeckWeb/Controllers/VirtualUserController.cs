@@ -43,6 +43,22 @@ namespace VirtualDeckWeb.Controllers
             VirtualUserCEN virtualUserCEN = new VirtualUserCEN(virtualUserCAD);
             VirtualUserEN virtualUserEN = virtualUserCEN.ReadOID(id);
             VirtualUserViewModel model = new VirtualUserAssembler().ConvertENToModelUI(virtualUserEN);
+
+            /*LISTA DE LAS CARTAS DEL USUARIO*/
+            UserCardCAD userCardCAD = new UserCardCAD(session);
+            UserCardCEN userCardCEN = new UserCardCEN(userCardCAD);
+            IList<UserCardEN> userCardENList = userCardCEN.UserCardsByUser(id);
+            IEnumerable<UserCardViewModel> userCardViewModelList = new UserCardAssembler().ConvertListENToModel(userCardENList);
+
+            /*LISTA DE LOS SOBRES DEL USUARIO*/
+            UserPackCAD userPackCAD = new UserPackCAD(session);
+            UserPackCEN userPackCEN = new UserPackCEN(userPackCAD);
+            IList<UserPackEN> userPackENList = userPackCEN.UserPacksByUser(id);
+            IEnumerable<UserPackViewModel> userPackViewModelList = new UserPackAssembler().ConvertListENToModel(userPackENList);
+
+
+            ViewData["userPackList"] = userPackViewModelList;
+            ViewData["userCardList"] = userCardViewModelList;
             ViewData["idUser"] = model.Id;
             SessionClose();
             return View(model);

@@ -7,7 +7,7 @@
     <div class="row">
         <form class="formUsers" asp-controller="" asp-action="">
             <input type="text" placeholder="Buscar" name="search" />
-            <input class="bot-userInfo" type="submit" value="BUSCAR" />
+            <input class="bot-userInfo action-button" type="submit" value="Buscar" />
         </form>
     </div>
 </div>
@@ -21,12 +21,10 @@
                 <h3>@Html.DisplayFor(modelItem => item.UserName)</h3>
                 <h3>@Html.DisplayFor(modelItem => item.NumCards)<span><img src="~/Resources/cardIcon.png" /></span></h3>
                 <div class="centerDiv">
-                    @Html.ActionLink("VER PERFIL", "Details", new { id = item.Id }, new { @class = "bot-userInfo" })
+                    @Html.ActionLink("Ver perfil", "Details", new { id = item.Id }, new { @class = "action-button" })
                 </div>
-                    
-                
             </div>
         }
-        </div>
+    </div>
 </div>
 

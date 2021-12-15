@@ -1,0 +1,33 @@
+﻿@model IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="profile-container">
+                    <!--HAY QUE PONER UN LINK AL DETALLE DE LA CARTA-->
+                    <a data-toggle="modal" data-target="#@item.Id">
+                        @Html.Partial("UserCardPartial", item)
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
+                <h2>@item.Name</h2>
+                <p>Nivel: @item.Level</p>
+                <p>EXP: @item.Experience</p>
+                <p>Fecha de compra: @item.PurchaseDate</p>
+                <p>Rareza: @item.Rarity</p>
+                <p>Tipo: @item.Type</p>
+                <div class="modal">
+                    <h2>@item.Name</h2>
+                    <p>asdfasdf</p>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+

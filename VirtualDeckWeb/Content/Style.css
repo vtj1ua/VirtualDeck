@@ -259,8 +259,6 @@ width: 100%;
 
 /*############################################# MARCO ##################################################*/
 
-
-
 .profile-container {
     padding: 1em;
     margin: 1em 0.25em;
@@ -268,12 +266,69 @@ width: 100%;
     border-radius: 5px;
 }
 
+/*Perfil*/
+.tabs{
+    margin-top: 2em;
+}
+.tabs ul {
+    display: inline-flex;
+    justify-content:center;
+    width:100%;
+    border: 0;
+}
+.tabs ul li {
+    background-color: var(--light-dark);
+    border-radius: 0;
+    margin: 0;
+    text-align: center;
+}
 
+.tabs ul li a {
+    background-color: var(--light-dark);
+    border-radius: 0;
+    color: var(--light);
+    margin: 0;
+}
 
+.tabs ul li.active a {
+    background-color: var(--primary);
+    color: var(--light);
+    margin: 0;
+    border-radius: 0;
+}
 
+.tabs ul li.active {
+    background-color: var(--primary);
+    color: var(--light);
+    margin: 0;
+    border-radius: 0;
+}
 
+.tabs ul li a:hover {
+    background: var(--primary);
+    margin: 0;
+    border-radius: 0;
+}
+.tabs ul li:hover {
+    background: var(--primary);
+    margin: 0;
+    border-radius: 0;
+}
 
+/*Modal*/
+.modal {
+    width: 30em;
+    border: 1px solid #000;
+    text-align: center;
+    background-color: var(--light-dark);
+    margin-left: auto;
+    margin-right: auto;
+    top: 5em;
+    bottom: 10em;
+}
 
+/*##########################################################################################################*/
+/*########################################## VICTOR #######################################################*/
 .virtual-card {
     position: relative;
     width: 15em;
@@ -334,11 +389,10 @@ width: 100%;
     }
 
 
+/*####################################################################################*/
 
 
-
-    /*#################################BUTTONS###################################*/
-
+ /*#################################BUTTONS###################################*/
 .action-button, .acept-button, .cancel-button {
     width: 8em;
     height: 2.5em;
@@ -378,7 +432,10 @@ width: 100%;
     text-decoration: none;
     color: var(--light);
 }
+/*##################################################################################*/
 
+
+/*############################### Javier #################################################*/
 .list{
     margin-right:0 !important;
 }
@@ -417,6 +474,8 @@ width: 100%;
     margin-left:.3em;
 }
 
+
+
 .userInfoTokens > span > img {
     width: 1em;
     margin-bottom: .3em;
@@ -442,46 +501,6 @@ width: 100%;
     border-radius: 6px;
     color: var(--dark);
 }
-
-.action-button {
-    text-decoration: none;
-    color: var(--light);
-}
-
-.ListUsers > button, .action-button {
-    background-color: var(--primary);
-    border: none;
-    padding: .5em;
-    text-align: center;
-}
-
-    .ListUsers > button:hover, .bot-userInfo:hover, .action-button:hover {
-        background-color: #A1B0EA;
-        text-decoration: none;
-    }
-
-.action-button, acept-button, cancel-button {
-    width: 8em;
-    height: 2.5em;
-    border-radius: 0.5em;
-    padding: .5em;
-    outline: none;
-    border: none;
-    text-decoration: none;
-    color: var(--light);
-    margin: auto;
-    text-align: center;
-}
-
-
-.action-button {
-    background-color: var(--primary);
-}
-
-    .action-button:hover {
-        background-color: #A1B0EA;
-        text-decoration: none;
-    }
 
 .formUsers{
     display:flex;
@@ -550,18 +569,36 @@ width: 100%;
     width: 8em;
     height: 2.5em;
     border-radius: 0.5em;
-    padding: 0.5em;
+    padding: 0.4em;
     outline: none;
     border: none;
     text-decoration: none;
     color: var(--light);
     text-align: center;
-    background-color: var(--primary);
+    background-color: var(--light-dark);
+    border: 3px solid var(--primary);
 }
 
-.bot-userInfo>a {
-    text-decoration:none;
-    color:var(--light);
+.bot-userInfo:hover {
+    background-color: var(--primary);
+    text-decoration: none;
+    color: var(--light);
+}
+.rojo-pal-javi {
+    border: 3px solid var(--red);
+}
+.rojo-pal-javi:hover {
+    background-color: var(--red);
+}
+
+.bot-userInfo > a {
+    text-decoration: none;
+    color: var(--light);
+}
+
+.nameDesc > div, .gridUserInfo > div {
+    display: grid;
+    align-items: end;
 }
 
 .nameDesc>div, .gridUserInfo>div{

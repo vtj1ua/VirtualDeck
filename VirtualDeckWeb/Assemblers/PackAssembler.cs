@@ -111,5 +111,53 @@ namespace VirtualDeckWeb.Assemblers
             }
             return packs;
         }
+
+
+        /*
+
+        public PackViewModel ConvertUserPackENToModelUI(UserPackEN en)
+        {
+            PackViewModel userPack = new PackViewModel();
+            userPack.Id = en.Id;
+            switch (en.Rarity)
+            {
+                case RarityEnum.Basic:
+                    userPack.Img = "Basic.png";
+                    break;
+                case RarityEnum.Common:
+                    userPack.Img = "Common.png";
+                    break;
+                case RarityEnum.Uncommon:
+                    userPack.Img = "Uncommon.png";
+                    break;
+                case RarityEnum.Rare:
+                    userPack.Img = "Rare.png";
+                    break;
+                case RarityEnum.Epic:
+                    userPack.Img = "Epic.png";
+                    break;
+                case RarityEnum.Legendary:
+                    userPack.Img = "Legendary.png";
+                    break;
+                case RarityEnum.Mythical:
+                    userPack.Img = "Mythical.png";
+                    break;
+                default:
+                    userPack.Img = "Common.png";
+                    break;
+            }
+            return userPack;
+
+
+        }
+        public IList<PackViewModel> ConvertListUserPackENToModel(IList<UserPackEN> ens)
+        {
+            IList<PackViewModel> userPacks = new List<PackViewModel>();
+            foreach (UserPackEN en in ens)
+            {
+                userPacks.Add(ConvertUserPackENToModelUI(en));
+            }
+            return userPacks;
+        }*/
     }
 }

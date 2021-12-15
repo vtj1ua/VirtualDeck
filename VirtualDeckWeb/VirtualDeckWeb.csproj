@@ -341,9 +341,11 @@
     <Content Include="Views\Shared\PackPartial.cshtml" />
     <Content Include="Views\Shared\CardListShopPartial.cshtml" />
     <Content Include="Views\Shared\CardPartial.cshtml" />
-    <Content Include="Views\Shared\CardListPartial.cshtml" />
-    <Content Include="Views\Shared\PackListPartial.cshtml" />
+    <Content Include="Views\Shared\UserCardListPartial.cshtml" />
+    <Content Include="Views\Shared\UserPackListPartial.cshtml" />
     <Content Include="Views\VirtualUser\Edit.cshtml" />
+    <Content Include="Views\Shared\UserCardPartial.cshtml" />
+    <Content Include="Views\Shared\UserPackPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
