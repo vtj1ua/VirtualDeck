@@ -47,6 +47,13 @@ private VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN pack;
 
 
 
+/**
+ *	Atributo name
+ */
+private string name;
+
+
+
 
 
 
@@ -86,6 +93,12 @@ public virtual VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN Pack {
 
 
 
+public virtual string Name {
+        get { return name; } set { name = value;  }
+}
+
+
+
 
 
 public UserPackEN()
@@ -95,20 +108,20 @@ public UserPackEN()
 
 
 
-public UserPackEN(int id, Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN pack
+public UserPackEN(int id, Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN pack, string name
                   )
 {
-        this.init (Id, purchaseDate, rarity, user, userCards, pack);
+        this.init (Id, purchaseDate, rarity, user, userCards, pack, name);
 }
 
 
 public UserPackEN(UserPackEN userPack)
 {
-        this.init (Id, userPack.PurchaseDate, userPack.Rarity, userPack.User, userPack.UserCards, userPack.Pack);
+        this.init (Id, userPack.PurchaseDate, userPack.Rarity, userPack.User, userPack.UserCards, userPack.Pack, userPack.Name);
 }
 
 private void init (int id
-                   , Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN pack)
+                   , Nullable<DateTime> purchaseDate, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum rarity, VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> userCards, VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN pack, string name)
 {
         this.Id = id;
 
@@ -122,6 +135,8 @@ private void init (int id
         this.UserCards = userCards;
 
         this.Pack = pack;
+
+        this.Name = name;
 }
 
 public override bool Equals (object obj)

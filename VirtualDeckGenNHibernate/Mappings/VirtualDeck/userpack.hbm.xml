@@ -18,6 +18,9 @@
 					<property name="Rarity" > 
 						<column name="rarity"  not-null="true"/>
 					</property>
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -45,6 +48,8 @@
 								<column name="FK_idProduct_idPack"/> 
 						</many-to-one>
 											 					
+			
+					
 					
 					
 					

@@ -154,6 +154,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\VirtualDeck\ProductEN.cs" />
 	<Compile Include="CEN\VirtualDeck\ProductCEN.cs" />
 	<Compile Include="CAD\VirtualDeck\IProductCAD.cs" />

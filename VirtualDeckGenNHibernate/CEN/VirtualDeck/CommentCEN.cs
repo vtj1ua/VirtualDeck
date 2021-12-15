@@ -75,5 +75,9 @@ public System.Collections.Generic.IList<CommentEN> ReadAll (int first, int size)
         list = _ICommentCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CommentEN> CommentsByProduct (int p_product)
+{
+        return _ICommentCAD.CommentsByProduct (p_product);
+}
 }
 }

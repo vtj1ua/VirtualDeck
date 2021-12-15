@@ -63,8 +63,8 @@ public int CreateUserPack (int p_pack, int p_user, int p_seed)
                         userCards.Add (userCardCEN.ReadOID (userCardID));
                 }
 
-                //Deberia tener tambien la foto del sobre
-                userPackID = userPackCEN.New_ (p_user, userCards, p_pack, packEN.Rarity);
+
+                userPackID = userPackCEN.New_ (p_user, userCards, p_pack, packEN.Rarity, packEN.Name);
 
 
                 SessionCommit ();

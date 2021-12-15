@@ -43,5 +43,6 @@
 		 </class>	
 		  
 		  <query name="CommentENReadAllHQL">from CommentEN</query>
+		  <query name="CommentENcommentsByProductHQL"><![CDATA[FROM CommentEN as co WHERE co.Product.Id = :p_product]]></query>
 		</hibernate-mapping>
 	

@@ -1,5 +1,20 @@
-﻿:root {
-    --fuente: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+
+:root {
+    --font: Roboto, 'Arial Narrow', Arial, sans-serif;
+    --primary: #3454D1;
+    --dark: #212529;
+    --light-dark: #505050;
+    --light: #FFF;
+    --red: #F02D3A;
+    --green: 14CC60;
+}
+
+body
+{
+    font-family: var(--font);
+    background-color: var(--dark);
+    color: var(--light);
 }
 
 .contenedor {
@@ -127,6 +142,19 @@
     grid-template-columns: repeat(4, 25%);
 }
 
+.product-comment
+{
+    color: var(--light);
+    background-color: var(--light-dark);
+    border-radius: 0.5em;
+    border: solid 2px var(--light);
+    margin: 0.5em 0;
+}
+
+.product-comment>h4
+{
+    border-bottom: solid 2px var(--light);
+}
 
 /* --------------------------- Type cards --------------------------------------*/
 

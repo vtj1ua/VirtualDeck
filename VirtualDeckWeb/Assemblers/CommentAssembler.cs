@@ -15,10 +15,12 @@ namespace VirtualDeckWeb.Assemblers
             comment.Id = en.Id;
             comment.Text = en.Text;
             comment.PublishDate = (DateTime)en.PublishDate;
+            comment.UserId = en.User.Id;
+            comment.UserName = en.User.UserName;
+            comment.ProductId = en.Product.Id;
             return comment;
-
-
         }
+
         public IList<CommentViewModel> ConvertListENToModel(IList<CommentEN> ens)
         {
             IList<CommentViewModel> comments = new List<CommentViewModel>();

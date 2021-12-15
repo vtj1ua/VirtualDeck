@@ -19,7 +19,7 @@ namespace VirtualDeckGenNHibernate.CEN.VirtualDeck
 {
 public partial class UserPackCEN
 {
-public int New_ (int p_user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> p_userCards, int p_pack, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity)
+public int New_ (int p_user, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.UserCardEN> p_userCards, int p_pack, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, string p_name)
 {
         /*PROTECTED REGION ID(VirtualDeckGenNHibernate.CEN.VirtualDeck_UserPack_new__customized) ENABLED START*/
 
@@ -30,7 +30,7 @@ public int New_ (int p_user, System.Collections.Generic.IList<VirtualDeckGenNHib
         //Initialized UserPackEN
         userPackEN = new UserPackEN ();
         userPackEN.Rarity = p_rarity;
-
+        userPackEN.Name = p_name;
         userPackEN.PurchaseDate = DateTime.Now;
 
 

@@ -99,6 +99,9 @@ public void ModifyDefault (UserPackEN userPack)
 
 
 
+
+                userPackEN.Name = userPack.Name;
+
                 session.Update (userPackEN);
                 SessionCommit ();
         }
@@ -175,6 +178,9 @@ public void Modify (UserPackEN userPack)
 
 
                 userPackEN.Rarity = userPack.Rarity;
+
+
+                userPackEN.Name = userPack.Name;
 
                 session.Update (userPackEN);
                 SessionCommit ();
