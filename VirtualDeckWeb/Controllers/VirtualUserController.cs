@@ -137,7 +137,7 @@ namespace VirtualDeckWeb.Controllers
 
                 if (usu.Description == null)
                 {
-                    usu.Description = vicen.Description;
+                    usu.Description = "";
                 }
                 if (usu.UserName == null)
                 {

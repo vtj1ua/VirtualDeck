@@ -20,35 +20,54 @@
 }
 <div class="container">
     <div class="row">
-        @foreach (var item in Model)
+        @if (Model.Count() == 0)
         {
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <div class="profile-container">
-                    <a data-toggle="modal" data-target="#@item.Id">
-                        @Html.Partial("UserCardPartial", item)
-                    </a>
+            if (usu == true)
+            {
+                <div class="centerDiv">
+                    <h3>No tienes niguna carta :(</h3>
+                    @Html.ActionLink("Ir a la tienda", "Cards", "Shop", null, new { @class = "action-button" })
                 </div>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="m-modal">
-                    <div>
-                        @Html.Partial("UserCardPartial", item)
-                        <div>
-                            <h2>@item.Name</h2>
-                            <p>Nivel: @item.Level</p>
-                            <p>Experiencia: @item.Experience</p>
-                            <p>Fecha de compra: @item.PurchaseDate</p>
-                            <p>Rareza: @item.Rarity</p>
-                        </div>
+            }
+            else
+            {
+                <div class="centerDiv">
+                    <h3>El usuario no tiene cartas :(</h3>
+                </div>
+            }
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="profile-container">
+                        <a data-toggle="modal" data-target="#@item.Id">
+                            @Html.Partial("UserCardPartial", item)
+                        </a>
                     </div>
-                    @if (usu == true)
-                    {
-                        @Html.ActionLink("Destruir", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "action-button" })
-                    }
                 </div>
-            </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="m-modal">
+                        <div>
+                            @Html.Partial("UserCardPartial", item)
+                            <div>
+                                <h2>@item.Name</h2>
+                                <p>Nivel: @item.Level</p>
+                                <p>Experiencia: @item.Experience</p>
+                                <p>Fecha de compra: @item.PurchaseDate</p>
+                                <p>Rareza: @item.Rarity</p>
+                            </div>
+                        </div>
+                        @if (usu == true)
+                        {
+                            @Html.ActionLink("Destruir", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "action-button" })
+                        }
+                    </div>
+                </div>
+            }
         }
     </div>
 </div>

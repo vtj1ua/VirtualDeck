@@ -30,7 +30,7 @@
             <img src="~/Resources/@Html.DisplayFor(model => model.Img)" />
             <div class="nameDesc">
                 <h3>@Html.DisplayFor(model => model.UserName)</h3>
-                <p>Descripcion: @Html.DisplayFor(model => model.Description)</p>
+                <p>@Html.DisplayFor(model => model.Description)</p>
                 @if (usu == true)
                 {
                 <div>
@@ -58,26 +58,26 @@
 </div>
 @if (usu == true)
 {
-<div class="tabs" id="Tabs" role="tabpanel">
-    <!-- Nav tabs -->
-    <ul class="nav" role="tablist">
-        <li class="active"><a href="#cartas" aria-controls="cartas" role="tab" data-toggle="tab">Cartas</a></li>
-        <li><a href="#sobres" aria-controls="sobres" role="tab" data-toggle="tab">Sobres</a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="cartas">
-            <section>
-                @Html.Partial("UserCardListPartial", ViewData["userCardList"])
-            </section>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="sobres">
-            <section>
-                @Html.Partial("UserPackListPartial", ViewData["userPackList"])
-            </section>
+    <div class="tabs" id="Tabs" role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav">
+            <li class="active"><a href="#cartas" aria-controls="cartas" data-target="#cartas" data-toggle="tab">Cartas</a></li>
+            <li><a href="#sobres" aria-controls="sobres" data-target="#sobres" data-toggle="tab">Sobres</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="cartas">
+                <section>
+                    @Html.Partial("UserCardListPartial", ViewData["userCardList"])
+                </section>
+            </div>
+            <div class="tab-pane" id="sobres">
+                <section>
+                    @Html.Partial("UserPackListPartial", ViewData["userPackList"])
+                </section>
+            </div>
         </div>
     </div>
-</div>
 }
 else
 {
