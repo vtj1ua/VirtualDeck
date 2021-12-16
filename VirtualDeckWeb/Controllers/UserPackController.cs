@@ -12,12 +12,12 @@ namespace VirtualDeckWeb.Controllers
         // GET: UserPack
         public ActionResult Index(int idUsuario, int idPack)
         {
-            SessionInitialize();
+            
 
-            UserPackCP userPackCP = new UserPackCP(session);
+            UserPackCP userPackCP = new UserPackCP();
             userPackCP.OpenPack(idPack);
 
-            SessionClose();
+            
             return RedirectToAction(actionName: "Details", controllerName: "VirtualUser", new { id = idUsuario });
         }
 

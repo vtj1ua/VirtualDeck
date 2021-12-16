@@ -61,15 +61,18 @@ namespace VirtualDeckWeb.Controllers
         {
             try
             {
+                //SessionInitialize();
                 int cardId = Int32.Parse(collection.Get("cardId"));
                 // TODO: Add insert logic here
                 int amount = Int32.Parse(collection.Get("amount"));
 
                 TokenPackCP tokenPackCP = new TokenPackCP();
+               // TokenPackCAD tokenPackCAD = new TokenPackCAD(session);
                 TokenPackCEN tokenPackCEN = new TokenPackCEN();
 
-                int tokenOID1 = tokenPackCEN.New_("twoPack", "twoPack.png", 20, "Contiene cartas random", 300);
+                int tokenOID1 = tokenPackCEN.New_("twoPack", "twoPack.png", 20, "Contiene cartas random", 100000000);
 
+                
                 UserCardCEN userCardCEN = new UserCardCEN();
                 VirtualUserEN user = Session["User"] as VirtualUserEN;
                 CardCEN cardCEN = new CardCEN();
@@ -79,7 +82,7 @@ namespace VirtualDeckWeb.Controllers
                 tokenPackCP.PurchaseTokenPack(tokenOID1, user.Id);
 
                 CardCP cardCP = new CardCP();
-                cardCP.PurchaseUserCard(cardId, user.Id, 1);
+                cardCP.PurchaseUserCard(cardId, user.Id, amount);
 
                 
                 return RedirectToAction(actionName: "Cards", controllerName: "Shop");
@@ -89,6 +92,7 @@ namespace VirtualDeckWeb.Controllers
                 //return View();
                 return RedirectToAction(actionName: "Cards", controllerName: "Shop");
             }
+           
         }
 
         // GET: Card/Edit/5

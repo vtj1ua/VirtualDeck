@@ -15,12 +15,12 @@ namespace VirtualDeckWeb.Controllers
         // GET: UserCard
         public ActionResult Index(int idUsuario, int idCarta)
         {
-            SessionInitialize();
+           
 
-            UserCardCP userCardCP = new UserCardCP(session);
+            UserCardCP userCardCP = new UserCardCP();
             userCardCP.DestroyCard(idCarta);
 
-            SessionClose();
+           
             return RedirectToAction(actionName: "Details", controllerName: "VirtualUser", new { id = idUsuario });
         }
 
