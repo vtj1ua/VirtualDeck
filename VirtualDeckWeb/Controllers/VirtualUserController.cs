@@ -90,11 +90,18 @@ namespace VirtualDeckWeb.Controllers
             if (file != null && file.ContentLength > 0)
             {
                 Debug.WriteLine("file no null");
-                // extract only the fielname
-                fileName = Path.GetFileName(file.FileName);
-                // store the file inside ~/App_Data/uploads folder
-                path = Path.Combine(Server.MapPath("~/Resources"), fileName);
-                //string pathDef = path.Replace(@"\\", @"\");
+                string[] fileEntries = Directory.GetFiles(Server.MapPath("~/Resources"));
+                VirtualUserEN v = Session["user"] as VirtualUserEN;
+                foreach (string name in fileEntries)
+                {
+                    string f = Path.GetFileName(name);
+                    if (f.Contains("_") && f.Split('_')[0]==v.Id.ToString()){
+                        System.IO.File.Delete(name);
+                    }
+                }
+                    
+                fileName = v.Id + "_" + Path.GetFileName(file.FileName);
+                path = Path.Combine(Server.MapPath("~/Resources"), v.Id+"_"+Path.GetFileName(file.FileName));
                 file.SaveAs(path);
             }
             Debug.WriteLine(fileName);
@@ -108,9 +115,39 @@ namespace VirtualDeckWeb.Controllers
                 VirtualUserCEN cen = new VirtualUserCEN();
                 if (fileName == "")
                 {
+                    Debug.WriteLine("filename :"+fileName);
                     fileName = vicen.Img;
                 }
-                //cen.Modify(vicen.Id, vicen.Pass, usu.UserName, vicen.Email, usu.Description, vicen.Tokens, fileName, vicen.CombatStatus);
+
+                if (usu.DeletedImg == "1")
+                {
+                    fileName = "usuario.png";
+                }
+
+                Debug.WriteLine("------------");
+                Debug.WriteLine(vicen.Id);
+                Debug.WriteLine(vicen.Pass);
+                Debug.WriteLine(usu.UserName);
+                Debug.WriteLine(vicen.Email);
+                Debug.WriteLine(usu.Description);
+                Debug.WriteLine(vicen.Tokens);
+                Debug.WriteLine(fileName);
+                Debug.WriteLine(vicen.CombatStatus);
+                Debug.WriteLine("------------");
+
+                if (usu.Description == null)
+                {
+                    usu.Description = vicen.Description;
+                }
+                if (usu.UserName == null)
+                {
+                    usu.UserName = vicen.UserName;
+                }
+                Debug.WriteLine(vicen.Pass);
+
+
+
+                cen.Modify(vicen.Id, vicen.Pass, usu.UserName, vicen.Email, usu.Description, vicen.Tokens, fileName, vicen.CombatStatus);
                 
 
                 IList<VirtualUserEN> vicen1 = cen.UsersByEmail(vicen.Email);

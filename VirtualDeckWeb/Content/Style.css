@@ -708,6 +708,83 @@ width: 100%;
         width: auto !important;
     }
 }
+
+.imgForm{
+    border-radius:50%;
+    border:1px solid;
+
+}
+
+.formDiv>textarea{
+    width:100%;
+}
+
+.imgDiv{
+    display:flex;
+    justify-content:center;
+}
+
+.buttonsDiv{
+    display:flex;
+    justify-content:center;
+}
+
+.labelDiv{
+    width:auto !important;
+    text-align:left !important;
+    margin-bottom: .5em !important;
+}
+
+.formDivHor{
+    display:grid;
+    justify-content:center;
+}
+
+.notVisible{
+    display:none !important;
+}
+
+.marginLeftElem {
+    margin-left: 0.5em;
+}
+
+.marginRightElem {
+    margin-right: 0.5em;
+}
+
+.foto-footer{
+    display:flex;
+    justify-content:center;
+}
+
+.margin-a{
+    margin:1em;
+}
+
+#photo-usu {
+    margin: auto;
+    margin-bottom: 1em;
+}
+
+#foto-reg{
+    display:grid;
+    justify-content:center;
+}
+
+.widthForm{
+    width: 350px;
+}
+
+.inputsEdit>input, .inputsEdit>textarea{
+    max-width:none !important;
+}
+
+.imgDivForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+}
     }
 
 
