@@ -1,31 +1,24 @@
-﻿@{
+﻿
+@{
+    IEnumerable<VirtualDeckWeb.Models.CardViewModel> ModelNew = ViewData["List1"] as IEnumerable<VirtualDeckWeb.Models.CardViewModel>;
+    IEnumerable<VirtualDeckWeb.Models.CardViewModel> ModelRecommended = ViewData["List2"] as IEnumerable<VirtualDeckWeb.Models.CardViewModel>;
+}
+@{
     ViewBag.Title = "Pagina Principal";
 }
 
-<div class="input-group">
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-</div>
+<section>
+    <h2>Novedades</h2>
+    @Html.Partial("CardListShopPartial", ModelNew)
+</section>
 
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-</div>
+@{
+    if (Session["User"] != null)
+    {
+        <section>
+            <h2>Cartas recomendadas</h2>
+            @Html.Partial("CardListShopPartial", ModelRecommended)
+        </section>
+    }
+}
+

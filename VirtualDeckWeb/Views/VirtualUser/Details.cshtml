@@ -1,58 +1,82 @@
 ﻿@model VirtualDeckWeb.Models.VirtualUserViewModel
+@using VirtualDeckGenNHibernate.EN.VirtualDeck;
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>@Html.DisplayFor(model => model.UserName)</h2>
+@{bool usu = false; }
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
+@{
+    IEnumerable<VirtualDeckWeb.Models.CardViewModel> UserCards = ViewData["userCardList"] as IEnumerable<VirtualDeckWeb.Models.CardViewModel>;
+    IEnumerable<VirtualDeckWeb.Models.PackViewModel> UserPacks = ViewData["userPackList"] as IEnumerable<VirtualDeckWeb.Models.PackViewModel>;
+}
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Img)
-        </dt>
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+    //FALTA COMPROBAR EL ID DEL MODEL CON EL ID DE LA SESSION Y SI COINCIDE ENTONCES MUESTRO EL LINK A EDITAR
+    int id = (int)ViewData["idUser"];
+    if (en.Id == id)
+    {
+        usu = true;
+    }
+}
 
-        <dd>
-            @Html.DisplayFor(model => model.Img)
-        </dd>
+<div class="container userInfoContainer">
+    <div class="row">
+        <div class="userInfo">
+            <img src="~/Resources/@Html.DisplayFor(model => model.Img)" />
+            <div class="nameDesc">
+                <h3>@Html.DisplayFor(model => model.UserName)</h3>
+                <p>Descripcion: @Html.DisplayFor(model => model.Description)</p>
+                @if (usu == true)
+                {
+                    <div>
+                        @Html.ActionLink("Editar", "Edit", null, new { @class = "bot-userInfo" })
+                    </div>
+                }
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tokens)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tokens)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumCards)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumCards)
-        </dd>
-
-    </dl>
+            <div class="gridUserInfo">
+                @if (usu == true)
+                {
+                    <p class="userInfoTokens"><strong>Tokens: </strong><span>@Html.DisplayFor(model => model.Tokens) <img src="~/Resources/token.png" /></span></p>
+                }
+                <p class="userInfoCards"><strong>Número de cartas: </strong>@Html.DisplayFor(model => model.NumCards)<span><img src="~/Resources/cardIcon.png" /></span></p>
+                <p><strong>Partidas ganadas: </strong></p>
+                @if (usu == true)
+                {
+                    <div>
+                        <a class="bot-userInfo rojo-pal-javi" href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="tabs" id="Tabs" role="tabpanel">
+    <!-- Nav tabs -->
+    <ul class="nav" role="tablist">
+        <li class="active"><a href="#cartas" aria-controls="cartas" role="tab" data-toggle="tab">Cartas</a></li>
+        <li><a href="#sobres" aria-controls="sobres" role="tab" data-toggle="tab">Sobres</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="cartas">
+            <section>
+                @Html.Partial("UserCardListPartial", ViewData["userCardList"])
+            </section>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="sobres">
+            <section>
+                @Html.Partial("UserPackListPartial", ViewData["userPackList"])
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+

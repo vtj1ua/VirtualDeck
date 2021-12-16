@@ -1,0 +1,26 @@
+﻿@model IEnumerable<VirtualDeckWeb.Models.UserPackViewModel>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="profile-container">
+                    <div class="fondo">
+                        <a data-toggle="modal" data-target="#@item.Id">
+                            @Html.Partial("UserPackPartial", item)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="m-modal">
+                    @Html.Partial("UserPackPartial", item)
+                    <h2>@item.Id</h2>
+                    <p>Rareza: @item.Rarity</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

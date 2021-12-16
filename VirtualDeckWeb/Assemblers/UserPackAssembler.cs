@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
 using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Assemblers
@@ -15,6 +16,33 @@ namespace VirtualDeckWeb.Assemblers
             userPack.Id = en.Id;
             userPack.PurchaseDate = (DateTime)en.PurchaseDate;
             userPack.Rarity = en.Rarity;
+            switch (en.Rarity)
+            {
+                case RarityEnum.Basic:
+                    userPack.Img = "Basic.png";
+                    break;
+                case RarityEnum.Common:
+                    userPack.Img = "Common.png";
+                    break;
+                case RarityEnum.Uncommon:
+                    userPack.Img = "Uncommon.png";
+                    break;
+                case RarityEnum.Rare:
+                    userPack.Img = "Rare.png";
+                    break;
+                case RarityEnum.Epic:
+                    userPack.Img = "Epic.png";
+                    break;
+                case RarityEnum.Legendary:
+                    userPack.Img = "Legendary.png";
+                    break;
+                case RarityEnum.Mythical:
+                    userPack.Img = "Mythical.png";
+                    break;
+                default:
+                    userPack.Img = "Common.png";
+                    break;
+            }
             return userPack;
 
 

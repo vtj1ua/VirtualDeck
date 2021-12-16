@@ -1,0 +1,26 @@
+﻿@model VirtualDeckWeb.Models.CardViewModel
+
+<div class="virtual-card">
+    <img src="~/Resources/Type/@Html.DisplayFor(modelItem => Model.Img) " alt="@Html.DisplayFor(modelItem => Model.Img)">
+    <img class="@Html.DisplayFor(modelItem => Model.BackgroundColorClass)" src="~/Resources/Borders/@Html.DisplayFor(modelItem => Model.BackgroundImage)" alt="electric">
+
+    <h3>@Html.DisplayFor(modelItem => Model.Name)</h3>
+    <table>
+        <tr>
+            <td>Ataque</td>
+            <td>@Html.DisplayFor(modelItem => Model.Attack)</td>
+        </tr>
+        <tr>
+            <td>Vida</td>
+            <td>@Html.DisplayFor(modelItem => Model.Health)</td>
+        </tr>
+        <tr>
+            <td>Defensa</td>
+            <td>@Html.DisplayFor(modelItem => Model.Defense)</td>
+        </tr>
+        <tr>
+            <td>Velocidad</td>
+            <td>@Html.DisplayFor(modelItem => Model.Speed)</td>
+        </tr>
+    </table>
+</div>

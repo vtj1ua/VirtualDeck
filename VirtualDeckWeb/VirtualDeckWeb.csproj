@@ -215,6 +215,7 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PackController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\VirtualUserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -257,6 +258,15 @@
     <Content Include="Resources\Borders\Mythical.png" />
     <Content Include="Resources\Borders\Rare.png" />
     <Content Include="Resources\Borders\Uncommon.png" />
+    <Content Include="Resources\PackRarities\Basic.png" />
+    <Content Include="Resources\PackRarities\Common.png" />
+    <Content Include="Resources\PackRarities\Epic.png" />
+    <Content Include="Resources\PackRarities\Legendary.png" />
+    <Content Include="Resources\PackRarities\Mythical.png" />
+    <Content Include="Resources\PackRarities\Rare.png" />
+    <Content Include="Resources\PackRarities\Uncommon.png" />
+    <Content Include="Resources\token.png" />
+    <Content Include="Resources\cardIcon.png" />
     <Content Include="Resources\Type\babyYoda.png" />
     <Content Include="Resources\Type\cablePelao.png" />
     <Content Include="Resources\Type\damaGorda.png" />
@@ -328,6 +338,15 @@
     <Content Include="Views\Shop\TokenPackDetails.cshtml" />
     <Content Include="Views\VirtualUser\Details.cshtml" />
     <Content Include="Views\VirtualUser\Index.cshtml" />
+    <Content Include="Views\Shared\PackListShopPartial.cshtml" />
+    <Content Include="Views\Shared\PackPartial.cshtml" />
+    <Content Include="Views\Shared\CardListShopPartial.cshtml" />
+    <Content Include="Views\Shared\CardPartial.cshtml" />
+    <Content Include="Views\Shared\UserCardListPartial.cshtml" />
+    <Content Include="Views\Shared\UserPackListPartial.cshtml" />
+    <Content Include="Views\VirtualUser\Edit.cshtml" />
+    <Content Include="Views\Shared\UserCardPartial.cshtml" />
+    <Content Include="Views\Shared\UserPackPartial.cshtml" />
     <Content Include="Views\Comment\ListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>

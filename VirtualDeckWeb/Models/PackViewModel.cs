@@ -27,6 +27,6 @@ namespace VirtualDeckWeb.Models
         public int MinNumCards { get; set; }
 
         public RarityEnum Rarity { get; set; }
-
+        public CardTypeEnum CardTypes { get; set; }
     }
 }

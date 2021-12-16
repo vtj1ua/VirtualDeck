@@ -4,38 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Usuarios</h2>
+        <form class="forms" asp-controller="" asp-action="">
+            <input type="text" placeholder="Buscar" name="search" />
+            <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+        </form>
 
-<table class="table">
-    <tr>
-        <th>
-            Foto
-        </th>
-        <th>
-            Nombre de usuario
-        </th>
-        <th>
-            Número de cartas
-        </th>
-        <th></th>
-    </tr>
+<div class="container listTop">
+    <div class="row list">
+        @foreach (var item in Model)
+        {
+            <div class="ListUsers">
+                <img src="~/Resources/@Html.DisplayFor(modelItem => item.Img)" />
+                <h3>@Html.DisplayFor(modelItem => item.UserName)</h3>
+                <h3>@Html.DisplayFor(modelItem => item.NumCards)<span><img src="~/Resources/cardIcon.png" /></span></h3>
+                <div class="centerDiv">
+                    @Html.ActionLink("Ver perfil", "Details", new { id = item.Id }, new { @class = "action-button" })
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Img)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumCards)
-            </td>
-            <td>
-                @Html.ActionLink("Detalles", "Details", new { id = item.Id })
-            </td>
-        </tr>
-    }
-
-</table>

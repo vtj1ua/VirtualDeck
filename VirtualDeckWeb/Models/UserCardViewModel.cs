@@ -21,5 +21,9 @@ namespace VirtualDeckWeb.Models
         public string Img { get; set; }
         public DateTime PurchaseDate { get; set; }
 
+        public string BackgroundImage { get; set; }
+
+        public string BackgroundColorClass { get; set; }
+
     }
 }
