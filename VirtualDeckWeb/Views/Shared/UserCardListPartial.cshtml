@@ -1,4 +1,23 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>
+
+@using VirtualDeckWeb.Controllers;
+@using VirtualDeckGenNHibernate.EN.VirtualDeck;
+
+@{bool usu = true;
+    int id = -1;}
+
+
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+    //FALTA COMPROBAR EL ID DEL MODEL CON EL ID DE LA SESSION Y SI COINCIDE ENTONCES MUESTRO EL LINK A EDITAR
+    id = (int)ViewData["idUser"];
+    if (en.Id == id)
+    {
+        usu = true;
+    }
+
+}
 <div class="container">
     <div class="row">
         @foreach (var item in Model)
@@ -14,17 +33,22 @@
             <!-- Modal -->
             <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="m-modal">
-                    @Html.Partial("UserCardPartial", item)
-                    <h2>@item.Name</h2>
-                    <p>Nivel: @item.Level</p>
-                    <p>Experiencia: @item.Experience</p>
-                    <p>Fecha de compra: @item.PurchaseDate</p>
-                    <p>Rareza: @item.Rarity</p>
-                    <p>Tipo: @item.Type</p>
+                    <div>
+                        @Html.Partial("UserCardPartial", item)
+                        <div>
+                            <h2>@item.Name</h2>
+                            <p>Nivel: @item.Level</p>
+                            <p>Experiencia: @item.Experience</p>
+                            <p>Fecha de compra: @item.PurchaseDate</p>
+                            <p>Rareza: @item.Rarity</p>
+                        </div>
+                    </div>
+                    @if (usu == true)
+                    {
+                        @Html.ActionLink("Destruir", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "action-button" })
+                    }
                 </div>
             </div>
-
         }
     </div>
 </div>
-

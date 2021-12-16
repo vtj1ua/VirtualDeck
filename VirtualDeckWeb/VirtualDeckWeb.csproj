@@ -217,6 +217,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PackController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\UserCardController.cs" />
+    <Compile Include="Controllers\UserPackController.cs" />
     <Compile Include="Controllers\VirtualUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -352,6 +354,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Basic\" />
+    <Folder Include="Views\UserCard\" />
+    <Folder Include="Views\UserPack\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

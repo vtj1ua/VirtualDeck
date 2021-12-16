@@ -5,7 +5,7 @@
     ViewBag.Title = "Details";
 }
 
-@{bool usu = false; }
+@{bool usu = true; }
 
 @{
     IEnumerable<VirtualDeckWeb.Models.CardViewModel> UserCards = ViewData["userCardList"] as IEnumerable<VirtualDeckWeb.Models.CardViewModel>;
@@ -21,6 +21,7 @@
     {
         usu = true;
     }
+
 }
 
 <div class="container userInfoContainer">
@@ -32,30 +33,31 @@
                 <p>Descripcion: @Html.DisplayFor(model => model.Description)</p>
                 @if (usu == true)
                 {
-                    <div>
-                        @Html.ActionLink("Editar", "Edit", null, new { @class = "bot-userInfo" })
-                    </div>
+                <div>
+                    @Html.ActionLink("Editar", "Edit", null, new { @class = "bot-userInfo" })
+                </div>
                 }
             </div>
 
             <div class="gridUserInfo">
                 @if (usu == true)
                 {
-                    <p class="userInfoTokens"><strong>Tokens: </strong><span>@Html.DisplayFor(model => model.Tokens) <img src="~/Resources/token.png" /></span></p>
+                <p class="userInfoTokens"><strong>Tokens: </strong><span>@Html.DisplayFor(model => model.Tokens) <img src="~/Resources/token.png" /></span></p>
                 }
                 <p class="userInfoCards"><strong>Número de cartas: </strong>@Html.DisplayFor(model => model.NumCards)<span><img src="~/Resources/cardIcon.png" /></span></p>
                 <p><strong>Partidas ganadas: </strong></p>
                 @if (usu == true)
                 {
-                    <div>
-                        <a class="bot-userInfo rojo-pal-javi" href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a>
-                    </div>
+                <div>
+                    <a class="bot-userInfo rojo-pal-javi" href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a>
+                </div>
                 }
             </div>
         </div>
     </div>
 </div>
-
+@if (usu == true)
+{
 <div class="tabs" id="Tabs" role="tabpanel">
     <!-- Nav tabs -->
     <ul class="nav" role="tablist">
@@ -76,7 +78,10 @@
         </div>
     </div>
 </div>
-
-
+}
+else
+{
+@Html.Partial("UserCardListPartial", ViewData["userCardList"])
+}
 
 

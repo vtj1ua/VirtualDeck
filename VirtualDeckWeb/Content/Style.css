@@ -19,14 +19,12 @@ body
 
 
 
-/*PARA CENTRAR LA TIENDA CHAPUZA*/
+/*PARA CENTRAR LA TIENDA*/
 .container{
     padding-left: 0;
     padding-right: 0;
 }
-h2 {
-    margin-left:14px;
-}
+
     
 
 .shop-container {
@@ -361,6 +359,9 @@ width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5em;
+}
+.m-modal div:first-of-type{
+    margin: 2em 0;
 }
 /*Formularios*/
 
