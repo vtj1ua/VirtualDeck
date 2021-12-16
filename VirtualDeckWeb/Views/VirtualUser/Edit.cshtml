@@ -7,71 +7,81 @@
     ViewBag.Title = "Editar";
 }
 
-@{
-        VirtualUserEN user = Session["User"] as VirtualUserEN;
-        if (user != null)
-        {
-        <h2>Edit</h2>
+<div class="container">
+    <div class="row">
 
-        using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
+        @{
+            VirtualUserEN user = Session["User"] as VirtualUserEN;
+            if (user != null)
 
-<div class="form-horizontal">
-    <h4>Editar</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.Id)
+            {
 
-<div class="form-group">
-    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @Value = user.UserName } })
-        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-    </div>
-</div>
+                using (Html.BeginForm("Edit", "VirtualUser", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
 
-<div class="form-group">
-    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-        @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @Value = user.Description } })
-        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-    </div>
-</div>
+                    <div class="form-horizontal formDivHor">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Id)
 
-<div class="form-group">
-    @Html.LabelFor(model => model.Img, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-        <div class="editor-field">
-            <img height="100" width="100" src="~/Resources/@Model.Img" />
-        </div>
-        <div>
-            <input type="file" name="file" />
-        </div>
-    </div>
-</div>
+                        <div class="form-group widthForm">
+                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2 labelDiv" })
+                            <div class="inputsEdit">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @Value = user.UserName } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input class="bot-userInfo" type="submit" value="MODIFICAR" class="btn btn-default" />
-        </div>
-    </div>
-</div>
+                        <div class="form-group widthForm">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2 labelDiv" })
+                            <div class="formDiv inputsEdit">
+                                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @Value = user.Description } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group widthForm imgDivForm">
+                            @Html.LabelFor(model => model.Img, htmlAttributes: new { @class = "control-label col-md-2 labelDiv" })
+                            <div id="foto-reg">
+                                <input class="notVisible" type="file" name="file" accept="image/*" onchange="previsualizarImagen(this);">
+                                <img id="photo-usu" class="imgForm" height="200" width="200" src="~/Resources/@Model.Img" alt="Foto del usuario" onclick="return cargarImagen(this.parentNode);">
+                                <footer class="foto-footer">
+                                    <a class="action-button margin-a" onclick="return cargarImagen(this.parentNode.parentNode);">Buscar Foto</a>
+                                    <a class="action-button" onclick="return borrarFoto(this.parentNode.parentNode);">Borrar Foto</a>
+                                </footer>
+                                <input type="hidden" id="hiddenInput" name="DeletedImg" value="0" />
+                            </div>
+                        </div>
+
+                        <div class="form-group widthForm buttonsDiv">
+                            <div>
+                                <input class="bot-userInfo marginRightElem" type="submit" value="MODIFICAR" />
+
+                                @Html.ActionLink("VOLVER", "Details", new { Id = user.Id }, new { @class = "action-button marginLeftElem" })
+                            </div>
+                                    
+                                
+
+                        </div>
+
+                    </div>
+                }
+
+            }
+            else
+            {
+                //MOSTRAR MENSAJE DE NO SE PUEDE ACCEDER
+                <p>No se puede acceder a esta página si no estás logueado</p>
+            }
         }
+    </div>
+</div>
 
-        
-            @Html.ActionLink("VOLVER", "Details", new { Id = user.Id }, new { @class = "action-button" })
-        
-    }
-    else
-    {
-        //MOSTRAR MENSAJE DE NO SE PUEDE ACCEDER
-        <p>No se puede acceder a esta página si no estás logueado</p>
-    }
-}
+
 
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/script.js")
 }

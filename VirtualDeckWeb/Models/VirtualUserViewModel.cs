@@ -16,7 +16,8 @@ namespace VirtualDeckWeb.Models
 
         [Display(Prompt = "Nombre de usuario", Description = "Nombre de usuario", Name = "Nombre ")]
         [Required(ErrorMessage = "Debe indicar un nombre")]
-        [StringLength(maximumLength: 200, ErrorMessage = "El nombre no puede tener más de 200 caracteres")]
+        [StringLength(200, MinimumLength = 4,
+                  ErrorMessage = "Debe tener mínimo 4 caracteres")]
         public string UserName { get; set; }
 
         [ScaffoldColumn(false)]
@@ -39,6 +40,9 @@ namespace VirtualDeckWeb.Models
 
         [ScaffoldColumn(false)]
         public int NumCards { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string DeletedImg { get; set; }
 
     }
 }
