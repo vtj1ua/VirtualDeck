@@ -4,25 +4,25 @@
     ViewBag.Title = "Packs";
 }
 
+<div class="tabs">
+    <ul class="nav justify-content-center">
+        <li class="nav-item" >
+            @Html.ActionLink("Cartas", "Cards")
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Sobres", "Packs",null, new { @class = "selected" })
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Tokens", "TokenPacks")
+        </li>
+    </ul>
+</div>
 
-<ul class="nav justify-content-center">
-    <li class="nav-item">
-        @Html.ActionLink("Cartas", "Cards")
-    </li>
-    <li class="nav-item">
-        @Html.ActionLink("Sobres", "Packs")
-    </li>
-    <li class="nav-item">
-        @Html.ActionLink("Tokens", "TokenPacks")
-    </li>
-</ul>
 
-<h2>Sobres</h2>
-
-<form asp-controller="ShopController" asp-action="Packs">
-    <input type="text" name="search" placeholder="Introduce el nombre o descripción del pack" />
-    <button type="submit">Buscar</button>
-</form>
+        <form class="forms" asp-controller="ShopController" asp-action="Packs">
+            <input type="text" name="search" placeholder="Introduce el nombre" />
+            <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+        </form>
 
 @Html.Partial("PackListShopPartial", Model)
 

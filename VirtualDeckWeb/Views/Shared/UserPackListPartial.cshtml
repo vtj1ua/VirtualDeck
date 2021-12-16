@@ -15,9 +15,11 @@
 
             <!-- Modal -->
             <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
-                <h2>@item.Id</h2>
-                <p>Rareza: @item.Rarity</p>
-                
+                <div class="m-modal">
+                    @Html.Partial("UserPackPartial", item)
+                    <h2>@item.Id</h2>
+                    <p>Rareza: @item.Rarity</p>
+                </div>
             </div>
         }
     </div>

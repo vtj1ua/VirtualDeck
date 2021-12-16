@@ -3,20 +3,19 @@
 @{
     ViewBag.Title = "TokenPacks";
 }
-
-<ul class="nav justify-content-center">
-    <li class="nav-item">
-        @Html.ActionLink("Cartas", "Cards")
-    </li>
-    <li class="nav-item">
-        @Html.ActionLink("Sobres", "Packs")
-    </li>
-    <li class="nav-item">
-        @Html.ActionLink("Tokens", "TokenPacks")
-    </li>
-</ul>
-
-<h2>Packs de Tokens</h2>
+<div class="tabs" style="margin-bottom:7.5em;">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            @Html.ActionLink("Cartas", "Cards")
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Sobres", "Packs")
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Tokens", "TokenPacks", null, new { @class = "selected" })
+        </li>
+    </ul>
+</div>
 
 <!------------------------------------------- NEW --------------------------------------------------->
 <div class="container">

@@ -3,26 +3,27 @@
 @{
     ViewBag.Title = "Cards";
 }
+<div class="tabs">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            @Html.ActionLink("Cartas", "Cards",null,new { @class = "selected" })
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Sobres", "Packs")
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Tokens", "TokenPacks")
+        </li>
+    </ul>
+</div>
 
-<ul class="nav justify-content-center">
-    <li class="nav-item">
-        @Html.ActionLink("Cartas", "Cards")
-    </li>
-    <li class="nav-item">
-        @Html.ActionLink("Sobres", "Packs")
-    </li>
-    <li class="nav-item">
-        @Html.ActionLink("Tokens", "TokenPacks")
-    </li>
-</ul>
+
+        <form class="forms" asp-controller="ShopController" asp-action="Cards">
+            <input type="text" name="search" placeholder="Introduce un nombre o descripción"/>
+            <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+        </form>
 
 
-<form asp-controller="ShopController" asp-action="Cards">
-    <input type="text" name="search" placeholder="Introduce el nombre o descripción de la carta" />
-    <button type="submit">Buscar</button>
-</form>
-
-<h2>Cartas</h2>
 
 @Html.Partial("CardListShopPartial", Model)
 

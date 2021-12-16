@@ -14,15 +14,25 @@ body {
     background-color: var(--dark);
     color: var(--light);
 }
-    .shop-container {
+
+/*PARA CENTRAR LA TIENDA CHAPUZA*/
+.container{
+    padding-left: 0;
+    padding-right: 0;
+}
+h2 {
+    margin-left:14px;
+}
+    
+
+.shop-container {
     background: var(--light-dark);
-    padding: 2em 1em 1em 1em;
+    padding: 2em 0em 1em 0em;
     box-sizing: content-box;
     margin: 1em 0.5em;
     min-width: 18em;
     border-radius: 5px;
 }
-
 
 .shop-container > div:last-child {
     display: grid;
@@ -192,9 +202,10 @@ width: 100%;
     height: auto;
     min-height: 30em;
     border-radius: 5px;
-    z-index: -3;
     font-family: var(--fuente);
     margin-bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .fondoContenedorPacks {
@@ -205,7 +216,6 @@ width: 100%;
     height: auto;
     min-height: 30em;
     border-radius: 5px;
-    z-index: -3;
     font-family: var(--fuente);
     margin-bottom: 2em;
 }
@@ -216,59 +226,45 @@ width: 100%;
     border-start-start-radius: 5px;
     border-start-end-radius: 5px;
 }
-/*
-.contenedorPack > div:first-child::before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 2em;
-    height: 35%;
-    background: linear-gradient(130deg, rgba(255, 174, 0), rgba(255, 255, 255, 0.4),rgb(255, 174, 0));
-    object-fit: cover;
-    animation: mov 3s ease infinite;
-    transform: translateY(-100%);
-    overflow: hidden;
-}
 
-@keyframes mov {
-    0% {
-        transform: translateX(800), rotateZ(130deg);
-                
+
+
+    .contenedorPack > div:first-child img {
+        position: absolute;
+        width: 8em;
+        left: calc(50% - 4em);
+        margin: auto;
+        display: block;
+        margin-top: 6em;
+
+       
     }
-    100% {
-        transform: translateY(-100%), rotateZ(130deg);
-    }
-}*/
-
-
-
-.contenedorPack > div:first-child img {
-    position: absolute;
-    width: 8em;
-    left: calc(50% - 4em);
-    margin: auto;
-    display: block;
-    margin-top: 6em;
-}
 
 .contenedorPack > div:last-child {
     margin-top: 5em;
     text-align: center;
 }
 
-
-/*############################################# MARCO ##################################################*/
-
-.profile-container {
-    padding: 1em;
-    margin: 1em 0.25em;
-    min-width: 18em;
-    border-radius: 5px;
+.contenedorPack > div:last-child > a{
+    padding-left: 1em;
+    padding-right: 1em;
 }
+
+.contenedorPack > div:last-child > p{
+    font-weight: bolder;
+    margin-bottom: 2em;
+}
+    /*############################################# MARCO ##################################################*/
+    .profile-container {
+        padding: 1em;
+        margin: 1em 0.25em;
+        min-width: 18em;
+        border-radius: 5px;
+    }
 
 /*Perfil*/
 .tabs{
-    margin-top: 2em;
+    margin-top: 2em; 
 }
 .tabs ul {
     display: inline-flex;
@@ -316,15 +312,48 @@ width: 100%;
 }
 
 /*Modal*/
-.modal {
+.m-modal {
     width: 30em;
     border: 1px solid #000;
     text-align: center;
     background-color: var(--light-dark);
     margin-left: auto;
     margin-right: auto;
-    top: 5em;
-    bottom: 10em;
+    margin-top: 5em;
+}
+/*Formularios*/
+
+.forms > input[type="text"] {
+    border-radius: 6px;
+    color: var(--dark);
+    margin-right: 1em;
+    height: 2.5em;
+    width:18em;
+}
+
+.forms {
+    display:block;
+    width: fit-content;
+    margin: 2em 0;
+    margin-left: auto;
+    margin-right: auto
+    
+}
+
+@media all and (max-width:425px){
+    .forms input{
+        display:block !important; 
+    }
+    .forms input:first-child {
+        margin: 0 !important;
+    }
+        .forms input:last-child {
+            margin-top:1em !important;
+        }
+}
+
+.selected{
+    background-color: var(--primary) !important;
 }
 
 /*##########################################################################################################*/
@@ -497,20 +526,6 @@ width: 100%;
     width:auto !important;
 }
 
-.formUsers>input[type="text"]{
-    border-radius: 6px;
-    color: var(--dark);
-}
-
-.formUsers{
-    display:flex;
-    justify-content:center;
-    margin:2em;
-}
-
-.formUsers>input{
-    margin-left:.5em;
-}
 
 @media all and (max-width:500px){
     .ListUsers{
@@ -539,12 +554,16 @@ width: 100%;
 
 .userInfo {
     display: grid;
+    background-color: var(--light-dark);
+    padding:1em;
     grid-template-columns: 220px 40% 30.5%;
 }
 
     .userInfo > img {
         width: 15em;
-        border: 1px solid;
+        /*border-radius: 50%;*/
+        object-fit: cover;
+        background: var(--primary);
     }
 
 .userInfo>div:not(.userInfo>div:first-child){
