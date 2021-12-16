@@ -19,7 +19,7 @@ namespace VirtualDeckGenNHibernate.CEN.VirtualDeck
 {
 public partial class PackCEN
 {
-public int New_ (string p_name, string p_description, int p_price, string p_img, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_maxNumCards, int p_minNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_cardTypes, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_cardRarities)
+public int New_ (string p_name, string p_description, int p_price, string p_img, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_rarity, int p_minNumCards, int p_maxNumCards, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum p_cardTypes, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum p_cardRarities)
 {
         /*PROTECTED REGION ID(VirtualDeckGenNHibernate.CEN.VirtualDeck_Pack_new__customized) ENABLED START*/
 

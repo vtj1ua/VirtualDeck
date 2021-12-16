@@ -349,22 +349,18 @@ public static void InitializeData ()
 
                 //BASE PACKS
                 PackCEN packCEN = new PackCEN ();
-                int idpack1 = packCEN.New_ ("pack1", "pack 1", 20, "foto", RarityEnum.Basic, 3, 4, CardTypeEnum.All, RarityEnum.All);
-                int idpack2 = packCEN.New_ ("pack2", "pack 2", 21, "foto", RarityEnum.Common, 3, 4, CardTypeEnum.All, RarityEnum.All);
-                int idpack3 = packCEN.New_ ("pack3", "pack 2", 22, "foto", RarityEnum.Epic, 3, 4, CardTypeEnum.All, RarityEnum.All);
-                int idpack4 = packCEN.New_ ("pack4", "pack 4", 23, "foto", RarityEnum.Legendary, 3, 4, CardTypeEnum.All, RarityEnum.All);
 
-                packCEN.New_ ("Sobre básico pequeño", "Sobre que contiene entre 1 y 5 cartas básicas", 100, "", RarityEnum.Basic, 1, 5, CardTypeEnum.All, RarityEnum.Basic);
-                packCEN.New_ ("Sobre básico mediano", "Sobre que contiene entre 5 y 10 cartas básicas", 300, "", RarityEnum.Basic, 5, 10, CardTypeEnum.All, RarityEnum.Basic);
-                packCEN.New_ ("Sobre básico grande", "Sobre que contiene entre 10 y 15 cartas básicas", 500, "", RarityEnum.Basic, 10, 15, CardTypeEnum.All, RarityEnum.Basic);
+                int idpack1 = packCEN.New_ ("Sobre básico pequeño", "Sobre que contiene entre 1 y 5 cartas básicas", 100, "", RarityEnum.Basic, 1, 5, CardTypeEnum.All, RarityEnum.Basic);
+                int idpack2 = packCEN.New_ ("Sobre básico mediano", "Sobre que contiene entre 5 y 10 cartas básicas", 300, "", RarityEnum.Basic, 5, 10, CardTypeEnum.All, RarityEnum.Basic);
+                int idpack3 = packCEN.New_ ("Sobre básico grande", "Sobre que contiene entre 10 y 15 cartas básicas", 500, "", RarityEnum.Basic, 10, 15, CardTypeEnum.All, RarityEnum.Basic);
 
-                packCEN.New_ ("Sobre común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas y comunes", 150, "", RarityEnum.Common, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
-                packCEN.New_ ("Sobre común mediano", "Sobre que contiene entre 5 y 10 cartas básicas y comunes", 350, "", RarityEnum.Common, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
-                packCEN.New_ ("Sobre común grande", "Sobre que contiene entre 10 y 15 cartas básicas y comunes", 550, "", RarityEnum.Common, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                int idpack4 = packCEN.New_ ("Sobre común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas y comunes", 150, "", RarityEnum.Common, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                int pack1 = packCEN.New_ ("Sobre común mediano", "Sobre que contiene entre 5 y 10 cartas básicas y comunes", 350, "", RarityEnum.Common, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                int pack2 = packCEN.New_ ("Sobre común grande", "Sobre que contiene entre 10 y 15 cartas básicas y comunes", 550, "", RarityEnum.Common, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
 
-                packCEN.New_ ("Sobre poco común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes y poco comunes", 200, "", RarityEnum.Uncommon, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
-                packCEN.New_ ("Sobre poco común mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes y poco comunes", 400, "", RarityEnum.Uncommon, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
-                packCEN.New_ ("Sobre poco común grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes y poco comunes", 600, "", RarityEnum.Uncommon, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                int pack3 = packCEN.New_ ("Sobre poco común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes y poco comunes", 200, "", RarityEnum.Uncommon, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                int pack4 = packCEN.New_ ("Sobre poco común mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes y poco comunes", 400, "", RarityEnum.Uncommon, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                int pack5 = packCEN.New_ ("Sobre poco común grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes y poco comunes", 600, "", RarityEnum.Uncommon, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
 
                 packCEN.New_ ("Sobre raro pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes, poco comunes y raras", 250, "", RarityEnum.Rare, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
                 packCEN.New_ ("Sobre raro mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes, poco comunes y raras", 450, "", RarityEnum.Rare, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
@@ -378,9 +374,9 @@ public static void InitializeData ()
                 packCEN.New_ ("Sobre legendario mediano", "Sobre que contiene entre 5 y 10 cartas poco comunes, raras, épicas y legendarias", 550, "", RarityEnum.Legendary, 5, 10, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
                 packCEN.New_ ("Sobre legendario grande", "Sobre que contiene entre 10 y 15 cartas poco comunes, raras, épicas y legendarias", 750, "", RarityEnum.Legendary, 10, 15, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
 
-                packCEN.New_ ("Sobre mítico pequeño", "Sobre que contiene entre 1 y 5 cartas raras, épicas, legendarias y míticas", 400, "", RarityEnum.Legendary, 1, 5, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
-                packCEN.New_ ("Sobre mítico mediano", "Sobre que contiene entre 5 y 10 cartas raras, épicas, legendarias y míticas", 600, "", RarityEnum.Legendary, 5, 10, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
-                packCEN.New_ ("Sobre mítico grande", "Sobre que contiene entre 10 y 15 cartas raras, épicas, legendarias y míticas", 800, "", RarityEnum.Legendary, 10, 15, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
+                packCEN.New_ ("Sobre mítico pequeño", "Sobre que contiene entre 1 y 5 cartas raras, épicas, legendarias y míticas", 400, "", RarityEnum.Mythical, 1, 5, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
+                packCEN.New_ ("Sobre mítico mediano", "Sobre que contiene entre 5 y 10 cartas raras, épicas, legendarias y míticas", 600, "", RarityEnum.Mythical, 5, 10, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
+                packCEN.New_ ("Sobre mítico grande", "Sobre que contiene entre 10 y 15 cartas raras, épicas, legendarias y míticas", 800, "", RarityEnum.Mythical, 10, 15, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
 
                 //VIRTUALUSERS y USER CARD
                 VirtualUserCEN virtualUserCEN = new VirtualUserCEN ();
@@ -879,12 +875,6 @@ public static void InitializeData ()
                 /* ----------------------------------------------------- */
 
                 Console.WriteLine ("\n\n");
-
-                int pack1 = packCEN.New_ ("Basico", "Descripcion", 500, "", RarityEnum.Common, 5, 1, CardTypeEnum.All, RarityEnum.All);
-                int pack2 = packCEN.New_ ("Raro", "Descripcion", 600, "", RarityEnum.Mythical, 6, 3, CardTypeEnum.All, RarityEnum.All);
-                int pack3 = packCEN.New_ ("Especial", "Descripcion", 700, "", RarityEnum.Legendary, 7, 4, CardTypeEnum.All, RarityEnum.All);
-                int pack4 = packCEN.New_ ("Fuego", "Descripcion", 800, "", RarityEnum.Epic, 8, 5, CardTypeEnum.Fire, RarityEnum.All);
-                int pack5 = packCEN.New_ ("Hierba", "Descripcion", 900, "", RarityEnum.Rare, 10, 5, CardTypeEnum.All, RarityEnum.All);
 
                 PackEN purchasedPack1 = new PackCEN ().ReadOID (pack1);
 

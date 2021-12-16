@@ -291,7 +291,7 @@ public System.Collections.Generic.IList<CardEN> ReadAll (int first, int size)
                 SessionRollBack ();
                 if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                //throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in CardCAD.", ex);
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in CardCAD.", ex);
         }
 
 
