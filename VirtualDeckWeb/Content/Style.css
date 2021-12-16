@@ -708,3 +708,33 @@ width: 100%;
         width: auto !important;
     }
 }
+    }
+
+
+
+    /*##################################### DETALLES #############################################*/
+
+/*
+        --font: Roboto, 'Arial Narrow', Arial, sans-serif;
+    --primary: #3454D1;
+    --dark: #212529;
+    --light-dark: #505050;
+    --light: #FFF;
+    --red: #F02D3A;
+    --green: 14CC60;
+
+    */
+.attack {
+    background: var(--light-dark);
+    margin: 0.5em 0;
+    border: 2px solid var(--light);
+}
+
+.container p, .container h3, .container h4, .container label{
+    color: var(--light);
+}
+
+.superior {
+    padding: 2em 0;
+    background: var(--light-dark);
+}
