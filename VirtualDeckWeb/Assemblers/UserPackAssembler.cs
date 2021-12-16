@@ -14,6 +14,7 @@ namespace VirtualDeckWeb.Assemblers
         {
             UserPackViewModel userPack = new UserPackViewModel();
             userPack.Id = en.Id;
+            userPack.Name = en.Name;
             userPack.PurchaseDate = (DateTime)en.PurchaseDate;
             userPack.Rarity = en.Rarity;
             switch (en.Rarity)

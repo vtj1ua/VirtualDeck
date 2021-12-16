@@ -13,5 +13,7 @@ namespace VirtualDeckWeb.Models
         public RarityEnum Rarity { get; set; }
 
         public String Img { get; set; }
+
+        public String Name { get; set; }
     }
 }
