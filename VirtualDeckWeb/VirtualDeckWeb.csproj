@@ -331,7 +331,6 @@
     <Content Include="Views\Shop\Cards.cshtml" />
     <Content Include="Views\Shop\Packs.cshtml" />
     <Content Include="Views\Shop\TokenPacks.cshtml" />
-    <Content Include="Views\Shop\CardDetails.cshtml" />
     <Content Include="Views\Shop\PackDetails.cshtml" />
     <Content Include="Views\Shop\TokenPackDetails.cshtml" />
     <Content Include="Views\VirtualUser\Details.cshtml" />
@@ -340,6 +339,8 @@
     <Content Include="Views\Shared\PackPartial.cshtml" />
     <Content Include="Views\Shared\CardListPartial.cshtml" />
     <Content Include="Views\Shared\CardPartial.cshtml" />
+    <Content Include="Views\Shared\AttackListPartial.cshtml" />
+    <Content Include="Views\Card\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

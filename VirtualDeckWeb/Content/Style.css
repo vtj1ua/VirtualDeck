@@ -1,14 +1,27 @@
-﻿:root {
-    --fuente: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+
+
+:root{
+    --font: Arial, sans-serif;
+    --primary: #3454D1;
+    --dark: #212529;
+    --light-dark: #505050;
+    --light: #FFF;
+    --red: #F02D3A;
+    --green: 14CC60;
 }
 
+body {
+    font-family: var(--font);
+    background-color: var(--dark);
+}    
 .contenedor {
     background: rgb(231, 231, 231);
     
     height: auto;
     min-height: 30em;
     border-radius: 5px;
-box-sizing: content-box;
+    box-sizing: content-box;
     padding: 1px;
     margin-bottom: 2em;
     padding-top: 1.5em;
@@ -314,7 +327,7 @@ width: 100%;
         background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
         text-align: center;
         width: 100%;
-        top: 10%;
+        top: 5%;
         position: absolute;
     }
 
@@ -343,3 +356,32 @@ width: 100%;
     .virtual-card table tr > td:first-of-type {
         width: 50%;
     }
+
+
+
+    /*##################################### DETALLES #############################################*/
+
+/*
+        --font: Roboto, 'Arial Narrow', Arial, sans-serif;
+    --primary: #3454D1;
+    --dark: #212529;
+    --light-dark: #505050;
+    --light: #FFF;
+    --red: #F02D3A;
+    --green: 14CC60;
+
+    */
+.attack {
+    background: var(--light-dark);
+    margin: 0.5em 0;
+    border: 2px solid var(--light);
+}
+
+.container p, .container h3, .container h4, .container label{
+    color: var(--light);
+}
+
+.superior {
+    padding: 2em 0;
+    background: var(--light-dark);
+}

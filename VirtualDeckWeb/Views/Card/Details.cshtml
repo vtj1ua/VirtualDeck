@@ -1,0 +1,56 @@
+﻿@model VirtualDeckWeb.Models.CardViewModel
+@{
+    IEnumerable<VirtualDeckWeb.Models.AttackMoveViewModel> ModelAttack = ViewData["Attack"] as IEnumerable<VirtualDeckWeb.Models.AttackMoveViewModel>;
+}
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container superior">
+    <div class="row">
+
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            @Html.Partial("CardPartial", Model)
+        </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+            @using (Html.BeginForm("Buy", "Card", FormMethod.Post))
+            {
+                <h3>@Html.DisplayFor(model => model.Name)</h3>
+                <p>@Html.DisplayFor(model => model.Description)</p>
+                <div>
+                    <label>Precio total</label>
+                    <p>@Html.DisplayFor(model => model.Price) <span>tokens</span></p>
+                </div>
+                <div>
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" id="cantidad" name="amount" min="0" value="1" />
+
+                    @*
+                <select >
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+                    *@
+                </div>
+                <div>
+                    <label>Precio total</label>
+                    <p>@Html.DisplayFor(model => model.Price) <span>tokens</span></p>
+                </div>
+                @*<button>Comprar</button>*@
+                
+                <input type="submit" value="Comprar" class="btn btn-default" />
+                <input type="hidden" value="@Model.Id" name="cardId">
+            }
+
+            </div>
+
+    </div>
+</div>
+<div class="container">
+    @Html.Partial("AttackListPartial", ModelAttack)
+</div>

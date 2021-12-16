@@ -60,14 +60,22 @@ namespace VirtualDeckWeb.Controllers
         public ActionResult CardDetails(int id)
         {
             SessionInitialize();
-            CardCAD CardCAD = new CardCAD(session);
-            CardCEN CardCEN = new CardCEN(CardCAD);
-            CardEN CardEN = CardCEN.ReadOID(id);
-            CardViewModel model = new CardAssembler().ConvertENToModelUI(CardEN);
+            CardCAD cardCAD = new CardCAD(session);
+            CardCEN cardCEN = new CardCEN(cardCAD);
+            CardEN cardEN = cardCEN.ReadOID(id);
+
+            List<AttackMoveEN> list = cardEN.AttackMoves.ToList();
+            IEnumerable<AttackMoveViewModel> attackList = new AttackMoveAssembler().ConvertListENToModel(list).ToList();
+
+            CardViewModel model = new CardAssembler().ConvertENToModelUI(cardEN);
+
+            //ViewData["Card"] = model;
+            ViewData["Attack"] = attackList;
+
             SessionClose();
             return View(model);
         }
-
+        
         public ActionResult PackDetails(int id)
         {
             SessionInitialize();

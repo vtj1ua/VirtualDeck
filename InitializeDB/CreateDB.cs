@@ -359,6 +359,7 @@ public static void InitializeData ()
                 int virtualUser3 = virtualUserCEN.New_ ("virtualUser12345", "Pepito123", "Pepito123@email.com");
                 int virtualUser4 = virtualUserCEN.New_ ("virtualUser12345", "Juan123", "Juan123@email.com");
 
+
                 int card1 = cardCEN.New_ ("Pikachu", "Descripcion carta 1", 1000, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
                         100, 100, 50, 100, RarityEnum.Mythical, new List<int>() {
                                 idAttack1

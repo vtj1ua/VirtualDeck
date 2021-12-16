@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using VirtualDeckGenNHibernate.CAD.VirtualDeck;
 using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckGenNHibernate.CP.VirtualDeck;
 using VirtualDeckWeb.Models;
 using VirtualDeckWeb.Assemblers;
 
@@ -31,7 +32,21 @@ namespace VirtualDeckWeb.Controllers
         // GET: Card/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SessionInitialize();
+            CardCAD cardCAD = new CardCAD(session);
+            CardCEN cardCEN = new CardCEN(cardCAD);
+            CardEN cardEN = cardCEN.ReadOID(id);
+
+            List<AttackMoveEN> list = cardEN.AttackMoves.ToList();
+            IEnumerable<AttackMoveViewModel> attackList = new AttackMoveAssembler().ConvertListENToModel(list).ToList();
+
+            CardViewModel model = new CardAssembler().ConvertENToModelUI(cardEN);
+
+            //ViewData["Card"] = model;
+            ViewData["Attack"] = attackList;
+
+            SessionClose();
+            return View(model);
         }
 
         // GET: Card/Create
@@ -40,19 +55,39 @@ namespace VirtualDeckWeb.Controllers
             return View();
         }
 
-        // POST: Card/Create
+        // POST: Card/Buy
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Buy(FormCollection collection)
         {
             try
             {
+                int cardId = Int32.Parse(collection.Get("cardId"));
                 // TODO: Add insert logic here
+                int amount = Int32.Parse(collection.Get("amount"));
 
-                return RedirectToAction("Index");
+                TokenPackCP tokenPackCP = new TokenPackCP();
+                TokenPackCEN tokenPackCEN = new TokenPackCEN();
+
+                int tokenOID1 = tokenPackCEN.New_("twoPack", "twoPack.png", 20, "Contiene cartas random", 300);
+
+                UserCardCEN userCardCEN = new UserCardCEN();
+                VirtualUserEN user = Session["User"] as VirtualUserEN;
+                CardCEN cardCEN = new CardCEN();
+                CardEN cardEN = cardCEN.ReadOID(cardId);
+                Console.WriteLine("Id del modelo", cardId);
+
+                tokenPackCP.PurchaseTokenPack(tokenOID1, user.Id);
+
+                CardCP cardCP = new CardCP();
+                cardCP.PurchaseUserCard(cardId, user.Id, 1);
+
+                
+                return RedirectToAction(actionName: "Cards", controllerName: "Shop");
             }
             catch
             {
-                return View();
+                //return View();
+                return RedirectToAction(actionName: "Cards", controllerName: "Shop");
             }
         }
 
