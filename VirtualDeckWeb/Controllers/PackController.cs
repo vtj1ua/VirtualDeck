@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using VirtualDeckGenNHibernate.CAD.VirtualDeck;
 using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckGenNHibernate.CP.VirtualDeck;
 using VirtualDeckWeb.Assemblers;
 using VirtualDeckWeb.Models;
 
@@ -44,6 +45,24 @@ namespace VirtualDeckWeb.Controllers
             PackViewModel model = new PackAssembler().ConvertENToModelUI(packEN);
             SessionClose();
             return View(model);
+
+            /*
+            SessionInitialize();
+            CardCAD cardCAD = new CardCAD(session);
+            CardCEN cardCEN = new CardCEN(cardCAD);
+            CardEN cardEN = cardCEN.ReadOID(id);
+
+            //List<AttackMoveEN> list = cardEN.AttackMoves.ToList();
+            //IEnumerable<AttackMoveViewModel> attackList = new AttackMoveAssembler().ConvertListENToModel(list).ToList();
+
+            PackViewModel model = new PackAssembler().ConvertENToModelUI(packEN);
+
+            //ViewData["Card"] = model;
+            //ViewData["Attack"] = attackList;
+
+            SessionClose();
+            return View(model);
+            */
         }
 
         // GET: Pack/Create
@@ -73,6 +92,49 @@ namespace VirtualDeckWeb.Controllers
         {
             return View();
         }
+
+
+        // POST: Pack/Buy
+        [HttpPost]
+        public ActionResult Buy(FormCollection collection)
+        {
+            try
+            {
+                //SessionInitialize();
+                int packId = Int32.Parse(collection.Get("packId"));
+                // TODO: Add insert logic here
+                int amount = Int32.Parse(collection.Get("amount"));
+
+                TokenPackCP tokenPackCP = new TokenPackCP();
+                // TokenPackCAD tokenPackCAD = new TokenPackCAD(session);
+                TokenPackCEN tokenPackCEN = new TokenPackCEN();
+
+                int tokenOID1 = tokenPackCEN.New_("twoPack", "twoPack.png", 20, "Contiene cartas random", 100000000);
+
+
+                UserPackCEN userPackCEN = new UserPackCEN();
+                VirtualUserEN user = Session["User"] as VirtualUserEN;
+                
+                PackCEN packCEN = new PackCEN();
+                PackEN packEN = packCEN.ReadOID(packId);
+                Console.WriteLine("Id del pack : ", packId);
+
+                tokenPackCP.PurchaseTokenPack(tokenOID1, user.Id);
+
+                PackCP packCP = new PackCP();
+                packCP.PurchaseUserPack(packId, user.Id, amount);
+
+
+                return RedirectToAction(actionName: "Packs", controllerName: "Shop");
+            }
+            catch
+            {
+                //return View();
+                return RedirectToAction(actionName: "Packs", controllerName: "Shop");
+            }
+
+        }
+
 
         // POST: Pack/Edit/5
         [HttpPost]

@@ -4,22 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VirtualDeckGenNHibernate.CP.VirtualDeck;
+using VirtualDeckGenNHibernate.EN.VirtualDeck;
 
 namespace VirtualDeckWeb.Controllers
 {
     public class UserPackController : BasicController
     {
         // GET: UserPack
-        public ActionResult Index(int idUsuario, int idPack)
+        public ActionResult Index(int idPack)
         {
-            
-
+            VirtualUserEN user = Session["User"] as VirtualUserEN;
             UserPackCP userPackCP = new UserPackCP();
             userPackCP.OpenPack(idPack);
 
-            
-            return RedirectToAction(actionName: "Details", controllerName: "VirtualUser", new { id = idUsuario });
+            return RedirectToAction(actionName: "Details", controllerName: "VirtualUser", new { id = user.Id });
         }
+
 
         // GET: UserPack/Details/5
         public ActionResult Details(int id)

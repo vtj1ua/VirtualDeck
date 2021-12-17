@@ -262,6 +262,7 @@
     <Content Include="Resources\Borders\Rare.png" />
     <Content Include="Resources\Borders\Uncommon.png" />
     <Content Include="Resources\borrar.png" />
+    <Content Include="Resources\inter.png" />
     <Content Include="Resources\PackRarities\Basic.png" />
     <Content Include="Resources\PackRarities\Common.png" />
     <Content Include="Resources\PackRarities\Epic.png" />
@@ -354,6 +355,7 @@
     <Content Include="Views\Comment\ListPartial.cshtml" />
     <Content Include="Views\Shared\AttackListPartial.cshtml" />
     <Content Include="Views\Card\Details.cshtml" />
+    <Content Include="Views\Pack\Details.cshtml" />
     <Content Include="Views\TokenPack\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
