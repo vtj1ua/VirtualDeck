@@ -51,6 +51,7 @@
                 <!-- Modal -->
                 <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="m-modal">
+
                         <div>
                             @Html.Partial("UserCardPartial", item)
                             <div>
@@ -59,15 +60,20 @@
                                 <p><b>Rareza:</b> @item.Rarity</p>
                                 <p><b>Nivel:</b> @item.Level</p>
                                 <p><b>Experiencia:</b> @item.Experience exp</p>
-                                @if (usu == true){
-                                    <p><b>Fecha de compra:</b> @item.PurchaseDate</p>
+                                @if (usu == true)
+                                {
+                                    <p><b>Fecha de compra:</b> @Html.ValueFor(i => item.PurchaseDate, "{0:dd/MM/yyyy}")</p>
                                 }
                             </div>
                         </div>
                         @if (usu == true)
                         {
-                            @Html.ActionLink("Destruir", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
+                            @Html.ActionLink("Destruir +" + item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
+
                         }
+                        
+                         <img class="icon-close" data-dismiss="modal" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
+                       
                     </div>
                 </div>
             }

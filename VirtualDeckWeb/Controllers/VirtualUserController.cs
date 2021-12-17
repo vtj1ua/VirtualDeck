@@ -48,6 +48,7 @@ namespace VirtualDeckWeb.Controllers
             UserCardCAD userCardCAD = new UserCardCAD(session);
             UserCardCEN userCardCEN = new UserCardCEN(userCardCAD);
             IList<UserCardEN> userCardENList = userCardCEN.UserCardsByUser(id);
+            
             IEnumerable<UserCardViewModel> userCardViewModelList = new UserCardAssembler().ConvertListENToModel(userCardENList);
 
             /*LISTA DE LOS SOBRES DEL USUARIO*/

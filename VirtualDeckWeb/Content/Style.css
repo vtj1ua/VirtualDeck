@@ -350,17 +350,17 @@ width: 100%;
     border-radius: 0;
 }
 
+
+
 /*Modal*/
-
-
 .m-modal {
     width: fit-content;
     text-align: center;
     background-color: var(--light-dark);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10em;
+    margin:auto;
+    margin-top:10em;
     padding:3em;
+    position:relative;
 }
 .m-modal a{
    display:block;
@@ -387,11 +387,8 @@ width: 100%;
     transform: translateX(0%);
 }
 
-
-
-@media all and (min-width:600px) {
-
-    .m-modal div:first-child {
+    @media all and (min-width:600px) {
+     .m-modal div:first-child {
         display: inline-flex;
     }
 
@@ -404,14 +401,23 @@ width: 100%;
     }
 }
 
+    .icon-close{
+        position:absolute;
+        right:0;
+        top:0;
+        width:3em;
+    }
+        .icon-close:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
 /*Formularios*/
-
 .forms > input[type="text"] {
     border-radius: 6px;
     color: var(--dark);
     margin-right: 1em;
     height: 2.5em;
-    width:18em;
+    width: 18em;
 }
 
 .forms {
@@ -448,7 +454,11 @@ width: 100%;
     color: aliceblue;
     left: 50%;
     transform: translateX(-50%);
+    user-select:none;
 }
+    .virtual-card:hover{
+        cursor:pointer;
+    }
 
     .virtual-card > img {
         overflow: hidden;

@@ -33,25 +33,19 @@
                 <p>@Html.DisplayFor(model => model.Description)</p>
                 @if (usu == true)
                 {
-                <div>
-                    @Html.ActionLink("Editar", "Edit", null, new { @class = "bot-userInfo" })
-                </div>
+                    <div>
+                        @Html.ActionLink("Editar", "Edit", null, new { @class = "bot-userInfo" })
+                    </div>
                 }
             </div>
 
             <div class="gridUserInfo">
                 @if (usu == true)
                 {
-                <p class="userInfoTokens"><strong>Tokens: </strong><span>@Html.DisplayFor(model => model.Tokens) <img src="~/Resources/token.png" /></span></p>
+                    <p class="userInfoTokens"><strong>Tokens: </strong><span>@Html.DisplayFor(model => model.Tokens) <img src="~/Resources/token.png" /></span></p>
                 }
                 <p class="userInfoCards"><strong>Número de cartas: </strong>@Html.DisplayFor(model => model.NumCards)<span><img src="~/Resources/cardIcon.png" /></span></p>
-                <p><strong>Partidas ganadas: </strong></p>
-                @if (usu == true)
-                {
-                <div>
-                    <a class="bot-userInfo rojo-pal-javi" href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a>
-                </div>
-                }
+                <p><strong>Partidas ganadas: </strong></p> 
             </div>
         </div>
     </div>
