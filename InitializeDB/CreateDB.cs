@@ -760,12 +760,12 @@ public static void InitializeData ()
                 TokenPackCEN tokenPackCEN = new TokenPackCEN ();
 
                 tokenPackCEN.New_("Pack pequeño 1", 1.0, 100);
-                tokenPackCEN.New_("Pack pequeño 2", 2.5, 100);
-                tokenPackCEN.New_("Pack mediano 1", 5.0, 100);
-                tokenPackCEN.New_("Pack mediano 2", 10.0, 100);
-                int tokenOID1 = tokenPackCEN.New_("Pack grande 1", 25.0, 100);
-                int tokenOID2 = tokenPackCEN.New_("Pack grande 2", 50.0, 100);
-                int tokenOID3 = tokenPackCEN.New_("Pack niño rico 1", 100.0, 100);
+                tokenPackCEN.New_("Pack pequeño 2", 2.5, 325);
+                tokenPackCEN.New_("Pack mediano 1", 5.0, 700);
+                tokenPackCEN.New_("Pack mediano 2", 10.0, 1450);
+                int tokenOID1 = tokenPackCEN.New_("Pack grande 1", 25.0, 3700);
+                int tokenOID2 = tokenPackCEN.New_("Pack grande 2", 50.0, 7450);
+                int tokenOID3 = tokenPackCEN.New_("Pack niño rico 1", 100.0, 14950);
                 int tokenOID4 = tokenPackCEN.New_("Pack niño rico 2", 200.0, 29950);
 
                 VirtualUserEN usuarioAntesCompraToken = virtualUserCEN.ReadOID (virtualUser1);
