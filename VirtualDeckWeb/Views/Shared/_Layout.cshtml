@@ -34,7 +34,7 @@
                     <li>@Html.ActionLink("Usuarios", "Index", "VirtualUser")</li>
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Mercado", "", "")</li>
+                        <li>@Html.ActionLink("Mercado", "Index", "TradeOff")</li>
                         <li>@Html.ActionLink("Combate", "", "")</li>
                     }
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>

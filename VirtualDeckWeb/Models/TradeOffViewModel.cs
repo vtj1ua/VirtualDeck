@@ -11,5 +11,9 @@ namespace VirtualDeckWeb.Models
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public TradeStateEnum State { get; set; }
+
+        public UserCardViewModel OfferedUserCard { get; set; }
+
+        public CardViewModel DesiredCard { get; set; }
     }
 }

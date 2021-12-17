@@ -217,6 +217,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PackController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\TradeOffController.cs" />
     <Compile Include="Controllers\UserCardController.cs" />
     <Compile Include="Controllers\UserPackController.cs" />
     <Compile Include="Controllers\VirtualUserController.cs" />
@@ -260,6 +261,7 @@
     <Content Include="Resources\Borders\Mythical.png" />
     <Content Include="Resources\Borders\Rare.png" />
     <Content Include="Resources\Borders\Uncommon.png" />
+    <Content Include="Resources\inter.png" />
     <Content Include="Resources\PackRarities\Basic.png" />
     <Content Include="Resources\PackRarities\Common.png" />
     <Content Include="Resources\PackRarities\Epic.png" />
@@ -351,6 +353,7 @@
     <Content Include="Views\Comment\ListPartial.cshtml" />
     <Content Include="Views\Shared\AttackListPartial.cshtml" />
     <Content Include="Views\Card\Details.cshtml" />
+    <Content Include="Views\TradeOff\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

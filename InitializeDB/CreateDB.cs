@@ -390,7 +390,7 @@ public static void InitializeData ()
                                 idAttack1
                         });
 
-                int card2 = cardCEN.New_ ("Martin", "Descripcion carta 2", 10, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
+                int card2 = cardCEN.New_ ("Papá Noel", "Descripcion carta 2", 10, "noel.png", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
                         100, 100, 50, 100, RarityEnum.Mythical, new List<int>() {
                                 idAttack1
                         });
@@ -405,7 +405,7 @@ public static void InitializeData ()
                 userCardCEN.AssignUser (ucard1, virtualUser1);
 
                 int ucard2 = userCardCEN.New_ (CardTypeEnum.Fighting, RarityEnum.Mythical,
-                        100, 100, 50, 100, "Martin", "", new List<int>() {
+                        100, 100, 50, 100, "Papá Noel", "noel.png", new List<int>() {
                                 idAttack1
                         }, card2, 1.0f);
 
@@ -422,7 +422,7 @@ public static void InitializeData ()
 
                 //PUBLISHED TRADEOFFS
                 TradeOffCEN tradeOffCEN = new TradeOffCEN ();
-                tradeOffCEN.Publish (virtualUser1, card1, ucard1);
+                //tradeOffCEN.Publish (virtualUser1, card1, ucard1);
                 tradeOffCEN.Publish (virtualUser2, card2, ucard2);
 
 
