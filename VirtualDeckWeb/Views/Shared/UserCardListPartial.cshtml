@@ -1,4 +1,21 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>
+
+
+@using VirtualDeckGenNHibernate.EN.VirtualDeck;
+
+@{bool usu = false; }
+
+
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+    //FALTA COMPROBAR EL ID DEL MODEL CON EL ID DE LA SESSION Y SI COINCIDE ENTONCES MUESTRO EL LINK A EDITAR
+    int id = (int)ViewData["idUser"];
+    if (en.Id == id)
+    {
+        usu = true;
+    }
+}
 <div class="container">
     <div class="row">
         @foreach (var item in Model)
@@ -20,7 +37,12 @@
                     <p>Experiencia: @item.Experience</p>
                     <p>Fecha de compra: @item.PurchaseDate</p>
                     <p>Rareza: @item.Rarity</p>
-                    <p>Tipo: @item.Type</p>
+                    @if (usu == true)
+                    {
+                        <button></button>
+                        
+                    }
+
                 </div>
             </div>
 

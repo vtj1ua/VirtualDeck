@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.UserPackViewModel>
+
+
 <div class="container">
     <div class="row">
         @foreach (var item in Model)
@@ -18,8 +20,10 @@
                 <div class="m-modal">
                     @Html.Partial("UserPackPartial", item)
                     <h2>@item.Id</h2>
-                    <p>Rareza: @item.Rarity</p>
-                </div>
+                   
+                        <p>Rareza: @item.Rarity</p>
+                    
+                    </div>
             </div>
         }
     </div>
