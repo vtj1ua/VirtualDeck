@@ -105,21 +105,8 @@ namespace VirtualDeckWeb.Controllers
                 // TODO: Add insert logic here
                 int amount = Int32.Parse(collection.Get("amount"));
 
-                TokenPackCP tokenPackCP = new TokenPackCP();
-                // TokenPackCAD tokenPackCAD = new TokenPackCAD(session);
-                TokenPackCEN tokenPackCEN = new TokenPackCEN();
-
-                int tokenOID1 = tokenPackCEN.New_("twoPack", "twoPack.png", 20, "Contiene cartas random", 100000000);
-
-
                 UserPackCEN userPackCEN = new UserPackCEN();
                 VirtualUserEN user = Session["User"] as VirtualUserEN;
-                
-                PackCEN packCEN = new PackCEN();
-                PackEN packEN = packCEN.ReadOID(packId);
-                Console.WriteLine("Id del pack : ", packId);
-
-                tokenPackCP.PurchaseTokenPack(tokenOID1, user.Id);
 
                 PackCP packCP = new PackCP();
                 packCP.PurchaseUserPack(packId, user.Id, amount);
