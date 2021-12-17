@@ -18,17 +18,14 @@ body {
     overflow-x: hidden;
 }
 
-/*PARA CENTRAR LA TIENDA CHAPUZA*/
 
-.container {
+
+/*PARA CENTRAR LA TIENDA*/
+.container{
     padding-left: 0;
     padding-right: 0;
 }
 
-
-h2 {
-    margin-left:14px;
-}
     
 
 .shop-container {
@@ -85,13 +82,13 @@ h2 {
     margin-right: 2em;
 }
 
-
+/*
 .fondo {
     position: relative;
     left: calc(50% - 7.5em);
     width: 15em;
     height: 20.6em;
-}
+}*/
 
 
 .tipo > img {
@@ -103,7 +100,7 @@ h2 {
     width: 100%;
     overflow: hidden;
 }
-
+/*
 .info > img {
     position: absolute;
     width: 100%;
@@ -124,7 +121,7 @@ width: 100%;
     text-align: center;
     font-size: 20px;
     background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
-}
+}*/
 
 .estadisticas {
     font-size: 14px;
@@ -363,24 +360,74 @@ width: 100%;
     border-radius: 0;
 }
 
+
+
 /*Modal*/
 .m-modal {
-    width: 30em;
-    border: 1px solid #000;
+    width: fit-content;
     text-align: center;
     background-color: var(--light-dark);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5em;
+    margin:auto;
+    margin-top:10em;
+    padding:3em;
+    position:relative;
 }
-/*Formularios*/
+.m-modal a{
+   display:block;
+   width:fit-content;
+   margin-top: 2em;
+}
 
+.m-modal div:first-child {
+    display: block;
+}
+
+.m-modal div:first-of-type > div:first-of-type {
+    left: 0;
+    transform: translateX(0%);    
+}
+
+.m-modal div:first-of-type > div:last-of-type {
+    text-align: left;
+}
+    
+/*Necesario para los sobres*/
+.m-modal .pack-detail {
+    left: 0;
+    transform: translateX(0%);
+}
+
+    @media all and (min-width:600px) {
+     .m-modal div:first-child {
+        display: inline-flex;
+    }
+
+    .m-modal div:first-of-type > div:first-of-type {
+        margin-right: 3em;
+    }
+
+    .m-modal div:first-of-type > div:last-of-type h2 {
+        margin-top: 0;
+    }
+}
+
+    .icon-close{
+        position:absolute;
+        right:0;
+        top:0;
+        width:3em;
+    }
+        .icon-close:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+/*Formularios*/
 .forms > input[type="text"] {
     border-radius: 6px;
     color: var(--dark);
     margin-right: 1em;
     height: 2.5em;
-    width:18em;
+    width: 18em;
 }
 
 .forms {
@@ -417,7 +464,11 @@ width: 100%;
     color: aliceblue;
     left: 50%;
     transform: translateX(-50%);
+    user-select:none;
 }
+    .virtual-card:hover{
+        cursor:pointer;
+    }
 
     .virtual-card > img {
         overflow: hidden;
@@ -436,7 +487,7 @@ width: 100%;
         }
 
     .virtual-card > h3 {
-        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
+        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.8), rgba(94, 94, 94, 0));
         text-align: center;
         width: 100%;
         top: 5%;
@@ -448,7 +499,7 @@ width: 100%;
         position: absolute;
         width: 100%;
         font-weight: bold;
-        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
+        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.8), rgba(94, 94, 94, 0));
         display: grid;
         letter-spacing: .2em;
         grid-template-columns: 70% 30%;
@@ -462,7 +513,7 @@ width: 100%;
         width: 100%;
         font-weight: bold;
         text-align: center;
-        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
+        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.8), rgba(94, 94, 94, 0));
     }
 
     .virtual-card table tr > td:first-of-type {
@@ -611,7 +662,8 @@ width: 100%;
 
     .userInfo > img {
         width: 15em;
-        /*border-radius: 50%;*/
+        height:15em;
+        border-radius: 50%;
         object-fit: cover;
         background: var(--primary);
     }
@@ -644,7 +696,7 @@ width: 100%;
     text-decoration: none;
     color: var(--light);
     text-align: center;
-    background-color: var(--light-dark);
+    background-color: var(--dark);
     border: 3px solid var(--primary);
 }
 
@@ -715,4 +767,115 @@ width: 100%;
     .userInfoContainer {
         width: auto !important;
     }
+}
+
+.imgForm{
+    border-radius:50%;
+    border:1px solid;
+
+}
+
+.formDiv>textarea{
+    width:100%;
+}
+
+.imgDiv{
+    display:flex;
+    justify-content:center;
+}
+
+.buttonsDiv{
+    display:flex;
+    justify-content:center;
+}
+
+.labelDiv{
+    width:auto !important;
+    text-align:left !important;
+    margin-bottom: .5em !important;
+}
+
+.formDivHor{
+    display:grid;
+    justify-content:center;
+}
+
+.notVisible{
+    display:none !important;
+}
+
+.marginLeftElem {
+    margin-left: 0.5em;
+}
+
+.marginRightElem {
+    margin-right: 0.5em;
+}
+
+.foto-footer{
+    display:flex;
+    justify-content:center;
+}
+
+.margin-a{
+    margin:1em;
+}
+
+#photo-usu {
+    margin: auto;
+    margin-bottom: 1em;
+    height:12em;
+    width:12em;
+    object-fit: cover;
+
+}
+
+#foto-reg{
+    display:grid;
+    justify-content:center;
+}
+
+.widthForm{
+    width: 350px;
+}
+
+.inputsEdit>input, .inputsEdit>textarea{
+    max-width:none !important;
+}
+
+.imgDivForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+}
+    }
+
+
+
+    /*##################################### DETALLES #############################################*/
+
+/*
+        --font: Roboto, 'Arial Narrow', Arial, sans-serif;
+    --primary: #3454D1;
+    --dark: #212529;
+    --light-dark: #505050;
+    --light: #FFF;
+    --red: #F02D3A;
+    --green: 14CC60;
+
+    */
+.attack {
+    background: var(--light-dark);
+    margin: 0.5em 0;
+    border: 2px solid var(--light);
+}
+
+.container p, .container h3, .container h4, .container label{
+    color: var(--light);
+}
+
+.superior {
+    padding: 2em 0;
+    background: var(--light-dark);
 }

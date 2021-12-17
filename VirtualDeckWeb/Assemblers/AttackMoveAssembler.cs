@@ -15,6 +15,7 @@ namespace VirtualDeckWeb.Assemblers
             attack.Id = en.Id;
             attack.Name = en.Name;
             attack.Type = en.Type;
+            attack.Description = en.Description;
             return attack;
 
 

@@ -1,30 +1,64 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.UserPackViewModel>
+@using VirtualDeckGenNHibernate.EN.VirtualDeck;
 
+@{bool usu = true;
+    int id = -1;}
+
+
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+    //FALTA COMPROBAR EL ID DEL MODEL CON EL ID DE LA SESSION Y SI COINCIDE ENTONCES MUESTRO EL LINK A EDITAR
+    id = (int)ViewData["idUser"];
+    if (en.Id == id)
+    {
+        usu = true;
+    }
+
+}
 
 <div class="container">
     <div class="row">
-        @foreach (var item in Model)
+        @if (Model.Count() == 0)
         {
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <div class="profile-container">
-                    <div class="fondo">
-                        <a data-toggle="modal" data-target="#@item.Id">
-                            @Html.Partial("UserPackPartial", item)
-                        </a>
+            if (usu == true)
+            {
+                <div class="centerDiv">
+                    <h3 style="margin-bottom:1em;">No tienes nigún sobre :(</h3>
+                    @Html.ActionLink("Ir a la tienda", "Cards", "Shop", null, new { @class = "action-button" })
+                </div>
+            }
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="profile-container">
+                        <div class="fondo">
+                            <a data-toggle="modal" data-target="#@item.Id">
+                                @Html.Partial("UserPackPartial", item)
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="m-modal">
-                    @Html.Partial("UserPackPartial", item)
-                    <h2>@item.Id</h2>
-                   
-                        <p>Rareza: @item.Rarity</p>
-                    
+                <!-- Modal -->
+                <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="m-modal">
+                        @Html.Partial("UserPackPartial", item)
+                        <div>
+                            <h2>@item.Name</h2>
+                            <p>Rareza: @item.Rarity</p>
+                        </div>
+                        @if (usu == true)
+                        {
+                            @Html.ActionLink("Abrir", "Index", "UserPack", new { idUsuario = id, idCarta = item.Id }, new { @class = "action-button" })
+                        }
+                        <img class="icon-close" data-dismiss="modal" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
                     </div>
-            </div>
+                </div>
+            }
         }
-    </div>
+        </div>
 </div>

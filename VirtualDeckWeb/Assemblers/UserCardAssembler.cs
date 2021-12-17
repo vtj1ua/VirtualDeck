@@ -14,6 +14,9 @@ namespace VirtualDeckWeb.Assemblers
         {
             UserCardViewModel userCard = new UserCardViewModel();
             userCard.Id = en.Id;
+
+
+            
             userCard.Type = en.Type;
             userCard.Rarity = en.Rarity;
             userCard.Speed = en.Speed;
@@ -76,33 +79,43 @@ namespace VirtualDeckWeb.Assemblers
                     break;
             }
 
+            int rarity = 0;
+
             switch (en.Rarity)
             {
                 case RarityEnum.Basic:
                     userCard.BackgroundImage = "Basic.png";
+                    rarity = 5;
                     break;
                 case RarityEnum.Common:
                     userCard.BackgroundImage = "Common.png";
+                    rarity = 10;
                     break;
                 case RarityEnum.Uncommon:
                     userCard.BackgroundImage = "Uncommon.png";
+                    rarity = 20;
                     break;
                 case RarityEnum.Rare:
                     userCard.BackgroundImage = "Rare.png";
+                    rarity = 40;
                     break;
                 case RarityEnum.Epic:
                     userCard.BackgroundImage = "Epic.png";
+                    rarity = 80;
                     break;
                 case RarityEnum.Legendary:
                     userCard.BackgroundImage = "Legendary.png";
+                    rarity = 160;
                     break;
                 case RarityEnum.Mythical:
                     userCard.BackgroundImage = "Mythical.png";
+                    rarity = 320;
                     break;
                 default:
                     userCard.BackgroundImage = "Common.png";
                     break;
             }
+            userCard.Tokens = en.Card.Price * 0.10f + userCard.Level * rarity;
 
             return userCard;
 

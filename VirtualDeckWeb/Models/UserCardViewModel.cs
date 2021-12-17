@@ -9,6 +9,8 @@ namespace VirtualDeckWeb.Models
     public class UserCardViewModel
     {
         public int Id { get; set; }
+
+        public float Tokens { get; set; }
         public CardTypeEnum Type { get; set; }
         public RarityEnum Rarity { get; set; }
         public int Speed { get; set; }

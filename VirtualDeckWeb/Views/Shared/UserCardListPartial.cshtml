@@ -1,52 +1,82 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>
 
-
+@using VirtualDeckWeb.Controllers;
 @using VirtualDeckGenNHibernate.EN.VirtualDeck;
 
-@{bool usu = false; }
+@{bool usu = false;
+    int id = -1;}
 
 
 @if (Session["user"] != null)
 {
     VirtualUserEN en = Session["user"] as VirtualUserEN;
     //FALTA COMPROBAR EL ID DEL MODEL CON EL ID DE LA SESSION Y SI COINCIDE ENTONCES MUESTRO EL LINK A EDITAR
-    int id = (int)ViewData["idUser"];
+    id = (int)ViewData["idUser"];
     if (en.Id == id)
     {
         usu = true;
     }
+
 }
 <div class="container">
     <div class="row">
-        @foreach (var item in Model)
+        @if (Model.Count() == 0)
         {
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <div class="profile-container">
-                    <a data-toggle="modal" data-target="#@item.Id">
-                        @Html.Partial("UserCardPartial", item)
-                    </a>
+            if (usu == true)
+            {
+                <div class="centerDiv">
+                    <h3 style="margin-bottom:1em;">No tienes niguna carta :(</h3>
+                    @Html.ActionLink("Ir a la tienda", "Cards", "Shop", null, new { @class = "action-button" })
                 </div>
-            </div>
+            }
+            else
+            {
+                <div class="centerDiv">
+                    <h3>El usuario no tiene cartas :(</h3>
+                </div>
+            }
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="profile-container">
+                        <a data-toggle="modal" data-target="#@item.Id">
+                            @Html.Partial("UserCardPartial", item)
+                        </a>
+                    </div>
+                </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="m-modal">
-                    @Html.Partial("UserCardPartial", item)
-                    <h2>@item.Name</h2>
-                    <p>Nivel: @item.Level</p>
-                    <p>Experiencia: @item.Experience</p>
-                    <p>Fecha de compra: @item.PurchaseDate</p>
-                    <p>Rareza: @item.Rarity</p>
-                    @if (usu == true)
-                    {
-                        <button></button>
+                <!-- Modal -->
+                <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="m-modal">
+
+                        <div>
+                            @Html.Partial("UserCardPartial", item)
+                            <div>
+                                <h2>@item.Name</h2>
+                                <p><b>Tipo:</b> @item.Type</p>
+                                <p><b>Rareza:</b> @item.Rarity</p>
+                                <p><b>Nivel:</b> @item.Level</p>
+                                <p><b>Experiencia:</b> @item.Experience exp</p>
+                                @if (usu == true)
+                                {
+                                    <p><b>Fecha de compra:</b> @Html.ValueFor(i => item.PurchaseDate, "{0:dd/MM/yyyy}")</p>
+                                }
+                            </div>
+                        </div>
+                        @if (usu == true)
+                        {
+                            @Html.ActionLink("Destruir +" + item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
+
+                        }
                         
-                    }
-
+                         <img class="icon-close" data-dismiss="modal" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
+                       
+                    </div>
                 </div>
-            </div>
-
+            }
         }
     </div>
 </div>
-

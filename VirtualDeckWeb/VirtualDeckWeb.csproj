@@ -217,6 +217,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PackController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\UserCardController.cs" />
+    <Compile Include="Controllers\UserPackController.cs" />
     <Compile Include="Controllers\TokenPackController.cs" />
     <Compile Include="Controllers\VirtualUserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -259,6 +261,7 @@
     <Content Include="Resources\Borders\Mythical.png" />
     <Content Include="Resources\Borders\Rare.png" />
     <Content Include="Resources\Borders\Uncommon.png" />
+    <Content Include="Resources\borrar.png" />
     <Content Include="Resources\PackRarities\Basic.png" />
     <Content Include="Resources\PackRarities\Common.png" />
     <Content Include="Resources\PackRarities\Epic.png" />
@@ -296,6 +299,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -334,7 +338,6 @@
     <Content Include="Views\Shop\Cards.cshtml" />
     <Content Include="Views\Shop\Packs.cshtml" />
     <Content Include="Views\Shop\TokenPacks.cshtml" />
-    <Content Include="Views\Shop\CardDetails.cshtml" />
     <Content Include="Views\Shop\PackDetails.cshtml" />
     <Content Include="Views\Shop\TokenPackDetails.cshtml" />
     <Content Include="Views\VirtualUser\Details.cshtml" />
@@ -349,11 +352,15 @@
     <Content Include="Views\Shared\UserCardPartial.cshtml" />
     <Content Include="Views\Shared\UserPackPartial.cshtml" />
     <Content Include="Views\Comment\ListPartial.cshtml" />
+    <Content Include="Views\Shared\AttackListPartial.cshtml" />
+    <Content Include="Views\Card\Details.cshtml" />
     <Content Include="Views\TokenPack\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Basic\" />
+    <Folder Include="Views\UserCard\" />
+    <Folder Include="Views\UserPack\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
