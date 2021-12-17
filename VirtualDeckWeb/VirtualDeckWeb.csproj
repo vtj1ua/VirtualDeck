@@ -217,6 +217,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PackController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\TradeOffController.cs" />
     <Compile Include="Controllers\UserCardController.cs" />
     <Compile Include="Controllers\UserPackController.cs" />
     <Compile Include="Controllers\TokenPackController.cs" />
@@ -357,6 +358,7 @@
     <Content Include="Views\Card\Details.cshtml" />
     <Content Include="Views\Pack\Details.cshtml" />
     <Content Include="Views\TokenPack\Buy.cshtml" />
+    <Content Include="Views\TradeOff\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
