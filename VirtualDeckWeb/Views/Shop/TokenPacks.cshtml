@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.TokenPackViewModel>
 
 @{
-    ViewBag.Title = "TokenPacks";
+    ViewBag.Title = "Packs de tokens";
 }
 <div class="tabs" style="margin-bottom:7.5em;">
     <ul class="nav justify-content-center">
@@ -11,9 +11,14 @@
         <li class="nav-item">
             @Html.ActionLink("Sobres", "Packs")
         </li>
-        <li class="nav-item">
-            @Html.ActionLink("Tokens", "TokenPacks", null, new { @class = "selected" })
-        </li>
+        @{
+            if (Session["User"] != null)
+            {
+                <li class="nav-item">
+                    @Html.ActionLink("Tokens", "TokenPacks", null, new { @class = "selected" })
+                </li>
+            }
+        }
     </ul>
 </div>
 
@@ -22,16 +27,18 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
-                <div class="fondoContenedorPacks contenedorPack">
-                    <div>
-                        <img src="~/Resources/token.png" alt="token">
-                    </div>
-                    <div>
-                        <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
-                        <p>@Html.DisplayFor(modelItem => item.Price) €</p>
-                        @Html.ActionLink("Comprar", "ModelPurchaseCard", new { id = item.Id }, new { @class = "action-button" })
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="centered-col-container">
+                    <div class="token-pack-container">
+                        <div>
+                            <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                            <img src="~/Resources/token.png" alt="token">
+                        </div>
+                        <div>
+                            <h4>@Html.DisplayFor(modelItem => item.Tokens) Tokens</h4>
+                            <h4>@Html.DisplayFor(modelItem => item.Price) €</h4>
+                            @Html.ActionLink("Comprar", "Buy", "TokenPack", new { id = item.Id }, new { @class = "action-button" })
+                        </div>
                     </div>
                 </div>
             </div>

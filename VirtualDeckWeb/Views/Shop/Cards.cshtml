@@ -6,14 +6,19 @@
 <div class="tabs">
     <ul class="nav justify-content-center">
         <li class="nav-item">
-            @Html.ActionLink("Cartas", "Cards",null,new { @class = "selected" })
+            @Html.ActionLink("Cartas", "Cards", null, new { @class = "selected" })
         </li>
         <li class="nav-item">
             @Html.ActionLink("Sobres", "Packs")
         </li>
-        <li class="nav-item">
-            @Html.ActionLink("Tokens", "TokenPacks")
-        </li>
+        @{
+            if (Session["User"] != null)
+            {
+                <li class="nav-item">
+                    @Html.ActionLink("Tokens", "TokenPacks")
+                </li>
+            }
+        }
     </ul>
 </div>
 

@@ -217,6 +217,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PackController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\TokenPackController.cs" />
     <Compile Include="Controllers\VirtualUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -348,6 +349,7 @@
     <Content Include="Views\Shared\UserCardPartial.cshtml" />
     <Content Include="Views\Shared\UserPackPartial.cshtml" />
     <Content Include="Views\Comment\ListPartial.cshtml" />
+    <Content Include="Views\TokenPack\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

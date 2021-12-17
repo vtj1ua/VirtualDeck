@@ -20,23 +20,9 @@ private string name;
 
 
 /**
- *	Atributo img
- */
-private string img;
-
-
-
-/**
  *	Atributo price
  */
 private double price;
-
-
-
-/**
- *	Atributo description
- */
-private string description;
 
 
 
@@ -69,20 +55,8 @@ public virtual string Name {
 
 
 
-public virtual string Img {
-        get { return img; } set { img = value;  }
-}
-
-
-
 public virtual double Price {
         get { return price; } set { price = value;  }
-}
-
-
-
-public virtual string Description {
-        get { return description; } set { description = value;  }
 }
 
 
@@ -108,31 +82,27 @@ public TokenPackEN()
 
 
 
-public TokenPackEN(int id, string name, string img, double price, string description, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, int tokens
+public TokenPackEN(int id, string name, double price, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, int tokens
                    )
 {
-        this.init (Id, name, img, price, description, bills, tokens);
+        this.init (Id, name, price, bills, tokens);
 }
 
 
 public TokenPackEN(TokenPackEN tokenPack)
 {
-        this.init (Id, tokenPack.Name, tokenPack.Img, tokenPack.Price, tokenPack.Description, tokenPack.Bills, tokenPack.Tokens);
+        this.init (Id, tokenPack.Name, tokenPack.Price, tokenPack.Bills, tokenPack.Tokens);
 }
 
 private void init (int id
-                   , string name, string img, double price, string description, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, int tokens)
+                   , string name, double price, System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN> bills, int tokens)
 {
         this.Id = id;
 
 
         this.Name = name;
 
-        this.Img = img;
-
         this.Price = price;
-
-        this.Description = description;
 
         this.Bills = bills;
 

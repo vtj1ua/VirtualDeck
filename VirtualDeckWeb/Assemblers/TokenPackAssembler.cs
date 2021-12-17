@@ -14,13 +14,9 @@ namespace VirtualDeckWeb.Assemblers
             TokenPackViewModel tokenpack = new TokenPackViewModel();
             tokenpack.Id = en.Id;
             tokenpack.Name = en.Name;
-            tokenpack.Img = en.Img;
             tokenpack.Price = en.Price;
-            tokenpack.Description = en.Description;
             tokenpack.Tokens = en.Tokens;
             return tokenpack;
-
-
         }
         public IList<TokenPackViewModel> ConvertListENToModel(IList<TokenPackEN> ens)
         {

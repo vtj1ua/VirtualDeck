@@ -94,13 +94,7 @@ public void ModifyDefault (TokenPackEN tokenPack)
                 tokenPackEN.Name = tokenPack.Name;
 
 
-                tokenPackEN.Img = tokenPack.Img;
-
-
                 tokenPackEN.Price = tokenPack.Price;
-
-
-                tokenPackEN.Description = tokenPack.Description;
 
 
 
@@ -161,13 +155,7 @@ public void Modify (TokenPackEN tokenPack)
                 tokenPackEN.Name = tokenPack.Name;
 
 
-                tokenPackEN.Img = tokenPack.Img;
-
-
                 tokenPackEN.Price = tokenPack.Price;
-
-
-                tokenPackEN.Description = tokenPack.Description;
 
 
                 tokenPackEN.Tokens = tokenPack.Tokens;

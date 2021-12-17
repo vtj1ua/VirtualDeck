@@ -759,10 +759,14 @@ public static void InitializeData ()
                 TokenPackCP tokenPackCP = new TokenPackCP ();
                 TokenPackCEN tokenPackCEN = new TokenPackCEN ();
 
-                int tokenOID1 = tokenPackCEN.New_ ("twoPack", "twoPack.png", 20, "Contiene cartas random", 300);
-                int tokenOID2 = tokenPackCEN.New_ ("threePack", "treePack.png", 10, "Contiene cartas random", 200);
-                int tokenOID3 = tokenPackCEN.New_ ("fourPack", "fourPack.png", 5, "Contiene cartas random", 9000);
-                int tokenOID4 = tokenPackCEN.New_ ("fivePack", "fivePack.png", 20, "Contiene cartas random", 12);
+                tokenPackCEN.New_("Pack pequeño 1", 1.0, 100);
+                tokenPackCEN.New_("Pack pequeño 2", 2.5, 100);
+                tokenPackCEN.New_("Pack mediano 1", 5.0, 100);
+                tokenPackCEN.New_("Pack mediano 2", 10.0, 100);
+                int tokenOID1 = tokenPackCEN.New_("Pack grande 1", 25.0, 100);
+                int tokenOID2 = tokenPackCEN.New_("Pack grande 2", 50.0, 100);
+                int tokenOID3 = tokenPackCEN.New_("Pack niño rico 1", 100.0, 100);
+                int tokenOID4 = tokenPackCEN.New_("Pack niño rico 2", 200.0, 29950);
 
                 VirtualUserEN usuarioAntesCompraToken = virtualUserCEN.ReadOID (virtualUser1);
 

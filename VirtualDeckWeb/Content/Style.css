@@ -10,20 +10,22 @@
     --green: 14CC60;
 }
 
-body
-{
+body {
     font-family: var(--font);
     background-color: var(--dark);
     color: var(--light);
+    min-width: 400px;
+    overflow-x: hidden;
 }
 
-
-
 /*PARA CENTRAR LA TIENDA CHAPUZA*/
-.container{
+
+.container {
     padding-left: 0;
     padding-right: 0;
 }
+
+
 h2 {
     margin-left:14px;
 }
@@ -232,69 +234,78 @@ width: 100%;
 }
 
 
-/#################################### CARLO #################################################/
+/*#################################### CARLO #################################################*/
 
 
-.contenedorPack {
-    background: inherit;
-    background-color: inherit;
-    position: relative;
-    background-color: var(--light-dark);
-    height: auto;
-    min-height: 30em;
-    border-radius: 5px;
-    font-family: var(--fuente);
-    margin-bottom: 2em;
-    left: 50%;
-    transform: translateX(-50%);
+
+/*
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+*/
+
+.centered-col-container
+{
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
 }
 
-.fondoContenedorPacks {
-    background: inherit;
-    background-color: inherit;
-    position: relative;
+.token-pack-container 
+{
     background-color: var(--light-dark);
-    height: auto;
     min-height: 30em;
+    min-width: 18em;
     border-radius: 5px;
-    font-family: var(--fuente);
-    margin-bottom: 2em;
+    height: auto;
+    margin: 1em 0;
+    display: inline-flex;
+    flex-direction: column;
 }
 
-.contenedorPack > div:first-child {
+.token-pack-container>div:first-child
+{
+    position: relative;
     background: var(--primary);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     height: 10em;
-    border-start-start-radius: 5px;
-    border-start-end-radius: 5px;
 }
 
+.token-pack-container>div:first-child>img
+{
+    position: absolute;
+    width: 8em;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
 
-
-    .contenedorPack > div:first-child img {
-        position: absolute;
-        width: 8em;
-        left: calc(50% - 4em);
-        margin: auto;
-        display: block;
-        margin-top: 6em;
-
-       
-    }
-
-.contenedorPack > div:last-child {
-    margin-top: 5em;
+.token-pack-container>div:first-child>h3
+{
     text-align: center;
+    background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.6), rgba(94, 94, 94, 0));
 }
 
-.contenedorPack > div:last-child > a{
-    padding-left: 1em;
-    padding-right: 1em;
+.token-pack-container>div:last-of-type
+{
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.contenedorPack > div:last-child > p{
-    font-weight: bolder;
-    margin-bottom: 2em;
+.token-pack-container>div:last-of-type>h4
+{
+    margin: 0.5em 0;
 }
+
+.token-pack-container>div:last-of-type>a
+{
+    margin: 2em 0;
+}
+
     /*############################################# MARCO ##################################################*/
     .profile-container {
         padding: 1em;
@@ -464,10 +475,8 @@ width: 100%;
 
  /*#################################BUTTONS###################################*/
 .action-button, .acept-button, .cancel-button {
-    width: 8em;
-    height: 2.5em;
     border-radius: 0.5em;
-    padding: .4em;
+    padding: .5em 1em;
     outline: none;
     border: none;
     text-decoration: none;

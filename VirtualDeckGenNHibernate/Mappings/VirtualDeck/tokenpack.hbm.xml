@@ -15,20 +15,12 @@
 					<property name="Name" type="string"> 
 						<column name="name"  not-null="true"/>
 					</property>
-					<property name="Img" type="string"> 
-						<column name="img"  not-null="true"/>
-					</property>
 					<property name="Price" type="double"> 
 						<column name="price"  not-null="true"/>
-					</property>
-					<property name="Description" type="string"> 
-						<column name="description"  not-null="true"/>
 					</property>
 					<property name="Tokens" type="integer"> 
 						<column name="tokens"  not-null="true"/>
 					</property>
-			
-			
 			
 			
 			
@@ -45,8 +37,6 @@
 					    </bag>
 					
 			
-					
-					
 					
 					
 					

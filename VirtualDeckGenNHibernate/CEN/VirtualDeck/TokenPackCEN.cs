@@ -39,7 +39,7 @@ public ITokenPackCAD get_ITokenPackCAD ()
         return this._ITokenPackCAD;
 }
 
-public int New_ (string p_name, string p_img, double p_price, string p_description, int p_tokens)
+public int New_ (string p_name, double p_price, int p_tokens)
 {
         TokenPackEN tokenPackEN = null;
         int oid;
@@ -48,11 +48,7 @@ public int New_ (string p_name, string p_img, double p_price, string p_descripti
         tokenPackEN = new TokenPackEN ();
         tokenPackEN.Name = p_name;
 
-        tokenPackEN.Img = p_img;
-
         tokenPackEN.Price = p_price;
-
-        tokenPackEN.Description = p_description;
 
         tokenPackEN.Tokens = p_tokens;
 
@@ -62,7 +58,7 @@ public int New_ (string p_name, string p_img, double p_price, string p_descripti
         return oid;
 }
 
-public void Modify (int p_TokenPack_OID, string p_name, string p_img, double p_price, string p_description, int p_tokens)
+public void Modify (int p_TokenPack_OID, string p_name, double p_price, int p_tokens)
 {
         TokenPackEN tokenPackEN = null;
 
@@ -70,9 +66,7 @@ public void Modify (int p_TokenPack_OID, string p_name, string p_img, double p_p
         tokenPackEN = new TokenPackEN ();
         tokenPackEN.Id = p_TokenPack_OID;
         tokenPackEN.Name = p_name;
-        tokenPackEN.Img = p_img;
         tokenPackEN.Price = p_price;
-        tokenPackEN.Description = p_description;
         tokenPackEN.Tokens = p_tokens;
         //Call to TokenPackCAD
 
