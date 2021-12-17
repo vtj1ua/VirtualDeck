@@ -1,0 +1,110 @@
+﻿@model VirtualDeckWeb.Models.PackViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container superior">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            @Html.Partial("PackPartial", Model)
+
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+            @using (Html.BeginForm("Buy", "Pack", FormMethod.Post))
+            {
+                <h3>@Html.DisplayFor(model => model.Name)</h3>
+                <p>@Html.DisplayFor(model => model.Description)</p>
+                <div>
+                    <label>Precio total</label>
+                    <p>@Html.DisplayFor(model => model.Price) <span>tokens</span></p>
+                </div>
+                <div>
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" id="cantidad" name="amount" min="0" value="1"/>
+                </div>
+                <div>
+                    <label>Precio total</label>
+                    <p>@Html.DisplayFor(model => model.Price) <span>tokens</span></p>
+                </div>
+                <input type="submit" value="Comprar" class="btn btn-default action-button"/>
+                <input type="hidden" value="@Model.Id" name="packId">
+            }
+        </div>
+    </div>
+</div>
+
+<div>
+    <h4>PackViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Img)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxNumCards)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxNumCards)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinNumCards)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinNumCards)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+
+
+
+
+
+

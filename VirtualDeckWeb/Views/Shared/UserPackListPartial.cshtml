@@ -53,7 +53,7 @@
                         </div>
                         @if (usu == true)
                         {
-                            @Html.ActionLink("Abrir", "Index", "UserPack", new { idUsuario = id, idCarta = item.Id }, new { @class = "action-button" })
+                            @Html.ActionLink("Abrir", "Index", "UserPack", new {idPack = item.Id }, new { @class = "action-button" })
                         }
                     </div>
                 </div>

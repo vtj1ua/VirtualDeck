@@ -8,6 +8,7 @@ using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
 using VirtualDeckGenNHibernate.CP.VirtualDeck;
 using VirtualDeckWeb.Models;
+
 using VirtualDeckWeb.Assemblers;
 
 namespace VirtualDeckWeb.Controllers

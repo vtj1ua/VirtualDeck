@@ -8,7 +8,7 @@
 
                     @Html.Partial("PackPartial", item)
                     <div>
-                        @Html.ActionLink("Ver detalle", "Details", new { id = item.Id }, new { @class = "action-button" })
+                        @Html.ActionLink(linkText: "Ver detalle", actionName: "Details", controllerName: "Pack", routeValues: new { id = item.Id }, htmlAttributes: new { @class = "action-button" })
                         <p>@Html.DisplayFor(modelItem => item.Price)<img src="~/Resources/token.png" alt="Tokens"><img /></p>
                     </div>
                 </div>
@@ -16,5 +16,3 @@
         }
     </div>
 </div>
-
-
