@@ -62,7 +62,7 @@ namespace VirtualDeckWeb.Controllers
             }
             catch { }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Details", "Card", new { id = comment.ProductId });
         }
 
         // GET: Comment/Edit/5

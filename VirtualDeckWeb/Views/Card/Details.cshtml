@@ -42,7 +42,7 @@
                     <p>@Html.DisplayFor(model => model.Price) <span>tokens</span></p>
                 </div>
                 @*<button>Comprar</button>*@
-                
+
                 <input type="submit" value="Comprar" class="btn btn-default" />
                 <input type="hidden" value="@Model.Id" name="cardId">
             }
@@ -54,3 +54,7 @@
 <div class="container">
     @Html.Partial("AttackListPartial", ModelAttack)
 </div>
+
+@{
+    Html.RenderAction("ListPartial", "Comment", new { productID = Model.Id });
+}
