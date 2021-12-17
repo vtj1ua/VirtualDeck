@@ -34,16 +34,20 @@
 
             <div class="modal fade" id="@item.OfferedUserCard.Id" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="m-modal">
+
                     <div>
                         @Html.Partial("UserCardPartial", item.OfferedUserCard)
                         <div>
                             <h2>@item.OfferedUserCard.Name</h2>
-                            <p>Nivel: @item.OfferedUserCard.Level</p>
-                            <p>Experiencia: @item.OfferedUserCard.Experience</p>
-                            <p>Fecha de compra: @item.OfferedUserCard.PurchaseDate</p>
-                            <p>Rareza: @item.OfferedUserCard.Rarity</p>
+                            <p><b>Tipo:</b> @item.OfferedUserCard.Type</p>
+                            <p><b>Rareza:</b> @item.OfferedUserCard.Rarity</p>
+                            <p><b>Nivel:</b> @item.OfferedUserCard.Level</p>
+                            <p><b>Experiencia:</b> @item.OfferedUserCard.Experience exp</p>
                         </div>
                     </div>
+
+                    <img class="icon-close" data-dismiss="modal" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
+
                 </div>
             </div>
 
