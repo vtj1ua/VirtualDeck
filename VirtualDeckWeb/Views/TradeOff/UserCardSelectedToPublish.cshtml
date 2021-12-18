@@ -1,0 +1,46 @@
+﻿@model IEnumerable<VirtualDeckWeb.Models.CardViewModel>
+
+@{
+    ViewBag.Title = "UserCardSelectedToPublish";
+}
+
+@{
+    IEnumerable<VirtualDeckWeb.Models.CardViewModel> cards = ViewData["cards"] as IEnumerable<VirtualDeckWeb.Models.CardViewModel>;
+}
+<h2>Selecciona la carta que desees</h2>
+
+ @foreach (var item in cards)
+  {
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="profile-container">
+                <a data-toggle="modal" data-target="#@item.Id">
+                    @Html.Partial("CardPartial", item)
+                </a>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+
+            <div class="m-modal">
+                <div class="profile-user-card">
+                    @Html.Partial("CardPartial", item)
+                    <div class="profile-user-card-details">
+                        <h2>@item.Name</h2>
+                        <p><b>Tipo:</b> @item.Type</p>
+                        <p><b>Rareza:</b> @item.Rarity</p>
+                    </div>
+                </div>
+       
+            
+                        @Html.ActionLink("Seleccionar", "Publish", "TradeOff", new { idOffered = ViewData["idOffered"], idDesired = item.Id }, new { @class = "action-button" })
+            
+            
+        
+
+
+                <img class="icon-close" onclick="var id = '#'+@item.Id; $(id).modal('hide'); $('#UserCards').modal('show');" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
+
+            </div>
+        </div>
+   }

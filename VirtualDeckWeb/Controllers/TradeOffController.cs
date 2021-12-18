@@ -14,6 +14,7 @@ namespace VirtualDeckWeb.Controllers
 {
     public class TradeOffController : BasicController
     {
+
         // GET: TradeOff
         public ActionResult Index(String search)
         {
@@ -64,56 +65,46 @@ namespace VirtualDeckWeb.Controllers
 
 
 
-        public ActionResult Publish()
+        public ActionResult Publish(int idOffered, int idDesired)
         {
-
-            UserCardCAD UserCardCAD = new UserCardCAD(session);
-            UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
-            IList<UserCardEN> UserCardEN = null;
-
-            VirtualUserEN en = Session["user"] as VirtualUserEN;
-            if (en != null)
+            if(idOffered != -1 && idDesired != -1)
             {
-                UserCardEN = UserCardCEN.UserCardsByUser(en.Id);
-            }
+                SessionInitialize();
 
-            IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
+                UserCardCAD UserCardCAD = new UserCardCAD(session);
+            UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
+            UserCardEN userCardSelected = UserCardCEN.ReadOID(idOffered);
+            UserCardViewModel model1 = new UserCardAssembler().ConvertENToModelUI(userCardSelected);
 
             CardCAD CardCAD = new CardCAD(session);
             CardCEN CardCEN = new CardCEN(CardCAD);
-            IList<CardEN> CardEN = null;
+            CardEN cardSelected = CardCEN.ReadOID(idDesired);
+            CardViewModel model2 = new CardAssembler().ConvertENToModelUI(cardSelected);
 
+            ViewData["userCardselected"] = model1;
+            ViewData["cardselected"] = model2;
+                SessionClose();
 
-            CardEN = CardCEN.ReadAll(0, -1).ToList();
-
-            IEnumerable<CardViewModel> model1 = new CardAssembler().ConvertListENToModel(CardEN);
-            ViewData["usercards"] = model;
-            ViewData["cards"] = model1;
-            ViewData["idUser"] = en.Id;
+            }
             return View();
         }
 
         // POST: TradeOff/Create
-        [HttpPost]
-        public ActionResult Publish(TradeOffViewModel tradeoff)
+      
+        public ActionResult FinishAndPublish(int idOffered, int idDesired)
         {
-            try
-            {
-
+            
                 VirtualUserEN vicen = Session["user"] as VirtualUserEN;
                 TradeOffCEN trade = new TradeOffCEN();
 
-                trade.Publish(vicen.Id, tradeoff.DesiredCard.Id, tradeoff.OfferedUserCard.Id);
+                trade.Publish(vicen.Id, idDesired, idOffered);
 
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            
+            
         }
-
-        public ActionResult CardSelected(int idCarta, int idTrade)
+        
+        public ActionResult CardSelectedToTrade(int idCarta, int idTrade)
         {
             
             VirtualUserEN vicen = Session["user"] as VirtualUserEN;
@@ -125,7 +116,7 @@ namespace VirtualDeckWeb.Controllers
             return RedirectToAction("Index");
 
         }
-        public ActionResult Select(int idTrade, int idDesired)
+        public ActionResult SelectToTrade(int idTrade, int idDesired)
         {
             UserCardCAD UserCardCAD = new UserCardCAD(session);
             UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
@@ -151,6 +142,43 @@ namespace VirtualDeckWeb.Controllers
             ViewData["cards"] = model1;
             ViewData["idUser"] = en.Id;
             ViewData["idTrade"] = idTrade;
+            return View();
+        }
+
+        public ActionResult UserCardSelectedToPublish(int idOffered)
+        {
+            CardCAD CardCAD = new CardCAD();
+            CardCEN CardCEN = new CardCEN();
+            IList<CardEN> CardEN = CardCEN.ReadAll(0,-1);
+
+          
+            IEnumerable<CardViewModel> model = new CardAssembler().ConvertListENToModel(CardEN);
+
+
+            ViewData["cards"] = model;
+            ViewData["idOffered"] = idOffered;
+           
+
+            return View();
+
+        }
+        public ActionResult SelectToPublish()
+        {
+            UserCardCAD UserCardCAD = new UserCardCAD(session);
+            UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
+            IList<UserCardEN> UserCardEN = null;
+
+            VirtualUserEN en = Session["user"] as VirtualUserEN;
+            if (en != null)
+            {
+                UserCardEN = UserCardCEN.UserCardsNotInTradeByUser(en.Id);
+            }
+
+            IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
+
+          
+            ViewData["usercards"] = model;
+            ViewData["idUser"] = en.Id;
             return View();
         }
         // GET: TradeOff/Create
