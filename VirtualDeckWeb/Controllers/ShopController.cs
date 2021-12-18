@@ -14,16 +14,43 @@ namespace VirtualDeckWeb.Controllers
     public class ShopController : BasicController
     {
         // GET: Shop
-        public ActionResult Cards(String search)
+        public ActionResult Cards(String search, int page = 0)
         {
             SessionInitialize();
             CardCAD cardcad = new CardCAD(session);
             CardCEN cardcen = new CardCEN(cardcad);
             IList<CardEN> cards = null;
             if (search != null && search != "")
+            {
                 cards = cardcen.CardsByNameOrDescription("%" + search + "%");
+                this.ViewBag.Search = search;
+            }
             else
+            {
                 cards = cardcen.ReadAll(0, -1);
+                this.ViewBag.Search = "";
+            }
+
+            int PageSize = 8;
+
+            var count = cards.Count();
+
+            cards = cards.Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Total = 0;
+
+            if (count % PageSize != 0)
+            {
+                this.ViewBag.Total = (count / PageSize) + 1;
+            }
+            else
+            {
+                this.ViewBag.Total = (count / PageSize);
+            }
+
+            this.ViewBag.Page = page;
 
             IEnumerable<CardViewModel> listaCards = new CardAssembler().ConvertListENToModel(cards).ToList();
             SessionClose();

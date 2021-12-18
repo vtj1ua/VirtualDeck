@@ -9,19 +9,114 @@
             <input class="bot-userInfo action-button" type="submit" value="Buscar" />
         </form>
 
-<div class="container listTop">
-    <div class="row list">
-        @foreach (var item in Model)
-        {
-            <div class="ListUsers">
-                <img src="~/Resources/@Html.DisplayFor(modelItem => item.Img)" />
-                <h3>@Html.DisplayFor(modelItem => item.UserName)</h3>
-                <h3>@Html.DisplayFor(modelItem => item.NumCards)<span><img src="~/Resources/cardIcon.png" /></span></h3>
-                <div class="centerDiv">
-                    @Html.ActionLink("Ver perfil", "Details", new { id = item.Id }, new { @class = "action-button" })
-                </div>
+        <div class="container listTop">
+            <div class="row list">
+                @foreach (var item in Model)
+                {
+                    <div class="ListUsers">
+                        <img src="~/Resources/@Html.DisplayFor(modelItem => item.Img)" />
+                        <h3>@Html.DisplayFor(modelItem => item.UserName)</h3>
+                        <h3>@Html.DisplayFor(modelItem => item.NumCards)<span><img src="~/Resources/cardIcon.png" /></span></h3>
+                        <div class="centerDiv">
+                            @Html.ActionLink("Ver perfil", "Details", new { id = item.Id }, new { @class = "action-button" })
+                        </div>
+                    </div>
+                }
             </div>
-        }
-    </div>
-</div>
+            <ul class="pagination pagList">
+                @if (ViewBag.Total > 1 && ViewBag.Page <= ViewBag.MaxPage)
+                {
+                    if (ViewBag.Page == 0)
+                    {
+                        <li class="disabled">
+                            @if (ViewBag.Search != "")
+                            {
+                                @Html.ActionLink("«", "Index", new { page = 0, search = ViewBag.Search })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("«", "Index", new { page = 0 })
+                            }
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @if (ViewBag.Search != "")
+                            {
+                                @Html.ActionLink("«", "Index", new { page = 0, search = ViewBag.Search })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("«", "Index", new { page = 0 })
+                            }
+                        </li>
+                    }
+                    if (ViewBag.Total > 0)
+                    {
+                        for (int i = 1; i <= ViewBag.Total; i++)
+                        {
+                            if (ViewBag.Page + 1 == i)
+                            {
+                                <li class="active">
+                                    @if (ViewBag.Search != "")
+                                    {
+                                        @Html.ActionLink(i.ToString(), "Index", new { page = i - 1, search = ViewBag.Search })
+                                    }
+                                    else
+                                    {
+                                        @Html.ActionLink(i.ToString(), "Index", new { page = i - 1 })
+                                    }
+                                </li>
+                            }
+                            else if (ViewBag.Page + 1 == i - 1 || ViewBag.Page + 1 == i - 2 || ViewBag.Page + 1 == i + 1 || ViewBag.Page + 1 == i + 2)
+                            {
+                                <li>
+                                    @if (ViewBag.Search != "")
+                                    {
+                                        @Html.ActionLink(i.ToString(), "Index", new { page = i - 1, search = ViewBag.Search })
+                                    }
+                                    else
+                                    {
+                                        @Html.ActionLink(i.ToString(), "Index", new { page = i - 1 })
+                                    }
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a>...</a>
+                                </li>
+                            }
+                        }
+                    }
+                    if (ViewBag.Page == ViewBag.Total - 1)
+                    {
+                        <li class="disabled">
+                            @if (ViewBag.Search != "")
+                            {
+                                @Html.ActionLink("»", "Index", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("»", "Index", new { page = ViewBag.Total - 1 })
+                            }
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @if (ViewBag.Search != "")
+                            {
+                                @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1 })
+                            }
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
 

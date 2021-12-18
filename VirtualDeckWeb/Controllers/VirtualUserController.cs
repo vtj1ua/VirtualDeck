@@ -17,7 +17,7 @@ namespace VirtualDeckWeb.Controllers
     public class VirtualUserController : BasicController
     {
         // GET: VirtualUser
-        public ActionResult Index(String search)
+        public ActionResult Index(String search, int page = 0)
         {
             SessionInitialize();
 
@@ -26,9 +26,36 @@ namespace VirtualDeckWeb.Controllers
             IList<VirtualUserEN> virtualUserEN = null;
 
             if (search != null && search != "")
+            {
                 virtualUserEN = virtualUserCEN.UsersByName("%" + search + "%");
+                this.ViewBag.Search = search;
+            }
             else
+            {
                 virtualUserEN = virtualUserCEN.ReadAll(0, -1).ToList();
+                this.ViewBag.Search = search;
+            }
+
+            int PageSize = 5;
+
+            var count = virtualUserEN.Count();
+
+            virtualUserEN = virtualUserEN.Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Total = 0;
+
+            if (count % PageSize != 0)
+            {
+                this.ViewBag.Total = (count / PageSize) + 1;
+            }
+            else
+            {
+                this.ViewBag.Total = (count / PageSize);
+            }
+
+            this.ViewBag.Page = page;
 
             IEnumerable<VirtualUserViewModel> model = new VirtualUserAssembler().ConvertListENToModel(virtualUserEN);
             SessionClose();
@@ -134,6 +161,36 @@ namespace VirtualDeckWeb.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Index1(int page = 0)
+        {
+            const int PageSize = 3; // you can always do something more elegant to set this
+
+            VirtualUserCAD virtualUserCAD = new VirtualUserCAD(session);
+            VirtualUserCEN virtualUserCEN = new VirtualUserCEN(virtualUserCAD);
+            IList<VirtualUserEN> virtualUserEN = null;
+
+           
+            virtualUserEN = virtualUserCEN.ReadAll(0, -1).ToList();
+
+            var count = virtualUserEN.Count();
+
+            var data = virtualUserEN.Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Total = 3;
+
+            if (count % PageSize != 0)
+            {
+                this.ViewBag.Total = (count / PageSize)+1;
+            }
+            
+
+            this.ViewBag.Page = page;
+
+            return this.View(data);
         }
     }
 }

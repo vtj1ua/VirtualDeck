@@ -27,4 +27,100 @@
 
 @Html.Partial("CardListShopPartial", Model)
 
+<ul class="pagination pagList">
+    @if (ViewBag.Total > 1 && ViewBag.Page <= ViewBag.MaxPage)
+    {
+        if (ViewBag.Page == 0)
+        {
+            <li class="disabled">
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("«", "Cards", new { page = 0, search = ViewBag.Search })
+                }
+                else
+                {
+                    @Html.ActionLink("«", "Cards", new { page = 0 })
+                }
+            </li>
+        }
+        else
+        {
+            <li>
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("«", "Cards", new { page = 0, search = ViewBag.Search })
+                }
+                else
+                {
+                    @Html.ActionLink("«", "Cards", new { page = 0 })
+                }
+            </li>
+        }
+        if (ViewBag.Total > 0)
+        {
+            for (int i = 1; i <= ViewBag.Total; i++)
+            {
+                if (ViewBag.Page + 1 == i)
+                {
+                    <li class="active">
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink(i.ToString(), "Cards", new { page = i - 1, search = ViewBag.Search })
+                        }
+                        else
+                        {
+                            @Html.ActionLink(i.ToString(), "Cards", new { page = i - 1 })
+                        }
+                    </li>
+                }
+                else if (ViewBag.Page + 1 == i - 1 || ViewBag.Page + 1 == i - 2 || ViewBag.Page + 1 == i + 1 || ViewBag.Page + 1 == i + 2)
+                {
+                    <li>
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink(i.ToString(), "Cards", new { page = i - 1, search = ViewBag.Search })
+                        }
+                        else
+                        {
+                            @Html.ActionLink(i.ToString(), "Cards", new { page = i - 1 })
+                        }
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a>...</a>
+                    </li>
+                }
+            }
+        }
+        if (ViewBag.Page == ViewBag.Total - 1)
+        {
+            <li class="disabled">
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                }
+                else
+                {
+                    @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1 })
+                }
+            </li>
+        }
+        else
+        {
+            <li>
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                }
+                else
+                {
+                    @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1 })
+                }
+            </li>
+        }
+    }
+</ul>
+
 
