@@ -1,4 +1,5 @@
 ﻿@model VirtualDeckWeb.Models.PackViewModel
+@using VirtualDeckGenNHibernate.EN.VirtualDeck;
 
 @{
     ViewBag.Title = "Detalle Sobre";
@@ -16,18 +17,32 @@
                 <h3>@Html.DisplayFor(model => model.Name)</h3>
                 <p>@Html.DisplayFor(model => model.Description)</p>
                 <div>
-                    <label>Precio total</label>
+                    <label>Precio</label>
                     <p class="price">@Html.DisplayFor(model => model.Price)<img src="~/Resources/token.png" alt="Tokens" class="token"></p>
                 </div>
-                <div>
-                    <label for="cantidad">Cantidad</label>
-                    <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);"/>
-                </div>
-                <div>
-                    <label>Precio total</label>
-                    <p><span class="totalPrice">@Html.DisplayFor(model => model.Price)</span><span><img src="~/Resources/token.png" alt="Tokens" class="token"></span></p>
-                </div>
-                <input type="submit" value="Comprar" class="btn btn-default action-button"/>
+                VirtualUserEN user = Session["User"] as VirtualUserEN;
+                if (user != null)
+                {
+                    <div>
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);" />
+                    </div>
+                    <div>
+                        <label>Precio total</label>
+                        <p><span class="totalPrice">@Html.DisplayFor(model => model.Price)</span><span><img src="~/Resources/token.png" alt="Tokens" class="token"></span></p>
+                    </div>
+
+
+
+
+                    <input type="submit" value="Comprar" class="btn btn-default action-button" />
+                }
+                else
+                {
+                    @Html.ActionLink("Comprar", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "action-button" })
+                }
+
+
                 <input type="hidden" value="@Model.Id" name="packId">
             }
         </div>

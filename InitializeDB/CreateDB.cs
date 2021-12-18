@@ -155,212 +155,134 @@ public static void InitializeData ()
                 Console.WriteLine ();
 
                 CommentCEN commentCEN = new CommentCEN ();
-
                 AttackMoveCEN attackMoveCEN = new AttackMoveCEN ();
                 CardCEN cardCEN = new CardCEN ();
-                /*
-                 * int idAttack1 = attackMoveCEN.New_ ("Cola draco", CardTypeEnum.Dragon);
-                 * int idAttack2 = attackMoveCEN.New_ ("Defensa de acero", CardTypeEnum.Dragon);
-                 * int idAttack3 = attackMoveCEN.New_ ("Torton gurdo", CardTypeEnum.Dragon);
-                 * int idAttack4 = attackMoveCEN.New_ ("Torton", CardTypeEnum.Fighting);
-                 * int idAttack5 = attackMoveCEN.New_ ("Bola eléctrica", CardTypeEnum.Fire);
-                 */
-                /*
-                 * int idAttack = attackMoveCEN.New_("Puño fuerte", CardTypeEnum.Fighting, "Puñetazo muy duro y con mucha intensidad");
-                 * int idAttack1 = attackMoveCEN.New_("Placaje", CardTypeEnum.Normal, "Placaje con todo el cuerpo que puede llegar a tirar al rival");
-                 * int idAttack2 = attackMoveCEN.New_("Calambrazo", CardTypeEnum.Electric, "Chispazo que te electrocutará como no tengas cuidado");
-                 * int idAttack3 = attackMoveCEN.New_("Patadón", CardTypeEnum.Fighting, "Patada aeréa en el pecho");
-                 * int idAttack4 = attackMoveCEN.New_("Caida libre", CardTypeEnum.Flying, "Caída desde el cielo que aplastará a tus rivales");
-                 * int idAttack5 = attackMoveCEN.New_("Lanzallamas", CardTypeEnum.Dragon, "Lanza fuego por la boca para intentar hacer ceniza al rival");
-                 * int idAttack6 = attackMoveCEN.New_("Congelar", CardTypeEnum.Ice, "Congela al rival a través del vaho que expulsa por la boca ya que sale muy frío");
-                 * int idAttack7 = attackMoveCEN.New_("Mareo", CardTypeEnum.Psychic, "Aturde al contrario con un gas tóxico");
-                 * int idAttack8 = attackMoveCEN.New_("Mascazo", CardTypeEnum.Ground, "Golpe impresionante que te hará quedar exhausto");
-                 * int idAttack9 = attackMoveCEN.New_("Modo Topo", CardTypeEnum.Grass, "Se escabulle debajo de tierra para sorprender al rival y atacarle");
-                 * int idAttack10 = attackMoveCEN.New_("Pedrolo", CardTypeEnum.Rock, "Lanza una piedra muy grande que aplasta al rival");
-                 * int idAttack11 = attackMoveCEN.New_("Vino maldito", CardTypeEnum.Poison, "Bebida con buena apariencia que al final no es lo que parece");
-                 * int idAttack12 = attackMoveCEN.New_("Arrastre nuclear", CardTypeEnum.Bug, "Se arrastra hasta el rival como un gusano y explota");
-                 * int idAttack13 = attackMoveCEN.New_("Invisibilidad", CardTypeEnum.Ghost, "Desaparición visual para sorprender al rival ya que no sabe por donde le van a atacar");
-                 * int idAttack14 = attackMoveCEN.New_("Pesao", CardTypeEnum.Psychic, "Ser pesado es una cualidad que no muchos manejan");
-                 * int idAttack15 = attackMoveCEN.New_("Gas Fatídico", CardTypeEnum.Poison, "Gas putrefacto que ahogará a cualquier rival que lo inhale");
-                 * int idAttack16 = attackMoveCEN.New_("Cola Dragon", CardTypeEnum.Dragon, "Golpe con la cola que hará caer a cualquier rival al que le aseste un golpe");
-                 * int idAttack17 = attackMoveCEN.New_("Manguerazo", CardTypeEnum.Water, "Torrente de agua muy potente");
-                 */
 
-
-                /*
-                 * //ATTACKS
-                 *
-                 *
-                 * //BUG ATTACKS
-                 * int bugAttack1 = attackMoveCEN.New_("", CardTypeEnum.Bug, "");
-                 * int bugAttack2 = attackMoveCEN.New_("", CardTypeEnum.Bug, "");
-                 *
-                 * //DRAGON ATTACKS
-                 * int dragonAttack1 = attackMoveCEN.New_("", CardTypeEnum.Dragon, "");
-                 * int dragonAttack2 = attackMoveCEN.New_("", CardTypeEnum.Dragon, "");
-                 *
-                 * //ELECTRIC ATTACKS
-                 * int electricAttack1 = attackMoveCEN.New_("", CardTypeEnum.Electric, "");
-                 * int electricAttack2 = attackMoveCEN.New_("", CardTypeEnum.Electric, "");
-                 *
-                 * //FIGHTING ATTACKS
-                 * int fightingAttack1 = attackMoveCEN.New_("", CardTypeEnum.Fighting, "");
-                 * int fightingAttack2 = attackMoveCEN.New_("", CardTypeEnum.Fighting, "");
-                 *
-                 * //FIRE ATTACKS
-                 * int fireAttack1 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
-                 * int fireAttack2 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
-                 *
-                 * //FLYING ATTACKS
-                 * int flyingAttack1 = attackMoveCEN.New_("", CardTypeEnum.Flying, "");
-                 * int flyingAttack2 = attackMoveCEN.New_("", CardTypeEnum.Flying, "");
-                 *
-                 * //GHOST ATTACKS
-                 * int ghostAttack1 = attackMoveCEN.New_("", CardTypeEnum.Ghost, "");
-                 * int ghostAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ghost, "");
-                 *
-                 * //GRASS ATTACKS
-                 * int grassAttack1 = attackMoveCEN.New_("", CardTypeEnum.Grass, "");
-                 * int grassAttack2 = attackMoveCEN.New_("", CardTypeEnum.Grass, "");
-                 *
-                 * //GROUND ATTACKS
-                 * int groundAttack1 = attackMoveCEN.New_("", CardTypeEnum.Ground, "");
-                 * int groundAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ground, "");
-                 *
-                 * //ICE ATTACKS
-                 * int iceAttack1 = attackMoveCEN.New_("", CardTypeEnum.Ice, "");
-                 * int iceAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ice, "");
-                 *
-                 * //NORMAL ATTACKS
-                 * int normalAttack1 = attackMoveCEN.New_("", CardTypeEnum.Normal, "");
-                 * int normalAttack2 = attackMoveCEN.New_("", CardTypeEnum.Normal, "");
-                 *
-                 * //POISON ATTACKS
-                 * int poisonAttack1 = attackMoveCEN.New_("", CardTypeEnum.Poison, "");
-                 * int poisonAttack2 = attackMoveCEN.New_("", CardTypeEnum.Poison, "");
-                 *
-                 * //PSYCHIC ATTACKS
-                 * int psychicAttack1 = attackMoveCEN.New_("", CardTypeEnum.Psychic, "");
-                 * int psychicAttack2 = attackMoveCEN.New_("", CardTypeEnum.Psychic, "");
-                 *
-                 * //ROCK ATTACKS
-                 * int rockAttack1 = attackMoveCEN.New_("", CardTypeEnum.Rock, "");
-                 * int rockAttack2 = attackMoveCEN.New_("", CardTypeEnum.Rock, "");
-                 *
-                 * //WATER ATTACKS
-                 * int waterAttack1 = attackMoveCEN.New_("", CardTypeEnum.Water, "");
-                 * int waterAttack2 = attackMoveCEN.New_("", CardTypeEnum.Water, "");
-                 *
-                 * //CARDS - VADS
-                 *
-                 *
-                 * //BUG CARDS
-                 *
-                 * //DRAGON CARDS
-                 *
-                 * //ELECTRIC CARDS
-                 *
-                 * //FIGHTING CARDS
-                 *
-                 * //FIRE CARDS
-                 *
-                 * //FLYING CARDS
-                 *
-                 * //GHOST CARDS
-                 *
-                 * //GRASS CARDS
-                 *
-                 * //GROUND CARDS
-                 *
-                 * //ICE CARDS
-                 *
-                 * //NORMAL CARDS
-                 * int normalCard1 = cardCEN.New_("Perro panson", "Todo chiquito, todo panson", 1000, "", CardTypeEnum.Normal,
-                 *  30, 10, 25, 10, RarityEnum.Basic, new List<int> { });
-                 *
-                 * //POISON CARDS
-                 *
-                 * //PSYCHIC CARDS
-                 *
-                 * //ROCK CARDS
-                 *
-                 * //WATER CARDS
-                 *
-                 */
-                int idAttack = attackMoveCEN.New_ ("Puño fuerte", CardTypeEnum.Fighting, "");
-                int idAttack1 = attackMoveCEN.New_ ("Placaje", CardTypeEnum.Normal, "");
-                int idAttack2 = attackMoveCEN.New_ ("Calambrazo", CardTypeEnum.Electric, "");
-                int idAttack3 = attackMoveCEN.New_ ("Patadón", CardTypeEnum.Fighting, "");
-                int idAttack4 = attackMoveCEN.New_ ("Caida libre", CardTypeEnum.Flying, "");
-                int idAttack5 = attackMoveCEN.New_ ("Lanzallamas", CardTypeEnum.Dragon, "");
-                int idAttack6 = attackMoveCEN.New_ ("Congelar", CardTypeEnum.Ice, "");
-                int idAttack7 = attackMoveCEN.New_ ("Mareo", CardTypeEnum.Psychic, "");
-                int idAttack8 = attackMoveCEN.New_ ("Mascazo", CardTypeEnum.Ground, "");
-                int idAttack9 = attackMoveCEN.New_ ("Modo Topo", CardTypeEnum.Grass, "");
-                int idAttack10 = attackMoveCEN.New_ ("Pedrolo", CardTypeEnum.Rock, "");
-                int idAttack11 = attackMoveCEN.New_ ("Vino maldito", CardTypeEnum.Poison, "");
-                int idAttack12 = attackMoveCEN.New_ ("Arrastre nuclear", CardTypeEnum.Bug, "");
-                int idAttack13 = attackMoveCEN.New_ ("Invisibilidad", CardTypeEnum.Ghost, "");
-                int idAttack14 = attackMoveCEN.New_ ("Pesao", CardTypeEnum.Psychic, "");
-                int idAttack15 = attackMoveCEN.New_ ("Gas Fatídico", CardTypeEnum.Poison, "");
-                int idAttack16 = attackMoveCEN.New_ ("Cola Dragon", CardTypeEnum.Dragon, "");
-                int idAttack17 = attackMoveCEN.New_ ("Manguerazo", CardTypeEnum.Water, "");
-
-                /* --------------- NEW ------------------------------*/
-
-                //BASE CARDS
-
-                /* ------------------------ BUENAS -----------------*/
-
-                int cartaPrueba7 = cardCEN.New_ ("Papa Noel", "Regalos para todos", 400, "noel.png", CardTypeEnum.Ice, 10, 20, 10, 10, RarityEnum.Legendary, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba8 = cardCEN.New_ ("Jhony chispas", "Electrocutado por un cable", 400, "jhonyChispas.png", CardTypeEnum.Electric, 10, 20, 10, 10, RarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int carta1 = cardCEN.New_ ("Mortadelo", "Personaje cómico que te sucumbe con su labia y sus bromas", 3200, "mortadelo.png", CardTypeEnum.Normal, 46, 24, 18, 30, RarityEnum.Rare, new List<int> { idAttack, idAttack3, idAttack7 });
-                int carta2 = cardCEN.New_ ("Mosca mutante", "Mitad mosca, mitad hombre. Se dice que está mutando como el de la mosca", 2500, "fly.png", CardTypeEnum.Flying, 39, 21, 18, 36, RarityEnum.Uncommon, new List<int> { idAttack4, idAttack8, idAttack14 });
-                int carta3 = cardCEN.New_ ("Cable pelao", "Tremendo cable pelao ", 2000, "cablePelao.png", CardTypeEnum.Electric, 100, 90, 50, 70, RarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int carta4 = cardCEN.New_ ("Jonhymelavo", "El Jonhy. De calle. Va más doblado que una salchicha doblada", 4700, "rakitic.png", CardTypeEnum.Ground, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { idAttack8, idAttack, idAttack3 });
-                int carta5 = cardCEN.New_ ("La dama gorda", "Un Fantasma que va rondando castillos.", 4700, "damaGorda.png", CardTypeEnum.Ghost, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { idAttack6, idAttack15, idAttack });
-                int carta6 = cardCEN.New_ ("Jack Sparrago", "El pirata más temido de todo poniente", 4700, "jack.png", CardTypeEnum.Water, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { idAttack13, idAttack14, idAttack17 });
-                int carta7 = cardCEN.New_ ("El Diego", "Una especie de Dios argentino. Se le da bien eso del fútbol", 4700, "eldiego.png", CardTypeEnum.Grass, 55, 60, 18, 48, RarityEnum.Legendary, new List<int> { idAttack9, idAttack3, idAttack7 });
-                int carta8 = cardCEN.New_ ("Tri-Spiddie", "Que Spiderman será el real", 4700, "memeSpiderman.png", CardTypeEnum.Fighting, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { idAttack4, idAttack1, idAttack3 });
-                int carta9 = cardCEN.New_ ("Baby Yoda", "Más pequeño que un átomo. Cuidado que se enfada.", 8000, "babyYoda.png", CardTypeEnum.Ground, 30, 60, 40, 10, RarityEnum.Legendary, new List<int> { idAttack9, idAttack13, idAttack8 });
-                int carta10 = cardCEN.New_ ("Worms", "Parecen adorables pero controlan las armas que da gusto...", 4700, "worm.png", CardTypeEnum.Bug, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { idAttack8, idAttack9, idAttack12 });
-                int carta11 = cardCEN.New_ ("Perro motociclón", "Rápido como el viento y más fuerte que un camión, aquí tenemos al perro motociclón", 4700, "perroMotociclon.png", CardTypeEnum.Flying, 66, 12, 90, 23, RarityEnum.Basic, new List<int> { idAttack1, idAttack8, idAttack7 });
-
-                /* ---------------------------------------------------------*/
-                /*
-                 * int idAttack1 = attackMoveCEN.New_ ("Cola draco", CardTypeEnum.Dragon, "Descripcion ataque 1");
-                 * int idAttack2 = attackMoveCEN.New_ ("Defensa de acero", CardTypeEnum.Dragon, "Descripcion ataque 2");
-                 * int idAttack3 = attackMoveCEN.New_ ("Torton gurdo", CardTypeEnum.Dragon, "Descripcion ataque 3");
-                 * int idAttack4 = attackMoveCEN.New_ ("Torton", CardTypeEnum.Fighting, "Descripcion ataque 4");
-                 * int idAttack5 = attackMoveCEN.New_ ("Bola eléctrica", CardTypeEnum.Fire, "Descripcion ataque 5");
-                 */
-
-                int cartaPrueba = cardCEN.New_ ("El pepe nuevo 2", "Dragon antiguo basado en el choque del cielo y la tierra", 2000, "urlAlAImagen", CardTypeEnum.Dragon, 100, 90, 50, 70, RarityEnum.Mythical, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba1 = cardCEN.New_ ("Sr Ogro", "Ogro bien vestido", 1600, "urlAlAImagen", CardTypeEnum.Normal, 70, 60, 80, 30, RarityEnum.Legendary, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba2 = cardCEN.New_ ("Dasdingo", "Seeeeh colegaa", 1200, "urlAlAImagen", CardTypeEnum.Fighting, 60, 50, 60, 50, RarityEnum.Epic, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba3 = cardCEN.New_ ("En-Zhot", "Dragon caido", 1000, "urlAlAImagen", CardTypeEnum.Dragon, 100, 20, 10, 100, RarityEnum.Rare, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba4 = cardCEN.New_ ("AccesibleBot", "Robot muy accesible creado por Tim Berners Lee", 800, "urlAlAImagen", CardTypeEnum.Electric, 30, 40, 50, 60, RarityEnum.Uncommon, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba5 = cardCEN.New_ ("Secuaz Arierep", "Prisionero de la 'Guerra de los 4 mares'", 600, "urlAlAImagen", CardTypeEnum.Ghost, 20, 30, 20, 40, RarityEnum.Common, new List<int> { idAttack1, idAttack2, idAttack3 });
-                int cartaPrueba6 = cardCEN.New_ ("Token no fungible", "Literalmente un token no fungible", 400, "urlAlAImagen", CardTypeEnum.Ghost, 10, 20, 10, 10, RarityEnum.Basic, new List<int> { idAttack1, idAttack2, idAttack3 });
-
-                int primero = cardCEN.New_ ("Card1", "Carta 1", 12, "card1.img", CardTypeEnum.Electric, 45, 23, 12, 34, RarityEnum.Epic, new List<int> { idAttack4 });
-                int segundo = cardCEN.New_ ("Card2", "Carta 2", 5, "card2.img", CardTypeEnum.Bug, 4, 27, 2, 4, RarityEnum.Basic, new List<int> { idAttack4 });
-                int tercero = cardCEN.New_ ("Card3", "Carta 3", 45, "card3.img", CardTypeEnum.Fire, 5, 2, 2, 90, RarityEnum.Common, new List<int> { idAttack4 });
+                //ATTACKS
+                 
+                //BUG ATTACKS
+                int bugAttack1 = attackMoveCEN.New_("Arrastre nuclear", CardTypeEnum.Bug, "Se arrastra hasta el rival como un gusano y explota");
+                int bugAttack2 = attackMoveCEN.New_("", CardTypeEnum.Bug, "");
+                 
+                //DRAGON ATTACKS
+                int dragonAttack1 = attackMoveCEN.New_("Lanzallamas", CardTypeEnum.Dragon, "Lanza fuego por la boca para intentar hacer ceniza al rival");
+                int dragonAttack2 = attackMoveCEN.New_("Cola Dragon", CardTypeEnum.Dragon, "Golpe con la cola que hará caer a cualquier rival al que le aseste un golpe");
+                 
+                //ELECTRIC ATTACKS
+                int electricAttack1 = attackMoveCEN.New_("Calambrazo", CardTypeEnum.Electric, "Chispazo que te electrocutará como no tengas cuidado");
+                int electricAttack2 = attackMoveCEN.New_("", CardTypeEnum.Electric, "");
+                 
+                //FIGHTING ATTACKS
+                int fightingAttack1 = attackMoveCEN.New_("Puño fuerte", CardTypeEnum.Fighting, "Puñetazo muy duro y con mucha intensidad");
+                int fightingAttack2 = attackMoveCEN.New_("Patadón", CardTypeEnum.Fighting, "Patada aeréa en el pecho");
+                 
+                //FIRE ATTACKS
+                int fireAttack1 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
+                int fireAttack2 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
+                 
+                //FLYING ATTACKS
+                int flyingAttack1 = attackMoveCEN.New_("Caida libre", CardTypeEnum.Flying, "Caída desde el cielo que aplastará a tus rivales");
+                int flyingAttack2 = attackMoveCEN.New_("", CardTypeEnum.Flying, "");
+                 
+                //GHOST ATTACKS
+                int ghostAttack1 = attackMoveCEN.New_("Invisibilidad", CardTypeEnum.Ghost, "Desaparición visual para sorprender al rival ya que no sabe por donde le van a atacar");
+                int ghostAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ghost, "");
+                 
+                //GRASS ATTACKS
+                int grassAttack1 = attackMoveCEN.New_("Modo Topo", CardTypeEnum.Grass, "Se escabulle debajo de tierra para sorprender al rival y atacarle");
+                int grassAttack2 = attackMoveCEN.New_("", CardTypeEnum.Grass, "");
+                 
+                //GROUND ATTACKS
+                int groundAttack1 = attackMoveCEN.New_("Mascazo", CardTypeEnum.Ground, "Golpe impresionante que te hará quedar exhausto");
+                int groundAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ground, "");
+                    
+                //ICE ATTACKS
+                int iceAttack1 = attackMoveCEN.New_("Congelar", CardTypeEnum.Ice, "Congela al rival a través del vaho que expulsa por la boca ya que sale muy frío");
+                int iceAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ice, "");
+                 
+                //NORMAL ATTACKS
+                int normalAttack1 = attackMoveCEN.New_("Placaje", CardTypeEnum.Normal, "Placaje con todo el cuerpo que puede llegar a tirar al rival");
+                int normalAttack2 = attackMoveCEN.New_("", CardTypeEnum.Normal, "");
+                 
+                //POISON ATTACKS
+                int poisonAttack1 = attackMoveCEN.New_("Vino maldito", CardTypeEnum.Poison, "Bebida con buena apariencia que al final no es lo que parece");
+                int poisonAttack2 = attackMoveCEN.New_("Gas Fatídico", CardTypeEnum.Poison, "Gas putrefacto que ahogará a cualquier rival que lo inhale");
+                 
+                //PSYCHIC ATTACKS
+                int psychicAttack1 = attackMoveCEN.New_("Mareo", CardTypeEnum.Psychic, "Aturde al contrario con un gas tóxico");
+                int psychicAttack2 = attackMoveCEN.New_("Pesao", CardTypeEnum.Psychic, "Ser pesado es una cualidad que no muchos manejan");
+                 
+                //ROCK ATTACKS
+                int rockAttack1 = attackMoveCEN.New_("Pedrolo", CardTypeEnum.Rock, "Lanza una piedra muy grande que aplasta al rival");
+                int rockAttack2 = attackMoveCEN.New_("", CardTypeEnum.Rock, "");
+                 
+                //WATER ATTACKS
+                int waterAttack1 = attackMoveCEN.New_("Manguerazo", CardTypeEnum.Water, "Torrente de agua muy potente");
+                int waterAttack2 = attackMoveCEN.New_("", CardTypeEnum.Water, "");
+                 
+                
+                
+                //CARDS
+                 
+                //BUG CARDS
+                int bugCard1 = cardCEN.New_ ("Worms", "Parecen adorables pero controlan las armas que da gusto...", 4700, "worm.png", CardTypeEnum.Bug, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { groundAttack1, grassAttack1, bugAttack1 });
+                   
+                //DRAGON CARDS
+                 
+                //ELECTRIC CARDS
+                int electricCard1 = cardCEN.New_ ("Jhony chispas", "Electrocutado por un cable", 400, "jhonyChispas.png", CardTypeEnum.Electric, 10, 20, 10, 10, RarityEnum.Mythical, new List<int> { normalAttack1, electricAttack1, fightingAttack2 });
+                int electricCard2 = cardCEN.New_ ("Cable pelao", "Tremendo cable pelao ", 2000, "cablePelao.png", CardTypeEnum.Electric, 100, 90, 50, 70, RarityEnum.Mythical, new List<int> { normalAttack1, electricAttack1, fightingAttack2 });
+                 
+                //FIGHTING CARDS
+                int fightingCard1 = cardCEN.New_ ("Tri-Spiddie", "Que Spiderman será el real", 4700, "memeSpiderman.png", CardTypeEnum.Fighting, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { flyingAttack1, normalAttack1, fightingAttack2 });
+                 
+                //FIRE CARDS
+                                 
+                //FLYING CARDS
+                int flyingCard1 = cardCEN.New_ ("Mosca mutante", "Mitad mosca, mitad hombre. Se dice que está mutando como el de la mosca", 2500, "fly.png", CardTypeEnum.Flying, 39, 21, 18, 36, RarityEnum.Uncommon, new List<int> { flyingAttack1, groundAttack1, psychicAttack2 });
+                int flyingCard2 = cardCEN.New_ ("Perro motociclón", "Rápido como el viento y más fuerte que un camión, aquí tenemos al perro motociclón", 4700, "perroMotociclon.png", CardTypeEnum.Flying, 66, 12, 90, 23, RarityEnum.Basic, new List<int> { normalAttack1, groundAttack1, psychicAttack1 });
+                 
+                //GHOST CARDS
+                int ghostCard1 = cardCEN.New_ ("La dama gorda", "Un Fantasma que va rondando castillos.", 4700, "damaGorda.png", CardTypeEnum.Ghost, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { iceAttack1, poisonAttack2, fightingAttack1 });
+                 
+                 
+                //GRASS CARDS
+                int grassCard1 = cardCEN.New_ ("El Diego", "Una especie de Dios argentino. Se le da bien eso del fútbol", 4700, "eldiego.png", CardTypeEnum.Grass, 55, 60, 18, 48, RarityEnum.Legendary, new List<int> { grassAttack1, fightingAttack2, psychicAttack1 });
+                                 
+                //GROUND CARDS
+                int groundCard1 = cardCEN.New_ ("Jonhymelavo", "El Jonhy. De calle. Va más doblado que una salchicha doblada", 4700, "rakitic.png", CardTypeEnum.Ground, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { groundAttack1, fightingAttack1, fightingAttack2 });
+                int groundCard2 = cardCEN.New_ ("Baby Yoda", "Más pequeño que un átomo. Cuidado que se enfada.", 8000, "babyYoda.png", CardTypeEnum.Ground, 30, 60, 40, 10, RarityEnum.Legendary, new List<int> { grassAttack1, ghostAttack1, groundAttack1 });
+                 
+                //ICE CARDS
+                int iceCard1 = cardCEN.New_ ("Papa Noel", "Regalos para todos", 400, "noel.png", CardTypeEnum.Ice, 10, 20, 10, 10, RarityEnum.Legendary, new List<int> { normalAttack1, electricAttack1, fightingAttack2 });
+                                  
+                //NORMAL CARDS
+                int normalCard1 = cardCEN.New_("Perro panson", "Todo chiquito, todo panson", 1000, "", CardTypeEnum.Normal, 30, 10, 25, 10, RarityEnum.Basic, new List<int> { });
+                int normalCard2 = cardCEN.New_ ("Mortadelo", "Personaje cómico que te sucumbe con su labia y sus bromas", 3200, "mortadelo.png", CardTypeEnum.Normal, 46, 24, 18, 30, RarityEnum.Rare, new List<int> { fightingAttack1, fightingAttack2, psychicAttack1 });
+                 
+                //POISON CARDS
+                 
+                //PSYCHIC CARDS
+                 
+                //ROCK CARDS
+                 
+                //WATER CARDS
+                int waterCard1 = cardCEN.New_ ("Jack Sparrago", "El pirata más temido de todo poniente", 4700, "jack.png", CardTypeEnum.Water, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { ghostAttack1, psychicAttack2, waterAttack1 });
 
                 //BASE PACKS
                 PackCEN packCEN = new PackCEN ();
 
-                int idpack1 = packCEN.New_ ("Sobre básico pequeño", "Sobre que contiene entre 1 y 5 cartas básicas", 100, "", RarityEnum.Basic, 1, 5, CardTypeEnum.All, RarityEnum.Basic);
-                int idpack2 = packCEN.New_ ("Sobre básico mediano", "Sobre que contiene entre 5 y 10 cartas básicas", 300, "", RarityEnum.Basic, 5, 10, CardTypeEnum.All, RarityEnum.Basic);
-                int idpack3 = packCEN.New_ ("Sobre básico grande", "Sobre que contiene entre 10 y 15 cartas básicas", 500, "", RarityEnum.Basic, 10, 15, CardTypeEnum.All, RarityEnum.Basic);
+                packCEN.New_ ("Sobre básico pequeño", "Sobre que contiene entre 1 y 5 cartas básicas", 100, "", RarityEnum.Basic, 1, 5, CardTypeEnum.All, RarityEnum.Basic);
+                packCEN.New_ ("Sobre básico mediano", "Sobre que contiene entre 5 y 10 cartas básicas", 300, "", RarityEnum.Basic, 5, 10, CardTypeEnum.All, RarityEnum.Basic);
+                packCEN.New_ ("Sobre básico grande", "Sobre que contiene entre 10 y 15 cartas básicas", 500, "", RarityEnum.Basic, 10, 15, CardTypeEnum.All, RarityEnum.Basic);
 
-                int idpack4 = packCEN.New_ ("Sobre común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas y comunes", 150, "", RarityEnum.Common, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
-                int pack1 = packCEN.New_ ("Sobre común mediano", "Sobre que contiene entre 5 y 10 cartas básicas y comunes", 350, "", RarityEnum.Common, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
-                int pack2 = packCEN.New_ ("Sobre común grande", "Sobre que contiene entre 10 y 15 cartas básicas y comunes", 550, "", RarityEnum.Common, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                packCEN.New_ ("Sobre común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas y comunes", 150, "", RarityEnum.Common, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                packCEN.New_ ("Sobre común mediano", "Sobre que contiene entre 5 y 10 cartas básicas y comunes", 350, "", RarityEnum.Common, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                packCEN.New_ ("Sobre común grande", "Sobre que contiene entre 10 y 15 cartas básicas y comunes", 550, "", RarityEnum.Common, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
 
-                int pack3 = packCEN.New_ ("Sobre poco común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes y poco comunes", 200, "", RarityEnum.Uncommon, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
-                int pack4 = packCEN.New_ ("Sobre poco común mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes y poco comunes", 400, "", RarityEnum.Uncommon, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
-                int pack5 = packCEN.New_ ("Sobre poco común grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes y poco comunes", 600, "", RarityEnum.Uncommon, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                packCEN.New_ ("Sobre poco común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes y poco comunes", 200, "", RarityEnum.Uncommon, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                packCEN.New_ ("Sobre poco común mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes y poco comunes", 400, "", RarityEnum.Uncommon, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                packCEN.New_ ("Sobre poco común grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes y poco comunes", 600, "", RarityEnum.Uncommon, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
 
                 packCEN.New_ ("Sobre raro pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes, poco comunes y raras", 250, "", RarityEnum.Rare, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
                 packCEN.New_ ("Sobre raro mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes, poco comunes y raras", 450, "", RarityEnum.Rare, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
@@ -378,6 +300,7 @@ public static void InitializeData ()
                 packCEN.New_ ("Sobre mítico mediano", "Sobre que contiene entre 5 y 10 cartas raras, épicas, legendarias y míticas", 600, "", RarityEnum.Mythical, 5, 10, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
                 packCEN.New_ ("Sobre mítico grande", "Sobre que contiene entre 10 y 15 cartas raras, épicas, legendarias y míticas", 800, "", RarityEnum.Mythical, 10, 15, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
 
+                
                 //VIRTUALUSERS y USER CARD
                 VirtualUserCEN virtualUserCEN = new VirtualUserCEN ();
                 int virtualUser1 = virtualUserCEN.New_ ("Pass", "Usuario 1", "email@gmail.com");
@@ -385,634 +308,31 @@ public static void InitializeData ()
                 int virtualUser3 = virtualUserCEN.New_ ("virtualUser12345", "Pepito123", "Pepito123@email.com");
                 int virtualUser4 = virtualUserCEN.New_ ("virtualUser12345", "Juan123", "Juan123@email.com");
 
-                int card1 = cardCEN.New_ ("Pikachu", "Descripcion carta 1", 1000, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
-                        100, 100, 50, 100, RarityEnum.Mythical, new List<int>() {
-                                idAttack1
-                        });
-
-                int card2 = cardCEN.New_ ("Martin", "Descripcion carta 2", 10, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
-                        100, 100, 50, 100, RarityEnum.Mythical, new List<int>() {
-                                idAttack1
-                        });
-
-                //HAY QUE IMPLEMENTAR EL CREATE USER CARD
-                UserCardCEN userCardCEN = new UserCardCEN ();
-                int ucard1 = userCardCEN.New_ (CardTypeEnum.Fighting, RarityEnum.Mythical,
-                        100, 50, 100, 100, "Pikarchu", "", new List<int>() {
-                                idAttack1
-                        }, card1, 1.0f);
-
-                userCardCEN.AssignUser (ucard1, virtualUser1);
-
-                int ucard2 = userCardCEN.New_ (CardTypeEnum.Fighting, RarityEnum.Mythical,
-                        100, 100, 50, 100, "Martin", "", new List<int>() {
-                                idAttack1
-                        }, card2, 1.0f);
-
-                userCardCEN.AssignUser (ucard2, virtualUser2);
-
-
-
-
-
-
-
-
-
-
-                //PUBLISHED TRADEOFFS
-                TradeOffCEN tradeOffCEN = new TradeOffCEN ();
-                //tradeOffCEN.Publish (virtualUser1, card1, ucard1);
-                tradeOffCEN.Publish (virtualUser2, card2, ucard2);
-
-
                 //COMMENTS
-                commentCEN.Publish ("Esto es una prueba", carta1, virtualUser1);
-                commentCEN.Publish ("Guapisima esta carta amigo", carta1, virtualUser2);
-                commentCEN.Publish ("Me gusta esta carta bastante", carta1, virtualUser3);
+                commentCEN.Publish ("El gusano está bastante bien", bugCard1, virtualUser1);
+                commentCEN.Publish ("Guapisima esta carta amigo", bugCard1, virtualUser2);
+                commentCEN.Publish ("Me gusta esta carta bastante", bugCard1, virtualUser3);
 
-                commentCEN.Publish ("Ojala casarme con esta carta", cartaPrueba7, virtualUser1);
-                commentCEN.Publish ("Guapisima esta carta amigo", cartaPrueba7, virtualUser2);
-                commentCEN.Publish ("Me gusta esta carta bastante", cartaPrueba7, virtualUser3);
+                commentCEN.Publish ("Ojala casarme con esta carta", electricCard2, virtualUser1);
+                commentCEN.Publish ("Me gustaría comprarla, pero no tengo dinero :(", electricCard2, virtualUser2);
+                commentCEN.Publish ("Me gusta esta carta bastante", electricCard2, virtualUser3);
 
-                commentCEN.Publish ("Esto es una prueba", cartaPrueba8, virtualUser1);
-                commentCEN.Publish ("Guapisima esta carta amigo", cartaPrueba8, virtualUser2);
-                commentCEN.Publish ("Me gusta esta carta bastante", cartaPrueba8, virtualUser3);
+                commentCEN.Publish ("La carta de Dios no falla", grassCard1, virtualUser1);
+                commentCEN.Publish ("Menudo genio", grassCard1, virtualUser2);
+                commentCEN.Publish ("Esta carta es increible, ¡me encanta!", grassCard1, virtualUser3);
 
-                Console.WriteLine ("COMENTARIOS, Producto ({0})", carta1);
-                foreach (var comment in commentCEN.CommentsByProduct (carta1)) {
-                        Console.WriteLine (comment.Id);
-                        Console.WriteLine (comment.Text);
-                        Console.WriteLine ("-----------------------------------------");
-                }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                //BASE CARD FILTERS
-                IList<CardEN> cardTypeList = cardCEN.CardsByType (CardTypeEnum.Dragon | CardTypeEnum.Normal);
-                IList<CardEN> cardRarityList = cardCEN.CardsByRarity (RarityEnum.Legendary);
-                IList<CardEN> cardNameDescriptionList = cardCEN.CardsByNameOrDescription ("Card1");
-                IList<CardEN> cardPriceList = cardCEN.CardsByPrice (12, 20);
-                Console.WriteLine ("\n");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+            FILTER: BASE CARD             +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-                Console.WriteLine ("Cartas de tipo dragon y normal:");
-                Console.WriteLine ("-------------------------------------------");
-                foreach (CardEN card in cardTypeList) {
-                        Console.WriteLine ("Nombre: " + card.Name);
-                        Console.WriteLine ("Descripcion: " + card.Description);
-                        Console.WriteLine ("Rareza: " + card.Rarity);
-                        Console.WriteLine ("Tipo: " + card.Type);
-                        Console.WriteLine ();
-                }
-
-                Console.WriteLine ("\n");
-
-                Console.WriteLine ("Cartas de rareza legendary:");
-                Console.WriteLine ("-------------------------------------------");
-                foreach (CardEN card in cardRarityList) {
-                        Console.WriteLine ("Nombre: " + card.Name);
-                        Console.WriteLine ("Descripcion: " + card.Description);
-                        Console.WriteLine ("Rareza: " + card.Rarity);
-                        Console.WriteLine ("Tipo: " + card.Type);
-                        Console.WriteLine ();
-                }
-
-                Console.WriteLine ("\n");
-
-                Console.WriteLine ("Cartas por nombre o descripcion: (Card1)");
-                Console.WriteLine ("-------------------------------------------");
-                foreach (CardEN card in cardNameDescriptionList) {
-                        Console.WriteLine ("Nombre: " + card.Name);
-                        Console.WriteLine ("Description: " + card.Description);
-                        Console.WriteLine ("Price: " + card.Price + " tokens");
-                        Console.WriteLine ();
-                }
-
-                Console.WriteLine ("\n");
-
-                Console.WriteLine ("Cartas por precio: (12-20)");
-                Console.WriteLine ("-------------------------------------------");
-                foreach (CardEN card in cardPriceList) {
-                        Console.WriteLine ("Nombre: " + card.Name);
-                        Console.WriteLine ("Description: " + card.Description);
-                        Console.WriteLine ("Price: " + card.Price + " tokens");
-                        Console.WriteLine ();
-                }
-
-
-                Console.WriteLine ("\n\n");
-
-                //BASE PACKS FILTERS
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+            FILTER: BASE PACK             +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-                Console.WriteLine ("Sobres por nombre o descripcion: pack 2");
-                Console.WriteLine ("-------------------------------------------");
-                IList<PackEN> packs = packCEN.PacksByNameOrDescription ("pack 2");
-
-                foreach (PackEN pack in packs) {
-                        Console.WriteLine ("Nombre: " + pack.Name);
-                        Console.WriteLine ("Descripcion: " + pack.Description);
-                        Console.WriteLine ("Rareza: " + pack.Rarity);
-                        Console.WriteLine ("Maximo numero de cartas: " + pack.MaxNumCards);
-                        Console.WriteLine ("Minimo numero de cartas: " + pack.MinNumCards);
-                        Console.WriteLine ("Precio: " + pack.Price + " tokens");
-                        Console.WriteLine ();
-                }
-
-                Console.WriteLine ("\n");
-
-                Console.WriteLine ("Sobres por rareza: Comun");
-                Console.WriteLine ("-------------------------------------------");
-                IList<PackEN> packs1 = packCEN.PacksByRarity (RarityEnum.Common);
-
-                foreach (PackEN pack in packs1) {
-                        Console.WriteLine ("Nombre: " + pack.Name);
-                        Console.WriteLine ("Descripcion: " + pack.Description);
-                        Console.WriteLine ("Rareza: " + pack.Rarity);
-                        Console.WriteLine ("Maximo numero de cartas: " + pack.MaxNumCards);
-                        Console.WriteLine ("Minimo numero de cartas: " + pack.MinNumCards);
-                        Console.WriteLine ("Precio: " + pack.Price + " tokens");
-                        Console.WriteLine ();
-                }
-
-                Console.WriteLine ("\n\n");
-
-
-                //USER CARDS FILTERS
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+            FILTER: USER CARDS            +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-
-                Console.WriteLine ("Busqueda pikarchu");
-                Console.WriteLine ("-------------------------------------------");
-                foreach (var card in userCardCEN.UserCardsByName (virtualUser1, "pikarchu")) {
-                        Console.WriteLine (card.Name);
-                }
-
-                Console.WriteLine ();
-                Console.WriteLine ("Busqueda ar");
-                Console.WriteLine ("-------------------------------------------");
-                foreach (var card in userCardCEN.UserCardsByName (virtualUser2, "%ar%")) {
-                        Console.WriteLine (card.Name);
-                }
-
-                Console.WriteLine ();
-                Console.WriteLine ("Busqueda usuario incorrecto");
-                Console.WriteLine ("-------------------------------------------");
-                foreach (var card in userCardCEN.UserCardsByName (-1, "Martin")) {
-                        Console.WriteLine (card.Name);
-                }
-
-                Console.WriteLine ();
-                Console.WriteLine ("Busqueda Carta base 1");
-                Console.WriteLine ("-------------------------------------------");
-                foreach (var card in userCardCEN.UserCardsByBaseCard (virtualUser1, card1)) {
-                        Console.WriteLine (card.Name);
-                }
-
-                Console.WriteLine ();
-                Console.WriteLine ("Busqueda Carta base 2");
-                Console.WriteLine ("-------------------------------------------");
-
-                foreach (var card in userCardCEN.UserCardsByBaseCard (virtualUser2, card2)) {
-                        Console.WriteLine (card.Name);
-                }
-
-                Console.WriteLine ();
-                Console.WriteLine ("Busqueda usuario incorrecto");
-                Console.WriteLine ("-------------------------------------------");
-
-                foreach (var card in userCardCEN.UserCardsByBaseCard (-1, card1)) {
-                        Console.WriteLine (card.Name);
-                }
-
-                Console.WriteLine ();
-                Console.WriteLine ("Busqueda carta base incorrecta");
-                Console.WriteLine ("-------------------------------------------");
-
-                foreach (var card in userCardCEN.UserCardsByBaseCard (virtualUser1, -1)) {
-                        Console.WriteLine (card.Name);
-                }
-
-                Console.WriteLine ("\n\n");
-
-
-                //TRADEOFF FILTERS
-
-                IList<TradeOffEN> tradeOffs = tradeOffCEN.TradesByCardName ("Pikarchu");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+     FILTER: TRADES POR NOMBRE DE CARTA   +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-                Console.WriteLine ("Intercambios por nombre de carta: (Pikarchu)");
-                Console.WriteLine ("-------------------------------------------");
-
-
-                foreach (var i in tradeOffs) {
-                        Console.WriteLine ("ID: " + i.DesiredCard.Id);
-                        Console.WriteLine ("Fecha: " + i.Date);
-
-                        CardEN desiredCard = new CardCEN ().ReadOID (i.DesiredCard.Id);
-                        Console.WriteLine ("Carta Deseada: " + desiredCard.Name);
-
-                        UserCardEN offeredCard = new UserCardCEN ().ReadOID (i.OfferedUserCard.Id);
-                        Console.WriteLine ("Carta Ofrecida: " + offeredCard.Name);
-                }
-
-                Console.WriteLine ("\n\n");
-
-
-
-                //VIRUALUSER FILTERS
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+           FILTER: VIRTUAL USERS          +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-                Console.WriteLine ("Usuario por nombre: (Pepito123)");
-                Console.WriteLine ("-------------------------------------------");
-                IList<VirtualUserEN> virtualUserList = virtualUserCEN.UsersByName ("Pepito123");
-                foreach (VirtualUserEN user in virtualUserList) {
-                        Console.WriteLine ("Nombre: " + user.UserName);
-                        Console.WriteLine ("Description: " + user.Description);
-                        Console.WriteLine ("Tokens: " + user.Tokens);
-                        Console.WriteLine ("img: " + user.Img);
-                        Console.WriteLine ("Email: " + user.Email);
-                        Console.WriteLine ("Combat Status: " + user.CombatStatus);
-                        Console.WriteLine ();
-                }
-                Console.WriteLine ("\n\n");
-
-
-
-                //CP: CREATE USER CARD
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+          CP: CREATE USER CARD            +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-
-                CardEN baseCard1 = new CardCEN ().ReadOID (cartaPrueba);
-                CardEN baseCard2 = new CardCEN ().ReadOID (cartaPrueba1);
-
-
-                CardCP cardCP = new CardCP ();
-                int userCardOID = cardCP.CreateUserCard (cartaPrueba, 1); //cartaPrueba es el oid de una carta
-                int userCardOID1 = cardCP.CreateUserCard (cartaPrueba1, 1);
-                UserCardEN userCardEN1 = userCardCEN.ReadOID (userCardOID);
-                UserCardEN userCardEN2 = userCardCEN.ReadOID (userCardOID1);
-
-
-
-                //IList<CardEN> baseCardList = new List<CardEN>() { baseCard1, baseCard2 };
-                //IList<UserCardEN> userCardList = new List<UserCardEN>() { userCardEN1, userCardEN2 };
-
-                printCards (baseCard1, userCardEN1);
-                printCards (baseCard2, userCardEN2);
-
-                void printCards (CardEN baseCard, UserCardEN userCardEN)
-                {
-                        Console.WriteLine ("CARTA BASE DE LA TIENDA");
-                        Console.WriteLine ("-------------------------------------------");
-                        Console.WriteLine ("Nombre: " + baseCard.Name);
-                        Console.WriteLine ("Descripcion: " + baseCard.Description);
-                        Console.WriteLine ("Precio: " + baseCard.Price + " tokens");
-                        Console.WriteLine ("Rareza: " + baseCard.Rarity);
-                        Console.WriteLine ("Tipo: " + baseCard.Type);
-                        Console.WriteLine ("Vida: " + baseCard.Health);
-                        Console.WriteLine ("Ataque: " + baseCard.Attack);
-                        Console.WriteLine ("Defensa: " + baseCard.Defense);
-                        Console.WriteLine ("Velocidad: " + baseCard.Speed);
-                        Console.WriteLine ();
-
-                        Console.WriteLine ("CARTA DEL USUARIO:");
-                        Console.WriteLine ("-------------------------------------------");
-                        Console.WriteLine ("Nombre: " + userCardEN.Name);
-                        //Console.WriteLine("Descripcion: " + userCardEN.Card.Description);
-                        Console.WriteLine ("Level: " + userCardEN.Level);
-                        Console.WriteLine ("Fecha de compra: " + userCardEN.PurchaseDate);
-                        Console.WriteLine ("Rareza: " + userCardEN.Rarity);
-                        Console.WriteLine ("Tipo: " + userCardEN.Type);
-                        Console.WriteLine ("Vida: " + userCardEN.Health);
-                        Console.WriteLine ("Ataque: " + userCardEN.Attack);
-                        Console.WriteLine ("Defensa: " + userCardEN.Defense);
-                        Console.WriteLine ("Velocidad: " + userCardEN.Speed);
-                        Console.WriteLine ("\n");
-                }
-
-                void printBaseCard (CardEN baseCard)
-                {
-                        Console.WriteLine ("CARTA BASE DE LA TIENDA");
-                        Console.WriteLine ("-------------------------------------------");
-                        Console.WriteLine ("Nombre: " + baseCard.Name);
-                        Console.WriteLine ("Descripcion: " + baseCard.Description);
-                        Console.WriteLine ("Precio: " + baseCard.Price + " tokens");
-                        Console.WriteLine ("Rareza: " + baseCard.Rarity);
-                        Console.WriteLine ("Tipo: " + baseCard.Type);
-                        Console.WriteLine ("Vida: " + baseCard.Health);
-                        Console.WriteLine ("Ataque: " + baseCard.Attack);
-                        Console.WriteLine ("Defensa: " + baseCard.Defense);
-                        Console.WriteLine ("Velocidad: " + baseCard.Speed);
-                        Console.WriteLine ();
-                }
-
-
-                void printUserCards (UserCardEN userCardEN)
-                {
-                        Console.WriteLine ("CARTA DEL USUARIO:");
-                        Console.WriteLine ("-------------------------------------------");
-                        Console.WriteLine ("Nombre: " + userCardEN.Name);
-                        //Console.WriteLine("Descripcion: " + userCardEN.Card.Description);
-                        Console.WriteLine ("Level: " + userCardEN.Level);
-                        Console.WriteLine ("Fecha de compra: " + userCardEN.PurchaseDate);
-                        Console.WriteLine ("Rareza: " + userCardEN.Rarity);
-                        Console.WriteLine ("Tipo: " + userCardEN.Type);
-                        Console.WriteLine ("Vida: " + userCardEN.Health);
-                        Console.WriteLine ("Ataque: " + userCardEN.Attack);
-                        Console.WriteLine ("Defensa: " + userCardEN.Defense);
-                        Console.WriteLine ("Velocidad: " + userCardEN.Speed);
-                        Console.WriteLine ("\n");
-                }
-
-
-
-                Console.WriteLine ("\n\n");
-
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+              CP: TOKEN PACK              +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-
-                TokenPackCP tokenPackCP = new TokenPackCP ();
+                //TOKEN PACKS
                 TokenPackCEN tokenPackCEN = new TokenPackCEN ();
 
-                tokenPackCEN.New_("Pack pequeño 1", 1.0, 100);
-                tokenPackCEN.New_("Pack pequeño 2", 2.5, 325);
-                tokenPackCEN.New_("Pack mediano 1", 5.0, 700);
-                tokenPackCEN.New_("Pack mediano 2", 10.0, 1450);
-                int tokenOID1 = tokenPackCEN.New_("Pack grande 1", 25.0, 3700);
-                int tokenOID2 = tokenPackCEN.New_("Pack grande 2", 50.0, 7450);
-                int tokenOID3 = tokenPackCEN.New_("Pack niño rico 1", 100.0, 14950);
-                int tokenOID4 = tokenPackCEN.New_("Pack niño rico 2", 200.0, 29950);
-
-                VirtualUserEN usuarioAntesCompraToken = virtualUserCEN.ReadOID (virtualUser1);
-
-                /* -------------- Antes de la compra --------------------*/
-                Console.WriteLine ("ANTES DE LA COMPRA");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + usuarioAntesCompraToken.UserName);
-                Console.WriteLine ("Email: " + usuarioAntesCompraToken.Email);
-                Console.WriteLine ("Tokens: " + usuarioAntesCompraToken.Tokens);
-                Console.WriteLine ();
-                /* ----------------------------------------------------- */
-
-                tokenPackCP.PurchaseTokenPack (tokenOID1, virtualUser1);
-                tokenPackCP.PurchaseTokenPack (tokenOID2, virtualUser1);
-                tokenPackCP.PurchaseTokenPack (tokenOID3, virtualUser1);
-                tokenPackCP.PurchaseTokenPack (tokenOID4, virtualUser1);
-
-
-                VirtualUserEN usuarioCompraToken = virtualUserCEN.ReadOID (virtualUser1);
-
-                /* -------------- Despues de la compra --------------------*/
-                Console.WriteLine ("DESPUES DE LA COMPRA");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + usuarioCompraToken.UserName);
-                Console.WriteLine ("Email: " + usuarioCompraToken.Email);
-                Console.WriteLine ("Tokens: " + usuarioCompraToken.Tokens);
-
-                /* ----------------------------------------------------- */
-
-                Console.WriteLine ("\n\n");
-
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+                 CP: CARD                 +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-                Console.WriteLine ("VAMOS A COMPRAR CARTAS CON UN USUARIO QUE TIENE TOKENS\n");
-                Console.WriteLine ("ANTES DE LA COMPRA:");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + usuarioCompraToken.UserName);
-                Console.WriteLine ("Email: " + usuarioCompraToken.Email);
-                Console.WriteLine ("Tokens: " + usuarioCompraToken.Tokens);
-                Console.WriteLine ("\n");
-
-                Console.WriteLine ("COMPRAMOS 2 CARTAS COMO ESTA:");
-                Console.WriteLine ("-------------------------------------------");
-                CardEN purchasedCard = new CardCEN ().ReadOID (cartaPrueba);
-                printBaseCard (purchasedCard);
-                cardCP.PurchaseUserCard (cartaPrueba, virtualUser1, 2);
-
-
-
-                VirtualUserEN usuarioCompraCartas = virtualUserCEN.ReadOID (virtualUser1);
-
-                /* -------------- Despues de la compra --------------------*/
-                Console.WriteLine ("DESPUES DE LA COMPRA");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + usuarioCompraCartas.UserName);
-                Console.WriteLine ("Email: " + usuarioCompraCartas.Email);
-                Console.WriteLine ("Tokens: " + usuarioCompraCartas.Tokens);
-                Console.WriteLine ("\n");
-
-                Console.WriteLine ("CARTAS QUE TIENE EL USUARIO AHORA:");
-                Console.WriteLine ("-------------------------------------------\n");
-                IList<UserCardEN> purchasedUserCardList = userCardCEN.UserCardsByBaseCard (virtualUser1, cartaPrueba);
-                foreach (UserCardEN card in purchasedUserCardList) {
-                        printUserCards (card);
-                }
-
-
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+            CP: DESTROY USER CARD         +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-
-
-                UserCardEN usercardEN = userCardCEN.ReadOID (ucard1);
-                CardEN cardEN = cardCEN.ReadOID (usercardEN.Card.Id);
-                VirtualUserEN usuEN = virtualUserCEN.ReadOID (usercardEN.User.Id);
-
-                /* -------------- Antes de la compra --------------------*/
-                Console.WriteLine ("ANTES DEL DESCARTE");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + usuEN.UserName);
-                Console.WriteLine ("Email: " + usuEN.Email);
-                Console.WriteLine ("Tokens: " + usuEN.Tokens);
-                Console.WriteLine ();
-                /* ----------------------------------------------------- */
-
-
-
-                /* -------------- Antes de la compra --------------------*/
-                Console.WriteLine ("PRECIO DE LA CARTA");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + usercardEN.Name);
-                Console.WriteLine ("Usuario al que pertenece: " + usuEN.UserName);
-                Console.WriteLine ("Precio: " + cardEN.Price);
-                Console.WriteLine ();
-                /* ----------------------------------------------------- */
-
-                UserCardCP userCardCP = new UserCardCP ();
-                userCardCP.DestroyCard (ucard1);
-
-                VirtualUserEN usu1descarte = virtualUserCEN.ReadOID (virtualUser1);
-
-                /* -------------- Despues de la compra --------------------*/
-                Console.WriteLine ("DESPUES DEL DESCARTE");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + usu1descarte.UserName);
-                Console.WriteLine ("Email: " + usu1descarte.Email);
-                Console.WriteLine ("Tokens: " + usu1descarte.Tokens);
-
-                /* ----------------------------------------------------- */
-
-                Console.WriteLine ("\n\n");
-
-                PackEN purchasedPack1 = new PackCEN ().ReadOID (pack1);
-
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+                 CP: PACKS                +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-
-                //Console.WriteLine("EL USUARIO TIENE " + usu1descarte.UserPacks.Count + " SOBRES\n");
-
-                Console.WriteLine ("Vamos a comprar 3 packs como este:");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + purchasedPack1.Name);
-                Console.WriteLine ("Precio: " + purchasedPack1.Price + " tokens");
-                Console.WriteLine ("Rareza: " + purchasedPack1.Rarity);
-                Console.WriteLine ("Cartas minimas: " + purchasedPack1.MinNumCards);
-                Console.WriteLine ("Cartas maximas: " + purchasedPack1.MaxNumCards);
-                Console.WriteLine ();
-
-                PackCP packCP = new PackCP ();
-                IList<int> purchasedPackList = packCP.PurchaseUserPack (pack1, virtualUser1, 3);
-
-                Console.WriteLine ("Vemos los sobres del usuario tras la compra:");
-                Console.WriteLine ("-------------------------------------------");
-                UserPackCEN userPackCEN = new UserPackCEN ();
-                IList<UserPackEN> userPacksFromUserList = userPackCEN.UserPacksByUser (virtualUser1);
-                foreach (UserPackEN pack in userPacksFromUserList) {
-                        Console.WriteLine ("Sobre rareza: " + pack.Rarity);
-                }
-                Console.WriteLine ();
-
-                Console.WriteLine ("Vemos que las cartas que tiene siguen siendo las que ha comprado antes:");
-                Console.WriteLine ("-------------------------------------------------------------------------------------");
-                IList<UserCardEN> userCardsFromUserList = userCardCEN.UserCardsByUser (virtualUser1);
-                foreach (UserCardEN card in userCardsFromUserList) {
-                        printUserCards (card);
-                }
-
-
-
-                VirtualUserEN usuTrasPacks = virtualUserCEN.ReadOID (virtualUser1);
-
-                /* -------------- Despues de la compra --------------------*/
-                Console.WriteLine ("DESPUES DE COMPRAR LOS SOBRES");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + usuTrasPacks.UserName);
-                Console.WriteLine ("Email: " + usuTrasPacks.Email);
-                Console.WriteLine ("Tokens: " + usuTrasPacks.Tokens);
-                Console.WriteLine ();
-
-                //Console.WriteLine("EL USUARIO AHORA TIENE " + usuTrasPacks.UserPacks.Count + " SOBRES");
-
-
-                Console.WriteLine ("VAMOS AHORA A ABRIR UN SOBRE Y VER LAS CARTAS DEL USUARIO");
-                Console.WriteLine ("-------------------------------------------");
-
-                //QUIZA EL OPEN PACK SEA UN DESTROY y HAY QUE DEVOLVER EN PURCHASEUSERPACKS UN OID
-
-                //UserPackEN userPackEN = new UserPackCEN().ReadOID(purchasedPackList[0]);
-
-                UserPackCP userPackCP = new UserPackCP ();
-
-                userPackCP.OpenPack (purchasedPackList [0]);
-
-
-                IList<UserCardEN> userCardsFinal = userCardCEN.UserCardsByUser (virtualUser1);
-                //FALTA MOSTRAR EL NUMERO DE CARTAS
-
-                foreach (UserCardEN card in userCardsFinal) {
-                        printUserCards (card);
-                }
-
-
-
-                Console.WriteLine ("\n\n");
-
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+         BILLS : READ FILTER BY USER      +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-
-                BillCEN billCEN = new BillCEN ();
-                IList<BillEN> billsEN = billCEN.BillsByUser (virtualUser1);
-                VirtualUserEN virtUserEN = virtualUserCEN.ReadOID (virtualUser1);
-                ProductCEN productCEN = new ProductCEN ();
-                int num = 1;
-                Console.WriteLine ("BILLS DEL USER (" + virtualUser1 + ")");
-                Console.WriteLine ("-------------------------------------------");
-                Console.WriteLine ("Nombre: " + virtUserEN.UserName);
-                Console.WriteLine ("Tokens: " + virtUserEN.Tokens);
-                Console.WriteLine ();
-
-                foreach (var bill in billsEN) {
-                        if (bill.Product != null) {
-                                ProductEN productEN = productCEN.ReadOID (bill.Product.Id);
-                                Console.WriteLine ("BILL nº " + num + "(" + bill.Id + ")");
-                                Console.WriteLine ("-------------------------------------------");
-                                if (productEN is PackEN)
-                                        Console.WriteLine ("Tipo: Sobre");
-                                else
-                                        Console.WriteLine ("Tipo: Carta");
-                                Console.WriteLine ("Fecha: " + bill.Date);
-                                Console.WriteLine ("Cantidad: " + bill.Amount);
-                                Console.WriteLine ("Nombre producto: " + productEN.Name);
-                                Console.WriteLine ("Precio producto: " + productEN.Price);
-                                Console.WriteLine ();
-                        }
-                        else{
-                                TokenPackEN tokPackEN = tokenPackCEN.ReadOID (bill.TokenPack.Id);
-                                Console.WriteLine ("BILL nº " + num + "(" + bill.Id + ")");
-                                Console.WriteLine ("-------------------------------------------");
-                                Console.WriteLine ("Tipo: TokenPack");
-                                Console.WriteLine ("Fecha: " + bill.Date);
-                                Console.WriteLine ("Cantidad: " + bill.Amount);
-                                Console.WriteLine ("Nombre TokenPack: " + tokPackEN.Name);
-                                Console.WriteLine ("Precio TokenPack: " + tokPackEN.Price);
-                                Console.WriteLine ("Tokens TokenPack: " + tokPackEN.Tokens);
-                                Console.WriteLine ();
-                        }
-                        num++;
-                }
-
-
-                Console.WriteLine ("\n\n");
-
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++");
-                Console.WriteLine ("+         CARTAS RECOMENDADAS              +");
-                Console.WriteLine ("++++++++++++++++++++++++++++++++++++++++++++\n");
-
-                IList<CardEN> recommendedCards = cardCP.GetUserRecommendedCards (virtualUser1);
-                foreach (CardEN card in recommendedCards) {
-                        printBaseCard (card);
-                }
-
-
-                //FROM BillEN as bill WHERE bill.User = :p_user AND bill.Product IS NOT NULL AND bill.Product.class = Card ORDER BY bill.Date DESC
+                tokenPackCEN.New_("Pack Pequeño Básico", 1.0, 100);
+                tokenPackCEN.New_("Pack Pequeño Top", 2.5, 240);
+                tokenPackCEN.New_("Pack Mediano Básico", 5.0, 700);
+                tokenPackCEN.New_("Pack Mediano Top", 10.0, 1450);
+                tokenPackCEN.New_("Pack Grande Básico", 25.0, 3700);
+                tokenPackCEN.New_("Pack Grande Top", 50.0, 7450);
+                tokenPackCEN.New_("Pack Gigante Básico", 100.0, 14950);
+                tokenPackCEN.New_("Pack Gigante Top", 200.0, 29950);
 
                 /*PROTECTED REGION END*/
         }
