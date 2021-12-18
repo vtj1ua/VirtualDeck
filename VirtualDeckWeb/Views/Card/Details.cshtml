@@ -27,7 +27,7 @@
                 </div>
                 <div>
                     <label for="cantidad">Cantidad</label>
-                    <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);"/>
+                    <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);" />
                 </div>
                 <div>
                     <label>Precio total</label>
@@ -37,15 +37,14 @@
                 <input type="submit" value="Comprar" class="btn btn-default action-button" />
                 <input type="hidden" value="@Model.Id" name="cardId">
             }
-
-            </div>
-
+        </div>
     </div>
 </div>
 <div class="container">
     @Html.Partial("AttackListPartial", ModelAttack)
 </div>
-
-@{
-    Html.RenderAction("ListPartial", "Comment", new { productID = Model.Id });
-}
+<div class="container">
+    @{
+        Html.RenderAction("ListPartial", "Comment", new { productID = Model.Id });
+    }
+</div>

@@ -254,6 +254,7 @@ width: 100%;
     justify-content: center;
 }
 
+
 .token-pack-container 
 {
     background-color: var(--light-dark);
@@ -884,10 +885,9 @@ width: 100%;
     color: var(--light);
 }
 
-.superior {
-    padding: 2em 0;
-    background: var(--light-dark);
-}
+
+
+
 
 .divTrade{
     
@@ -992,24 +992,55 @@ width: 100%;
 
 /*################# Carlo ##################*/
 
-#cantidad{
-    margin-left: 1em;
-    color: initial;
+
+
+@media all and (max-width:768px) {
+    .details {
+        text-align: center;
+    }
+    .superior {
+        padding: 2em 0;
+        background: var(--light-dark);
+        width: 25em;
+        border-radius: 0.5em;
+    }
 }
 
-.details > form > div{
-    display: inline-block;
-    width:100%;
-    margin: 0.6em 0;
+@media all and (min-width:769px) {
+    .superior {
+        padding: 2em 0;
+        background: var(--light-dark);
+        border-radius: 0.5em;
+    }
 }
+    #cantidad {
+        margin-left: 1em;
+        color: initial;
+    }
 
-.details > form > div > p {
-    display: inline-block;
-    padding-left: 1em;
-}
+    .details > form > div {
+        display: inline-block;
+        width: 100%;
+        margin: 0.6em 0;
+    }
 
-.token {
-    width: 1em;
-    margin-left: 0.5em;
-    padding-bottom: 0.25em;
-}
+        .details > form > div > p {
+            display: inline-block;
+            padding-left: 1em;
+        }
+
+    .token {
+        width: 1em;
+        margin-left: 0.5em;
+        padding-bottom: 0.25em;
+    }
+
+    .textComment {
+        max-width: inherit;
+        font-size: 18px;
+        width: 100%;
+        padding: 0.5em;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+    }
