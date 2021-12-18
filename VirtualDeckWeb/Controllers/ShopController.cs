@@ -13,8 +13,9 @@ namespace VirtualDeckWeb.Controllers
 {
     public class ShopController : BasicController
     {
+        const int PageSize = 8;
         // GET: Shop
-        public ActionResult Cards(String search, int page = 0)
+        public ActionResult Cards(string search, int page = 0)
         {
             SessionInitialize();
             CardCAD cardcad = new CardCAD(session);
@@ -30,8 +31,6 @@ namespace VirtualDeckWeb.Controllers
                 cards = cardcen.ReadAll(0, -1);
                 this.ViewBag.Search = "";
             }
-
-            int PageSize = 8;
 
             var count = cards.Count();
 
