@@ -27,7 +27,7 @@
                 </div>
                 <div>
                     <label for="cantidad">Cantidad</label>
-                    <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);"/>
+                    <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);" />
                 </div>
                 <div>
                     <label>Precio total</label>
@@ -38,7 +38,7 @@
                 <input type="hidden" value="@Model.Id" name="cardId">
             }
 
-            </div>
+        </div>
 
     </div>
 </div>
@@ -49,3 +49,5 @@
 @{
     Html.RenderAction("ListPartial", "Comment", new { productID = Model.Id });
 }
+
+@Html.Partial("OperationResultPartial")

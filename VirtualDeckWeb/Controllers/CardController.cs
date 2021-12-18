@@ -60,11 +60,10 @@ namespace VirtualDeckWeb.Controllers
         [HttpPost]
         public ActionResult Buy(FormCollection collection)
         {
+            int cardId = 0;
             try
             {
-                //SessionInitialize();
-                int cardId = Int32.Parse(collection.Get("cardId"));
-                // TODO: Add insert logic here
+                cardId = Int32.Parse(collection.Get("cardId"));
                 int amount = Int32.Parse(collection.Get("amount"));
 
                 UserCardCEN userCardCEN = new UserCardCEN();
@@ -72,13 +71,16 @@ namespace VirtualDeckWeb.Controllers
 
                 CardCP cardCP = new CardCP();
                 cardCP.PurchaseUserCard(cardId, user.Id, amount);
-                
-                return RedirectToAction(actionName: "Cards", controllerName: "Shop");
+
+                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Compra realizada",
+                   "Tu compra se ha realizado correctamente");
+                return RedirectToAction("Details", "VirtualUser", new { id = user.Id });
             }
             catch
             {
-                //return View();
-                return RedirectToAction(actionName: "Cards", controllerName: "Shop");
+                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Error, "Error",
+                   "No tienes suficiente dinero");
+                return RedirectToAction("Details", new { id = cardId });
             }
            
         }
