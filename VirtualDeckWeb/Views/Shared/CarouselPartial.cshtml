@@ -1,0 +1,42 @@
+﻿@model IEnumerable<VirtualDeckWeb.Models.CardViewModel>
+@{ Boolean primero = true;}
+
+
+@foreach (var item in Model)
+{
+
+
+    if (primero)
+    {
+        <div class="item active">
+            <div class="centered-col-container">
+                <div class="shop-container">
+                    @Html.Partial("CardPartial", item)
+                    <div>
+                        @Html.ActionLink(linkText: "Ver detalle", actionName: "Details", controllerName: "Card", routeValues: new { id = item.Id }, htmlAttributes: new { @class = "action-button" })
+                        <p>@Html.DisplayFor(modelItem => item.Price)<img src="~/Resources/token.png" alt="Tokens"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        primero = false;
+    }
+    else
+    {     
+        <div class="item">
+            
+                <div class="centered-col-container">
+                    <div class="shop-container">
+                        @Html.Partial("CardPartial", item)
+                        <div>
+                            @Html.ActionLink(linkText: "Ver detalle", actionName: "Details", controllerName: "Card", routeValues: new { id = item.Id }, htmlAttributes: new { @class = "action-button" })
+                            <p>@Html.DisplayFor(modelItem => item.Price)<img src="~/Resources/token.png" alt="Tokens"></p>
+                        </div>
+                    </div>
+                </div>
+            
+
+        </div>
+
+    }
+}

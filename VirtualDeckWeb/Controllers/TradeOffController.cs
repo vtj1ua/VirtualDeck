@@ -8,6 +8,7 @@ using VirtualDeckGenNHibernate.EN.VirtualDeck;
 using VirtualDeckGenNHibernate.CAD.VirtualDeck;
 using VirtualDeckWeb.Assemblers;
 using VirtualDeckWeb.Models;
+using VirtualDeckGenNHibernate.CP.VirtualDeck;
 
 namespace VirtualDeckWeb.Controllers
 {
@@ -61,6 +62,8 @@ namespace VirtualDeckWeb.Controllers
             return View();
         }
 
+
+
         public ActionResult Publish()
         {
 
@@ -110,6 +113,46 @@ namespace VirtualDeckWeb.Controllers
             }
         }
 
+        public ActionResult CardSelected(int idCarta, int idTrade)
+        {
+            
+            VirtualUserEN vicen = Session["user"] as VirtualUserEN;
+            TradeOffCP trade = new TradeOffCP();
+
+            trade.Trade(idTrade, idCarta);
+
+            
+            return RedirectToAction("Index");
+
+        }
+        public ActionResult Select(int idTrade)
+        {
+            UserCardCAD UserCardCAD = new UserCardCAD(session);
+            UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
+            IList<UserCardEN> UserCardEN = null;
+
+            VirtualUserEN en = Session["user"] as VirtualUserEN;
+            if (en != null)
+            {
+                UserCardEN = UserCardCEN.UserCardsByUser(en.Id);
+            }
+
+            IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
+
+            CardCAD CardCAD = new CardCAD(session);
+            CardCEN CardCEN = new CardCEN(CardCAD);
+            IList<CardEN> CardEN = null;
+
+
+            CardEN = CardCEN.ReadAll(0, -1).ToList();
+
+            IEnumerable<CardViewModel> model1 = new CardAssembler().ConvertListENToModel(CardEN);
+            ViewData["usercards"] = model;
+            ViewData["cards"] = model1;
+            ViewData["idUser"] = en.Id;
+            ViewData["idTrade"] = idTrade;
+            return View();
+        }
         // GET: TradeOff/Create
         public ActionResult Create()
         {

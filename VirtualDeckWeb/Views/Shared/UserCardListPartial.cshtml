@@ -74,7 +74,7 @@
                                 }
                                 else
                                 {
-                                    @Html.ActionLink("Seleccionar", "Index", "TradeOff", new { idUsuario = id, idCarta = item.Id }, new { @class = "action-button" })
+                                    @Html.ActionLink("Seleccionar", "CardSelected", "TradeOff", new { idCarta = item.Id, idTrade = ViewData["idTrade"] }, new { @class = "action-button" })
                                 }
 
                             }
