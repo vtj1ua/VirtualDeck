@@ -25,3 +25,12 @@ function borrarFoto(dv) {
 	return false;
 }
 
+// ------------------------------- CARLO -----------------------------------
+
+function changeTokens(input) {
+	let price = parseInt(document.querySelector('.price').textContent);
+	let amount = parseInt(input.value);
+	let total = price * amount;
+	document.querySelector('.totalPrice').innerText = total;
+	return false;
+}

@@ -155,7 +155,7 @@ width: 100%;
 }
 
 
-.product-comment
+.product-comment, .attack
 {
     color: var(--light);
     background-color: var(--light-dark);
@@ -951,4 +951,28 @@ width: 100%;
 
 .noBorder{
     border: none !important;
+}
+
+/*################# Carlo ##################*/
+
+#cantidad{
+    margin-left: 1em;
+    color: initial;
+}
+
+.details > form > div{
+    display: inline-block;
+    width:100%;
+    margin: 0.6em 0;
+}
+
+.details > form > div > p {
+    display: inline-block;
+    padding-left: 1em;
+}
+
+.token {
+    width: 1em;
+    margin-left: 0.5em;
+    padding-bottom: 0.25em;
 }
