@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Details";
 }
-
 <div class="container superior">
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -21,78 +20,43 @@
                 </div>
                 <div>
                     <label for="cantidad">Cantidad</label>
-                    <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);"/>
+                    <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);" />
                 </div>
                 <div>
                     <label>Precio total</label>
                     <p><span class="totalPrice">@Html.DisplayFor(model => model.Price)</span><span><img src="~/Resources/token.png" alt="Tokens" class="token"></span></p>
                 </div>
-                <input type="submit" value="Comprar" class="btn btn-default action-button"/>
+                <input type="submit" value="Comprar" class="btn btn-default action-button" />
                 <input type="hidden" value="@Model.Id" name="packId">
             }
         </div>
     </div>
 </div>
-
-<div>
-    <h4>PackViewModel</h4>
+<div class="container">
+    <h3>Caracterísitcas</h3>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Img)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Img)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RegistryDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RegistryDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaxNumCards)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaxNumCards)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MinNumCards)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MinNumCards)
-        </dd>
-
-    </dl>
+    <div class="description">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="cantidad">Nombre</label>
+            <p>@Html.DisplayFor(model => model.Name)</p>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="cantidad">Descripción</label>
+            <p>@Html.DisplayFor(model => model.Description)</p>
+        </div>
+        @*
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="cantidad">Precio</label>
+            <p>@Html.DisplayFor(model => model.Price)<span><img src="~/Resources/token.png" alt="Tokens" class="token"></span></p>
+        </div>
+        *@
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="cantidad">Máximo de cartas</label>
+            <p>@Html.DisplayFor(model => model.MaxNumCards)</p>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="cantidad">Mínimo de cartas</label>
+            <p>@Html.DisplayFor(model => model.MinNumCards)</p>
+        </div>
+    </div>
 </div>
