@@ -23,7 +23,10 @@ h1{
     text-align: center;
 }
 
-
+.operation-result>h2
+{
+    border-bottom: solid 2px var(--light);
+}
 
 /*PARA CENTRAR LA TIENDA*/
 .container{
@@ -377,6 +380,7 @@ width: 100%;
     margin-top:10em;
     padding:3em;
     position:relative;
+    border-radius: 0.5em;
 }
 .m-modal a{
    display:block;
@@ -463,6 +467,44 @@ width: 100%;
 
 /*##########################################################################################################*/
 /*########################################## VICTOR #######################################################*/
+.error-modal, .success-modal {
+    width: fit-content;
+    text-align: center;
+    background-color: var(--light-dark);
+    margin: auto;
+    margin-top: 10em;
+    padding: 3em;
+    position: relative;
+    border-radius: 0.5em;
+}
+
+.error-modal
+{
+    border: solid 4px var(--red);
+}
+
+.success-modal 
+{
+    border: solid 4px var(--green);
+}
+
+.operation-result 
+{
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.operation-result>h2
+{
+    margin: 1em 0;
+}
+
+.operation-result>button
+{
+    margin-top: 1em;
+}
+
+
 .virtual-card {
     position: relative;
     width: 15em;

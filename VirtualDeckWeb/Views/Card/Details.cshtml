@@ -37,7 +37,9 @@
                 <input type="submit" value="Comprar" class="btn btn-default action-button" />
                 <input type="hidden" value="@Model.Id" name="cardId">
             }
+
         </div>
+
     </div>
 </div>
 <div class="container">
@@ -48,3 +50,5 @@
         Html.RenderAction("ListPartial", "Comment", new { productID = Model.Id });
     }
 </div>
+
+@Html.Partial("OperationResultPartial")

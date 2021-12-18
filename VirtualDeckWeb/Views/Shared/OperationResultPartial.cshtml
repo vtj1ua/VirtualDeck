@@ -1,0 +1,33 @@
+﻿@using VirtualDeckWeb.Models;
+
+@{
+    OperationResultViewModel result = (TempData["OperationResult"] as OperationResultViewModel);
+
+    if(result != null)
+    {
+        string modalClass = "";
+        switch(result.Type)
+        {
+            case ModalMessageType.Success: modalClass = "success-modal"; break;
+            case ModalMessageType.Error: modalClass = "error-modal"; break;
+        }
+
+        <div class="modal fade in" id="operation-result-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="@modalClass">
+                <div class="operation-result">
+                    <h2>@result.Title</h2>
+                    <p>@result.Message</p>
+                    <button data-dismiss="modal" class="acept-button">Aceptar</button>
+                </div>
+                <img class="icon-close" data-dismiss="modal" id="close-button" src="~/Resources/borrar.png" alt="Cerrar"/>
+            </div>
+        </div>
+
+        <script type = "text/javascript" >
+            $(window).on('load', function () {
+                $('#operation-result-modal').modal('show');
+        });
+        </script>
+    }
+}
+

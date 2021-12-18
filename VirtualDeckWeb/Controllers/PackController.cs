@@ -65,43 +65,15 @@ namespace VirtualDeckWeb.Controllers
             */
         }
 
-        // GET: Pack/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Pack/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Pack/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-
         // POST: Pack/Buy
         [HttpPost]
         public ActionResult Buy(FormCollection collection)
         {
+            int packId = 0;
             try
             {
                 //SessionInitialize();
-                int packId = Int32.Parse(collection.Get("packId"));
+                packId = Int32.Parse(collection.Get("packId"));
                 // TODO: Add insert logic here
                 int amount = Int32.Parse(collection.Get("amount"));
 
@@ -111,53 +83,15 @@ namespace VirtualDeckWeb.Controllers
                 PackCP packCP = new PackCP();
                 packCP.PurchaseUserPack(packId, user.Id, amount);
 
-
-                return RedirectToAction(actionName: "Packs", controllerName: "Shop");
+                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Compra realizada", 
+                    "Tu compra se ha realizado correctamente");
+                return RedirectToAction("Details", "VirtualUser", new { id = user.Id });
             }
             catch
             {
-                //return View();
-                return RedirectToAction(actionName: "Packs", controllerName: "Shop");
-            }
-
-        }
-
-
-        // POST: Pack/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Pack/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Pack/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Error, "Error",
+                   "No tienes suficiente dinero");
+                return RedirectToAction("Details", new { id = packId });
             }
         }
 

@@ -44,10 +44,14 @@ namespace VirtualDeckWeb.Controllers
 
                 tokenPackCP.PurchaseTokenPack(model.Id, virtualUserEN.Id);
 
-                return RedirectToAction("Index", "Home");
+                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Compra realizada", 
+                    "Tu compra de '" + model.Name + "' se ha realizado correctamente");
+                return RedirectToAction("Details", "VirtualUser", new { id = virtualUserEN.Id });
             }
             catch
             {
+                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Error",
+                    "Se ha producido un error al intentar efectuar la compra.");
                 return RedirectToAction("Index", "Home");
             }
         }
