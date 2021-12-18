@@ -60,3 +60,9 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    @{
+        Html.RenderAction("ListPartial", "Comment", new { productID = Model.Id });
+    }
+</div>
