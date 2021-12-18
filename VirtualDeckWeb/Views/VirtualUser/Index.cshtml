@@ -14,7 +14,9 @@
         @foreach (var item in Model)
         {
             <div class="ListUsers">
+            
                 <img src="~/Resources/@Html.DisplayFor(modelItem => item.Img)" />
+            
                 <h3>@Html.DisplayFor(modelItem => item.UserName)</h3>
                 <h3>@Html.DisplayFor(modelItem => item.NumCards)<span><img src="~/Resources/cardIcon.png" /></span></h3>
                 <div class="centerDiv">
