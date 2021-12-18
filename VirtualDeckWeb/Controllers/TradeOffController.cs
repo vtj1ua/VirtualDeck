@@ -39,18 +39,46 @@ namespace VirtualDeckWeb.Controllers
         }
 
         // GET: TradeOff/Create
-        public ActionResult Create()
+        public ActionResult Publish()
         {
+
+            UserCardCAD UserCardCAD = new UserCardCAD(session);
+            UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
+            IList<UserCardEN> UserCardEN = null;
+
+            VirtualUserEN en = Session["user"] as VirtualUserEN;
+            if (en != null)
+            {
+                UserCardEN = UserCardCEN.UserCardsByUser(en.Id);
+            }
+
+            IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
+
+            CardCAD CardCAD = new CardCAD(session);
+            CardCEN CardCEN = new CardCEN(CardCAD);
+            IList<CardEN> CardEN = null;
+
+
+            CardEN = CardCEN.ReadAll(0, -1).ToList();
+
+            IEnumerable<CardViewModel> model1 = new CardAssembler().ConvertListENToModel(CardEN);
+            ViewData["usercards"] = model;
+            ViewData["cards"] = model1;
+
             return View();
         }
 
         // POST: TradeOff/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Publish(TradeOffViewModel tradeoff)
         {
             try
             {
-                // TODO: Add insert logic here
+               
+                VirtualUserEN vicen = Session["user"] as VirtualUserEN;
+                TradeOffCEN trade = new TradeOffCEN();
+
+                trade.Publish(vicen.Id, tradeoff.DesiredCard.Id, tradeoff.OfferedUserCard.Id);
 
                 return RedirectToAction("Index");
             }

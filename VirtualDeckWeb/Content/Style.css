@@ -947,3 +947,39 @@ width: 100%;
 .noBorder{
     border: none !important;
 }
+
+.imgTrades{
+    width:15em;
+    height:20em;
+    border:1px solid;
+}
+
+.pubTrade{
+    display:grid;
+    justify-content:center;
+}
+
+.cardsTrade{
+    display:flex;
+    justify-content:center;
+}
+
+.cardsTrade>div{
+    display:grid;
+    justify-content:center;
+    margin:1em !important;
+}
+
+.divButtonTrade{
+    margin:auto !important;
+}
+
+.cardsTrade>div>label{
+    width:100%;
+    text-align:center !important;
+}
+
+.pagList{
+    display:flex !important;
+    justify-content:center;
+}

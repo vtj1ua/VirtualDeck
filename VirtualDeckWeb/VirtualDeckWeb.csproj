@@ -262,6 +262,7 @@
     <Content Include="Resources\Borders\Mythical.png" />
     <Content Include="Resources\Borders\Rare.png" />
     <Content Include="Resources\Borders\Uncommon.png" />
+    <Content Include="Resources\equis.png" />
     <Content Include="Resources\borrar.png" />
     <Content Include="Resources\inter.png" />
     <Content Include="Resources\PackRarities\Basic.png" />
@@ -359,6 +360,8 @@
     <Content Include="Views\Pack\Details.cshtml" />
     <Content Include="Views\TokenPack\Buy.cshtml" />
     <Content Include="Views\TradeOff\Index.cshtml" />
+    <Content Include="Views\TradeOff\Publish.cshtml" />
+    <Content Include="Views\VirtualUser\Index1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
