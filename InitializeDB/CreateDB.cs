@@ -385,31 +385,63 @@ public static void InitializeData ()
                 int virtualUser3 = virtualUserCEN.New_ ("virtualUser12345", "Pepito123", "Pepito123@email.com");
                 int virtualUser4 = virtualUserCEN.New_ ("virtualUser12345", "Juan123", "Juan123@email.com");
 
-                int card1 = cardCEN.New_ ("Pikachu", "Descripcion carta 1", 1000, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
-                        100, 100, 50, 100, RarityEnum.Mythical, new List<int>() {
+                int card1 = cardCEN.New_("Pikachu", "Descripcion carta 1", 1000, "Path", CardTypeEnum.Fighting,
+                        100, 100, 50, 100, RarityEnum.Legendary, new List<int>() {
                                 idAttack1
                         });
 
-                int card2 = cardCEN.New_ ("Martin", "Descripcion carta 2", 10, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
-                        100, 100, 50, 100, RarityEnum.Mythical, new List<int>() {
+                int card2 = cardCEN.New_("Martin", "Descripcion carta 2", 10, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
+                        100, 100, 50, 100, RarityEnum.Legendary, new List<int>() {
                                 idAttack1
                         });
+                int card3 = cardCEN.New_("Martin", "Descripcion carta 2", 10, "Path", VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum.Fighting,
+                        100, 100, 50, 100, RarityEnum.Legendary, new List<int>() {
+                                idAttack1
+                        });
+
 
                 //HAY QUE IMPLEMENTAR EL CREATE USER CARD
-                UserCardCEN userCardCEN = new UserCardCEN ();
-                int ucard1 = userCardCEN.New_ (CardTypeEnum.Fighting, RarityEnum.Mythical,
+                UserCardCEN userCardCEN = new UserCardCEN();
+                int ucard1 = userCardCEN.New_(CardTypeEnum.Fighting, RarityEnum.Mythical,
                         100, 50, 100, 100, "Pikarchu", "", new List<int>() {
                                 idAttack1
                         }, card1, 1.0f);
 
-                userCardCEN.AssignUser (ucard1, virtualUser1);
+                userCardCEN.AssignUser(ucard1, virtualUser1);
 
-                int ucard2 = userCardCEN.New_ (CardTypeEnum.Fighting, RarityEnum.Mythical,
+                int ucard3 = userCardCEN.New_(CardTypeEnum.Fighting, RarityEnum.Mythical,
+                        100, 50, 100, 100, "Pikarcasdfasdfasdfasdfhu", "", new List<int>() {
+                                idAttack1
+                        }, card3, 1.0f);
+
+                userCardCEN.AssignUser(ucard3, virtualUser1);
+
+                int ucard2 = userCardCEN.New_(CardTypeEnum.Fighting, RarityEnum.Mythical,
                         100, 100, 50, 100, "Martin", "", new List<int>() {
                                 idAttack1
                         }, card2, 1.0f);
 
-                userCardCEN.AssignUser (ucard2, virtualUser2);
+                userCardCEN.AssignUser(ucard2, virtualUser2);
+
+                int ucard4 = userCardCEN.New_(CardTypeEnum.Fighting, RarityEnum.Mythical,
+                        100, 50, 100, 100, "Pikarcasdfasdfasdfasdfhu", "", new List<int>() {
+                                idAttack1
+                        }, card3, 1.0f);
+
+                userCardCEN.AssignUser(ucard4, virtualUser1);
+
+                int ucard5 = userCardCEN.New_(CardTypeEnum.Fighting, RarityEnum.Mythical,
+                        100, 100, 50, 100, "Martin", "", new List<int>() {
+                                idAttack1
+                        }, card2, 1.0f);
+
+                userCardCEN.AssignUser(ucard5, virtualUser1);
+
+                int ucard6 = userCardCEN.New_(CardTypeEnum.Fighting, RarityEnum.Mythical,
+                        100, 100, 50, 100, "Martin", "", new List<int>() {
+                                idAttack1
+                        }, card2,1.0f);
+                userCardCEN.AssignUser(ucard6, virtualUser1);
 
 
 
@@ -421,9 +453,12 @@ public static void InitializeData ()
 
 
                 //PUBLISHED TRADEOFFS
-                TradeOffCEN tradeOffCEN = new TradeOffCEN ();
-                //tradeOffCEN.Publish (virtualUser1, card1, ucard1);
-                tradeOffCEN.Publish (virtualUser2, card2, ucard2);
+                TradeOffCEN tradeOffCEN = new TradeOffCEN();
+                int tradeId = tradeOffCEN.Publish(virtualUser2, card2, ucard2);
+                tradeOffCEN.Publish(virtualUser1, card3, ucard3);
+                tradeOffCEN.Publish(virtualUser1, card1, ucard4);
+                tradeOffCEN.Publish(virtualUser1, card1, ucard5);
+
 
 
                 //COMMENTS

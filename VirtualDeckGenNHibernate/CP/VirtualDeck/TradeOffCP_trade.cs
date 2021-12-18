@@ -48,7 +48,7 @@ public void Trade (int p_oid, int p_givenUserCard)
                 //asigno al intercambio el exchanger
                 tradeOffCEN.AssignExchanger (p_oid, userCardEN.User.Id);
 
-                //if (userCardEN.Card.Id.Equals (tradeOffEN.DesiredCard.Id)) {
+                if (userCardEN.Card.Id.Equals (tradeOffEN.DesiredCard.Id)) {
                         tradeOffEN.State = TradeStateEnum.Accepted;
 
                         //creo la notificacion, le asigno el segundo usuario y la asigno al trade.
@@ -65,10 +65,10 @@ public void Trade (int p_oid, int p_givenUserCard)
 
                         userCardCEN.AssignUser (p_givenUserCard, tradeOffEN.Owner.Id);
                         userCardCEN.AssignUser (tradeOffEN.OfferedUserCard.Id, tradeOffEN.Exchanger.Id);
-               /* }
+                }
                 else{
                         Console.WriteLine ("La carta no es la deseada");
-                }*/
+                }
 
 
 

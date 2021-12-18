@@ -32,7 +32,7 @@
 
                 <h3>@Html.DisplayFor(modelItem => item.DesiredCard.Name)</h3>
                 <div class="centerDiv">
-                    @Html.ActionLink("Intercambiar", "Select", new { idTrade=item.Id}, new { @class = "action-button" })
+                    @Html.ActionLink("Intercambiar", "Select", new { idTrade=item.Id, idDesired = item.DesiredCard.Id}, new { @class = "action-button" })
                 </div>
             </div>
 

@@ -23,10 +23,21 @@
         {
             if (usu == true)
             {
-                <div class="centerDiv">
-                    <h3 style="margin-bottom:1em;">No tienes niguna carta :(</h3>
-                    @Html.ActionLink("Ir a la tienda", "Cards", "Shop", null, new { @class = "action-button" })
-                </div>
+                if (ViewBag.Title == "VirtualUserDetails")
+                {
+                    <div class="centerDiv">
+                        <h3 style="margin-bottom:1em;">No tienes niguna carta :(</h3>
+                        @Html.ActionLink("Ir a la tienda", "Cards", "Shop", null, new { @class = "action-button" })
+                    </div>
+                }
+                else
+                {
+                    <div class="centerDiv">
+                        <h3 style="margin-bottom:1em;">No tienes niguna copia de esa carta :(</h3>
+                        @Html.ActionLink("Ir a la tienda", "Cards", "Shop", null, new { @class = "action-button" })
+                    </div>
+                }
+
             }
             else
             {
@@ -37,7 +48,7 @@
         }
         else
         {
-            
+
             foreach (var item in Model)
             {
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -50,42 +61,42 @@
 
                 <!-- Modal -->
                 <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
-               
-                    <div class="m-modal">
-                            <div class="profile-user-card">
-                                @Html.Partial("UserCardPartial", item)
-                                <div class="profile-user-card-details">
-                                    <h2>@item.Name</h2>
-                                    <p><b>Tipo:</b> @item.Type</p>
-                                    <p><b>Rareza:</b> @item.Rarity</p>
-                                    <p><b>Nivel:</b> @item.Level</p>
-                                    <p><b>Experiencia:</b> @item.Experience exp</p>
-                                    @if (usu == true)
-                                    {
-                                        <p><b>Fecha de compra:</b> @Html.ValueFor(i => item.PurchaseDate, "{0:dd/MM/yyyy}")</p>
-                                    }
-                                </div>
-                            </div>
-                            @if (usu == true)
-                            {
-                                if (ViewBag.Title == "VirtualUserDetails")
-                                {
-                                    @Html.ActionLink("Destruir +" + item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
-                                }
-                                else
-                                {
-                                    @Html.ActionLink("Seleccionar", "CardSelected", "TradeOff", new { idCarta = item.Id, idTrade = ViewData["idTrade"] }, new { @class = "action-button" })
-                                }
 
+                    <div class="m-modal">
+                        <div class="profile-user-card">
+                            @Html.Partial("UserCardPartial", item)
+                            <div class="profile-user-card-details">
+                                <h2>@item.Name</h2>
+                                <p><b>Tipo:</b> @item.Type</p>
+                                <p><b>Rareza:</b> @item.Rarity</p>
+                                <p><b>Nivel:</b> @item.Level</p>
+                                <p><b>Experiencia:</b> @item.Experience exp</p>
+                                @if (usu == true)
+                                {
+                                    <p><b>Fecha de compra:</b> @Html.ValueFor(i => item.PurchaseDate, "{0:dd/MM/yyyy}")</p>
+                                }
+                            </div>
+                        </div>
+                        @if (usu == true)
+                        {
+                            if (ViewBag.Title == "VirtualUserDetails")
+                            {
+                                @Html.ActionLink("Destruir +" + item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Seleccionar", "CardSelected", "TradeOff", new { idCarta = item.Id, idTrade = ViewData["idTrade"] }, new { @class = "action-button" })
                             }
 
-                    
-                            <img class="icon-close" onclick="var id = '#'+@item.Id; $(id).modal('hide'); $('#UserCards').modal('show');" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
+                        }
+
+
+                        <img class="icon-close" onclick="var id = '#'+@item.Id; $(id).modal('hide'); $('#UserCards').modal('show');" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
 
                     </div>
                 </div>
             }
-            
+
         }
     </div>
 </div>

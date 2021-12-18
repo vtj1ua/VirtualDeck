@@ -46,7 +46,7 @@ namespace VirtualDeckWeb.Controllers
             IList<UserCardEN> userCardENList = userCardCEN.UserCardsByUser(virtualUser.Id);
 
 
-            IEnumerable<UserCardViewModel> userCardViewModelList = new UserCardAssembler().ConvertListENToModel(new List<UserCardEN> { userCardENList[0], userCardENList[1], userCardENList[0], userCardENList[0] });
+            IEnumerable<UserCardViewModel> userCardViewModelList = new UserCardAssembler().ConvertListENToModel(userCardENList);
 
             ViewData["userCardList"] = userCardViewModelList;
             ViewData["tradeOffsList"] = tradeOffs;
@@ -125,7 +125,7 @@ namespace VirtualDeckWeb.Controllers
             return RedirectToAction("Index");
 
         }
-        public ActionResult Select(int idTrade)
+        public ActionResult Select(int idTrade, int idDesired)
         {
             UserCardCAD UserCardCAD = new UserCardCAD(session);
             UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
@@ -134,7 +134,7 @@ namespace VirtualDeckWeb.Controllers
             VirtualUserEN en = Session["user"] as VirtualUserEN;
             if (en != null)
             {
-                UserCardEN = UserCardCEN.UserCardsByUser(en.Id);
+                UserCardEN = UserCardCEN.UserCardsByBaseCard(en.Id,idDesired);
             }
 
             IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
