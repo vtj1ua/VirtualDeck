@@ -16,7 +16,17 @@ namespace VirtualDeckWeb.Controllers
         // GET: TradeOff
         public ActionResult Index(String search)
         {
+
+            VirtualUserEN virtualUser = Session["User"] as VirtualUserEN;
             SessionInitialize();
+
+            VirtualUserCAD virtualUserCAD = new VirtualUserCAD(session);
+            VirtualUserCEN virtualUserCEN = new VirtualUserCEN(virtualUserCAD);
+            VirtualUserEN virtualUserEN = virtualUserCEN.ReadOID(virtualUser.Id);
+            VirtualUserViewModel model = new VirtualUserAssembler().ConvertENToModelUI(virtualUserEN);
+
+           
+
 
             TradeOffCAD tradeOffCAD = new TradeOffCAD(session);
             TradeOffCEN tradeOffCEN = new TradeOffCEN(tradeOffCAD);
@@ -26,10 +36,23 @@ namespace VirtualDeckWeb.Controllers
                 tradeOffEN = tradeOffCEN.TradesByCardName("%" + search + "%");
             else
                 tradeOffEN = tradeOffCEN.ReadAll(0, -1).ToList();
+            IEnumerable<TradeOffViewModel> tradeOffs = new TradeOffAssembler().ConvertListENToModel(tradeOffEN);
 
-            IEnumerable<TradeOffViewModel> model = new TradeOffAssembler().ConvertListENToModel(tradeOffEN);
+
+            /*LISTA DE LAS CARTAS DEL USUARIO*/
+            UserCardCAD userCardCAD = new UserCardCAD(session);
+            UserCardCEN userCardCEN = new UserCardCEN(userCardCAD);
+            IList<UserCardEN> userCardENList = userCardCEN.UserCardsByUser(virtualUser.Id);
+
+
+            IEnumerable<UserCardViewModel> userCardViewModelList = new UserCardAssembler().ConvertListENToModel(new List<UserCardEN> { userCardENList[0], userCardENList[1], userCardENList[0], userCardENList[0] });
+
+            ViewData["userCardList"] = userCardViewModelList;
+            ViewData["tradeOffsList"] = tradeOffs;
+            ViewData["idUser"] = model.Id;
+
             SessionClose();
-            return View(model);
+            return View();
         }
 
         // GET: TradeOff/Details/5

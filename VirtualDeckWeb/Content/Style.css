@@ -303,13 +303,11 @@ width: 100%;
     margin: 2em 0;
 }
 
+
     /*############################################# MARCO ##################################################*/
-    .profile-container {
-        padding: 1em;
-        margin: 1em 0.25em;
-        min-width: 18em;
-        border-radius: 5px;
-    }
+.profile-container {
+    margin: 1em 0em;
+}
 
 /*Perfil*/
 .tabs{
@@ -363,495 +361,528 @@ width: 100%;
 
 
 /*Modal*/
+
+    
 .m-modal {
     width: fit-content;
     text-align: center;
     background-color: var(--light-dark);
     margin:auto;
-    margin-top:10em;
+    margin-top:5em;
     padding:3em;
     position:relative;
 }
-.m-modal a{
+.m-modal > a{
    display:block;
    width:fit-content;
    margin-top: 2em;
 }
 
-.m-modal div:first-child {
+.m-modal .profile-user-card {
     display: block;
 }
 
-.m-modal div:first-of-type > div:first-of-type {
-    left: 0;
-    transform: translateX(0%);    
+    .m-modal .profile-user-card div:first-of-type {
+        left: 0;
+        transform: translateX(0%);
+    }
+
+    .m-modal .profile-user-card .profile-user-card-details {
+        text-align: left;
+    }
+
+
+.tradeOff-modal {
+    padding: 3em 0em;
+    width: 25em;
+    margin-top: 2em;
+    background-color: var(--dark);
 }
 
-.m-modal div:first-of-type > div:last-of-type {
-    text-align: left;
-}
-    
 /*Necesario para los sobres*/
 .m-modal .pack-detail {
     left: 0;
-    transform: translateX(0%);
+    transform: translateX(20%);
 }
 
-    @media all and (min-width:600px) {
-     .m-modal div:first-child {
-        display: inline-flex;
+@media all and (min-width:768px) {
+
+    .m-modal {
+        margin-top: 10em;
     }
 
-    .m-modal div:first-of-type > div:first-of-type {
-        margin-right: 3em;
+    .tradeOff-modal {
+        width: fit-content;
+        margin-top: 11.5em;
     }
 
-    .m-modal div:first-of-type > div:last-of-type h2 {
-        margin-top: 0;
-    }
-}
-
-    .icon-close{
-        position:absolute;
-        right:0;
-        top:0;
-        width:3em;
-    }
-        .icon-close:hover {
-            cursor: pointer;
-            transform: scale(1.2);
-        }
-/*Formularios*/
-.forms > input[type="text"] {
-    border-radius: 6px;
-    color: var(--dark);
-    margin-right: 1em;
-    height: 2.5em;
-    width: 18em;
-}
-
-.forms {
-    display:block;
-    width: fit-content;
-    margin: 2em 0;
-    margin-left: auto;
-    margin-right: auto
     
 }
+    
 
-@media all and (max-width:425px){
-    .forms input{
-        display:block !important; 
-    }
-    .forms input:first-child {
-        margin: 0 !important;
-    }
-        .forms input:last-child {
-            margin-top:1em !important;
-        }
-}
-
-.selected{
-    background-color: var(--primary) !important;
-}
-
-/*##########################################################################################################*/
-/*########################################## VICTOR #######################################################*/
-.virtual-card {
-    position: relative;
-    width: 15em;
-    height: 20em;
-    color: aliceblue;
-    left: 50%;
-    transform: translateX(-50%);
-    user-select:none;
-}
-    .virtual-card:hover{
-        cursor:pointer;
-    }
-
-    .virtual-card > img {
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-    }
-
-        .virtual-card > img:first-of-type {
-            object-fit: cover;
+    @media all and (min-width:600px) {
+        .m-modal .profile-user-card {
+            display: inline-flex;
         }
 
-        .virtual-card > img:last-of-type {
-            top: 0%;
-            left: 0%;
+        
+        .m-modal .profile-user-card > .profile-user-card-details {
+            margin-left: 3em;
+        }
+
+        .m-modal .profile-user-card > .profile-user-card-details h2 {
+            margin-top: 0;
+        }
+
+    }
+
+.icon-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3em;
+}
+
+.icon-close:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+    /*Formularios*/
+    .forms > input[type="text"] {
+        border-radius: 6px;
+        color: var(--dark);
+        margin-right: 1em;
+        height: 2.5em;
+        width: 18em;
+    }
+
+    .forms {
+        display: block;
+        width: fit-content;
+        margin: 2em 0;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    @media all and (max-width:425px) {
+        .forms input {
+            display: block !important;
+        }
+
+            .forms input:first-child {
+                margin: 0 !important;
+            }
+
+            .forms input:last-child {
+                margin-top: 1em !important;
+            }
+    }
+
+    .selected {
+        background-color: var(--primary) !important;
+    }
+
+    /*##########################################################################################################*/
+    /*########################################## VICTOR #######################################################*/
+    .virtual-card {
+        position: relative;
+        width: 15em;
+        height: 20em;
+        color: aliceblue;
+        left: 50%;
+        transform: translateX(-50%);
+        user-select: none;
+    }
+
+        .virtual-card:hover {
+            cursor: pointer;
+        }
+
+        .virtual-card > img {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+            .virtual-card > img:first-of-type {
+                object-fit: cover;
+            }
+
+            .virtual-card > img:last-of-type {
+                top: 0%;
+                left: 0%;
+                position: absolute;
+            }
+
+        .virtual-card > h3 {
+            background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.8), rgba(94, 94, 94, 0));
+            text-align: center;
+            width: 100%;
+            top: 5%;
             position: absolute;
         }
 
-    .virtual-card > h3 {
-        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.8), rgba(94, 94, 94, 0));
-        text-align: center;
-        width: 100%;
-        top: 5%;
-        position: absolute;
-    }
+        .virtual-card > div {
+            bottom: 10%;
+            position: absolute;
+            width: 100%;
+            font-weight: bold;
+            background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.8), rgba(94, 94, 94, 0));
+            display: grid;
+            letter-spacing: .2em;
+            grid-template-columns: 70% 30%;
+            justify-items: center;
+            align-items: center;
+        }
 
-    .virtual-card > div {
-        bottom: 10%;
-        position: absolute;
-        width: 100%;
-        font-weight: bold;
-        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.8), rgba(94, 94, 94, 0));
-        display: grid;
-        letter-spacing: .2em;
-        grid-template-columns: 70% 30%;
-        justify-items: center;
-        align-items: center;
-    }
+        .virtual-card > table {
+            bottom: 10%;
+            position: absolute;
+            width: 100%;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.8), rgba(94, 94, 94, 0));
+        }
 
-    .virtual-card > table {
-        bottom: 10%;
-        position: absolute;
-        width: 100%;
-        font-weight: bold;
-        text-align: center;
-        background: linear-gradient(90deg,rgba(94, 94, 94, 0), rgba(41, 41, 41, 0.8), rgba(94, 94, 94, 0));
-    }
-
-    .virtual-card table tr > td:first-of-type {
-        width: 50%;
-    }
-
-
-/*####################################################################################*/
-
-
- /*#################################BUTTONS###################################*/
-.action-button, .acept-button, .cancel-button {
-    border-radius: 0.5em;
-    padding: .5em 1em;
-    outline: none;
-    border: none;
-    text-decoration: none;
-    color: var(--light);
-    margin: auto;
-    text-align: center;
-    background-color: var(--dark);
-}
-
-.action-button {
-    border: 3px solid var(--primary);
-}
-.acept-button {
-    border: 3px solid var(--green);
-}
-.cancel-button {
-    border: 3px solid var(--red);
-}
-
-.action-button:hover {
-    background-color: var(--primary);
-    text-decoration: none;
-    color: var(--light);
-}
-.acept-button:hover {
-    background-color: var(--green);
-    text-decoration: none;
-    color: var(--light);
-}
-.cancel-button:hover {
-    background-color: var(--red);
-    text-decoration: none;
-    color: var(--light);
-}
-/*##################################################################################*/
-
-
-/*############################### Javier #################################################*/
-.list{
-    margin-right:0 !important;
-}
-
-.listTop{
-    padding-right:0 !important;
-}
-
-.ListUsers {
-    display: grid;
-    grid-template-columns: 10% 50% 23% 15%;
-    align-items: center;
-    margin-top: 1em;
-    border: 2.5px solid;
-    padding: .5em;
-}
-
-.ListUsers>h3{
-    margin:0;
-    margin-left:1em;
-}
-
-.ListUsers>img{
-    display:block;
-    margin:auto;
-    width:4em;
-    max-width:4em;
-    height:auto;
-    border-radius:50%;
-    border:1px solid;
-}
-
-.ListUsers>h3>span>img, .userInfoCards>span>img{
-    width:1.5em;
-    margin-bottom:.3em;
-    margin-left:.3em;
-}
-
-
-
-.userInfoTokens > span > img {
-    width: 1em;
-    margin-bottom: .3em;
-    margin-left: .3em;
-}
-.userInfoTokens>span{
-    padding: .5em;
-    background-color:var(--light-dark);
-    color:var(--light);
-    border-radius:6px;
-}
-
-.centerDiv{
-    display:grid;
-    justify-content:center;
-}
-
-.userInfoContainer{
-    width:auto !important;
-}
-
-
-@media all and (max-width:500px){
-    .ListUsers, .ListTrade{
-        display:grid;
-        grid-template-columns:none !important;
-    }
-
-
-
-        .ListUsers > h3, .ListTrade>h3 {
-            text-align: center !important;
-            margin: 0 !important;
+        .virtual-card table tr > td:first-of-type {
+            width: 50%;
         }
 
 
-}
-
-@media all and (min-width:501px) and (max-width:767px){
-    .ListUsers {
-        display: grid !important;
-        grid-template-columns: 10% 40% 30% 15% !important;
-    }
-}
-
-@media all and (min-width: 768px){
-    .listTop{
-        width: auto !important;
-    }
-}
-
-.userInfo {
-    display: grid;
-    background-color: var(--light-dark);
-    padding:1em;
-    grid-template-columns: 220px 40% 30.5%;
-}
-
-    .userInfo > img {
-        width: 15em;
-        height:15em;
-        border-radius: 50%;
-        object-fit: cover;
-        background: var(--primary);
-    }
-
-.userInfo>div:not(.userInfo>div:first-child){
-    margin-top:1em;
-}
+    /*####################################################################################*/
 
 
-
-.nameDesc>p{
-    margin-top:1em;
-}
-
-.userInfo > div > h3 {
-    margin: 0;
-}
-
-.gridUserInfo{
-    display:block;
-}
-
-.bot-userInfo {
-    width: 8em;
-    height: 2.5em;
-    border-radius: 0.5em;
-    padding: 0.4em;
-    outline: none;
-    border: none;
-    text-decoration: none;
-    color: var(--light);
-    text-align: center;
-    background-color: var(--dark);
-    border: 3px solid var(--primary);
-}
-
-.bot-userInfo:hover {
-    background-color: var(--primary);
-    text-decoration: none;
-    color: var(--light);
-}
-.rojo-pal-javi {
-    border: 3px solid var(--red);
-}
-.rojo-pal-javi:hover {
-    background-color: var(--red);
-}
-
-.bot-userInfo > a {
-    text-decoration: none;
-    color: var(--light);
-}
-
-.nameDesc > div, .gridUserInfo > div {
-    display: grid;
-    align-items: end;
-}
-
-.nameDesc>div, .gridUserInfo>div{
-    display:grid;
-    align-items:end;
-}
-
-@media all and (max-width:660px){
-    .userInfo{
-        grid-template-columns:none;
-    }
-
-    .nameDesc>div, .gridUserInfo>div{
-        display:grid;
-        justify-content:center;
-    }
-
-    .nameDesc > h3 {
+    /*#################################BUTTONS###################################*/
+    .action-button, .acept-button, .cancel-button {
+        border-radius: 0.5em;
+        padding: .5em 1em;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        color: var(--light);
+        margin: auto;
         text-align: center;
+        background-color: var(--dark);
     }
 
-    .userInfo>img{
-        margin:auto;
+    .action-button {
+        border: 3px solid var(--primary);
     }
 
-    .userInfo > div:not(.userInfo>div:first-child) {
-        display:grid;
-        justify-content:center;
-        border-top:1px solid;
-        padding-top:1em;
+    .acept-button {
+        border: 3px solid var(--green);
     }
-}
 
-@media all and (min-width:661px){
-    .nameDesc {
+    .cancel-button {
+        border: 3px solid var(--red);
+    }
+
+    .action-button:hover {
+        background-color: var(--primary);
+        text-decoration: none;
+        color: var(--light);
+    }
+
+    .acept-button:hover {
+        background-color: var(--green);
+        text-decoration: none;
+        color: var(--light);
+    }
+
+    .cancel-button:hover {
+        background-color: var(--red);
+        text-decoration: none;
+        color: var(--light);
+    }
+    /*##################################################################################*/
+
+
+    /*############################### Javier #################################################*/
+    .list {
+        margin-right: 0 !important;
+    }
+
+    .listTop {
+        padding-right: 0 !important;
+    }
+
+    .ListUsers {
         display: grid;
-        grid-template-rows: 15% 60% 25%;
+        grid-template-columns: 10% 50% 23% 15%;
+        align-items: center;
+        margin-top: 1em;
+        border: 2.5px solid;
+        padding: .5em;
     }
 
-    .gridUserInfo {
+        .ListUsers > h3 {
+            margin: 0;
+            margin-left: 1em;
+        }
+
+        .ListUsers > img {
+            display: block;
+            margin: auto;
+            width: 4em;
+            max-width: 4em;
+            height: auto;
+            border-radius: 50%;
+            border: 1px solid;
+        }
+
+        .ListUsers > h3 > span > img, .userInfoCards > span > img {
+            width: 1.5em;
+            margin-bottom: .3em;
+            margin-left: .3em;
+        }
+
+
+
+    .userInfoTokens > span > img {
+        width: 1em;
+        margin-bottom: .3em;
+        margin-left: .3em;
+    }
+
+    .userInfoTokens > span {
+        padding: .5em;
+        background-color: var(--light-dark);
+        color: var(--light);
+        border-radius: 6px;
+    }
+
+    .centerDiv {
         display: grid;
-        grid-template-rows: 20% 20% 20% 40%;
+        justify-content: center;
     }
 
     .userInfoContainer {
         width: auto !important;
     }
-}
 
-.imgForm{
-    border-radius:50%;
-    border:1px solid;
 
-}
+    @media all and (max-width:500px) {
+        .ListUsers, .ListTrade {
+            display: grid;
+            grid-template-columns: none !important;
+        }
 
-.formDiv>textarea{
-    width:100%;
-}
 
-.imgDiv{
-    display:flex;
-    justify-content:center;
-}
 
-.buttonsDiv{
-    display:flex;
-    justify-content:center;
-}
+            .ListUsers > h3, .ListTrade > h3 {
+                text-align: center !important;
+                margin: 0 !important;
+            }
+    }
 
-.labelDiv{
-    width:auto !important;
-    text-align:left !important;
-    margin-bottom: .5em !important;
-}
+    @media all and (min-width:501px) and (max-width:767px) {
+        .ListUsers {
+            display: grid !important;
+            grid-template-columns: 10% 40% 30% 15% !important;
+        }
+    }
 
-.formDivHor{
-    display:grid;
-    justify-content:center;
-}
+    @media all and (min-width: 768px) {
+        .listTop {
+            width: auto !important;
+        }
+    }
 
-.notVisible{
-    display:none !important;
-}
+    .userInfo {
+        display: grid;
+        background-color: var(--light-dark);
+        padding: 1em;
+        grid-template-columns: 220px 40% 30.5%;
+    }
 
-.marginLeftElem {
-    margin-left: 0.5em;
-}
+        .userInfo > img {
+            width: 15em;
+            height: 15em;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--primary);
+        }
 
-.marginRightElem {
-    margin-right: 0.5em;
-}
+        .userInfo > div:not(.userInfo>div:first-child) {
+            margin-top: 1em;
+        }
 
-.foto-footer{
-    display:flex;
-    justify-content:center;
-}
 
-.margin-a{
-    margin:1em;
-}
 
-#photo-usu {
-    margin: auto;
-    margin-bottom: 1em;
-    height:12em;
-    width:12em;
-    object-fit: cover;
+    .nameDesc > p {
+        margin-top: 1em;
+    }
 
-}
+    .userInfo > div > h3 {
+        margin: 0;
+    }
 
-#foto-reg{
-    display:grid;
-    justify-content:center;
-}
+    .gridUserInfo {
+        display: block;
+    }
 
-.widthForm{
-    width: 350px;
-}
+    .bot-userInfo {
+        width: 8em;
+        height: 2.5em;
+        border-radius: 0.5em;
+        padding: 0.4em;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        color: var(--light);
+        text-align: center;
+        background-color: var(--dark);
+        border: 3px solid var(--primary);
+    }
 
-.inputsEdit>input, .inputsEdit>textarea{
-    max-width:none !important;
-}
+        .bot-userInfo:hover {
+            background-color: var(--primary);
+            text-decoration: none;
+            color: var(--light);
+        }
 
-.imgDivForm {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
+    .rojo-pal-javi {
+        border: 3px solid var(--red);
+    }
+
+        .rojo-pal-javi:hover {
+            background-color: var(--red);
+        }
+
+    .bot-userInfo > a {
+        text-decoration: none;
+        color: var(--light);
+    }
+
+    .nameDesc > div, .gridUserInfo > div {
+        display: grid;
+        align-items: end;
+    }
+
+    .nameDesc > div, .gridUserInfo > div {
+        display: grid;
+        align-items: end;
+    }
+
+    @media all and (max-width:660px) {
+        .userInfo {
+            grid-template-columns: none;
+        }
+
+        .nameDesc > div, .gridUserInfo > div {
+            display: grid;
+            justify-content: center;
+        }
+
+        .nameDesc > h3 {
+            text-align: center;
+        }
+
+        .userInfo > img {
+            margin: auto;
+        }
+
+        .userInfo > div:not(.userInfo>div:first-child) {
+            display: grid;
+            justify-content: center;
+            border-top: 1px solid;
+            padding-top: 1em;
+        }
+    }
+
+    @media all and (min-width:661px) {
+        .nameDesc {
+            display: grid;
+            grid-template-rows: 15% 60% 25%;
+        }
+
+        .gridUserInfo {
+            display: grid;
+            grid-template-rows: 20% 20% 20% 40%;
+        }
+
+        .userInfoContainer {
+            width: auto !important;
+        }
+    }
+
+    .imgForm {
+        border-radius: 50%;
+        border: 1px solid;
+    }
+
+    .formDiv > textarea {
+        width: 100%;
+    }
+
+    .imgDiv {
+        display: flex;
+        justify-content: center;
+    }
+
+    .buttonsDiv {
+        display: flex;
+        justify-content: center;
+    }
+
+    .labelDiv {
+        width: auto !important;
+        text-align: left !important;
+        margin-bottom: .5em !important;
+    }
+
+    .formDivHor {
+        display: grid;
+        justify-content: center;
+    }
+
+    .notVisible {
+        display: none !important;
+    }
+
+    .marginLeftElem {
+        margin-left: 0.5em;
+    }
+
+    .marginRightElem {
+        margin-right: 0.5em;
+    }
+
+    .foto-footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .margin-a {
+        margin: 1em;
+    }
+
+    #photo-usu {
+        margin: auto;
+        margin-bottom: 1em;
+        height: 12em;
+        width: 12em;
+        object-fit: cover;
+    }
+
+    #foto-reg {
+        display: grid;
+        justify-content: center;
+    }
+
+    .widthForm {
+        width: 350px;
+    }
+
+    .inputsEdit > input, .inputsEdit > textarea {
+        max-width: none !important;
+    }
+
+    .imgDivForm {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
     }
 

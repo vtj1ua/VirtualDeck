@@ -1,7 +1,11 @@
-﻿@model IEnumerable<VirtualDeckWeb.Models.TradeOffViewModel>
+﻿
+@{
+    ViewBag.Title = "TradeOffIndex";
+}
 
 @{
-    ViewBag.Title = "Index";
+    IEnumerable<VirtualDeckWeb.Models.UserCardViewModel> UserCards = ViewData["userCardList"] as IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>;
+    IEnumerable<VirtualDeckWeb.Models.TradeOffViewModel> Model = ViewData["tradeOffsList"] as IEnumerable<VirtualDeckWeb.Models.TradeOffViewModel>;
 }
 
 <form class="forms" asp-controller="" asp-action="">
@@ -28,7 +32,7 @@
 
                 <h3>@Html.DisplayFor(modelItem => item.DesiredCard.Name)</h3>
                 <div class="centerDiv">
-                    @Html.ActionLink("Intercambiar", "Details", new { id = item.Id }, new { @class = "action-button" })
+                    <a class="action-button" data-toggle="modal" data-backdrop="static" data-target="#UserCards">Intercambiar</a>
                 </div>
             </div>
 
@@ -52,5 +56,21 @@
             </div>
 
         }
+
+        <div class="modal fade" id="UserCards" tabindex="-1" role="dialog" aria-hidden="true" >
+            <div class="m-modal tradeOff-modal">
+
+                
+                    @Html.Partial("UserCardListPartial", UserCards)  
+               
+
+                <img class="icon-close" data-dismiss="modal" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
+
+            </div>
+        </div>
+
+
+
+
     </div>
 </div>

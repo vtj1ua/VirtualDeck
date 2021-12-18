@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>
-
 @using VirtualDeckWeb.Controllers;
 @using VirtualDeckGenNHibernate.EN.VirtualDeck;
 
@@ -38,6 +37,7 @@
         }
         else
         {
+            
             foreach (var item in Model)
             {
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -49,34 +49,43 @@
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+               
                     <div class="m-modal">
-
-                        <div>
-                            @Html.Partial("UserCardPartial", item)
-                            <div>
-                                <h2>@item.Name</h2>
-                                <p><b>Tipo:</b> @item.Type</p>
-                                <p><b>Rareza:</b> @item.Rarity</p>
-                                <p><b>Nivel:</b> @item.Level</p>
-                                <p><b>Experiencia:</b> @item.Experience exp</p>
-                                @if (usu == true)
-                                {
-                                    <p><b>Fecha de compra:</b> @Html.ValueFor(i => item.PurchaseDate, "{0:dd/MM/yyyy}")</p>
-                                }
+                            <div class="profile-user-card">
+                                @Html.Partial("UserCardPartial", item)
+                                <div class="profile-user-card-details">
+                                    <h2>@item.Name</h2>
+                                    <p><b>Tipo:</b> @item.Type</p>
+                                    <p><b>Rareza:</b> @item.Rarity</p>
+                                    <p><b>Nivel:</b> @item.Level</p>
+                                    <p><b>Experiencia:</b> @item.Experience exp</p>
+                                    @if (usu == true)
+                                    {
+                                        <p><b>Fecha de compra:</b> @Html.ValueFor(i => item.PurchaseDate, "{0:dd/MM/yyyy}")</p>
+                                    }
+                                </div>
                             </div>
-                        </div>
-                        @if (usu == true)
-                        {
-                            @Html.ActionLink("Destruir +" + item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
+                            @if (usu == true)
+                            {
+                                if (ViewBag.Title == "VirtualUserDetails")
+                                {
+                                    @Html.ActionLink("Destruir +" + item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Seleccionar", "Index", "TradeOff", new { idUsuario = id, idCarta = item.Id }, new { @class = "action-button" })
+                                }
 
-                        }
-                        
-                         <img class="icon-close" data-dismiss="modal" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
-                       
+                            }
+
+                    
+                            <img class="icon-close" onclick="var id = '#'+@item.Id; $(id).modal('hide'); $('#UserCards').modal('show');" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
+
                     </div>
                 </div>
             }
+            
         }
     </div>
 </div>
