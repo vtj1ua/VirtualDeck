@@ -63,6 +63,8 @@
         }
         if (ViewBag.Total > 0)
         {
+            bool antes = false;
+            bool desps = false;
             for (int i = 1; i <= ViewBag.Total; i++)
             {
                 if (ViewBag.Page + 1 == i)
@@ -93,9 +95,21 @@
                 }
                 else
                 {
-                    <li>
-                        <a>...</a>
-                    </li>
+                    if (i < ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && antes == false)
+                    {
+                        <li>
+                            <a>...</a>
+                        </li>
+
+                        antes = true;
+                    }
+                    if (i > ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && desps == false)
+                    {
+                        <li>
+                            <a>...</a>
+                        </li>
+                        desps = true;
+                    }
                 }
             }
         }

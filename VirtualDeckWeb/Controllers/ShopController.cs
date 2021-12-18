@@ -57,7 +57,7 @@ namespace VirtualDeckWeb.Controllers
             return View(listaCards);
         }
 
-        public ActionResult Packs(String search)
+        public ActionResult Packs(String search, int page = 0)
         {
             SessionInitialize();
 
@@ -66,9 +66,36 @@ namespace VirtualDeckWeb.Controllers
             IList<PackEN> packs = null;
 
             if (search != null && search != "")
-                packs = packcen.PacksByNameOrDescription("%"+search+"%");
+            {
+                packs = packcen.PacksByNameOrDescription("%" + search + "%");
+                this.ViewBag.Search = search;
+            }
             else
+            {
                 packs = packcen.ReadAll(0, -1);
+                this.ViewBag.Search = "";
+            }
+
+            int PageSize = 8;
+
+            var count = packs.Count();
+
+            packs = packs.Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Total = 0;
+
+            if (count % PageSize != 0)
+            {
+                this.ViewBag.Total = (count / PageSize) + 1;
+            }
+            else
+            {
+                this.ViewBag.Total = (count / PageSize);
+            }
+
+            this.ViewBag.Page = page;
 
             IEnumerable<PackViewModel> listaPacks = new PackAssembler().ConvertListENToModel(packs).ToList();
 

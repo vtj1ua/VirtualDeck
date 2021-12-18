@@ -12,11 +12,12 @@
 
 body {
     font-family: var(--font);
-    background-color: var(--dark);
+    background-color: #000;
     color: var(--light);
     min-width: 400px;
     overflow-x: hidden;
     padding-top: 1em;
+    min-width: 370px;
 }
 
 h1{
@@ -1012,4 +1013,56 @@ width: 100%;
     width: 1em;
     margin-left: 0.5em;
     padding-bottom: 0.25em;
+}
+
+.headTitle{
+    margin-bottom: .8em;
+}
+
+.nav>li>a {
+    background-color: var(--light-dark);
+    border-radius: 0;
+    color: var(--light) !important;
+    margin: 0;
+}
+
+    .nav > li > a:hover {
+        background: var(--primary) !important;
+        margin: 0;
+        border-radius: 0;
+    }
+
+.bg-light{
+    background-color:var(--light-dark);
+}
+
+.no-sel {
+    background-color: var(--light-dark) !important;
+}
+
+.sel{
+    background-color: var(--primary) !important;
+}
+
+#barraNav{
+    margin-bottom:0;
+}
+
+.infUserNav{
+    margin-top:0;
+}
+
+@media all and (max-width:767.9px) {
+    .centerNav{
+        
+        margin-left:1em !important;
+        margin-right:1em !important;
+    }
+}
+
+@media all and (min-width: 768px){
+    .centerNav {
+        display: flex !important;
+        justify-content: center;
+    }
 }

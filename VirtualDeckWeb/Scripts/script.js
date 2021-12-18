@@ -1,4 +1,6 @@
-﻿function previsualizarImagen(inp) {
+﻿var select;
+
+function previsualizarImagen(inp) {
 	let fichero = inp.files[0];
 	if (fichero != null) {
 		document.getElementById("hiddenInput").value = '0';
@@ -44,3 +46,5 @@ function changeTokens(input) {
 
 	return false;
 }
+
+

@@ -63,7 +63,7 @@ namespace VirtualDeckWeb.Controllers
         }
 
         // GET: VirtualUser/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, int page=0, int page1=0)
         {
             SessionInitialize();
             VirtualUserCAD virtualUserCAD = new VirtualUserCAD(session);
@@ -75,13 +75,56 @@ namespace VirtualDeckWeb.Controllers
             UserCardCAD userCardCAD = new UserCardCAD(session);
             UserCardCEN userCardCEN = new UserCardCEN(userCardCAD);
             IList<UserCardEN> userCardENList = userCardCEN.UserCardsByUser(id);
-            
+
+            int PageSize = 8;
+
+            var count = userCardENList.Count();
+
+            userCardENList = userCardENList.Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Total = 0;
+
+            if (count % PageSize != 0)
+            {
+                this.ViewBag.Total = (count / PageSize) + 1;
+            }
+            else
+            {
+                this.ViewBag.Total = (count / PageSize);
+            }
+
+            this.ViewBag.Page = page;
+
             IEnumerable<UserCardViewModel> userCardViewModelList = new UserCardAssembler().ConvertListENToModel(userCardENList);
 
             /*LISTA DE LOS SOBRES DEL USUARIO*/
             UserPackCAD userPackCAD = new UserPackCAD(session);
             UserPackCEN userPackCEN = new UserPackCEN(userPackCAD);
             IList<UserPackEN> userPackENList = userPackCEN.UserPacksByUser(id);
+
+            int PageSize1 = 8;
+
+            var count1 = userPackENList.Count();
+
+            userPackENList = userPackENList.Skip(page1 * PageSize1).Take(PageSize1).ToList();
+
+            this.ViewBag.MaxPage1 = (count1 / PageSize1) - (count1 % PageSize1 == 0 ? 1 : 0);
+
+            this.ViewBag.Total1 = 0;
+
+            if (count1 % PageSize1 != 0)
+            {
+                this.ViewBag.Total1 = (count1 / PageSize1) + 1;
+            }
+            else
+            {
+                this.ViewBag.Total1 = (count1 / PageSize1);
+            }
+
+            this.ViewBag.Page1 = page1;
+
             IEnumerable<UserPackViewModel> userPackViewModelList = new UserPackAssembler().ConvertListENToModel(userPackENList);
 
 
