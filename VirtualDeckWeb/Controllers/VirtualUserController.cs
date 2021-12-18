@@ -47,7 +47,7 @@ namespace VirtualDeckWeb.Controllers
             /*LISTA DE LAS CARTAS DEL USUARIO*/
             UserCardCAD userCardCAD = new UserCardCAD(session);
             UserCardCEN userCardCEN = new UserCardCEN(userCardCAD);
-            IList<UserCardEN> userCardENList = userCardCEN.UserCardsByUser(id);
+            IList<UserCardEN> userCardENList = userCardCEN.UserCardsNotInTradeByUser(id);
             
             IEnumerable<UserCardViewModel> userCardViewModelList = new UserCardAssembler().ConvertListENToModel(userCardENList);
 

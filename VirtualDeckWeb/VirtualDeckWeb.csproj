@@ -359,6 +359,7 @@
     <Content Include="Views\Pack\Details.cshtml" />
     <Content Include="Views\TokenPack\Buy.cshtml" />
     <Content Include="Views\TradeOff\Index.cshtml" />
+    <Content Include="Views\TradeOff\Publish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

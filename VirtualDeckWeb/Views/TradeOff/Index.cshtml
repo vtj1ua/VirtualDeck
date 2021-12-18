@@ -57,20 +57,13 @@
 
         }
 
-        <div class="modal fade" id="UserCards" tabindex="-1" role="dialog" aria-hidden="true" >
+        <div class="modal fade" id="UserCards" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="m-modal tradeOff-modal">
-
-                
-                    @Html.Partial("UserCardListPartial", UserCards)  
-               
-
+                @Html.Partial("UserCardListPartial", UserCards)
                 <img class="icon-close" data-dismiss="modal" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
-
             </div>
         </div>
 
-
-
-
+        @Html.ActionLink("Publicar anuncio", "Publish", null, new { @class = "action-button" })
     </div>
 </div>
