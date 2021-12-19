@@ -162,7 +162,7 @@ public static void InitializeData ()
                  
                 //BUG ATTACKS
                 int bugAttack1 = attackMoveCEN.New_("Arrastre nuclear", CardTypeEnum.Bug, "Se arrastra hasta el rival como un gusano y explota");
-                int bugAttack2 = attackMoveCEN.New_("", CardTypeEnum.Bug, "");
+                //int bugAttack2 = attackMoveCEN.New_("", CardTypeEnum.Bug, "");
                  
                 //DRAGON ATTACKS
                 int dragonAttack1 = attackMoveCEN.New_("Lanzallamas", CardTypeEnum.Dragon, "Lanza fuego por la boca para intentar hacer ceniza al rival");
@@ -170,39 +170,39 @@ public static void InitializeData ()
                  
                 //ELECTRIC ATTACKS
                 int electricAttack1 = attackMoveCEN.New_("Calambrazo", CardTypeEnum.Electric, "Chispazo que te electrocutará como no tengas cuidado");
-                int electricAttack2 = attackMoveCEN.New_("", CardTypeEnum.Electric, "");
+                //int electricAttack2 = attackMoveCEN.New_("", CardTypeEnum.Electric, "");
                  
                 //FIGHTING ATTACKS
                 int fightingAttack1 = attackMoveCEN.New_("Puño fuerte", CardTypeEnum.Fighting, "Puñetazo muy duro y con mucha intensidad");
                 int fightingAttack2 = attackMoveCEN.New_("Patadón", CardTypeEnum.Fighting, "Patada aeréa en el pecho");
                  
                 //FIRE ATTACKS
-                int fireAttack1 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
-                int fireAttack2 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
+                //int fireAttack1 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
+                //int fireAttack2 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
                  
                 //FLYING ATTACKS
                 int flyingAttack1 = attackMoveCEN.New_("Caida libre", CardTypeEnum.Flying, "Caída desde el cielo que aplastará a tus rivales");
-                int flyingAttack2 = attackMoveCEN.New_("", CardTypeEnum.Flying, "");
+                //int flyingAttack2 = attackMoveCEN.New_("", CardTypeEnum.Flying, "");
                  
                 //GHOST ATTACKS
                 int ghostAttack1 = attackMoveCEN.New_("Invisibilidad", CardTypeEnum.Ghost, "Desaparición visual para sorprender al rival ya que no sabe por donde le van a atacar");
-                int ghostAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ghost, "");
+                //int ghostAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ghost, "");
                  
                 //GRASS ATTACKS
                 int grassAttack1 = attackMoveCEN.New_("Modo Topo", CardTypeEnum.Grass, "Se escabulle debajo de tierra para sorprender al rival y atacarle");
-                int grassAttack2 = attackMoveCEN.New_("", CardTypeEnum.Grass, "");
+                //int grassAttack2 = attackMoveCEN.New_("", CardTypeEnum.Grass, "");
                  
                 //GROUND ATTACKS
                 int groundAttack1 = attackMoveCEN.New_("Mascazo", CardTypeEnum.Ground, "Golpe impresionante que te hará quedar exhausto");
-                int groundAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ground, "");
+                //int groundAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ground, "");
                     
                 //ICE ATTACKS
                 int iceAttack1 = attackMoveCEN.New_("Congelar", CardTypeEnum.Ice, "Congela al rival a través del vaho que expulsa por la boca ya que sale muy frío");
-                int iceAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ice, "");
+                //int iceAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ice, "");
                  
                 //NORMAL ATTACKS
                 int normalAttack1 = attackMoveCEN.New_("Placaje", CardTypeEnum.Normal, "Placaje con todo el cuerpo que puede llegar a tirar al rival");
-                int normalAttack2 = attackMoveCEN.New_("", CardTypeEnum.Normal, "");
+                //int normalAttack2 = attackMoveCEN.New_("", CardTypeEnum.Normal, "");
                  
                 //POISON ATTACKS
                 int poisonAttack1 = attackMoveCEN.New_("Vino maldito", CardTypeEnum.Poison, "Bebida con buena apariencia que al final no es lo que parece");
@@ -214,11 +214,11 @@ public static void InitializeData ()
                  
                 //ROCK ATTACKS
                 int rockAttack1 = attackMoveCEN.New_("Pedrolo", CardTypeEnum.Rock, "Lanza una piedra muy grande que aplasta al rival");
-                int rockAttack2 = attackMoveCEN.New_("", CardTypeEnum.Rock, "");
+                //int rockAttack2 = attackMoveCEN.New_("", CardTypeEnum.Rock, "");
                  
                 //WATER ATTACKS
                 int waterAttack1 = attackMoveCEN.New_("Manguerazo", CardTypeEnum.Water, "Torrente de agua muy potente");
-                int waterAttack2 = attackMoveCEN.New_("", CardTypeEnum.Water, "");
+                //int waterAttack2 = attackMoveCEN.New_("", CardTypeEnum.Water, "");
                  
                 
                 
@@ -272,33 +272,33 @@ public static void InitializeData ()
                 //BASE PACKS
                 PackCEN packCEN = new PackCEN ();
 
-                packCEN.New_ ("Sobre básico pequeño", "Sobre que contiene entre 1 y 5 cartas básicas", 100, "", RarityEnum.Basic, 1, 5, CardTypeEnum.All, RarityEnum.Basic);
-                packCEN.New_ ("Sobre básico mediano", "Sobre que contiene entre 5 y 10 cartas básicas", 300, "", RarityEnum.Basic, 5, 10, CardTypeEnum.All, RarityEnum.Basic);
-                packCEN.New_ ("Sobre básico grande", "Sobre que contiene entre 10 y 15 cartas básicas", 500, "", RarityEnum.Basic, 10, 15, CardTypeEnum.All, RarityEnum.Basic);
+                packCEN.New_ ("Sobre Básico Pequeño", "Sobre que contiene entre 1 y 5 cartas básicas", 100, "", RarityEnum.Basic, 1, 5, CardTypeEnum.All, RarityEnum.Basic);
+                packCEN.New_ ("Sobre Básico Mediano", "Sobre que contiene entre 5 y 10 cartas básicas", 300, "", RarityEnum.Basic, 5, 10, CardTypeEnum.All, RarityEnum.Basic);
+                packCEN.New_ ("Sobre Básico Grande", "Sobre que contiene entre 10 y 15 cartas básicas", 500, "", RarityEnum.Basic, 10, 15, CardTypeEnum.All, RarityEnum.Basic);
 
-                packCEN.New_ ("Sobre común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas y comunes", 150, "", RarityEnum.Common, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
-                packCEN.New_ ("Sobre común mediano", "Sobre que contiene entre 5 y 10 cartas básicas y comunes", 350, "", RarityEnum.Common, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
-                packCEN.New_ ("Sobre común grande", "Sobre que contiene entre 10 y 15 cartas básicas y comunes", 550, "", RarityEnum.Common, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                packCEN.New_ ("Sobre Común Pequeño", "Sobre que contiene entre 1 y 5 cartas básicas y comunes", 150, "", RarityEnum.Common, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                packCEN.New_ ("Sobre Común Mediano", "Sobre que contiene entre 5 y 10 cartas básicas y comunes", 350, "", RarityEnum.Common, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
+                packCEN.New_ ("Sobre Común Grande", "Sobre que contiene entre 10 y 15 cartas básicas y comunes", 550, "", RarityEnum.Common, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common);
 
-                packCEN.New_ ("Sobre poco común pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes y poco comunes", 200, "", RarityEnum.Uncommon, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
-                packCEN.New_ ("Sobre poco común mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes y poco comunes", 400, "", RarityEnum.Uncommon, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
-                packCEN.New_ ("Sobre poco común grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes y poco comunes", 600, "", RarityEnum.Uncommon, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                packCEN.New_ ("Sobre Poco Común Pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes y poco comunes", 200, "", RarityEnum.Uncommon, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                packCEN.New_ ("Sobre Poco Común Mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes y poco comunes", 400, "", RarityEnum.Uncommon, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
+                packCEN.New_ ("Sobre Poco Común Grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes y poco comunes", 600, "", RarityEnum.Uncommon, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon);
 
-                packCEN.New_ ("Sobre raro pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes, poco comunes y raras", 250, "", RarityEnum.Rare, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
-                packCEN.New_ ("Sobre raro mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes, poco comunes y raras", 450, "", RarityEnum.Rare, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
-                packCEN.New_ ("Sobre raro grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes, poco comunes y raras", 650, "", RarityEnum.Rare, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
+                packCEN.New_ ("Sobre Raro Pequeño", "Sobre que contiene entre 1 y 5 cartas básicas, comunes, poco comunes y raras", 250, "", RarityEnum.Rare, 1, 5, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
+                packCEN.New_ ("Sobre Raro Mediano", "Sobre que contiene entre 5 y 10 cartas básicas, comunes, poco comunes y raras", 450, "", RarityEnum.Rare, 5, 10, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
+                packCEN.New_ ("Sobre Raro Grande", "Sobre que contiene entre 10 y 15 cartas básicas, comunes, poco comunes y raras", 650, "", RarityEnum.Rare, 10, 15, CardTypeEnum.All, RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare);
 
-                packCEN.New_ ("Sobre épico pequeño", "Sobre que contiene entre 1 y 5 cartas comunes, poco comunes, raras y épicas", 300, "", RarityEnum.Epic, 1, 5, CardTypeEnum.All, RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
-                packCEN.New_ ("Sobre épico mediano", "Sobre que contiene entre 5 y 10 cartas comunes, poco comunes, raras y épicas", 500, "", RarityEnum.Epic, 5, 10, CardTypeEnum.All, RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
-                packCEN.New_ ("Sobre épico grande", "Sobre que contiene entre 10 y 15 cartas comunes, poco comunes, raras y épicas", 700, "", RarityEnum.Epic, 10, 15, CardTypeEnum.All, RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
+                packCEN.New_ ("Sobre Épico Pequeño", "Sobre que contiene entre 1 y 5 cartas comunes, poco comunes, raras y épicas", 300, "", RarityEnum.Epic, 1, 5, CardTypeEnum.All, RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
+                packCEN.New_ ("Sobre Épico Mediano", "Sobre que contiene entre 5 y 10 cartas comunes, poco comunes, raras y épicas", 500, "", RarityEnum.Epic, 5, 10, CardTypeEnum.All, RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
+                packCEN.New_ ("Sobre Épico Grande", "Sobre que contiene entre 10 y 15 cartas comunes, poco comunes, raras y épicas", 700, "", RarityEnum.Epic, 10, 15, CardTypeEnum.All, RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
 
-                packCEN.New_ ("Sobre legendario pequeño", "Sobre que contiene entre 1 y 5 cartas poco comunes, raras, épicas y legendarias", 350, "", RarityEnum.Legendary, 1, 5, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
-                packCEN.New_ ("Sobre legendario mediano", "Sobre que contiene entre 5 y 10 cartas poco comunes, raras, épicas y legendarias", 550, "", RarityEnum.Legendary, 5, 10, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
-                packCEN.New_ ("Sobre legendario grande", "Sobre que contiene entre 10 y 15 cartas poco comunes, raras, épicas y legendarias", 750, "", RarityEnum.Legendary, 10, 15, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
+                packCEN.New_ ("Sobre Legendario Pequeño", "Sobre que contiene entre 1 y 5 cartas poco comunes, raras, épicas y legendarias", 350, "", RarityEnum.Legendary, 1, 5, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
+                packCEN.New_ ("Sobre Legendario Mediano", "Sobre que contiene entre 5 y 10 cartas poco comunes, raras, épicas y legendarias", 550, "", RarityEnum.Legendary, 5, 10, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
+                packCEN.New_ ("Sobre Legendario Grande", "Sobre que contiene entre 10 y 15 cartas poco comunes, raras, épicas y legendarias", 750, "", RarityEnum.Legendary, 10, 15, CardTypeEnum.All, RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary);
 
-                packCEN.New_ ("Sobre mítico pequeño", "Sobre que contiene entre 1 y 5 cartas raras, épicas, legendarias y míticas", 400, "", RarityEnum.Mythical, 1, 5, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
-                packCEN.New_ ("Sobre mítico mediano", "Sobre que contiene entre 5 y 10 cartas raras, épicas, legendarias y míticas", 600, "", RarityEnum.Mythical, 5, 10, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
-                packCEN.New_ ("Sobre mítico grande", "Sobre que contiene entre 10 y 15 cartas raras, épicas, legendarias y míticas", 800, "", RarityEnum.Mythical, 10, 15, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
+                packCEN.New_ ("Sobre Mítico Pequeño", "Sobre que contiene entre 1 y 5 cartas raras, épicas, legendarias y míticas", 400, "", RarityEnum.Mythical, 1, 5, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
+                packCEN.New_ ("Sobre Mítico Mediano", "Sobre que contiene entre 5 y 10 cartas raras, épicas, legendarias y míticas", 600, "", RarityEnum.Mythical, 5, 10, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
+                packCEN.New_ ("Sobre Mítico Grande", "Sobre que contiene entre 10 y 15 cartas raras, épicas, legendarias y míticas", 800, "", RarityEnum.Mythical, 10, 15, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
 
                 
                 //VIRTUALUSERS y USER CARD
@@ -325,14 +325,14 @@ public static void InitializeData ()
                 //TOKEN PACKS
                 TokenPackCEN tokenPackCEN = new TokenPackCEN ();
 
-                tokenPackCEN.New_("Pack Pequeño Básico", 1.0, 100);
-                tokenPackCEN.New_("Pack Pequeño Top", 2.5, 240);
-                tokenPackCEN.New_("Pack Mediano Básico", 5.0, 700);
-                tokenPackCEN.New_("Pack Mediano Top", 10.0, 1450);
-                tokenPackCEN.New_("Pack Grande Básico", 25.0, 3700);
-                tokenPackCEN.New_("Pack Grande Top", 50.0, 7450);
-                tokenPackCEN.New_("Pack Gigante Básico", 100.0, 14950);
-                tokenPackCEN.New_("Pack Gigante Top", 200.0, 29950);
+                tokenPackCEN.New_("Pack Básico Pequeño", 1.0, 100);
+                tokenPackCEN.New_("Pack Top Pequeño", 2.5, 240);
+                tokenPackCEN.New_("Pack Básico Mediano", 5.0, 700);
+                tokenPackCEN.New_("Pack Top Mediano", 10.0, 1450);
+                tokenPackCEN.New_("Pack Básico Grande", 25.0, 3700);
+                tokenPackCEN.New_("Pack Top Grande", 50.0, 7450);
+                tokenPackCEN.New_("Pack Básico Gigante", 100.0, 14950);
+                tokenPackCEN.New_("Pack Top Gigante", 200.0, 29950);
 
                 /*PROTECTED REGION END*/
         }
