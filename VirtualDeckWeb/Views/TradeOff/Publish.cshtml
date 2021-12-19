@@ -46,27 +46,19 @@
                     </div>
                 </div>
 
-            <div class="form-group divButtonTrade">
-                <div class="">
-                    <input type="submit" value="Create" class="btn btn-default action-button" />
-                </div>
-            </div>
+                
             </div>
         }
     </div>
 </div>
-@if (usercard != null && card != null)
+
+@using (Html.BeginForm("FinishAndPublish", "TradeOff", FormMethod.Post))
 {
-    @Html.ActionLink("Crear", "FinishAndPublish", "TradeOff" , new { idOffered = usercard.Id, idDesired = card.Id }, new { @class = "action-button" })
+    <input type="hidden" id="idOffered" name="idOffered" value=@usercard.Id />
+    <input type="hidden" id="idDesired" name="idDesired" value=@card.Id />
+    <input style="margin-top:2em;" type="submit" value="Crear" class="btn btn-default acept-button" />
 }
 
 
 
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

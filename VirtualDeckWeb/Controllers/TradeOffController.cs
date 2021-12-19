@@ -16,7 +16,7 @@ namespace VirtualDeckWeb.Controllers
     {
 
         // GET: TradeOff
-        public ActionResult Index(String search)
+        public ActionResult Index(String search, int page = 0)
         {
 
             VirtualUserEN virtualUser = Session["User"] as VirtualUserEN;
@@ -32,10 +32,37 @@ namespace VirtualDeckWeb.Controllers
             IList<TradeOffEN> tradeOffEN = null;
 
             if (search != null && search != "")
+            {
                 tradeOffEN = tradeOffCEN.TradesByCardName("%" + search + "%");
+                this.ViewBag.Search = search;
+            }
             else
-                tradeOffEN = tradeOffCEN.ReadAll(0, -1).ToList();
-            /*HAY QUE PONER EL FILTRO ESE DE LOS TRADES ACTIVOS*/
+            {
+                this.ViewBag.Search = "";
+                tradeOffEN = tradeOffCEN.TradesPending();
+            }
+                
+
+            int PageSize = 5;
+
+            var count = tradeOffEN.Count();
+
+            tradeOffEN = tradeOffEN.Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Total = 0;
+
+            if (count % PageSize != 0)
+            {
+                this.ViewBag.Total = (count / PageSize) + 1;
+            }
+            else
+            {
+                this.ViewBag.Total = (count / PageSize);
+            }
+
+            this.ViewBag.Page = page;
 
 
             IEnumerable<TradeOffViewModel> tradeOffs = new TradeOffAssembler().ConvertListENToModel(tradeOffEN);
@@ -58,36 +85,14 @@ namespace VirtualDeckWeb.Controllers
         }
 
 
-        public ActionResult Publish(int idOffered, int idDesired)
+
+
+        [HttpPost]
+        public ActionResult CardSelectedToTrade(FormCollection collection)
         {
-            if(idOffered != -1 && idDesired != -1)
-            {
-                SessionInitialize();
-
-                UserCardCAD UserCardCAD = new UserCardCAD(session);
-                UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
-                UserCardEN userCardSelected = UserCardCEN.ReadOID(idOffered);
-                UserCardViewModel model1 = new UserCardAssembler().ConvertENToModelUI(userCardSelected);
-
-                CardCAD CardCAD = new CardCAD(session);
-                CardCEN CardCEN = new CardCEN(CardCAD);
-                CardEN cardSelected = CardCEN.ReadOID(idDesired);
-                CardViewModel model2 = new CardAssembler().ConvertENToModelUI(cardSelected);
-
-                ViewData["userCardselected"] = model1;
-                ViewData["cardselected"] = model2;
-                SessionClose();
-
-            }
-            return View();
-        }
-
-        // POST: TradeOff/Create
-      
-       
-        public ActionResult CardSelectedToTrade(int idCarta, int idTrade)
-        {
-            
+     
+            int idCarta = Int32.Parse(collection.Get("idCarta"));
+            int idTrade = Int32.Parse(collection.Get("idTrade"));
             VirtualUserEN vicen = Session["user"] as VirtualUserEN;
             TradeOffCP trade = new TradeOffCP();
 
@@ -99,6 +104,8 @@ namespace VirtualDeckWeb.Controllers
         }
         public ActionResult SelectToTrade(int idTrade, int idDesired)
         {
+
+
             UserCardCAD UserCardCAD = new UserCardCAD(session);
             UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
             IList<UserCardEN> UserCardEN = null;
@@ -108,6 +115,9 @@ namespace VirtualDeckWeb.Controllers
             {
                 UserCardEN = UserCardCEN.UserCardsByBaseCard(en.Id,idDesired);
             }
+
+           
+
 
             IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
 
@@ -123,11 +133,36 @@ namespace VirtualDeckWeb.Controllers
             ViewData["cards"] = model1;
             ViewData["idUser"] = en.Id;
             ViewData["idTrade"] = idTrade;
+            ViewData["idDesired"] = idDesired;
             return View();
         }
-       
-        public ActionResult SelectCardToPublish(int idOffered)
+
+
+        /*#############PUBLICAR UN ANUNCIO###########################*/
+        public ActionResult SelectUserCardToPublish()
         {
+            UserCardCAD UserCardCAD = new UserCardCAD(session);
+            UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
+            IList<UserCardEN> UserCardEN = null;
+
+            VirtualUserEN en = Session["user"] as VirtualUserEN;
+            if (en != null)
+            {
+                UserCardEN = UserCardCEN.UserCardsNotInTradeByUser(en.Id);
+            }
+
+            IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
+
+
+            ViewData["usercards"] = model;
+            ViewData["idUser"] = en.Id;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SelectCardToPublish(FormCollection collection)
+        {
+            int idOffered = Int32.Parse(collection.Get("idOffered"));
             CardCAD CardCAD = new CardCAD();
             CardCEN CardCEN = new CardCEN();
             IList<CardEN> CardEN = CardCEN.ReadAll(0,-1);
@@ -143,45 +178,75 @@ namespace VirtualDeckWeb.Controllers
             return View();
 
         }
-        public ActionResult SelectUserCardToPublish()
+
+        [HttpPost]
+        public ActionResult Publish(FormCollection collection)
         {
+            int idOffered = Int32.Parse(collection.Get("idOffered"));
+            int idDesired = Int32.Parse(collection.Get("idDesired"));
+            SessionInitialize();
+
             UserCardCAD UserCardCAD = new UserCardCAD(session);
             UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
-            IList<UserCardEN> UserCardEN = null;
+            UserCardEN userCardSelected = UserCardCEN.ReadOID(idOffered);
+            UserCardViewModel model1 = new UserCardAssembler().ConvertENToModelUI(userCardSelected);
 
-            VirtualUserEN en = Session["user"] as VirtualUserEN;
-            if (en != null)
-            {
-                UserCardEN = UserCardCEN.UserCardsNotInTradeByUser(en.Id);
-            }
+            CardCAD CardCAD = new CardCAD(session);
+            CardCEN CardCEN = new CardCEN(CardCAD);
+            CardEN cardSelected = CardCEN.ReadOID(idDesired);
+            CardViewModel model2 = new CardAssembler().ConvertENToModelUI(cardSelected);
 
-            IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
+            ViewData["userCardselected"] = model1;
+            ViewData["cardselected"] = model2;
+            SessionClose();
 
-          
-            ViewData["usercards"] = model;
-            ViewData["idUser"] = en.Id;
             return View();
         }
 
-        public ActionResult FinishAndPublish(int idOffered, int idDesired)
+        [HttpPost]
+        public ActionResult FinishAndPublish(FormCollection collection)
         {
-
+            SessionInitialize();
+            int idOffered = Int32.Parse(collection.Get("idOffered"));
+            int idDesired = Int32.Parse(collection.Get("idDesired"));
             VirtualUserEN vicen = Session["user"] as VirtualUserEN;
-            TradeOffCEN trade = new TradeOffCEN();
 
-            trade.Publish(vicen.Id, idDesired, idOffered);
+            UserCardCAD userCardCAD = new UserCardCAD(session);
+            UserCardCEN userCardCEN = new UserCardCEN(userCardCAD);
+            UserCardEN userCardOffered = userCardCEN.ReadOID(idOffered);
 
+            IList<UserCardEN> userCards = userCardCEN.UserCardsByUser(vicen.Id);
+
+            //compruebo que sea una carta del usuario
+            if (userCards.IndexOf(userCardOffered) !=-1)
+            {
+                TradeOffCEN trade = new TradeOffCEN();
+                trade.Publish(vicen.Id, idDesired, idOffered);
+                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Anuncio publicado",
+                  "Tu intercambio se ha publicado correctamente");
+            }
+            else
+            {
+                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Error, "No se pudo publicar",
+                  "Ha ocurrido un error al publicar el anuncio");
+            }
+            SessionClose();
             return RedirectToAction("Index");
-
-
         }
 
-        // GET: TradeOff/Delete/5
-        public ActionResult Delete(int idTrade)
+        //########################################################################
+
+        [HttpPost]
+        public ActionResult Delete(FormCollection collection)
         {
+            int idTrade = Int32.Parse(collection.Get("idTrade"));
+           
             TradeOffCAD tradeOffCAD = new TradeOffCAD();
             TradeOffCEN tradeOffCEN = new TradeOffCEN(tradeOffCAD);
             tradeOffCEN.Destroy(idTrade);
+
+            TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Anuncio borrado",
+                 "Tu anuncio se ha borrado correctamente");
 
             return RedirectToAction("Index");
         }

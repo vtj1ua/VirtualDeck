@@ -362,14 +362,13 @@
     <Content Include="Views\Pack\Details.cshtml" />
     <Content Include="Views\TokenPack\Buy.cshtml" />
     <Content Include="Views\TradeOff\Index.cshtml" />
-    <Content Include="Views\TradeOff\Publish.cshtml" />
     <Content Include="Views\Shared\CarouselPartial.cshtml" />
     <Content Include="Views\TradeOff\SelectUserCardToPublish.cshtml" />
     <Content Include="Views\TradeOff\SelectCardToPublish.cshtml" />
     <Content Include="Views\TradeOff\SelectToTrade.cshtml" />
-    <Content Include="Views\TradeOff\Publish.cshtml" />
     <Content Include="Views\VirtualUser\Index1.cshtml" />
     <Content Include="Views\Shared\OperationResultPartial.cshtml" />
+    <Content Include="Views\TradeOff\Publish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

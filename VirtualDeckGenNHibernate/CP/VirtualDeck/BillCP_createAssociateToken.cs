@@ -63,11 +63,11 @@ public VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN CreateAssociateToken (int 
                 }
 
 
-                NotificationEN idNotification = notificationCP.New_ (p_user, TypeNotificationEnum.Bill);
+                //NotificationEN idNotification = notificationCP.New_ (p_user, TypeNotificationEnum.Bill);
 
 
                 oid = billCAD.CreateAssociateToken (billEN);
-                billCEN.AssignNotification (oid, idNotification.Id);
+                //billCEN.AssignNotification (oid, idNotification.Id);
                 result = billCAD.ReadOIDDefault (oid);
 
 
