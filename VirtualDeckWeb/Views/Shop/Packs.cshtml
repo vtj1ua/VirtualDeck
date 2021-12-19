@@ -24,13 +24,12 @@
 </div>
 
 
-        <form class="forms" asp-controller="ShopController" asp-action="Packs">
-            <input type="text" name="search" placeholder="Introduce el nombre" />
-            <input class="bot-userInfo action-button" type="submit" value="Buscar" />
-        </form>
+<form class="forms" asp-controller="ShopController" asp-action="Packs">
+    <input type="text" name="search" placeholder="Introduce el nombre" />
+    <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+</form>
 
 @Html.Partial("PackListShopPartial", Model)
-
 <ul class="pagination pagList">
     @if (ViewBag.Total > 1 && ViewBag.Page <= ViewBag.MaxPage)
     {
@@ -140,4 +139,3 @@
         }
     }
 </ul>
-
