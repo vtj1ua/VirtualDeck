@@ -362,9 +362,9 @@
     <Content Include="Views\TradeOff\Index.cshtml" />
     <Content Include="Views\TradeOff\Publish.cshtml" />
     <Content Include="Views\Shared\CarouselPartial.cshtml" />
+    <Content Include="Views\TradeOff\SelectUserCardToPublish.cshtml" />
+    <Content Include="Views\TradeOff\SelectCardToPublish.cshtml" />
     <Content Include="Views\TradeOff\SelectToTrade.cshtml" />
-    <Content Include="Views\TradeOff\SelectToPublish.cshtml" />
-    <Content Include="Views\TradeOff\UserCardSelectedToPublish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

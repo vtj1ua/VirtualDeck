@@ -1,4 +1,4 @@
-﻿
+﻿@using VirtualDeckGenNHibernate.EN.VirtualDeck;
 @{
     ViewBag.Title = "TradeOffIndex";
 }
@@ -6,6 +6,20 @@
 @{
     IEnumerable<VirtualDeckWeb.Models.UserCardViewModel> UserCards = ViewData["userCardList"] as IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>;
     IEnumerable<VirtualDeckWeb.Models.TradeOffViewModel> Model = ViewData["tradeOffsList"] as IEnumerable<VirtualDeckWeb.Models.TradeOffViewModel>;
+}
+
+@{bool usu = false;
+    int id = -1;}
+
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+    //FALTA COMPROBAR EL ID DEL MODEL CON EL ID DE LA SESSION Y SI COINCIDE ENTONCES MUESTRO EL LINK A EDITAR
+    id = (int)ViewData["idUser"];
+    if (en.Id == id)
+    {
+        usu = true;
+    }
 }
 
 <form class="forms" asp-controller="" asp-action="">
@@ -32,7 +46,14 @@
 
                 <h3>@Html.DisplayFor(modelItem => item.DesiredCard.Name)</h3>
                 <div class="centerDiv">
-                    @Html.ActionLink("Intercambiar", "SelectToTrade", new { idTrade=item.Id, idDesired = item.DesiredCard.Id}, new { @class = "action-button" })
+                    @if (id == item.Owner.Id)
+                    {
+                        @Html.ActionLink("Borrar", "Delete", new { idTrade = item.Id }, new { @class = "cancel-button" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Intercambiar", "SelectToTrade", new { idTrade = item.Id, idDesired = item.DesiredCard.Id }, new { @class = "action-button" })
+                    }
                 </div>
             </div>
 
@@ -58,6 +79,6 @@
         }
 
 
-        @Html.ActionLink("Publicar anuncio", "Publish", new { idOffered = -1, idDesired = -1 }, new { @class = "action-button" })
+        @Html.ActionLink("Publicar anuncio", "SelectUserCardToPublish", new { idOffered = -1, idDesired = -1 }, new { @class = "action-button" })
     </div>
 </div>

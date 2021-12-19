@@ -27,9 +27,6 @@ namespace VirtualDeckWeb.Controllers
             VirtualUserEN virtualUserEN = virtualUserCEN.ReadOID(virtualUser.Id);
             VirtualUserViewModel model = new VirtualUserAssembler().ConvertENToModelUI(virtualUserEN);
 
-           
-
-
             TradeOffCAD tradeOffCAD = new TradeOffCAD(session);
             TradeOffCEN tradeOffCEN = new TradeOffCEN(tradeOffCAD);
             IList<TradeOffEN> tradeOffEN = null;
@@ -38,6 +35,9 @@ namespace VirtualDeckWeb.Controllers
                 tradeOffEN = tradeOffCEN.TradesByCardName("%" + search + "%");
             else
                 tradeOffEN = tradeOffCEN.ReadAll(0, -1).ToList();
+            /*HAY QUE PONER EL FILTRO ESE DE LOS TRADES ACTIVOS*/
+
+
             IEnumerable<TradeOffViewModel> tradeOffs = new TradeOffAssembler().ConvertListENToModel(tradeOffEN);
 
 
@@ -72,17 +72,17 @@ namespace VirtualDeckWeb.Controllers
                 SessionInitialize();
 
                 UserCardCAD UserCardCAD = new UserCardCAD(session);
-            UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
-            UserCardEN userCardSelected = UserCardCEN.ReadOID(idOffered);
-            UserCardViewModel model1 = new UserCardAssembler().ConvertENToModelUI(userCardSelected);
+                UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
+                UserCardEN userCardSelected = UserCardCEN.ReadOID(idOffered);
+                UserCardViewModel model1 = new UserCardAssembler().ConvertENToModelUI(userCardSelected);
 
-            CardCAD CardCAD = new CardCAD(session);
-            CardCEN CardCEN = new CardCEN(CardCAD);
-            CardEN cardSelected = CardCEN.ReadOID(idDesired);
-            CardViewModel model2 = new CardAssembler().ConvertENToModelUI(cardSelected);
+                CardCAD CardCAD = new CardCAD(session);
+                CardCEN CardCEN = new CardCEN(CardCAD);
+                CardEN cardSelected = CardCEN.ReadOID(idDesired);
+                CardViewModel model2 = new CardAssembler().ConvertENToModelUI(cardSelected);
 
-            ViewData["userCardselected"] = model1;
-            ViewData["cardselected"] = model2;
+                ViewData["userCardselected"] = model1;
+                ViewData["cardselected"] = model2;
                 SessionClose();
 
             }
@@ -91,19 +91,7 @@ namespace VirtualDeckWeb.Controllers
 
         // POST: TradeOff/Create
       
-        public ActionResult FinishAndPublish(int idOffered, int idDesired)
-        {
-            
-                VirtualUserEN vicen = Session["user"] as VirtualUserEN;
-                TradeOffCEN trade = new TradeOffCEN();
-
-                trade.Publish(vicen.Id, idDesired, idOffered);
-
-                return RedirectToAction("Index");
-            
-            
-        }
-        
+       
         public ActionResult CardSelectedToTrade(int idCarta, int idTrade)
         {
             
@@ -144,8 +132,8 @@ namespace VirtualDeckWeb.Controllers
             ViewData["idTrade"] = idTrade;
             return View();
         }
-
-        public ActionResult UserCardSelectedToPublish(int idOffered)
+       
+        public ActionResult SelectCardToPublish(int idOffered)
         {
             CardCAD CardCAD = new CardCAD();
             CardCEN CardCEN = new CardCEN();
@@ -162,7 +150,7 @@ namespace VirtualDeckWeb.Controllers
             return View();
 
         }
-        public ActionResult SelectToPublish()
+        public ActionResult SelectUserCardToPublish()
         {
             UserCardCAD UserCardCAD = new UserCardCAD(session);
             UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
@@ -181,6 +169,24 @@ namespace VirtualDeckWeb.Controllers
             ViewData["idUser"] = en.Id;
             return View();
         }
+
+        public ActionResult FinishAndPublish(int idOffered, int idDesired)
+        {
+
+            VirtualUserEN vicen = Session["user"] as VirtualUserEN;
+            TradeOffCEN trade = new TradeOffCEN();
+
+            trade.Publish(vicen.Id, idDesired, idOffered);
+
+            return RedirectToAction("Index");
+
+
+        }
+
+
+
+
+
         // GET: TradeOff/Create
         public ActionResult Create()
         {
@@ -226,9 +232,13 @@ namespace VirtualDeckWeb.Controllers
         }
 
         // GET: TradeOff/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int idTrade)
         {
-            return View();
+            TradeOffCAD tradeOffCAD = new TradeOffCAD();
+            TradeOffCEN tradeOffCEN = new TradeOffCEN(tradeOffCAD);
+            tradeOffCEN.Destroy(idTrade);
+
+            return RedirectToAction("Index");
         }
 
         // POST: TradeOff/Delete/5
@@ -237,7 +247,7 @@ namespace VirtualDeckWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                
 
                 return RedirectToAction("Index");
             }

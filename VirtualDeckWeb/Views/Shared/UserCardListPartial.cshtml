@@ -83,9 +83,9 @@
                             {
                                 @Html.ActionLink("Destruir +" + item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
                             }
-                            else if (ViewBag.Title == "SelectToPublish")
+                            else if (ViewBag.Title == "SelectUserCardToPublish")
                             {
-                                @Html.ActionLink("Seleccionar", "UserCardSelectedToPublish", "TradeOff", new { idOffered = item.Id }, new { @class = "action-button" })
+                                @Html.ActionLink("Seleccionar", "SelectCardToPublish", "TradeOff", new { idOffered = item.Id }, new { @class = "action-button" })
                             }
                             else
                             {

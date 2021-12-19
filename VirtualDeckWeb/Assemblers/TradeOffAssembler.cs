@@ -15,6 +15,7 @@ namespace VirtualDeckWeb.Assemblers
             tradeOff.Id = en.Id;
             tradeOff.Date = (DateTime)en.Date;
             tradeOff.State = en.State;
+            tradeOff.Owner = en.Owner;
             tradeOff.OfferedUserCard = new UserCardAssembler().ConvertENToModelUI(en.OfferedUserCard);
             tradeOff.DesiredCard = new CardAssembler().ConvertENToModelUI(en.DesiredCard);
             return tradeOff;
