@@ -29,7 +29,7 @@ public VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN CreateAssociateToken (int 
         BillCEN billCEN = null;
         NotificationCAD notificationCAD = null;
         NotificationCEN notificationCEN = null;
-
+        NotificationCP notificationCP = null;
         VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN result = null;
 
 
@@ -62,11 +62,11 @@ public VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN CreateAssociateToken (int 
                 }
 
 
-                int idNotification = notificationCEN.New_ (p_user, TypeNotificationEnum.Bill);
+                NotificationEN idNotification = notificationCP.New_ (p_user, TypeNotificationEnum.Bill);
 
 
                 oid = billCAD.CreateAssociateToken (billEN);
-                billCEN.AssignNotification (oid, idNotification);
+                billCEN.AssignNotification (oid, idNotification.Id);
                 result = billCAD.ReadOIDDefault (oid);
 
 

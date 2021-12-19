@@ -31,8 +31,6 @@ public void PurchaseTokenPack (int p_oid, int p_userId)
         VirtualUserCEN virtualUserCEN = null;
         VirtualUserEN virtualUserEN = null;
         BillCP billCP = null;
-        INotificationCAD notificationCAD = null;
-        NotificationCEN notificationCEN = null;
 
         try
         {
@@ -51,14 +49,6 @@ public void PurchaseTokenPack (int p_oid, int p_userId)
 
                 billCP = new BillCP (session);
                 billCP.CreateAssociateToken (p_userId, p_oid);
-
-                notificationCAD = new NotificationCAD (session);
-                notificationCEN = new NotificationCEN (notificationCAD);
-                notificationCEN.New_ (p_userId, TypeNotificationEnum.Bill);
-
-
-
-
 
                 SessionCommit ();
         }

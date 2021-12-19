@@ -285,6 +285,7 @@
 	<Compile Include="CAD\VirtualDeck\INotificationCAD.cs" />
 	<Compile Include="CAD\VirtualDeck\NotificationCAD.cs" />
 	<Compile Include="CP\VirtualDeck\NotificationCP.cs" />
+			<Compile Include="CP\VirtualDeck\NotificationCP_New_.cs" />
 			
 			
 			

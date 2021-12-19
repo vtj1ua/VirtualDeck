@@ -159,113 +159,113 @@ public static void InitializeData ()
                 CardCEN cardCEN = new CardCEN ();
 
                 //ATTACKS
-                 
+
                 //BUG ATTACKS
-                int bugAttack1 = attackMoveCEN.New_("Arrastre nuclear", CardTypeEnum.Bug, "Se arrastra hasta el rival como un gusano y explota");
+                int bugAttack1 = attackMoveCEN.New_ ("Arrastre nuclear", CardTypeEnum.Bug, "Se arrastra hasta el rival como un gusano y explota");
                 //int bugAttack2 = attackMoveCEN.New_("", CardTypeEnum.Bug, "");
-                 
+
                 //DRAGON ATTACKS
-                int dragonAttack1 = attackMoveCEN.New_("Lanzallamas", CardTypeEnum.Dragon, "Lanza fuego por la boca para intentar hacer ceniza al rival");
-                int dragonAttack2 = attackMoveCEN.New_("Cola Dragon", CardTypeEnum.Dragon, "Golpe con la cola que hará caer a cualquier rival al que le aseste un golpe");
-                 
+                int dragonAttack1 = attackMoveCEN.New_ ("Lanzallamas", CardTypeEnum.Dragon, "Lanza fuego por la boca para intentar hacer ceniza al rival");
+                int dragonAttack2 = attackMoveCEN.New_ ("Cola Dragon", CardTypeEnum.Dragon, "Golpe con la cola que hará caer a cualquier rival al que le aseste un golpe");
+
                 //ELECTRIC ATTACKS
-                int electricAttack1 = attackMoveCEN.New_("Calambrazo", CardTypeEnum.Electric, "Chispazo que te electrocutará como no tengas cuidado");
+                int electricAttack1 = attackMoveCEN.New_ ("Calambrazo", CardTypeEnum.Electric, "Chispazo que te electrocutará como no tengas cuidado");
                 //int electricAttack2 = attackMoveCEN.New_("", CardTypeEnum.Electric, "");
-                 
+
                 //FIGHTING ATTACKS
-                int fightingAttack1 = attackMoveCEN.New_("Puño fuerte", CardTypeEnum.Fighting, "Puñetazo muy duro y con mucha intensidad");
-                int fightingAttack2 = attackMoveCEN.New_("Patadón", CardTypeEnum.Fighting, "Patada aeréa en el pecho");
-                 
+                int fightingAttack1 = attackMoveCEN.New_ ("Puño fuerte", CardTypeEnum.Fighting, "Puñetazo muy duro y con mucha intensidad");
+                int fightingAttack2 = attackMoveCEN.New_ ("Patadón", CardTypeEnum.Fighting, "Patada aeréa en el pecho");
+
                 //FIRE ATTACKS
                 //int fireAttack1 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
                 //int fireAttack2 = attackMoveCEN.New_("", CardTypeEnum.Fire, "");
-                 
+
                 //FLYING ATTACKS
-                int flyingAttack1 = attackMoveCEN.New_("Caida libre", CardTypeEnum.Flying, "Caída desde el cielo que aplastará a tus rivales");
+                int flyingAttack1 = attackMoveCEN.New_ ("Caida libre", CardTypeEnum.Flying, "Caída desde el cielo que aplastará a tus rivales");
                 //int flyingAttack2 = attackMoveCEN.New_("", CardTypeEnum.Flying, "");
-                 
+
                 //GHOST ATTACKS
-                int ghostAttack1 = attackMoveCEN.New_("Invisibilidad", CardTypeEnum.Ghost, "Desaparición visual para sorprender al rival ya que no sabe por donde le van a atacar");
+                int ghostAttack1 = attackMoveCEN.New_ ("Invisibilidad", CardTypeEnum.Ghost, "Desaparición visual para sorprender al rival ya que no sabe por donde le van a atacar");
                 //int ghostAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ghost, "");
-                 
+
                 //GRASS ATTACKS
-                int grassAttack1 = attackMoveCEN.New_("Modo Topo", CardTypeEnum.Grass, "Se escabulle debajo de tierra para sorprender al rival y atacarle");
+                int grassAttack1 = attackMoveCEN.New_ ("Modo Topo", CardTypeEnum.Grass, "Se escabulle debajo de tierra para sorprender al rival y atacarle");
                 //int grassAttack2 = attackMoveCEN.New_("", CardTypeEnum.Grass, "");
-                 
+
                 //GROUND ATTACKS
-                int groundAttack1 = attackMoveCEN.New_("Mascazo", CardTypeEnum.Ground, "Golpe impresionante que te hará quedar exhausto");
+                int groundAttack1 = attackMoveCEN.New_ ("Mascazo", CardTypeEnum.Ground, "Golpe impresionante que te hará quedar exhausto");
                 //int groundAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ground, "");
-                    
+
                 //ICE ATTACKS
-                int iceAttack1 = attackMoveCEN.New_("Congelar", CardTypeEnum.Ice, "Congela al rival a través del vaho que expulsa por la boca ya que sale muy frío");
+                int iceAttack1 = attackMoveCEN.New_ ("Congelar", CardTypeEnum.Ice, "Congela al rival a través del vaho que expulsa por la boca ya que sale muy frío");
                 //int iceAttack2 = attackMoveCEN.New_("", CardTypeEnum.Ice, "");
-                 
+
                 //NORMAL ATTACKS
-                int normalAttack1 = attackMoveCEN.New_("Placaje", CardTypeEnum.Normal, "Placaje con todo el cuerpo que puede llegar a tirar al rival");
+                int normalAttack1 = attackMoveCEN.New_ ("Placaje", CardTypeEnum.Normal, "Placaje con todo el cuerpo que puede llegar a tirar al rival");
                 //int normalAttack2 = attackMoveCEN.New_("", CardTypeEnum.Normal, "");
-                 
+
                 //POISON ATTACKS
-                int poisonAttack1 = attackMoveCEN.New_("Vino maldito", CardTypeEnum.Poison, "Bebida con buena apariencia que al final no es lo que parece");
-                int poisonAttack2 = attackMoveCEN.New_("Gas Fatídico", CardTypeEnum.Poison, "Gas putrefacto que ahogará a cualquier rival que lo inhale");
-                 
+                int poisonAttack1 = attackMoveCEN.New_ ("Vino maldito", CardTypeEnum.Poison, "Bebida con buena apariencia que al final no es lo que parece");
+                int poisonAttack2 = attackMoveCEN.New_ ("Gas Fatídico", CardTypeEnum.Poison, "Gas putrefacto que ahogará a cualquier rival que lo inhale");
+
                 //PSYCHIC ATTACKS
-                int psychicAttack1 = attackMoveCEN.New_("Mareo", CardTypeEnum.Psychic, "Aturde al contrario con un gas tóxico");
-                int psychicAttack2 = attackMoveCEN.New_("Pesao", CardTypeEnum.Psychic, "Ser pesado es una cualidad que no muchos manejan");
-                 
+                int psychicAttack1 = attackMoveCEN.New_ ("Mareo", CardTypeEnum.Psychic, "Aturde al contrario con un gas tóxico");
+                int psychicAttack2 = attackMoveCEN.New_ ("Pesao", CardTypeEnum.Psychic, "Ser pesado es una cualidad que no muchos manejan");
+
                 //ROCK ATTACKS
-                int rockAttack1 = attackMoveCEN.New_("Pedrolo", CardTypeEnum.Rock, "Lanza una piedra muy grande que aplasta al rival");
+                int rockAttack1 = attackMoveCEN.New_ ("Pedrolo", CardTypeEnum.Rock, "Lanza una piedra muy grande que aplasta al rival");
                 //int rockAttack2 = attackMoveCEN.New_("", CardTypeEnum.Rock, "");
-                 
+
                 //WATER ATTACKS
-                int waterAttack1 = attackMoveCEN.New_("Manguerazo", CardTypeEnum.Water, "Torrente de agua muy potente");
+                int waterAttack1 = attackMoveCEN.New_ ("Manguerazo", CardTypeEnum.Water, "Torrente de agua muy potente");
                 //int waterAttack2 = attackMoveCEN.New_("", CardTypeEnum.Water, "");
-                 
-                
-                
+
+
+
                 //CARDS
-                 
+
                 //BUG CARDS
                 int bugCard1 = cardCEN.New_ ("Worms", "Parecen adorables pero controlan las armas que da gusto...", 4700, "worm.png", CardTypeEnum.Bug, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { groundAttack1, grassAttack1, bugAttack1 });
-                   
+
                 //DRAGON CARDS
-                 
+
                 //ELECTRIC CARDS
                 int electricCard1 = cardCEN.New_ ("Jhony chispas", "Electrocutado por un cable", 400, "jhonyChispas.png", CardTypeEnum.Electric, 10, 20, 10, 10, RarityEnum.Mythical, new List<int> { normalAttack1, electricAttack1, fightingAttack2 });
                 int electricCard2 = cardCEN.New_ ("Cable pelao", "Tremendo cable pelao ", 2000, "cablePelao.png", CardTypeEnum.Electric, 100, 90, 50, 70, RarityEnum.Mythical, new List<int> { normalAttack1, electricAttack1, fightingAttack2 });
-                 
+
                 //FIGHTING CARDS
                 int fightingCard1 = cardCEN.New_ ("Tri-Spiddie", "Que Spiderman será el real", 4700, "memeSpiderman.png", CardTypeEnum.Fighting, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { flyingAttack1, normalAttack1, fightingAttack2 });
-                 
+
                 //FIRE CARDS
-                                 
+
                 //FLYING CARDS
                 int flyingCard1 = cardCEN.New_ ("Mosca mutante", "Mitad mosca, mitad hombre. Se dice que está mutando como el de la mosca", 2500, "fly.png", CardTypeEnum.Flying, 39, 21, 18, 36, RarityEnum.Uncommon, new List<int> { flyingAttack1, groundAttack1, psychicAttack2 });
                 int flyingCard2 = cardCEN.New_ ("Perro motociclón", "Rápido como el viento y más fuerte que un camión, aquí tenemos al perro motociclón", 4700, "perroMotociclon.png", CardTypeEnum.Flying, 66, 12, 90, 23, RarityEnum.Basic, new List<int> { normalAttack1, groundAttack1, psychicAttack1 });
-                 
+
                 //GHOST CARDS
                 int ghostCard1 = cardCEN.New_ ("La dama gorda", "Un Fantasma que va rondando castillos.", 4700, "damaGorda.png", CardTypeEnum.Ghost, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { iceAttack1, poisonAttack2, fightingAttack1 });
-                 
-                 
+
+
                 //GRASS CARDS
                 int grassCard1 = cardCEN.New_ ("El Diego", "Una especie de Dios argentino. Se le da bien eso del fútbol", 4700, "eldiego.png", CardTypeEnum.Grass, 55, 60, 18, 48, RarityEnum.Legendary, new List<int> { grassAttack1, fightingAttack2, psychicAttack1 });
-                                 
+
                 //GROUND CARDS
                 int groundCard1 = cardCEN.New_ ("Jonhymelavo", "El Jonhy. De calle. Va más doblado que una salchicha doblada", 4700, "rakitic.png", CardTypeEnum.Ground, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { groundAttack1, fightingAttack1, fightingAttack2 });
                 int groundCard2 = cardCEN.New_ ("Baby Yoda", "Más pequeño que un átomo. Cuidado que se enfada.", 8000, "babyYoda.png", CardTypeEnum.Ground, 30, 60, 40, 10, RarityEnum.Legendary, new List<int> { grassAttack1, ghostAttack1, groundAttack1 });
-                 
+
                 //ICE CARDS
                 int iceCard1 = cardCEN.New_ ("Papa Noel", "Regalos para todos", 400, "noel.png", CardTypeEnum.Ice, 10, 20, 10, 10, RarityEnum.Legendary, new List<int> { normalAttack1, electricAttack1, fightingAttack2 });
-                                  
+
                 //NORMAL CARDS
-                int normalCard1 = cardCEN.New_("Perro panson", "Todo chiquito, todo panson", 1000, "", CardTypeEnum.Normal, 30, 10, 25, 10, RarityEnum.Basic, new List<int> { });
+                int normalCard1 = cardCEN.New_ ("Perro panson", "Todo chiquito, todo panson", 1000, "", CardTypeEnum.Normal, 30, 10, 25, 10, RarityEnum.Basic, new List<int> { });
                 int normalCard2 = cardCEN.New_ ("Mortadelo", "Personaje cómico que te sucumbe con su labia y sus bromas", 3200, "mortadelo.png", CardTypeEnum.Normal, 46, 24, 18, 30, RarityEnum.Rare, new List<int> { fightingAttack1, fightingAttack2, psychicAttack1 });
-                 
+
                 //POISON CARDS
-                 
+
                 //PSYCHIC CARDS
-                 
+
                 //ROCK CARDS
-                 
+
                 //WATER CARDS
                 int waterCard1 = cardCEN.New_ ("Jack Sparrago", "El pirata más temido de todo poniente", 4700, "jack.png", CardTypeEnum.Water, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { ghostAttack1, psychicAttack2, waterAttack1 });
 
@@ -300,7 +300,7 @@ public static void InitializeData ()
                 packCEN.New_ ("Sobre Mítico Mediano", "Sobre que contiene entre 5 y 10 cartas raras, épicas, legendarias y míticas", 600, "", RarityEnum.Mythical, 5, 10, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
                 packCEN.New_ ("Sobre Mítico Grande", "Sobre que contiene entre 10 y 15 cartas raras, épicas, legendarias y míticas", 800, "", RarityEnum.Mythical, 10, 15, CardTypeEnum.All, RarityEnum.Rare | RarityEnum.Epic | RarityEnum.Legendary | RarityEnum.Mythical);
 
-                
+
                 //VIRTUALUSERS y USER CARD
                 VirtualUserCEN virtualUserCEN = new VirtualUserCEN ();
                 int virtualUser1 = virtualUserCEN.New_ ("Pass", "Usuario 1", "email@gmail.com");
@@ -325,14 +325,14 @@ public static void InitializeData ()
                 //TOKEN PACKS
                 TokenPackCEN tokenPackCEN = new TokenPackCEN ();
 
-                tokenPackCEN.New_("Pack Básico Pequeño", 1.0, 100);
-                tokenPackCEN.New_("Pack Top Pequeño", 2.5, 240);
-                tokenPackCEN.New_("Pack Básico Mediano", 5.0, 700);
-                tokenPackCEN.New_("Pack Top Mediano", 10.0, 1450);
-                tokenPackCEN.New_("Pack Básico Grande", 25.0, 3700);
-                tokenPackCEN.New_("Pack Top Grande", 50.0, 7450);
-                tokenPackCEN.New_("Pack Básico Gigante", 100.0, 14950);
-                tokenPackCEN.New_("Pack Top Gigante", 200.0, 29950);
+                tokenPackCEN.New_ ("Pack Básico Pequeño", 1.0, 100);
+                tokenPackCEN.New_ ("Pack Top Pequeño", 2.5, 240);
+                tokenPackCEN.New_ ("Pack Básico Mediano", 5.0, 700);
+                tokenPackCEN.New_ ("Pack Top Mediano", 10.0, 1450);
+                tokenPackCEN.New_ ("Pack Básico Grande", 25.0, 3700);
+                tokenPackCEN.New_ ("Pack Top Grande", 50.0, 7450);
+                tokenPackCEN.New_ ("Pack Básico Gigante", 100.0, 14950);
+                tokenPackCEN.New_ ("Pack Top Gigante", 200.0, 29950);
 
                 /*PROTECTED REGION END*/
         }

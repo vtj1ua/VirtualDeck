@@ -30,6 +30,7 @@ public void Trade (int p_oid, int p_givenUserCard)
         UserCardCEN userCardCEN = null;
         NotificationCAD notificationCAD = null;
         NotificationCEN notificationCEN = null;
+        NotificationCP notificationCP = null;
 
         try
         {
@@ -44,6 +45,7 @@ public void Trade (int p_oid, int p_givenUserCard)
 
                 notificationCAD = new NotificationCAD (session);
                 notificationCEN = new NotificationCEN (notificationCAD);
+                notificationCP = new NotificationCP(session);
 
                 //asigno al intercambio el exchanger
                 tradeOffCEN.AssignExchanger (p_oid, userCardEN.User.Id);
@@ -52,11 +54,11 @@ public void Trade (int p_oid, int p_givenUserCard)
                         tradeOffEN.State = TradeStateEnum.Accepted;
 
                         //creo la notificacion, le asigno el segundo usuario y la asigno al trade.
-                        int idNotification1 = notificationCEN.New_ (tradeOffEN.Exchanger.Id, TypeNotificationEnum.TradeDone);
-                        int idNotification2 = notificationCEN.New_ (tradeOffEN.Owner.Id, TypeNotificationEnum.TradeDone);
+                        NotificationEN idNotification1 = notificationCP.New_ (tradeOffEN.Exchanger.Id, TypeNotificationEnum.TradeDone);
+                        NotificationEN idNotification2 = notificationCP.New_ (tradeOffEN.Owner.Id, TypeNotificationEnum.TradeDone);
 
                         tradeOffCEN.AssignNotification (p_oid, new List<int>() {
-                                        idNotification1, idNotification2
+                                        idNotification1.Id, idNotification2.Id
                                 });
 
 
@@ -66,11 +68,6 @@ public void Trade (int p_oid, int p_givenUserCard)
                         userCardCEN.AssignUser (p_givenUserCard, tradeOffEN.Owner.Id);
                         userCardCEN.AssignUser (tradeOffEN.OfferedUserCard.Id, tradeOffEN.Exchanger.Id);
                 }
-                else{
-                        Console.WriteLine ("La carta no es la deseada");
-                }
-
-
 
                 SessionCommit ();
         }

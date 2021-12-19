@@ -39,29 +39,6 @@ public INotificationCAD get_INotificationCAD ()
         return this._INotificationCAD;
 }
 
-public int New_ (int p_user, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.TypeNotificationEnum p_type)
-{
-        NotificationEN notificationEN = null;
-        int oid;
-
-        //Initialized NotificationEN
-        notificationEN = new NotificationEN ();
-
-        if (p_user != -1) {
-                // El argumento p_user -> Property user es oid = false
-                // Lista de oids id
-                notificationEN.User = new VirtualDeckGenNHibernate.EN.VirtualDeck.VirtualUserEN ();
-                notificationEN.User.Id = p_user;
-        }
-
-        notificationEN.Type = p_type;
-
-        //Call to NotificationCAD
-
-        oid = _INotificationCAD.New_ (notificationEN);
-        return oid;
-}
-
 public void Modify (int p_Notification_OID, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.TypeNotificationEnum p_type)
 {
         NotificationEN notificationEN = null;
