@@ -1,8 +1,22 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.TokenPackViewModel>
+@using VirtualDeckGenNHibernate.EN.VirtualDeck;
 
 @{
     ViewBag.Title = "Packs de Tokens";
 }
+
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+
+    int id = en.Id;
+
+    <div>
+        <p class="userInfoTokens tokensTienda"><strong>Tokens: </strong><span>@en.Tokens <img src="~/Resources/token.png" /></span></p>
+    </div>
+
+}
+
 <div class="tabs" style="margin-bottom:7.5em;">
     <ul class="nav justify-content-center">
         <li class="nav-item">

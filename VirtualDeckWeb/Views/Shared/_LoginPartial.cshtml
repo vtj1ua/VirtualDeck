@@ -23,11 +23,11 @@
             {
                 if (ViewBag.Title == "Mi Perfil" || ViewBag.Title == "Editar Perfil")
                 {
-                    @Html.ActionLink(username + "!", "Details", "VirtualUser", new { Id = user.Id }, htmlAttributes: new { id = "user", @class = "sel" })
+                    @Html.ActionLink("Mi Perfil", "Details", "VirtualUser", new { Id = user.Id }, htmlAttributes: new { id = "user", @class = "sel" })
                 }
                 else
                 {
-                    @Html.ActionLink(username + "!", "Details", "VirtualUser", new { Id = user.Id }, htmlAttributes: new { id = "user", @class = "no-sel" })
+                    @Html.ActionLink("Mi Perfil", "Details", "VirtualUser", new { Id = user.Id }, htmlAttributes: new { id = "user", @class = "no-sel" })
                 }
             }
             </li>

@@ -1,10 +1,23 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.PackViewModel>
+@using VirtualDeckGenNHibernate.EN.VirtualDeck;
 @using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
 
 @Scripts.Render("~/Scripts/shop-filters.js")
 
 @{
     ViewBag.Title = "Sobres";
+}
+
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+
+    int id = en.Id;
+
+    <div>
+        <p class="userInfoTokens tokensTienda"><strong>Tokens: </strong><span>@en.Tokens <img src="~/Resources/token.png" /></span></p>
+    </div>
+
 }
 
 <div class="tabs">
