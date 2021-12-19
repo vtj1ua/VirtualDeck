@@ -12,8 +12,9 @@
 
 </head>
 <body >
-    <div class="container">
-        <div class="col-xs-12 col-md-12 col-lg-12">
+    <div class="contenedorNav">
+        <div>
+            <img src="~/Resources/logoAzul.png" height="100" width="100" />
             <h1 class="headTitle">VIRTUALDECK</h1>
         </div>
     </div>
@@ -82,8 +83,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        <footer class="foot-Comun">
+            <p>&copy; @DateTime.Now.Year - VirtualDeck - Ingeniería Multimedia - @Html.ActionLink("Acerca de", "About", "Home")</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")

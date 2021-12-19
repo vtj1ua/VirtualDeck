@@ -265,6 +265,7 @@
     <Content Include="Resources\equis.png" />
     <Content Include="Resources\borrar.png" />
     <Content Include="Resources\inter.png" />
+    <Content Include="Resources\logoAzul.png" />
     <Content Include="Resources\PackRarities\Basic.png" />
     <Content Include="Resources\PackRarities\Common.png" />
     <Content Include="Resources\PackRarities\Epic.png" />

@@ -1066,3 +1066,53 @@ width: 100%;
         justify-content: center;
     }
 }
+
+.contenedorNav{
+    margin-left:1em;
+    margin-right:1em;
+}
+
+@media all and (max-width:550px){
+    .contenedorNav > div {
+        display: grid;
+        justify-content:center;
+    }
+
+        .contenedorNav > div > img{
+            margin:auto;
+            margin-bottom:1.5em;
+        }
+
+        .contenedorNav > div > h1 {
+            margin-bottom: .3em !important;
+            margin-top:0;
+        }
+}
+
+@media all and (min-width:550.1px){
+    .contenedorNav > div {
+        display: flex;
+    }
+
+    .contenedorNav>div>img{
+        margin-bottom:1em;
+    }
+
+        .contenedorNav > div > h1 {
+            margin: auto;
+            padding-right:2.5em;
+        }
+}
+
+.foot-Comun{
+    text-align:center;
+}
+
+.about-nosotros{
+    display:grid;
+    justify-content:center;
+}
+
+.about-nosotros>p{
+    text-align:center;
+}
