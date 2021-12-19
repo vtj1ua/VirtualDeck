@@ -1,7 +1,20 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.PackViewModel>
+@using VirtualDeckGenNHibernate.EN.VirtualDeck;
 
 @{
     ViewBag.Title = "Sobres";
+}
+
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+
+    int id = en.Id;
+
+    <div>
+        <p class="userInfoTokens tokensTienda"><strong>Tokens: </strong><span>@en.Tokens <img src="~/Resources/token.png" /></span></p>
+    </div>
+
 }
 
 <div class="tabs">
@@ -24,10 +37,10 @@
 </div>
 
 
-        <form class="forms" asp-controller="ShopController" asp-action="Packs">
-            <input type="text" name="search" placeholder="Introduce el nombre" />
-            <input class="bot-userInfo action-button" type="submit" value="Buscar" />
-        </form>
+<form class="forms" asp-controller="ShopController" asp-action="Packs">
+    <input type="text" name="search" placeholder="Introduce el nombre" />
+    <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+</form>
 
 @Html.Partial("PackListShopPartial", Model)
 
