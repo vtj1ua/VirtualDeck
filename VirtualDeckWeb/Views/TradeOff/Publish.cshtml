@@ -2,38 +2,66 @@
     ViewBag.Title = "Publicar Intercambio";
 }
 
+@{
+    VirtualDeckWeb.Models.UserCardViewModel usercard = ViewData["userCardselected"] as VirtualDeckWeb.Models.UserCardViewModel;
+    VirtualDeckWeb.Models.CardViewModel card = ViewData["cardselected"] as VirtualDeckWeb.Models.CardViewModel;
+}
+
 <div class="container">
     <div class="row ">
-        @using (Html.BeginForm()) 
+        @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-    
-        <div class="form-horizontal pubTrade">
-            <div class="cardsTrade">
-                <div class="form-group">
-                    <label class="control-label col-md-2">Carta a ofrecer</label>
-                    <div class="col-md-10">
-                        <img class="imgTrades" src="~/Resources/equis.png" />
-                    </div>
-                </div>
+            @Html.ActionLink("Seleccionar", "SelectUserCardToPublish", new { }, new { @class = "action-button" })
+            <div class="form-horizontal pubTrade">
+                <div class="cardsTrade">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Carta a ofrecer</label>
+                        <div class="col-md-10">
 
-                <div class="form-group">
-                    <label class="control-label col-md-2">Carta requerida</label>
-                    <div class="col-md-10">
-                        <img class="imgTrades" src="~/Resources/equis.png" />
+
+                            @if (usercard != null)
+                            {
+                                @Html.Partial("UserCardPartial", usercard)
+                            }
+                            else
+                            {
+                                <img class="imgTrades" src="~/Resources/equis.png" />
+                            }
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Carta requerida</label>
+                        <div class="col-md-10">
+                            @if (card != null)
+                            {
+                                @Html.Partial("CardPartial", card)
+                            }
+                            else
+                            {
+                                <img class="imgTrades" src="~/Resources/equis.png" />
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
 
             <div class="form-group divButtonTrade">
                 <div class="">
                     <input type="submit" value="Create" class="btn btn-default action-button" />
                 </div>
             </div>
-        </div>
+            </div>
         }
     </div>
 </div>
+@if (usercard != null && card != null)
+{
+    @Html.ActionLink("Crear", "FinishAndPublish", "TradeOff" , new { idOffered = usercard.Id, idDesired = card.Id }, new { @class = "action-button" })
+}
+
+
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

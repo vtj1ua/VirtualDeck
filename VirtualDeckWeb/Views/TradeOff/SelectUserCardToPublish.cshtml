@@ -1,0 +1,14 @@
+﻿@using VirtualDeckGenNHibernate.EN.VirtualDeck;
+@{
+    ViewBag.Title = "SelectUserCardToPublish";
+}
+
+
+@{
+    IEnumerable<VirtualDeckWeb.Models.UserCardViewModel> UserCards = ViewData["usercards"] as IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>;
+}
+
+<h2>Selecciona la carta que quieras intercambiar</h2>
+<hr />
+
+@Html.Partial("UserCardListPartial", UserCards)

@@ -2,10 +2,27 @@
 @{
     IEnumerable<VirtualDeckWeb.Models.CardViewModel> ModelNew = ViewData["List1"] as IEnumerable<VirtualDeckWeb.Models.CardViewModel>;
     IEnumerable<VirtualDeckWeb.Models.CardViewModel> ModelRecommended = ViewData["List2"] as IEnumerable<VirtualDeckWeb.Models.CardViewModel>;
+    IEnumerable<VirtualDeckWeb.Models.CardViewModel> Carousel = ViewData["List3"] as IEnumerable<VirtualDeckWeb.Models.CardViewModel>;
 }
 @{
     ViewBag.Title = "Pagina Principal";
 }
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+    <div class="carousel-inner">
+        @Html.Partial("CarouselPartial", Carousel)
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
 <section>
     <h2>Novedades</h2>

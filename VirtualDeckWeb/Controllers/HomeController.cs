@@ -26,10 +26,14 @@ namespace VirtualDeckWeb.Controllers
 
             IList<CardEN> cards1 = cardcen.ReadAll(4, 4);
             IEnumerable<CardViewModel> listaCards2 = new CardAssembler().ConvertListENToModel(cards1).ToList();
-           
+
+
+            IList<CardEN> cards2 = cardcen.ReadAll(0, -1);
+            IEnumerable<CardViewModel> listaCards3 = new CardAssembler().ConvertListENToModel(cards2).ToList();
 
             ViewData["List1"] = listaCards1;
             ViewData["List2"] = listaCards2;
+            ViewData["List3"] = listaCards3;
 
             SessionClose();
             return View();
