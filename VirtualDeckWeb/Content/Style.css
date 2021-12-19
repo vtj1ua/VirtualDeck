@@ -382,14 +382,14 @@ width: 100%;
     display: block;
 }
 
-    .m-modal .profile-user-card div:first-of-type {
-        left: 0;
-        transform: translateX(0%);
-    }
+.m-modal .profile-user-card div:first-of-type {
+    left: 0;
+    transform: translateX(0%);
+}
 
-    .m-modal .profile-user-card .profile-user-card-details {
-        text-align: left;
-    }
+.m-modal .profile-user-card .profile-user-card-details {
+    text-align: left;
+}
 
 
 .tradeOff-modal {
@@ -419,22 +419,21 @@ width: 100%;
     
 }
     
-
-    @media all and (min-width:600px) {
-        .m-modal .profile-user-card {
-            display: inline-flex;
-        }
+@media all and (min-width:600px) {
+    .m-modal .profile-user-card {
+        display: inline-flex;
+    }
 
         
-        .m-modal .profile-user-card > .profile-user-card-details {
-            margin-left: 3em;
-        }
-
-        .m-modal .profile-user-card > .profile-user-card-details h2 {
-            margin-top: 0;
-        }
-
+    .m-modal .profile-user-card > .profile-user-card-details {
+        margin-left: 3em;
     }
+
+    .m-modal .profile-user-card > .profile-user-card-details h2 {
+        margin-top: 0;
+    }
+
+}
 
 .icon-close {
     position: absolute;
@@ -481,6 +480,9 @@ width: 100%;
     .selected {
         background-color: var(--primary) !important;
     }
+
+   
+    
 
     /*##########################################################################################################*/
     /*########################################## VICTOR #######################################################*/
