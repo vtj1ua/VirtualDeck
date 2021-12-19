@@ -61,5 +61,6 @@
 		  <query name="PackENReadAllHQL">from PackEN</query>
 		  <query name="PackENpacksByRarityHQL"><![CDATA[ FROM PackEN as pack where pack.Rarity = :p_rarity]]></query>
 		  <query name="PackENpacksByNameOrDescriptionHQL"><![CDATA[FROM PackEN as pack where pack.Name like :p_name or pack.Description like :p_name]]></query>
+		  <query name="PackENpacksByAllFiltersHQL"><![CDATA[FROM PackEN as pack WHERE (pack.Name LIKE :p_name OR pack.Description LIKE :p_name) AND pack.Price >= :p_min_price AND pack.Price <= :p_max_price AND  (pack.CardTypes & :p_type) != 0 AND (pack.Rarity & :p_rarity) != 0 ORDER BY pack.Rarity ASC]]></query>
 		</hibernate-mapping>
 	

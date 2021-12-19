@@ -35,5 +35,10 @@ System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN>
 
 
 System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> PacksByNameOrDescription (string p_name);
+
+
+
+
+System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> PacksByAllFilters (string p_name, int? p_min_price, int? p_max_price, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum? p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum ? p_rarity);
 }
 }

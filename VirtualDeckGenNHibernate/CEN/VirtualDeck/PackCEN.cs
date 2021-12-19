@@ -91,5 +91,9 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 {
         return _IPackCAD.PacksByNameOrDescription (p_name);
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> PacksByAllFilters (string p_name, int? p_min_price, int? p_max_price, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum? p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum ? p_rarity)
+{
+        return _IPackCAD.PacksByAllFilters (p_name, p_min_price, p_max_price, p_type, p_rarity);
+}
 }
 }

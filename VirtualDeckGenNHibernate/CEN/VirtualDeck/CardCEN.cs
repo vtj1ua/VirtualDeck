@@ -112,5 +112,9 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 {
         return _ICardCAD.CardsByRegistryDate ();
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> CardsByAllFilters (string p_name, int? p_min_price, int? p_max_price, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum? p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum ? p_rarity)
+{
+        return _ICardCAD.CardsByAllFilters (p_name, p_min_price, p_max_price, p_type, p_rarity);
+}
 }
 }

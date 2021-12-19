@@ -77,5 +77,7 @@
 		  
 		  <query name="TradeOffENReadAllHQL">from TradeOffEN</query>
 		  <query name="TradeOffENtradesByCardNameHQL"><![CDATA[FROM TradeOffEN as trade WHERE trade.OfferedUserCard.Name LIKE :p_cardName OR trade.DesiredCard.Name LIKE :p_cardName]]></query>
+		  <query name="TradeOffENtradesPendingAndNotFromUserHQL"><![CDATA[FROM TradeOffEN as trade WHERE trade.State = 1 AND trade.Owner.Id != :p_user ORDER BY trade.Date]]></query>
+		  <query name="TradeOffENtradesPendingHQL"><![CDATA[FROM TradeOffEN as trade WHERE trade.State = 1 ORDER BY trade.Date]]></query>
 		</hibernate-mapping>
 	

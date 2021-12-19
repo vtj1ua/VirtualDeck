@@ -412,5 +412,64 @@ public void AssignNotification (int p_TradeOff_OID, System.Collections.Generic.I
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> TradesPendingAndNotFromUser ()
+{
+        System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM TradeOffEN self where FROM TradeOffEN as trade WHERE trade.State = 1 AND trade.Owner.Id != :p_user ORDER BY trade.Date";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("TradeOffENtradesPendingAndNotFromUserHQL");
+
+                result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in TradeOffCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> TradesPending ()
+{
+        System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM TradeOffEN self where FROM TradeOffEN as trade WHERE trade.State = 1 ORDER BY trade.Date";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("TradeOffENtradesPendingHQL");
+
+                result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in TradeOffCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

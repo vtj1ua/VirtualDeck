@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using VirtualDeckGenNHibernate.CAD.VirtualDeck;
 using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
 using VirtualDeckWeb.Assemblers;
 using VirtualDeckWeb.Models;
 
@@ -15,21 +16,41 @@ namespace VirtualDeckWeb.Controllers
     {
         const int PageSize = 8;
         // GET: Shop
-        public ActionResult Cards(string search, int page = 0)
+        public ActionResult Cards(string search, int? minPrice, int? maxPrice,
+            CardTypeEnum? type, RarityEnum? rarity, int page = 0)
         {
             SessionInitialize();
             CardCAD cardcad = new CardCAD(session);
             CardCEN cardcen = new CardCEN(cardcad);
             IList<CardEN> cards = null;
-            if (search != null && search != "")
+            if ((search != null && search != "") || minPrice != null || maxPrice != null || type != null || rarity != null)
             {
-                cards = cardcen.CardsByNameOrDescription("%" + search + "%");
+                //cards = cardcen.CardsByNameOrDescription("%" + search + "%");
+
+                if (search == null)
+                    search = "";
+                if (minPrice == null)
+                    minPrice = 0;
+                if (maxPrice == null)
+                    maxPrice = 1000000;
+                if (type == null || type == CardTypeEnum.None)
+                    type = CardTypeEnum.All;
+                if (rarity == null || rarity == RarityEnum.None)
+                    rarity = RarityEnum.All;
+
                 this.ViewBag.Search = search;
+                this.ViewBag.MinPrice = minPrice;
+                this.ViewBag.MaxPrice = maxPrice;
+                this.ViewBag.Type = type;
+                this.ViewBag.Rarity = rarity;
+                this.ViewBag.FiltersAreSet = true;
+
+                cards = cardcen.CardsByAllFilters("%" + search + "%", minPrice, maxPrice, type, rarity);
             }
             else
             {
                 cards = cardcen.ReadAll(0, -1);
-                this.ViewBag.Search = "";
+                this.ViewBag.FiltersAreSet = false;
             }
 
             var count = cards.Count();

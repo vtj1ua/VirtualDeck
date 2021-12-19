@@ -97,5 +97,13 @@ public void AssignNotification (int p_TradeOff_OID, System.Collections.Generic.I
 
         _ITradeOffCAD.AssignNotification (p_TradeOff_OID, p_notifications_OIDs);
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> TradesPendingAndNotFromUser ()
+{
+        return _ITradeOffCAD.TradesPendingAndNotFromUser ();
+}
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.TradeOffEN> TradesPending ()
+{
+        return _ITradeOffCAD.TradesPending ();
+}
 }
 }

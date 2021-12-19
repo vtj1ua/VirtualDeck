@@ -189,6 +189,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\VirtualDeck\PackEN.cs" />
 	<Compile Include="CEN\VirtualDeck\PackCEN.cs" />
 	<Compile Include="CAD\VirtualDeck\IPackCAD.cs" />
@@ -205,6 +206,7 @@
 			<Compile Include="CP\VirtualDeck\PackCP_CreateUserPack.cs" />
 			
 			<Compile Include="CP\VirtualDeck\PackCP_PurchaseUserPack.cs" />
+			
 			
 	<Compile Include="EN\VirtualDeck\UserPackEN.cs" />
 	<Compile Include="CEN\VirtualDeck\UserPackCEN.cs" />
@@ -252,6 +254,8 @@
 			
 			
 			<Compile Include="CEN\VirtualDeck\TradeOffCEN_Publish.cs" />
+			
+			
 			
 			
 			

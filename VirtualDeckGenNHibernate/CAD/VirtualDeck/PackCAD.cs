@@ -349,5 +349,39 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 
         return result;
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> PacksByAllFilters (string p_name, int? p_min_price, int? p_max_price, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum? p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum ? p_rarity)
+{
+        System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PackEN self where FROM PackEN as pack WHERE (pack.Name LIKE :p_name OR pack.Description LIKE :p_name) AND pack.Price >= :p_min_price AND pack.Price <= :p_max_price AND  (pack.CardTypes & :p_type) != 0 AND (pack.Rarity & :p_rarity) != 0 ORDER BY pack.Rarity ASC";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PackENpacksByAllFiltersHQL");
+                query.SetParameter ("p_name", p_name);
+                query.SetParameter ("p_min_price", p_min_price);
+                query.SetParameter ("p_max_price", p_max_price);
+                query.SetParameter ("p_type", p_type);
+                query.SetParameter ("p_rarity", p_rarity);
+
+                result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.PackEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in PackCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

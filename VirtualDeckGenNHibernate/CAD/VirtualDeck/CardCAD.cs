@@ -514,5 +514,39 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 
         return result;
 }
+public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> CardsByAllFilters (string p_name, int? p_min_price, int? p_max_price, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.CardTypeEnum? p_type, VirtualDeckGenNHibernate.Enumerated.VirtualDeck.RarityEnum ? p_rarity)
+{
+        System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM CardEN self where FROM CardEN as card WHERE (card.Description LIKE :p_name OR  card.Name LIKE :p_name) AND card.Price >= :p_min_price AND card.Price <= :p_max_price AND (card.Type & :p_type) != 0 AND (card.Rarity & :p_rarity) != 0 ORDER BY card.Rarity ASC";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("CardENcardsByAllFiltersHQL");
+                query.SetParameter ("p_name", p_name);
+                query.SetParameter ("p_min_price", p_min_price);
+                query.SetParameter ("p_max_price", p_max_price);
+                query.SetParameter ("p_type", p_type);
+                query.SetParameter ("p_rarity", p_rarity);
+
+                result = query.List<VirtualDeckGenNHibernate.EN.VirtualDeck.CardEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is VirtualDeckGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new VirtualDeckGenNHibernate.Exceptions.DataLayerException ("Error in CardCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

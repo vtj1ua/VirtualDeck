@@ -526,7 +526,7 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UserCardEN self where FROM UserCardEN as card where card.User.Id = :p_user and card not in (select OfferedUserCard from TradeOffEN as trade where trade.State  = 1)";
+                //String sql = @"FROM UserCardEN self where FROM UserCardEN as card where card.User.Id = :p_user and card not in (select OfferedUserCard from TradeOffEN as trade where trade.State  = 1) ORDER BY card.Rarity ASC, card.Type ASC";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UserCardENuserCardsNotInTradeByUserHQL");
                 query.SetParameter ("p_user", p_user);

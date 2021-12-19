@@ -46,7 +46,7 @@ public void Modify (int p_VirtualUser_OID, String p_pass, string p_userName, str
         //Initialized VirtualUserEN
         virtualUserEN = new VirtualUserEN ();
         virtualUserEN.Id = p_VirtualUser_OID;
-        virtualUserEN.Pass = p_pass;
+        virtualUserEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
         virtualUserEN.UserName = p_userName;
         virtualUserEN.Email = p_email;
         virtualUserEN.Description = p_description;
