@@ -57,13 +57,6 @@ namespace VirtualDeckWeb.Controllers
             return View();
         }
 
-        // GET: TradeOff/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-
 
         public ActionResult Publish(int idOffered, int idDesired)
         {
@@ -183,82 +176,6 @@ namespace VirtualDeckWeb.Controllers
 
         }
 
-
-
-
-
-        // GET: TradeOff/Create
-        public ActionResult Publish()
-        {
-
-            UserCardCAD UserCardCAD = new UserCardCAD(session);
-            UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
-            IList<UserCardEN> UserCardEN = null;
-
-            VirtualUserEN en = Session["user"] as VirtualUserEN;
-            if (en != null)
-            {
-                UserCardEN = UserCardCEN.UserCardsByUser(en.Id);
-            }
-
-            IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
-
-            CardCAD CardCAD = new CardCAD(session);
-            CardCEN CardCEN = new CardCEN(CardCAD);
-            IList<CardEN> CardEN = null;
-
-
-            CardEN = CardCEN.ReadAll(0, -1).ToList();
-
-            IEnumerable<CardViewModel> model1 = new CardAssembler().ConvertListENToModel(CardEN);
-            ViewData["usercards"] = model;
-            ViewData["cards"] = model1;
-
-            return View();
-        }
-
-        // POST: TradeOff/Create
-        [HttpPost]
-        public ActionResult Publish(TradeOffViewModel tradeoff)
-        {
-            try
-            {
-               
-                VirtualUserEN vicen = Session["user"] as VirtualUserEN;
-                TradeOffCEN trade = new TradeOffCEN();
-
-                trade.Publish(vicen.Id, tradeoff.DesiredCard.Id, tradeoff.OfferedUserCard.Id);
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: TradeOff/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: TradeOff/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: TradeOff/Delete/5
         public ActionResult Delete(int idTrade)
         {
@@ -267,22 +184,6 @@ namespace VirtualDeckWeb.Controllers
             tradeOffCEN.Destroy(idTrade);
 
             return RedirectToAction("Index");
-        }
-
-        // POST: TradeOff/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

@@ -23,14 +23,14 @@
         {
             if (usu == true)
             {
-                if (ViewBag.Title == "VirtualUserDetails")
+                if (ViewBag.ButtonType == "VirtualUserDetails" || ViewBag.ButtonType == "SelectUserCardToPublish")
                 {
                     <div class="centerDiv">
                         <h3 style="margin-bottom:1em;">No tienes niguna carta :(</h3>
                         @Html.ActionLink("Ir a la tienda", "Cards", "Shop", null, new { @class = "action-button" })
                     </div>
                 }
-                else
+                else if(ViewBag.ButtonType == "SelectToTrade")
                 {
                     <div class="centerDiv">
                         <h3 style="margin-bottom:1em;">No tienes niguna copia de esa carta :(</h3>
@@ -79,11 +79,11 @@
                         </div>
                         @if (usu == true)
                         {
-                            if (ViewBag.Title == "VirtualUserDetails")
+                            if (ViewBag.ButtonType == "VirtualUserDetails")
                             {
                                 @Html.ActionLink("Destruir +" + (int)item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
                             }
-                            else if (ViewBag.Title == "SelectUserCardToPublish")
+                            else if (ViewBag.ButtonType == "SelectUserCardToPublish")
                             {
                                 @Html.ActionLink("Seleccionar", "SelectCardToPublish", "TradeOff", new { idOffered = item.Id }, new { @class = "action-button" })
                             }
