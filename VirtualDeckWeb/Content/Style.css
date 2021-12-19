@@ -1111,8 +1111,43 @@ width: 100%;
 .about-nosotros{
     display:grid;
     justify-content:center;
+    border:1px solid;
+    width: 300px;
+    margin:auto;
+    background-color: var(--light-dark);
+    padding:1em;
+    border-radius:6px;
 }
 
 .about-nosotros>p{
     text-align:center;
+    padding-top:.4em;
+    padding-bottom:.4em;
+    margin:0;
+}
+
+.about-nosotros>p:not(.about-nosotros>p:first-child){
+    border-top:1px solid;
+}
+
+.about>div:not(.about-nosotros)>p{
+    margin-bottom:1.5em;
+}
+
+.about{
+    display:grid;
+    justify-content:center;
+    width: 100%;
+}
+
+.about>h2{
+    text-align:center;
+}
+
+.about>hr{
+    margin-top:0;
+}
+
+.about>img{
+    margin:auto;
 }
