@@ -81,7 +81,7 @@
                         {
                             if (ViewBag.Title == "VirtualUserDetails")
                             {
-                                @Html.ActionLink("Destruir +" + item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
+                                @Html.ActionLink("Destruir +" + (int)item.Tokens + " tokens", "Index", "UserCard", new { idUsuario = id, idCarta = item.Id }, new { @class = "cancel-button" })
                             }
                             else if (ViewBag.Title == "SelectUserCardToPublish")
                             {

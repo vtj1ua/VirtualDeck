@@ -12,7 +12,7 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            @Html.ActionLink("Seleccionar", "SelectToPublish", new { }, new { @class = "action-button" })
+            @Html.ActionLink("Seleccionar", "SelectUserCardToPublish", new { }, new { @class = "action-button" })
             <div class="form-horizontal pubTrade">
                 <div class="cardsTrade">
                     <div class="form-group">
