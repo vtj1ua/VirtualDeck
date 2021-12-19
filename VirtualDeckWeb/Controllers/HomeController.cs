@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using VirtualDeckGenNHibernate.CAD.VirtualDeck;
 using VirtualDeckGenNHibernate.CEN.VirtualDeck;
+using VirtualDeckGenNHibernate.CP.VirtualDeck;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
 using VirtualDeckWeb.Assemblers;
 using VirtualDeckWeb.Models;
@@ -19,21 +20,21 @@ namespace VirtualDeckWeb.Controllers
             SessionInitialize();
             CardCAD cardcad = new CardCAD(session);
             CardCEN cardcen = new CardCEN(cardcad);
+            CardCP cardCP = new CardCP();
 
-            IList<CardEN> cards = cardcen.ReadAll(0,4);
-            IEnumerable<CardViewModel> listaCards1 = new CardAssembler().ConvertListENToModel(cards).ToList();
+            IList<CardEN> newCards = cardcen.ReadAll(0,10);
+            IEnumerable<CardViewModel> newCardsModel = new CardAssembler().ConvertListENToModel(newCards).ToList();
 
-
-            IList<CardEN> cards1 = cardcen.ReadAll(4, 4);
-            IEnumerable<CardViewModel> listaCards2 = new CardAssembler().ConvertListENToModel(cards1).ToList();
-
-
-            IList<CardEN> cards2 = cardcen.ReadAll(0, -1);
-            IEnumerable<CardViewModel> listaCards3 = new CardAssembler().ConvertListENToModel(cards2).ToList();
-
-            ViewData["List1"] = listaCards1;
-            ViewData["List2"] = listaCards2;
-            ViewData["List3"] = listaCards3;
+            VirtualUserEN virtualUser = (Session["User"] as VirtualUserEN); 
+            if(virtualUser != null)
+            {
+                IList<CardEN> recommendedCards = cardCP.GetUserRecommendedCards(virtualUser.Id);
+                IEnumerable<CardViewModel> recommendedCardsModel = new CardAssembler().ConvertListENToModel(recommendedCards).ToList();
+                ViewData["RecommendedCards"] = recommendedCardsModel;
+            }
+            
+            ViewData["NewCards"] = newCardsModel;
+            
 
             SessionClose();
             return View();

@@ -25,8 +25,6 @@ namespace VirtualDeckWeb.Controllers
             IList<CardEN> cards = null;
             if ((search != null && search != "") || minPrice != null || maxPrice != null || type != null || rarity != null)
             {
-                //cards = cardcen.CardsByNameOrDescription("%" + search + "%");
-
                 if (search == null)
                     search = "";
                 if (minPrice == null)
@@ -77,7 +75,8 @@ namespace VirtualDeckWeb.Controllers
             return View(listaCards);
         }
 
-        public ActionResult Packs(String search, int page = 0)
+        public ActionResult Packs(string search, int? minPrice, int? maxPrice,
+            CardTypeEnum? type, RarityEnum? rarity, int page = 0)
         {
             SessionInitialize();
 
@@ -85,15 +84,32 @@ namespace VirtualDeckWeb.Controllers
             PackCEN packcen = new PackCEN(packcad);
             IList<PackEN> packs = null;
 
-            if (search != null && search != "")
+            if ((search != null && search != "") || minPrice != null || maxPrice != null || type != null || rarity != null)
             {
-                packs = packcen.PacksByNameOrDescription("%" + search + "%");
+                if (search == null)
+                    search = "";
+                if (minPrice == null)
+                    minPrice = 0;
+                if (maxPrice == null)
+                    maxPrice = 1000000;
+                if (type == null || type == CardTypeEnum.None)
+                    type = CardTypeEnum.All;
+                if (rarity == null || rarity == RarityEnum.None)
+                    rarity = RarityEnum.All;
+
                 this.ViewBag.Search = search;
+                this.ViewBag.MinPrice = minPrice;
+                this.ViewBag.MaxPrice = maxPrice;
+                this.ViewBag.Type = type;
+                this.ViewBag.Rarity = rarity;
+                this.ViewBag.FiltersAreSet = true;
+
+                packs = packcen.PacksByAllFilters("%" + search + "%", minPrice, maxPrice, type, rarity);
             }
             else
             {
                 packs = packcen.ReadAll(0, -1);
-                this.ViewBag.Search = "";
+                this.ViewBag.FiltersAreSet = false;
             }
 
             int PageSize = 8;

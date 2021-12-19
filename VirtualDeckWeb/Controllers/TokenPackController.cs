@@ -36,11 +36,12 @@ namespace VirtualDeckWeb.Controllers
         [Authorize]
         public ActionResult Buy(TokenPackViewModel model)
         {
+            VirtualUserEN virtualUserEN = Session["User"] as VirtualUserEN;
             try
             {
                 // TODO: Add insert logic here
                 TokenPackCP tokenPackCP = new TokenPackCP();
-                VirtualUserEN virtualUserEN = Session["User"] as VirtualUserEN;
+                
 
                 tokenPackCP.PurchaseTokenPack(model.Id, virtualUserEN.Id);
 
@@ -52,7 +53,7 @@ namespace VirtualDeckWeb.Controllers
             {
                 TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Error",
                     "Se ha producido un error al intentar efectuar la compra.");
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Details", "VirtualUser", new { id = virtualUserEN.Id });
             }
         }
     }

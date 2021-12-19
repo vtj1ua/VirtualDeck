@@ -45,7 +45,7 @@ public void Trade (int p_oid, int p_givenUserCard)
 
                 notificationCAD = new NotificationCAD (session);
                 notificationCEN = new NotificationCEN (notificationCAD);
-                notificationCP = new NotificationCP(session);
+                notificationCP = new NotificationCP (session);
 
                 //asigno al intercambio el exchanger
                 tradeOffCEN.AssignExchanger (p_oid, userCardEN.User.Id);

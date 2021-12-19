@@ -13,7 +13,7 @@ namespace VirtualDeckWeb.Assemblers
         {
             BillViewModel bill = new BillViewModel();
             bill.Id = en.Id;
-            bill.Date = (DateTime)en.Date;
+            bill.Date = en.Date.Value;
             bill.Amount = en.Amount;
             return bill;
 

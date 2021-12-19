@@ -30,6 +30,7 @@ public VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN CreateAssociateProduct (in
         NotificationCAD notificationCAD = null;
         NotificationCEN notificationCEN = null;
         NotificationCP notificationCP = null;
+
         VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN result = null;
 
 
@@ -41,7 +42,7 @@ public VirtualDeckGenNHibernate.EN.VirtualDeck.BillEN CreateAssociateProduct (in
 
                 notificationCAD = new NotificationCAD (session);
                 notificationCEN = new NotificationCEN (notificationCAD);
-                notificationCP = new NotificationCP(session);
+                notificationCP = new NotificationCP (session);
 
 
                 int oid;

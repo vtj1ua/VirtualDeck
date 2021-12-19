@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.PackViewModel>
+@using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
+
+@Scripts.Render("~/Scripts/shop-filters.js")
 
 @{
     ViewBag.Title = "Sobres";
@@ -23,11 +26,86 @@
     </ul>
 </div>
 
+@{
+    string filterSearch = ViewBag.Search ?? "";
+    int filterMinPrice = ViewBag.MinPrice ?? 0;
+    int filterMaxPrice = ViewBag.MaxPrice ?? 1000000;
+    int filterType = (int)(ViewBag.Type ?? CardTypeEnum.All);
+    if (filterType == (int)(CardTypeEnum.All))
+    {
+        filterType = (int)(CardTypeEnum.None);
+    }
+    int filterRarity = (int)(ViewBag.Rarity ?? RarityEnum.All);
+    if (filterRarity == (int)RarityEnum.All)
+    {
+        filterRarity = (int)(RarityEnum.None);
+    }
+}
 
-        <form class="forms" asp-controller="ShopController" asp-action="Packs">
-            <input type="text" name="search" placeholder="Introduce el nombre" />
-            <input class="bot-userInfo action-button" type="submit" value="Buscar" />
-        </form>
+<form class="forms" asp-controller="ShopController" asp-action="Packs">
+    <input type="text" name="search" placeholder="Introduce un nombre o descripción" value="@filterSearch" />
+    <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+
+    <div class="shop-filters-container">
+        <div>
+            <h2>Filtros</h2>
+            <label for="open-close-filters">Cerrar</label>
+        </div>
+
+        <input type="checkbox" id="open-close-filters" hidden />
+        <div>
+            <fieldset class="shop-filters-price">
+                <h3>Precio</h3>
+                <span>
+                    <label>Mínimo</label>
+                    <input type="number" name="minPrice" min="0" max="1000000" value="@filterMinPrice" />
+                </span>
+                <span>
+                    <label>Máximo</label>
+                    <input type="number" name="maxPrice" min="0" max="1000000" value="@filterMaxPrice" />
+                </span>
+            </fieldset>
+            <div>
+                <fieldset class="shop-filters-types-and-rarity">
+                    <h3>Tipo</h3>
+                    @{
+                        string[] typeNames = { "Bicho", "Dragon", "Electrico", "Lucha", "Fuego",
+                                           "Volador", "Fantasma", "Hierba", "Tierra", "Hielo",
+                                           "Normal", "Veneno", "Psiquico", "Roca", "Agua"};
+                        int currentVal = 1;
+                        for (int i = 0; i < typeNames.Length; ++i)
+                        {
+                            bool isChecked = (currentVal & filterType) != 0;
+                            <span>
+                                <label>@typeNames[i]</label>
+                                <input type="checkbox" onchange="SetType(this, @currentVal)" checked="@isChecked" />
+                            </span>
+                            currentVal <<= 1;
+                        }
+                    }
+                    <input id="type-input" name="type" type="hidden" value="@filterType" />
+                </fieldset>
+                <fieldset class="shop-filters-types-and-rarity">
+                    <h3>Rareza</h3>
+                    @{
+                        string[] rarityNames = { "Básica", "Común", "Poco común", "Rara", "Epica", "Legendaria", "Mítica" };
+                        currentVal = 1;
+                        for (int i = 0; i < rarityNames.Length; ++i)
+                        {
+                            bool isChecked = (currentVal & filterRarity) != 0;
+                            <span>
+                                <label>@rarityNames[i]</label>
+                                <input type="checkbox" onchange="SetRarity(this, @currentVal)" checked="@isChecked" />
+                            </span>
+                            currentVal <<= 1;
+                        }
+                    }
+                    <input id="rarity-input" name="rarity" type="hidden" value="@filterRarity" />
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</form>
 
 @Html.Partial("PackListShopPartial", Model)
 
@@ -37,9 +115,9 @@
         if (ViewBag.Page == 0)
         {
             <li class="disabled">
-                @if (ViewBag.Search != "")
+                @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                 {
-                    @Html.ActionLink("«", "Packs", new { page = 0, search = ViewBag.Search })
+                    @Html.ActionLink("«", "Packs", new { page = 0, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                 }
                 else
                 {
@@ -50,9 +128,9 @@
         else
         {
             <li>
-                @if (ViewBag.Search != "")
+                @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                 {
-                    @Html.ActionLink("«", "Packs", new { page = 0, search = ViewBag.Search })
+                    @Html.ActionLink("«", "Packs", new { page = 0, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                 }
                 else
                 {
@@ -69,9 +147,9 @@
                 if (ViewBag.Page + 1 == i)
                 {
                     <li class="active">
-                        @if (ViewBag.Search != "")
+                        @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                         {
-                            @Html.ActionLink(i.ToString(), "Packs", new { page = i - 1, search = ViewBag.Search })
+                            @Html.ActionLink(i.ToString(), "Packs", new { page = i - 1, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                         }
                         else
                         {
@@ -82,9 +160,9 @@
                 else if (ViewBag.Page + 1 == i - 1 || ViewBag.Page + 1 == i - 2 || ViewBag.Page + 1 == i + 1 || ViewBag.Page + 1 == i + 2)
                 {
                     <li>
-                        @if (ViewBag.Search != "")
+                        @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                         {
-                            @Html.ActionLink(i.ToString(), "Packs", new { page = i - 1, search = ViewBag.Search })
+                            @Html.ActionLink(i.ToString(), "Packs", new { page = i - 1, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                         }
                         else
                         {
@@ -115,9 +193,9 @@
         if (ViewBag.Page == ViewBag.Total - 1)
         {
             <li class="disabled">
-                @if (ViewBag.Search != "")
+                @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                 {
-                    @Html.ActionLink("»", "Packs", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                    @Html.ActionLink("»", "Packs", new { page = ViewBag.Total - 1, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                 }
                 else
                 {
@@ -128,9 +206,9 @@
         else
         {
             <li>
-                @if (ViewBag.Search != "")
+                @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                 {
-                    @Html.ActionLink("»", "Packs", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                    @Html.ActionLink("»", "Packs", new { page = ViewBag.Total - 1, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                 }
                 else
                 {

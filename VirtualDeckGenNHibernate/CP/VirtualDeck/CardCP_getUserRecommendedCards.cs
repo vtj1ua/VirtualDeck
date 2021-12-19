@@ -45,7 +45,7 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
 
                 if (cardBills.Count > 0) {
                         for (int i = 0; i < 5 && i < cardBills.Count; ++i) {
-                                CardEN card = cardCEN.ReadOID (cardBills [i].Product.Id);
+                                CardEN card = cardCEN.ReadOID (cardBills[rnd.Next(0, cardBills.Count)].Product.Id);
                                 cardTypes |= card.Type;
                         }
                 }
@@ -53,10 +53,12 @@ public System.Collections.Generic.IList<VirtualDeckGenNHibernate.EN.VirtualDeck.
                         cardTypes = CardTypeEnum.All;
 
                 IList<CardEN> cards = cardCEN.CardsByTypeAndRarity (cardTypes,
-                        RarityEnum.Basic | RarityEnum.Common | RarityEnum.Uncommon | RarityEnum.Rare | RarityEnum.Epic);
+                        RarityEnum.All);
 
+                if (cards.Count == 0)
+                    cards = cardCEN.ReadAll(0, -1);
 
-                for (int i = 0; i < 10 && cards.Count > 0; ++i) {
+                for (int i = 0; i < 5 && cards.Count > 0; ++i) {
                         int index = rnd.Next (0, cards.Count);
                         recommendedCards.Add (cards [index]);
 
