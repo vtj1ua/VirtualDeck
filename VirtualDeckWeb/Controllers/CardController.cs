@@ -8,6 +8,10 @@ using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
 using VirtualDeckGenNHibernate.CP.VirtualDeck;
 using VirtualDeckWeb.Models;
+//email
+using System.Net;
+using System.Net.Mail;
+
 
 using VirtualDeckWeb.Assemblers;
 
@@ -64,6 +68,8 @@ namespace VirtualDeckWeb.Controllers
             {
                 //SessionInitialize();
                 int cardId = Int32.Parse(collection.Get("cardId"));
+                CardCEN cardCEN = new CardCEN();
+                CardEN CardEN = cardCEN.ReadOID(cardId);
                 // TODO: Add insert logic here
                 int amount = Int32.Parse(collection.Get("amount"));
 
@@ -72,7 +78,47 @@ namespace VirtualDeckWeb.Controllers
 
                 CardCP cardCP = new CardCP();
                 cardCP.PurchaseUserCard(cardId, user.Id, amount);
+
+                // correo -----------------------------
                 
+                string web = "https://virtualdeck.000webhostapp.com/img/logoAzul.png";
+                
+                string body = "<div style=\"color: #fff; background: #000; width: 500px; height: 300px; text-align: center; padding-top: 1em; border-radius: .5em\">" +
+                        "<img src = \"" + web +"\" alt = \"VirtualDeck\" style = \"width: 50px;\">" +
+   
+                            "<h1 style = \"color: #fff; margin-top: 0.1em;\">Compra realizada </h1>" +
+        
+                            "<hr style = \"color: #fff; background: #fff; width: 300px;\">" +
+         
+                            "<p style = \"color: #fff;\">Se ha realizado la compra satisfactoriamente.</p>" +
+              
+                            "<p style = \"color: #fff;\">¡Enhorabuena!</p>" +
+                  
+                            "<p style = \"color: #fff;\">Ya perteneces a nuestra comunidad.</p>" +
+                        "</div>";
+
+                MailMessage msj = new MailMessage();
+                SmtpClient cli = new SmtpClient();
+
+                //String email = CreateUserWizard1.Email.ToString();
+
+                msj.From = new MailAddress("VirtualDeckDSM@gmail.com");
+                msj.To.Add(new MailAddress("jmu3@gcloud.ua.es"));
+                msj.To.Add(new MailAddress("mjlv3@gcloud.ua.es"));
+
+                msj.Subject = "VirtualDeck";
+                //msj.Body = "Hola Compañero Stiven, felicidades por obtener nuestra mejor carta.";
+                msj.Body = body;
+                msj.IsBodyHtml = true;
+
+
+                cli.Host = "smtp.gmail.com";
+                cli.Port = 587;
+                cli.Credentials = new NetworkCredential("VirtualDeckDSM@gmail.com", "virtualdeckcorreo123");
+                cli.EnableSsl = true;
+                cli.Send(msj);
+                
+                // correo -----------------------------
                 return RedirectToAction(actionName: "Cards", controllerName: "Shop");
             }
             catch
