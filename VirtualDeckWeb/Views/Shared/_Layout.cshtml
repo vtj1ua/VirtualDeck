@@ -11,10 +11,11 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
 </head>
-<body>
-    <div class="container">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-            <h1>VIRTUALDECK</h1>
+<body >
+    <div class="contenedorNav">
+        <div>
+            <img src="~/Resources/logoAzul.png" height="100" width="100" />
+            <h1 class="headTitle">VIRTUALDECK</h1>
         </div>
     </div>
     <div class="navbar navbar-inverse navbar-light bg-light">
@@ -27,14 +28,51 @@
                 </button>
                
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Tienda", "Cards", "Shop")</li>
-                    <li>@Html.ActionLink("Usuarios", "Index", "VirtualUser")</li>
+            <div class="navbar-collapse collapse centerNav">
+                <ul class="nav navbar-nav" id="barraNav">
+                    
+                    <li>
+                        @if (ViewBag.Title == "Pagina Principal")
+                        {
+                            @Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "sel" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "no-sel"})
+                        }
+                    </li>
+                    <li>
+                        @if (ViewBag.Title == "Cartas" || ViewBag.Title == "Sobres" || ViewBag.Title == "Detalle Carta" || ViewBag.Title == "Detalle Sobre" || ViewBag.Title == "Packs de Tokens" || ViewBag.Title == "Detalle Pack Tokens")
+                        {
+                            @Html.ActionLink("Tienda", "Cards", "Shop", null, new { @class = "sel" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Tienda", "Cards", "Shop", null, new { @class = "no-sel"})
+                        }
+                    </li>
+                    <li>
+                        @if (ViewBag.Title == "Usuarios" || ViewBag.Title == "Perfil Usuario")
+                        {
+                            @Html.ActionLink("Usuarios", "Index", "VirtualUser", null, new { @class = "sel" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Usuarios", "Index", "VirtualUser", null, new { @class = "no-sel" })
+                        }
+                    </li>
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Mercado", "Index", "TradeOff")</li>
+                <li>
+                    @if (ViewBag.Title == "Intercambios" || ViewBag.Title == "Publicar Intercambio")
+                    {
+                        @Html.ActionLink("Mercado", "Index", "TradeOff", null, new { @class = "sel"})
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Mercado", "Index", "TradeOff", null, new { @class = "no-sel" })
+                    }
+                </li>
                         <li>@Html.ActionLink("Combate", "", "")</li>
                     }
                 </ul>
@@ -45,8 +83,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        <footer class="foot-Comun">
+            <p>&copy; @DateTime.Now.Year - VirtualDeck - Ingeniería Multimedia - @Html.ActionLink("Acerca de", "About", "Home")</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")

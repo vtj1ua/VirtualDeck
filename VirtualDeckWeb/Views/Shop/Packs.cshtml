@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<VirtualDeckWeb.Models.PackViewModel>
 
 @{
-    ViewBag.Title = "Packs";
+    ViewBag.Title = "Sobres";
 }
 
 <div class="tabs">
@@ -30,4 +30,114 @@
         </form>
 
 @Html.Partial("PackListShopPartial", Model)
+
+<ul class="pagination pagList">
+    @if (ViewBag.Total > 1 && ViewBag.Page <= ViewBag.MaxPage)
+    {
+        if (ViewBag.Page == 0)
+        {
+            <li class="disabled">
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("«", "Packs", new { page = 0, search = ViewBag.Search })
+                }
+                else
+                {
+                    @Html.ActionLink("«", "Packs", new { page = 0 })
+                }
+            </li>
+        }
+        else
+        {
+            <li>
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("«", "Packs", new { page = 0, search = ViewBag.Search })
+                }
+                else
+                {
+                    @Html.ActionLink("«", "Packs", new { page = 0 })
+                }
+            </li>
+        }
+        if (ViewBag.Total > 0)
+        {
+            bool antes = false;
+            bool desps = false;
+            for (int i = 1; i <= ViewBag.Total; i++)
+            {
+                if (ViewBag.Page + 1 == i)
+                {
+                    <li class="active">
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink(i.ToString(), "Packs", new { page = i - 1, search = ViewBag.Search })
+                        }
+                        else
+                        {
+                            @Html.ActionLink(i.ToString(), "Packs", new { page = i - 1 })
+                        }
+                    </li>
+                }
+                else if (ViewBag.Page + 1 == i - 1 || ViewBag.Page + 1 == i - 2 || ViewBag.Page + 1 == i + 1 || ViewBag.Page + 1 == i + 2)
+                {
+                    <li>
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink(i.ToString(), "Packs", new { page = i - 1, search = ViewBag.Search })
+                        }
+                        else
+                        {
+                            @Html.ActionLink(i.ToString(), "Packs", new { page = i - 1 })
+                        }
+                    </li>
+                }
+                else
+                {
+                    if (i < ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && antes == false)
+                    {
+                        <li>
+                            <a>...</a>
+                        </li>
+
+                        antes = true;
+                    }
+                    if (i > ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && desps == false)
+                    {
+                        <li>
+                            <a>...</a>
+                        </li>
+                        desps = true;
+                    }
+                }
+            }
+        }
+        if (ViewBag.Page == ViewBag.Total - 1)
+        {
+            <li class="disabled">
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("»", "Packs", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                }
+                else
+                {
+                    @Html.ActionLink("»", "Packs", new { page = ViewBag.Total - 1 })
+                }
+            </li>
+        }
+        else
+        {
+            <li>
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("»", "Packs", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                }
+                else
+                {
+                    @Html.ActionLink("»", "Packs", new { page = ViewBag.Total - 1 })
+                }
+            </li>
+        }
+    }
+</ul>
 
