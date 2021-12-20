@@ -458,21 +458,22 @@ width: 100%;
     transform: scale(1.2);
 }
     /*Formularios*/
-    .forms > input[type="text"] {
-        border-radius: 6px;
-        color: var(--dark);
-        margin-right: 1em;
-        height: 2.5em;
-        width: 18em;
-    }
+.forms > input[type="text"] {
+    border-radius: 6px;
+    color: var(--dark);
+    margin-right: 1em;
+    height: 2.5em;
+    width: 18em;
+    padding-left: 1em;
+}
 
-    .forms {
-        display: block;
-        width: fit-content;
-        margin: 2em 0;
-        margin-left: auto;
-        margin-right: auto
-    }
+.forms {
+    display: block;
+    width: fit-content;
+    margin: 2em 0;
+    margin-left: auto;
+    margin-right: auto
+}
 
     @media all and (max-width:425px) {
         .forms input {
