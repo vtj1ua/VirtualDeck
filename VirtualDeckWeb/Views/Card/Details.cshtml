@@ -8,6 +8,18 @@
     ViewBag.Title = "Detalle Carta";
 }
 
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+
+    int id = en.Id;
+
+    <div class="detalleTokens">
+        <p class="userInfoTokens tokensTienda"><strong>Tokens: </strong><span>@en.Tokens <img src="~/Resources/token.png" /></span></p>
+    </div>
+
+}
+
 <div class="container superior">
     <div class="row">
 
@@ -17,9 +29,11 @@
         </div>
 
 
+
         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 details">
             @using (Html.BeginForm("Buy", "Card", FormMethod.Post))
             {
+
                 <h3>@Html.DisplayFor(model => model.Name)</h3>
                 <p>@Html.DisplayFor(model => model.Description)</p>
                 <div>

@@ -5,6 +5,18 @@
     ViewBag.Title = "Detalle Sobre";
 }
 
+@if (Session["user"] != null)
+{
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
+
+    int id = en.Id;
+
+    <div class="detalleTokens">
+        <p class="userInfoTokens tokensTienda"><strong>Tokens: </strong><span>@en.Tokens <img src="~/Resources/token.png" /></span></p>
+    </div>
+
+}
+
 <div class="container superior">
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">

@@ -323,50 +323,50 @@ width: 100%;
 .tabs{
     margin-top: 2em; 
 }
-.tabs ul {
-    display: inline-flex;
-    justify-content:center;
-    width:100%;
-    border: 0;
-}
-.tabs ul li {
-    background-color: var(--light-dark);
-    border-radius: 0;
-    margin: 0;
-    text-align: center;
-}
+    .tabs ul:not(.pagination) {
+        display: inline-flex;
+        justify-content: center;
+        width: 100%;
+        border: 0;
+    }
+    .tabs ul:not(.pagination) li {
+        background-color: var(--light-dark);
+        border-radius: 0;
+        margin: 0;
+        text-align: center;
+    }
 
-.tabs ul li a {
-    background-color: var(--light-dark);
-    border-radius: 0;
-    color: var(--light);
-    margin: 0;
-}
+    .tabs ul:not(.pagination) li a {
+        background-color: var(--light-dark);
+        border-radius: 0;
+        color: var(--light);
+        margin: 0;
+    }
 
-.tabs ul li.active a {
+    .tabs ul:not(.pagination) li.active a {
+        background-color: var(--primary);
+        color: var(--light);
+        margin: 0;
+        border-radius: 0;
+    }
+
+.tabs ul:not(.pagination) li.active {
     background-color: var(--primary);
     color: var(--light);
     margin: 0;
     border-radius: 0;
 }
 
-.tabs ul li.active {
-    background-color: var(--primary);
-    color: var(--light);
-    margin: 0;
-    border-radius: 0;
-}
-
-.tabs ul li a:hover {
-    background: var(--primary);
-    margin: 0;
-    border-radius: 0;
-}
-.tabs ul li:hover {
-    background: var(--primary);
-    margin: 0;
-    border-radius: 0;
-}
+    .tabs ul:not(.pagination) li a:hover {
+        background: var(--primary);
+        margin: 0;
+        border-radius: 0;
+    }
+    .tabs ul:not(.pagination) li:hover {
+        background: var(--primary);
+        margin: 0;
+        border-radius: 0;
+    }
 
 
 
@@ -772,6 +772,25 @@ width: 100%;
             grid-template-columns: none !important;
         }
 
+        .ListTrade{
+            width:250px;
+        }
+
+            .ListTrade > img {
+                margin-top: 1em !important;
+                margin-bottom: 1em !important;
+                transform: rotate( 90deg);
+            }
+
+        .ListTrade>.centerDiv{
+            margin-top:1em;
+        }
+
+        .listTradeOff{
+            display:grid;
+            justify-content:center;
+        }
+
 
 
             .ListUsers > h3, .ListTrade > h3 {
@@ -1032,6 +1051,7 @@ width: 100%;
     padding: .5em;
     padding-top:1em;
     padding-bottom:1em;
+    background-color: var(--light-dark);
 }
 
     .ListTrade > h3 {
@@ -1316,13 +1336,139 @@ width: 100%;
     margin-right:2em;
 }
 
-.divNavOtro{
-    border:none !important;
-    border-radius:0 !important;
+.botonNav:hover {
+    background-color: var(--primary) !important;
 }
+
+    .botonNav:focus {
+        background-color: var(--light-dark) !important;
+    }
+
+    .divNavOtro {
+        border: none !important;
+        border-radius: 0 !important;
+    }
 
 .tokensTienda{
     float:right;
     margin-right:3em;
     margin-bottom:2em;
+}
+
+.centrarCom{
+    display:flex;
+    justify-content:center;
+}
+
+.centrarCom>h4{
+    font-style:italic;
+}
+
+.detalleTokens{
+    display:flex;
+    justify-content:end;
+}
+
+    .detalleTokens > p {
+        float: none !important;
+    }
+
+.listTradeOff{
+    margin-right:0;
+    margin-left:0;
+}
+
+.listTopTrades{
+    margin:1em;
+}
+
+.botonTrade {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin-top: 3em;
+}
+
+@media all and (max-width:1000px){
+    .ListTrade>h3{
+        display:none;
+    }
+
+    .ListTrade {
+        grid-template-columns: 35% 10% 35% 20%;
+    }
+}
+
+.sinInter{
+    margin-top:1em;
+}
+
+.centrarH2{
+    text-align:center;
+}
+
+.marginHR{
+    margin-left:1em;
+    margin-right:1em;
+}
+
+.marginP{
+    margin:0 1em;
+}
+
+.marginP>strong{
+    text-decoration:underline;
+}
+
+.pagination>li:not(.pagination>li:first-child):not(.pagination>li:last-child)>a{
+    
+    border-radius: 50%;
+    margin: 0 .3em;
+}
+
+.pagination > li:not(.active) > a {
+    background-color: var(--light-dark);
+    color: var(--font);
+    border-color: var(--light-dark);
+}
+
+.pagination > li:not(.active) > a:hover {
+    background-color: var(--primary);
+    color: var(--font);
+    border-color: var(--primary);
+}
+
+    .pagination > .active > a {
+        color: var(--dark);
+        background-color: var(--light);
+    }
+
+        .pagination > .active > a:hover {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+.pagination > li:first-child {
+    margin-right: .5em;
+    border-color: var(--light-dark) !important;
+}
+
+    .pagination > li:first-child > a, .pagination > li:last-child > a {
+        color: var(--light);
+        border: none !important;
+        background-color: transparent !important;
+    }
+
+    .pagination > li:first-child > a:hover, .pagination > li:last-child > a:hover {
+        color: var(--primary);
+    }
+
+.pagination > li:last-child {
+    margin-left: .5em;
+    border-color: var(--light-dark) !important;
+}
+
+.pagination > .puntosSusp >a {
+    background-color:transparent !important;
+    border: none !important;
 }
