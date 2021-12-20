@@ -86,14 +86,9 @@
                             else if (ViewBag.ButtonType == "SelectUserCardToPublish")
                             {
 
-                                using (Html.BeginForm("SelectCardToPublish", "TradeOff", FormMethod.Post))
-                                {
-                                    <input type="hidden" id="idOffered" name="idOffered" value=@item.Id />
-                                    <input style="margin-top:2em;" type="submit" value="Seleccionar" class="btn btn-default action-button" />
-                                }
-
+                                @Html.ActionLink("Seleccionar", "SelectCardToPublish", "TradeOff", new { idOffered = item.Id }, new { @class = "action-button" })
                             }
-                            else
+                            else if(ViewBag.ButtonType == "SelectToTrade")
                             {
                                 using (Html.BeginForm("CardSelectedToTrade", "TradeOff", FormMethod.Post))
                                 {

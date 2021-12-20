@@ -10,48 +10,165 @@
 }
 <h2>Selecciona la carta que desees</h2>
 <hr />
+<form class="forms" asp-controller="" asp-action="">
+    <input type="text" placeholder="Buscar" name="search" />
+    <input type="hidden" id="idOffered" name="idOffered" value=@ViewData["idOffered"] />
+    <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+</form>
+<div class="container">
+    <div class="row">
+        @foreach (var item in cards)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="profile-container">
+                    <a data-toggle="modal" data-target="#@item.Id">
+                        @Html.Partial("CardPartial", item)
+                    </a>
+                </div>
+            </div>
 
-@foreach (var item in cards)
-{
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="profile-container">
-            <a data-toggle="modal" data-target="#@item.Id">
-                @Html.Partial("CardPartial", item)
-            </a>
-        </div>
-    </div>
+            <!-- Modal -->
+            <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
 
-    <!-- Modal -->
-    <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+                <div class="m-modal">
+                    <div class="profile-user-card">
+                        @Html.Partial("CardPartial", item)
+                        <div class="profile-user-card-details">
+                            <h2>@item.Name</h2>
+                            <p><b>Tipo:</b> @item.Type</p>
+                            <p><b>Rareza:</b> @item.Rarity</p>
+                        </div>
+                    </div>
 
-        <div class="m-modal">
-            <div class="profile-user-card">
-                @Html.Partial("CardPartial", item)
-                <div class="profile-user-card-details">
-                    <h2>@item.Name</h2>
-                    <p><b>Tipo:</b> @item.Type</p>
-                    <p><b>Rareza:</b> @item.Rarity</p>
+
+
+
+                    @using (Html.BeginForm("Publish", "TradeOff", FormMethod.Post))
+                    {
+                        <input type="hidden" id="idOffered" name="idOffered" value=@ViewData["idOffered"] />
+                        <input type="hidden" id="idDesired" name="idDesired" value=@item.Id />
+                        <input style="margin-top:2em;" type="submit" value="Seleccionar" class="btn btn-default action-button" />
+                    }
+
+
+
+
+                    <img class="icon-close" onclick="var id = '#'+@item.Id; $(id).modal('hide'); $('#UserCards').modal('show');" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
+
                 </div>
             </div>
 
 
-
-
-            @using (Html.BeginForm("Publish", "TradeOff", FormMethod.Post))
-            {
-                <input type="hidden" id="idOffered" name="idOffered" value=@ViewData["idOffered"] />
-                <input type="hidden" id="idDesired" name="idDesired" value=@item.Id />
-                <input style="margin-top:2em;" type="submit" value="Seleccionar" class="btn btn-default action-button" />
-            }
-
-
-
-
-            <img class="icon-close" onclick="var id = '#'+@item.Id; $(id).modal('hide'); $('#UserCards').modal('show');" id="close-button" src="~/Resources/borrar.png" alt="Cerrar" />
-
-        </div>
+        }
     </div>
+</div>
+<ul class="pagination pagList">
+    @if (ViewBag.Total > 1 && ViewBag.Page <= ViewBag.MaxPage)
+    {
+        if (ViewBag.Page == 0)
+        {
+            <li class="disabled">
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("«", "SelectCardToPublish", new { page = 0, search = ViewBag.Search, idOffered = ViewData["idOffered"] })
+                }
+                else
+                {
+                    @Html.ActionLink("«", "SelectCardToPublish", new { page = 0, idOffered = ViewData["idOffered"] })
+                }
+            </li>
+        }
+        else
+        {
+            <li>
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("«", "SelectCardToPublish", new { page = 0, search = ViewBag.Search, idOffered = ViewData["idOffered"] })
+                }
+                else
+                {
+                    @Html.ActionLink("«", "SelectCardToPublish", new { page = 0, idOffered = ViewData["idOffered"] })
+                }
+            </li>
+        }
+        if (ViewBag.Total > 0)
+        {
+            bool antes = false;
+            bool desps = false;
+            for (int i = 1; i <= ViewBag.Total; i++)
+            {
+                if (ViewBag.Page + 1 == i)
+                {
+                    <li class="active">
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink(i.ToString(), "SelectCardToPublish", new { page = i - 1, search = ViewBag.Search, idOffered = ViewData["idOffered"] })
+                        }
+                        else
+                        {
+                            @Html.ActionLink(i.ToString(), "SelectCardToPublish", new { page = i - 1, idOffered = ViewData["idOffered"] })
+                        }
+                    </li>
+                }
+                else if (ViewBag.Page + 1 == i - 1 || ViewBag.Page + 1 == i - 2 || ViewBag.Page + 1 == i + 1 || ViewBag.Page + 1 == i + 2)
+                {
+                    <li>
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink(i.ToString(), "SelectCardToPublish", new { page = i - 1, search = ViewBag.Search, idOffered = ViewData["idOffered"] })
+                        }
+                        else
+                        {
+                            @Html.ActionLink(i.ToString(), "SelectCardToPublish", new { page = i - 1, idOffered = ViewData["idOffered"] })
+                        }
+                    </li>
+                }
+                else
+                {
+                    if (i < ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && antes == false)
+                    {
+                        <li>
+                            <a>...</a>
+                        </li>
 
-
-}
+                        antes = true;
+                    }
+                    if (i > ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && desps == false)
+                    {
+                        <li>
+                            <a>...</a>
+                        </li>
+                        desps = true;
+                    }
+                }
+            }
+        }
+        if (ViewBag.Page == ViewBag.Total - 1)
+        {
+            <li class="disabled">
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("»", "SelectCardToPublish", new { page = ViewBag.Total - 1, search = ViewBag.Search, idOffered = ViewData["idOffered"] })
+                }
+                else
+                {
+                    @Html.ActionLink("»", "SelectCardToPublish", new { page = ViewBag.Total - 1, idOffered = ViewData["idOffered"] })
+                }
+            </li>
+        }
+        else
+        {
+            <li>
+                @if (ViewBag.Search != "")
+                {
+                    @Html.ActionLink("»", "SelectCardToPublish", new { page = ViewBag.Total - 1, search = ViewBag.Search, idOffered = ViewData["idOffered"] })
+                }
+                else
+                {
+                    @Html.ActionLink("»", "SelectCardToPublish", new { page = ViewBag.Total - 1, idOffered = ViewData["idOffered"] })
+                }
+            </li>
+        }
+    }
+</ul>
 

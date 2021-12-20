@@ -410,11 +410,7 @@ width: 100%;
     background-color: var(--dark);
 }
 
-/*Necesario para los sobres*/
-.m-modal .pack-detail {
-    left: 0;
-    transform: translateX(20%);
-}
+/*SI hay una clase aqui de pack detais o algo asi hay que borrarla*/
 
 @media all and (min-width:768px) {
 
@@ -491,6 +487,69 @@ width: 100%;
     .selected {
         background-color: var(--primary) !important;
     }
+
+    /*Pagina de publicar*/
+
+.publish-card {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+.publish-text {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.publish-button {
+    margin: 2em auto;
+    width: fit-content;
+    
+}
+
+
+
+.publish-img-container {
+    margin: 1em auto;
+    width: fit-content;
+}
+    
+.img-publish {
+    transform: rotate(90deg);
+}
+
+.form-publish-center {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media all and (min-width:590px) {
+    
+
+    .publish-center {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .publish-center-container {
+        display:inline-flex;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .publish-card {
+        display: inline-block;
+        margin: 0 1em;
+    }
+    .img-publish {
+        transform: rotate(0deg);
+    }
+
+    .publish-img-container {
+        margin: auto;
+    }
+}
+
 
 /*##########################################################################################################*/
 /*########################################## VICTOR #######################################################*/

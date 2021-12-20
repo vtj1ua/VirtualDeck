@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Sobre abierto";
+    ViewBag.ButtonType = "openedpack";
+}
+
+
+@{
+    IEnumerable<VirtualDeckWeb.Models.UserCardViewModel> UserCards = ViewData["userCardList"] as IEnumerable<VirtualDeckWeb.Models.UserCardViewModel>;
+}
+
+<h2>¡Has conseguido todas estas cartas!</h2>
+<hr />
+
+<div class="container">
+    <div class="row">
+       
+            @Html.Partial("UserCardListPartial", UserCards)
+
+    </div>
+</div>
+
+<div class="publish-button">
+    @Html.ActionLink("Aceptar", "Details", "VirtualUser", new { id = ViewData["idUser"] }, new { @class = "acept-button" })
+</div>

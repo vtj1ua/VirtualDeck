@@ -9,55 +9,56 @@
 
 <div class="container">
     <div class="row ">
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            @Html.ActionLink("Seleccionar", "SelectUserCardToPublish", new { }, new { @class = "action-button" })
-            <div class="form-horizontal pubTrade">
-                <div class="cardsTrade">
-                    <div class="form-group">
-                        <label class="control-label col-md-2">Carta a ofrecer</label>
-                        <div class="col-md-10">
-
-
-                            @if (usercard != null)
-                            {
-                                @Html.Partial("UserCardPartial", usercard)
-                            }
-                            else
-                            {
-                                <img class="imgTrades" src="~/Resources/equis.png" />
-                            }
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-2">Carta requerida</label>
-                        <div class="col-md-10">
-                            @if (card != null)
-                            {
-                                @Html.Partial("CardPartial", card)
-                            }
-                            else
-                            {
-                                <img class="imgTrades" src="~/Resources/equis.png" />
-                            }
-                        </div>
-                    </div>
-                </div>
-
-                
+      
+        <div class="publish-center">
+            <div class="publish-button">
+                @Html.ActionLink("Volver a seleccionar", "SelectUserCardToPublish", new { }, new { @class = "action-button" })
             </div>
-        }
+            
+            <div class="publish-center-container">
+
+                <div class="publish-card">
+                    <label class="publish-text">Carta ofrecida</label>
+
+                    @if (usercard != null)
+                    {
+                        @Html.Partial("UserCardPartial", usercard)
+                    }
+                    else
+                    {
+                        <img class="imgTrades" src="~/Resources/equis.png" />
+                    }
+                   
+                </div>
+                <div class="publish-img-container"> 
+                    <img class="img-publish" style="width: 7em;" src="~/Resources/inter.png" alt="Flechas" />
+                </div>
+               
+                <div class="publish-card">
+                    <label class="publish-text">Carta deseada</label>
+                    
+                        @if (card != null)
+                        {
+                            @Html.Partial("CardPartial", card)
+                        }
+                        else
+                        {
+                            <img class="imgTrades" src="~/Resources/equis.png" />
+                        }
+                    
+                </div>
+            </div>
+
+            @using (Html.BeginForm("FinishAndPublish", "TradeOff", FormMethod.Post, new { @class = "form-publish-center" }))
+            {
+                <input type="hidden" id="idOffered" name="idOffered" value=@usercard.Id />
+                <input type="hidden" id="idDesired" name="idDesired" value=@card.Id />
+                <input style="margin-top:2em;" type="submit" value="Crear" class="btn btn-default acept-button" />
+            }
+        </div>
     </div>
 </div>
 
-@using (Html.BeginForm("FinishAndPublish", "TradeOff", FormMethod.Post))
-{
-    <input type="hidden" id="idOffered" name="idOffered" value=@usercard.Id />
-    <input type="hidden" id="idDesired" name="idDesired" value=@card.Id />
-    <input style="margin-top:2em;" type="submit" value="Crear" class="btn btn-default acept-button" />
-}
 
 
 
