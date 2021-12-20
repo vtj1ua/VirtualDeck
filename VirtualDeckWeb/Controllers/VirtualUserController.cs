@@ -128,6 +128,8 @@ namespace VirtualDeckWeb.Controllers
             IEnumerable<UserPackViewModel> userPackViewModelList = new UserPackAssembler().ConvertListENToModel(userPackENList);
 
 
+
+
             ViewData["userPackList"] = userPackViewModelList;
             ViewData["userCardList"] = userCardViewModelList;
             ViewData["idUser"] = model.Id;

@@ -44,5 +44,8 @@ namespace VirtualDeckWeb.Models
         [ScaffoldColumn(false)]
         public string DeletedImg { get; set; }
 
+        [ScaffoldColumn(false)]
+        public int NumPacks { get; set; }
+
     }
 }

@@ -812,12 +812,14 @@ width: 100%;
         }
     }
 
-    .userInfo {
-        display: grid;
-        background-color: var(--light-dark);
-        padding: 1em;
-        grid-template-columns: 220px 40% 30.5%;
-    }
+.userInfo {
+    display: grid;
+    background-color: var(--light-dark);
+    padding: 1em;
+    grid-template-columns: 220px 40% 30.5%;
+    margin: 0 2em;
+    border-radius:6px;
+}
 
         .userInfo > img {
             width: 15em;
@@ -1466,6 +1468,10 @@ width: 100%;
 .pagination > li:last-child {
     margin-left: .5em;
     border-color: var(--light-dark) !important;
+}
+
+.pagination > .disabled {
+    opacity: .2;
 }
 
 .pagination > .puntosSusp >a {
