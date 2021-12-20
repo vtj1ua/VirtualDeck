@@ -267,6 +267,7 @@
     <Content Include="Resources\borrar.png" />
     <Content Include="Resources\equis.png" />
     <Content Include="Resources\iconoSobres.png" />
+    <Content Include="Resources\IconTypes\All.png" />
     <Content Include="Resources\IconTypes\Bug.png" />
     <Content Include="Resources\IconTypes\Dragon.png" />
     <Content Include="Resources\IconTypes\Electric.png" />
