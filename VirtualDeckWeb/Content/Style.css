@@ -1592,7 +1592,7 @@ width: 100%;
     }
 
     .superior {
-        padding: 2em 0;
+        padding: 2em 1.5em;
         background: var(--light-dark);
         width: 25em;
         border-radius: 0.5em;
@@ -1601,7 +1601,7 @@ width: 100%;
 
 @media all and (min-width:769px) {
     .superior {
-        padding: 2em 0;
+        padding: 2em 1.5em;
         background: var(--light-dark);
         border-radius: 0.5em;
     }
@@ -1699,7 +1699,7 @@ width: 100%;
         }
 
         .attack > h4 {
-            margin-top: 2em;
+            margin-top: 2.5em;
         }
 
     .Fighting {
