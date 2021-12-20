@@ -1743,12 +1743,52 @@ width: 100%;
     background-color: white;
     color: black;
 }
+.description > div {
+    display: block;
+    
+}
+
+.description > div > label {
+    display: block;
+    border-bottom: 2px solid var(--dark);
+}
+
+.description > div > p {
 */
 
 .description > div {
     display: block;
+    margin:0;
+    padding:0 0 0.75em 0;
 }
 
+.description {
+    height: fit-content;
+    background: var(--light-dark);
+    border-radius: 5px;
+    padding: 0.5em;
+    margin: 0 1em;
+}
+
+@media all and (min-width:769px) {
+    .description {
+       
+        margin: 0;
+    }
+    .description > div > label {
+        display: inline-block;
+        border-bottom: 0;
+    }
+
+    .description > div > p {
+        display: inline-block;
+        padding: 0.5em;
+    }
+}
+
+
+
+/*-----------------------------------------------------------------*/
 /*-----------------------------------------------------------------*/
 
 .containerAttacks{
