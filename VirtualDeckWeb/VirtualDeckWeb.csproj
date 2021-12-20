@@ -293,6 +293,7 @@
     <Content Include="Resources\PackRarities\Uncommon.png" />
     <Content Include="Resources\token.png" />
     <Content Include="Resources\cardIcon.png" />
+    <Content Include="Resources\Type\a.PNG" />
     <Content Include="Resources\Type\articuno.jpg" />
     <Content Include="Resources\Type\baby_yoda.png" />
     <Content Include="Resources\Type\beedrill.jpg" />
@@ -306,6 +307,7 @@
     <Content Include="Resources\Type\groudon.jpg" />
     <Content Include="Resources\Type\haxorus.jpg" />
     <Content Include="Resources\Type\hitmonchan.jpg" />
+    <Content Include="Resources\Type\lebron.png" />
     <Content Include="Resources\Type\martin_el_bufas.png" />
     <Content Include="Resources\Type\martin_waterpolista.PNG" />
     <Content Include="Resources\Type\mewtwo.PNG" />
@@ -322,6 +324,7 @@
     <Content Include="Resources\Type\pikachu.png" />
     <Content Include="Resources\Type\snorlax.PNG" />
     <Content Include="Resources\Type\torterra.jpg" />
+    <Content Include="Resources\Type\tramboliko.jpg" />
     <Content Include="Resources\Type\weezing.jpg" />
     <Content Include="Resources\usuario.png" />
     <Content Include="Scripts\bootstrap.js" />

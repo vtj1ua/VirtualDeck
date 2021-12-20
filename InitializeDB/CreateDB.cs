@@ -289,12 +289,12 @@ public static void InitializeData ()
 
                 //CARDS
                 //BUG CARDS
-                cardCEN.New_("Beedrill", "Tiene tres aguijones venenosos, dos en las patas anteriores y uno en la parte baja del abdomen, con los que ataca a sus enemigos una y otra vez", 0, "beedrill.jpg", CardTypeEnum.Bug, 0, 0, 0, 0, RarityEnum.Basic, new List<int> { bugAttack1, bugAttack2, bugAttack6, flyingAttack2, flyingAttack3 });
-                cardCEN.New_("Beedrill Hacendado", "Como el beedrill normal pero de hacendado", 0, "beedrill_hacendado.jpg", CardTypeEnum.Bug, 0, 0, 0, 0, RarityEnum.Basic, new List<int> { bugAttack3, bugAttack5, bugAttack9, flyingAttack4, flyingAttack5 });
-                cardCEN.New_("Martín El Bufas", "Martín Irles Rizo es E S P E C T A C U L A R", 0, "martin_el_bufas.png", CardTypeEnum.Bug, 46, 24, 18, 30, RarityEnum.Mythical, new List<int> { fightingAttack1, fightingAttack2, psychicAttack1 });
+                cardCEN.New_("Beedrill", "Tiene tres aguijones venenosos, dos en las patas anteriores y uno en la parte baja del abdomen, con los que ataca a sus enemigos una y otra vez", 200, "beedrill.jpg", CardTypeEnum.Bug, 0, 0, 0, 0, RarityEnum.Basic, new List<int> { bugAttack1, bugAttack2, bugAttack6, flyingAttack2, flyingAttack3 });
+                cardCEN.New_("Beedrill Hacendado", "Como el beedrill normal pero de hacendado", 500, "beedrill_hacendado.jpg", CardTypeEnum.Bug, 0, 0, 0, 0, RarityEnum.Basic, new List<int> { bugAttack3, bugAttack5, bugAttack9, flyingAttack4, flyingAttack5 });
+                cardCEN.New_("Martín El Bufas", "Martín Irles Rizo es E S P E C T A C U L A R", 1000000, "martin_el_bufas.png", CardTypeEnum.Bug, 46, 24, 18, 30, RarityEnum.Mythical, new List<int> { fightingAttack1, fightingAttack2, psychicAttack1 });
 
                 //DRAGON CARDS
-                cardCEN.New_("Haxorus", "Su mayor baza son sus colmillos, de gran tamaño y robustez. Lame la tierra en busca de minerales para mantenerlos fuertes y resistentes.", 0, "haxorus.jpg", CardTypeEnum.Dragon, 46, 24, 18, 30, RarityEnum.Mythical, new List<int> { dragonAttack1, dragonAttack3, dragonAttack5, rockAttack1 });
+                cardCEN.New_("Haxorus", "Su mayor baza son sus colmillos, de gran tamaño y robustez. Lame la tierra en busca de minerales para mantenerlos fuertes y resistentes.", 700, "haxorus.jpg", CardTypeEnum.Dragon, 46, 24, 18, 30, RarityEnum.Mythical, new List<int> { dragonAttack1, dragonAttack3, dragonAttack5, rockAttack1 });
 
                 //ELECTRIC CARDS
                 cardCEN.New_("Pikachu", "Cuanto más potente es la energía eléctrica que genera este Pokémon, más suaves y elásticas se vuelven las bolsas de sus mejillas", 2000, "pikachu.png", CardTypeEnum.Electric, 100, 90, 50, 70, RarityEnum.Basic, new List<int> { electricAttack1, electricAttack2, electricAttack3 });
@@ -352,6 +352,12 @@ public static void InitializeData ()
                 //WATER CARDS
                 cardCEN.New_("Martín Waterpolista", "", 3200, "martin_waterpolista.png", CardTypeEnum.Water, 46, 24, 18, 30, RarityEnum.Legendary, new List<int> { waterAttack1, waterAttack3, waterAttack5, waterAttack6, fightingAttack3, fightingAttack5 });
                 cardCEN.New_("Feraligatr", "Al morder con sus feroces fauces, mueve su cabeza despedazando salvajemente a su víctima", 3200, "feraligatr.jpg", CardTypeEnum.Water, 46, 24, 18, 30, RarityEnum.Common, new List<int> { waterAttack2, waterAttack3, waterAttack4 });
+
+                cardCEN.New_("Lebron James", "Esto no es un juego", 1200, "lebron.png", CardTypeEnum.Fighting, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { groundAttack1, grassAttack1, bugAttack1 });
+                cardCEN.New_("ª", "ª", 1500, "a.png", CardTypeEnum.Psychic, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { groundAttack1, grassAttack1, bugAttack1 });
+                cardCEN.New_("Tramboliko", "Hay que saber subir y bajar", 2000, "tramboliko.jpg", CardTypeEnum.Psychic, 25, 40, 36, 10, RarityEnum.Basic, new List<int> { groundAttack1, grassAttack1, bugAttack1 });
+
+
 
                 //BASE PACKS
                 PackCEN packCEN = new PackCEN ();
