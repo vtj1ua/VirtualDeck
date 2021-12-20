@@ -40,7 +40,7 @@
                 if (Model.Rarity == RarityEnum.Epic || Model.Rarity == RarityEnum.Legendary || Model.Rarity == RarityEnum.Mythical)
                 {
                     <p class="error-message error-p" style="margin-bottom:2em; color:var(--red) !important;">*Las cartas de rareza Épica, Legendaria y Mítica solo se pueden obtener en sobres</p>
-                    @Html.ActionLink("Ir a la Tienda de Sobres", "Pack", "Shop", routeValues: null, htmlAttributes: new { @class = "action-button" })
+                    @Html.ActionLink("Ir a la Tienda de Sobres", "Packs", "Shop", routeValues: null, htmlAttributes: new { @class = "action-button" })
                 }
                 else
                 {
@@ -61,7 +61,7 @@
                         </div>
 
 
-                        <input type="submit" value="Comprar" class="btn btn-default action-button" />
+                        <input type="submit" value="Comprar" class="action-button" />
                     }
                     else
                     {

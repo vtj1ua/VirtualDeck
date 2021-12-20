@@ -21,6 +21,7 @@ namespace VirtualDeckWeb.Models
         [Required(ErrorMessage = "Debes introducir la fecha de caducidad de la tarjeta")]
         [Display(Name = "Fecha de caducidad")]
         [DataType(DataType.Date)]
+        [RegularExpression(@"^([0-2][0-9]|(3)[0-1])(/)(((0)[0-9])|((1)[0-2]))(/)\d{4}$", ErrorMessage = "El formato de la fecha debe ser DD/MM/YYYY")]
         public Nullable<DateTime> ExpiryDate { get; set; }
         [Required(ErrorMessage = "Debes introducir el CVV")]
         [Display(Name = "CVV")]

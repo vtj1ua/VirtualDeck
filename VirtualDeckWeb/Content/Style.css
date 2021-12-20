@@ -1414,9 +1414,13 @@ width: 100%;
     }
 }
 
+.contenedorNav {
+    background-color: var(--dark);
+}
 
     .contenedorNav > div > h1 {
         letter-spacing: .1em;
+        
     }
 
 @media all and (max-width:550px){
