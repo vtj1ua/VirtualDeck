@@ -711,35 +711,36 @@ width: 100%;
         padding-right: 0 !important;
     }
 
-    .ListUsers {
-        display: grid;
-        grid-template-columns: 10% 50% 23% 15%;
-        align-items: center;
-        margin-top: 1em;
-        border: 2.5px solid;
-        padding: .5em;
+.ListUsers {
+    display: grid;
+    grid-template-columns: 10% 50% 23% 15%;
+    align-items: center;
+    margin-top: 1em;
+    border: 2px solid var(--light);
+    padding: .5em;
+    border-radius: 0.5em;
+}
+
+    .ListUsers > h3 {
+        margin: 0;
+        margin-left: 1em;
     }
 
-        .ListUsers > h3 {
-            margin: 0;
-            margin-left: 1em;
-        }
+    .ListUsers > img {
+        margin: auto;
+        width: 4em;
+        height: 4em;
+        max-width: 4em;
+        border-radius: 50%;
+        border: 1px solid;
+        object-fit: cover;
+    }
 
-        .ListUsers > img {
-            display: block;
-            margin: auto;
-            width: 4em;
-            max-width: 4em;
-            height: auto;
-            border-radius: 50%;
-            border: 1px solid;
-        }
-
-        .ListUsers > h3 > span > img, .userInfoCards > span > img {
-            width: 1.5em;
-            margin-bottom: .3em;
-            margin-left: .3em;
-        }
+    .ListUsers > h3 > span > img, .userInfoCards > span > img {
+        width: 1.5em;
+        margin-bottom: .3em;
+        margin-left: .3em;
+    }
 
 
 
