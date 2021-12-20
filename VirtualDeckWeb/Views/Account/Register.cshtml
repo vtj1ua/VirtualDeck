@@ -9,7 +9,8 @@
         new { @class = "default-form default-form-border", role = "form", @style = "width: 350px;" }))
     {
         @Html.AntiForgeryToken()
-        <!--@Html.ValidationSummary("", new { @class = "error-message" })-->
+        @Html.ValidationSummary("", new { @class = "error-message" })
+
         <div class="default-form-group">
             @Html.LabelFor(m => m.Username)
             <div class="text-box-container">

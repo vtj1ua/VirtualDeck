@@ -23,8 +23,13 @@
 }
 
 <form class="forms" asp-controller="" asp-action="">
-    <input type="text" placeholder="Buscar" name="search" />
-    <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+    <div class="default-form-horizontal-group">
+        <div class="text-box-container">
+            <input class="text-box" style="width:16em;" type="text" name="search" placeholder="Buscar" />
+            <span class="text-box-outline"></span>
+        </div>
+        <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+    </div>
 </form>
 
 <div class="container listTop listTopTrades">

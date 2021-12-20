@@ -10,11 +10,19 @@
 }
 <h2>Selecciona la carta que desees</h2>
 <hr />
+
 <form class="forms" asp-controller="" asp-action="">
-    <input type="text" placeholder="Buscar" name="search" />
     <input type="hidden" id="idOffered" name="idOffered" value=@ViewData["idOffered"] />
-    <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+
+    <div class="default-form-horizontal-group">
+        <div class="text-box-container">
+            <input class="text-box" style="width:16em;" type="text" name="search" placeholder="Buscar" />
+            <span class="text-box-outline"></span>
+        </div>
+        <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+    </div>
 </form>
+
 <div class="container">
     <div class="row">
         @foreach (var item in cards)

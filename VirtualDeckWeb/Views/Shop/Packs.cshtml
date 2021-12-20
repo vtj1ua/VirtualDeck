@@ -56,27 +56,40 @@
 }
 
 <form class="forms" asp-controller="ShopController" asp-action="Packs">
-    <input type="text" name="search" placeholder="Introduce un nombre o descripción" value="@filterSearch" />
-    <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+    <div class="default-form-horizontal-group">
+        <div class="text-box-container">
+            <input class="text-box" style="width:16em;" type="text" name="search" placeholder="Introduce un nombre o descripción" value="@filterSearch" />
+            <span class="text-box-outline"></span>
+        </div>
+        <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+    </div>
 
     <div class="shop-filters-container">
         <div>
-            <h2>Filtros</h2>
-            <label for="open-close-filters">Cerrar</label>
+            <h3>Filtros</h3>
+            <label for="open-close-filters">&#9776;</label>
         </div>
 
         <input type="checkbox" id="open-close-filters" hidden />
         <div>
             <fieldset class="shop-filters-price">
                 <h3>Precio</h3>
-                <span>
-                    <label>Mínimo</label>
-                    <input type="number" name="minPrice" min="0" max="1000000" value="@filterMinPrice" />
-                </span>
-                <span>
-                    <label>Máximo</label>
-                    <input type="number" name="maxPrice" min="0" max="1000000" value="@filterMaxPrice" />
-                </span>
+                <div>
+                    <div>
+                        <label>Mínimo</label>
+                        <div class="text-box-container">
+                            <input type="number" class="text-box" name="minPrice" min="0" max="1000000" value="@filterMinPrice" />
+                            <span class="text-box-outline"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Máximo</label>
+                        <div class="text-box-container">
+                            <input type="number" class="text-box" name="maxPrice" min="0" max="1000000" value="@filterMaxPrice" />
+                            <span class="text-box-outline"></span>
+                        </div>
+                    </div>
+                </div>
             </fieldset>
             <div>
                 <fieldset class="shop-filters-types-and-rarity">

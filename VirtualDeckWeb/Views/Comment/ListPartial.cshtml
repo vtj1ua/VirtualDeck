@@ -11,18 +11,18 @@
 @{
     if(userIsLogged)
     {
-        using (Html.BeginForm("Create", "Comment", FormMethod.Post, new { @class = "container" }))
+        using (Html.BeginForm("Create", "Comment", FormMethod.Post, new { @class = "container", @style="margin-bottom: 2em;" }))
         {
             @Html.AntiForgeryToken()
             
 
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                <textarea name="Text" rows="1" cols="100" class="textComment"></textarea>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <textarea name="Text" rows="1" cols="100" class="text-area" style="height: 50px;" placeholder="Escribe un comentario"></textarea>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <input type="hidden" name="ProductId" value="@Model.Item2.ProductId" />
-                <input type="submit" value="Publicar comentario" class="acept-button" />
-                </div>
+                <input type="submit" value="Publicar comentario" class="acept-button" style="float: right" />
+            </div>
         }
     }  
 }
