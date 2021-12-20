@@ -30,12 +30,11 @@ h1{
 }
 
 /*PARA CENTRAR LA TIENDA*/
+
 .container{
     padding-left: 0;
     padding-right: 0;
 }
-
-    
 
 .shop-container {
     background: var(--light-dark);
