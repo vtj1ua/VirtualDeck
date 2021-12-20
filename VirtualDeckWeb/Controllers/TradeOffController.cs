@@ -98,13 +98,16 @@ namespace VirtualDeckWeb.Controllers
 
             trade.Trade(idTrade, idCarta);
 
-            
+            TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Intercambio realizado",
+                 "El intercambio se ha realizado correctamente");
+
             return RedirectToAction("Index");
 
         }
-        public ActionResult SelectToTrade(int idTrade, int idDesired)
+        public ActionResult SelectToTrade(int idTrade, int idDesired, int page = 0)
         {
-
+            this.ViewBag.IdTrade = idTrade;
+            this.ViewBag.IdDesired = idDesired;
 
             UserCardCAD UserCardCAD = new UserCardCAD(session);
             UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
@@ -116,7 +119,26 @@ namespace VirtualDeckWeb.Controllers
                 UserCardEN = UserCardCEN.UserCardsByBaseCard(en.Id,idDesired);
             }
 
-           
+            int PageSize = 8;
+
+            var count = UserCardEN.Count();
+
+            UserCardEN = UserCardEN.Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Total = 0;
+
+            if (count % PageSize != 0)
+            {
+                this.ViewBag.Total = (count / PageSize) + 1;
+            }
+            else
+            {
+                this.ViewBag.Total = (count / PageSize);
+            }
+
+            this.ViewBag.Page = page;
 
 
             IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
@@ -139,17 +161,46 @@ namespace VirtualDeckWeb.Controllers
 
 
         /*#############PUBLICAR UN ANUNCIO###########################*/
-        public ActionResult SelectUserCardToPublish()
+        public ActionResult SelectUserCardToPublish(String search, int page = 0)
         {
             UserCardCAD UserCardCAD = new UserCardCAD(session);
             UserCardCEN UserCardCEN = new UserCardCEN(UserCardCAD);
             IList<UserCardEN> UserCardEN = null;
 
             VirtualUserEN en = Session["user"] as VirtualUserEN;
-            if (en != null)
+
+            if (search != null && search != "")
             {
+                UserCardEN = UserCardCEN.UserCardsByName(en.Id,"%" + search + "%");
+                this.ViewBag.Search = search;
+            }
+            else
+            {
+                this.ViewBag.Search = "";
                 UserCardEN = UserCardCEN.UserCardsNotInTradeByUser(en.Id);
             }
+
+            int PageSize = 8;
+
+            var count = UserCardEN.Count();
+
+            UserCardEN = UserCardEN.Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Total = 0;
+
+            if (count % PageSize != 0)
+            {
+                this.ViewBag.Total = (count / PageSize) + 1;
+            }
+            else
+            {
+                this.ViewBag.Total = (count / PageSize);
+            }
+
+            this.ViewBag.Page = page;
+
 
             IEnumerable<UserCardViewModel> model = new UserCardAssembler().ConvertListENToModel(UserCardEN);
 
@@ -159,15 +210,49 @@ namespace VirtualDeckWeb.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult SelectCardToPublish(FormCollection collection)
+        
+        public ActionResult SelectCardToPublish(int idOffered, String search, int page = 0)
         {
-            int idOffered = Int32.Parse(collection.Get("idOffered"));
+           
             CardCAD CardCAD = new CardCAD();
             CardCEN CardCEN = new CardCEN();
-            IList<CardEN> CardEN = CardCEN.ReadAll(0,-1);
+            IList<CardEN> CardEN = null;
 
-          
+
+            if (search != null && search != "")
+            {
+                CardEN = CardCEN.CardsByNameOrDescription( "%" + search + "%");
+                this.ViewBag.Search = search;
+            }
+            else
+            {
+                this.ViewBag.Search = "";
+                CardEN = CardCEN.ReadAll(0, -1);
+            }
+
+            int PageSize = 8;
+
+            var count = CardEN.Count();
+
+            CardEN = CardEN.Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Total = 0;
+
+            if (count % PageSize != 0)
+            {
+                this.ViewBag.Total = (count / PageSize) + 1;
+            }
+            else
+            {
+                this.ViewBag.Total = (count / PageSize);
+            }
+
+            this.ViewBag.Page = page;
+
+
+
             IEnumerable<CardViewModel> model = new CardAssembler().ConvertListENToModel(CardEN);
 
 

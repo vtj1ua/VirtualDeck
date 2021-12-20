@@ -369,6 +369,7 @@
     <Content Include="Views\VirtualUser\Index1.cshtml" />
     <Content Include="Views\Shared\OperationResultPartial.cshtml" />
     <Content Include="Views\TradeOff\Publish.cshtml" />
+    <Content Include="Views\VirtualUser\OpenedPack.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

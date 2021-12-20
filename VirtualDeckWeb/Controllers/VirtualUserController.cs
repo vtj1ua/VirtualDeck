@@ -135,6 +135,15 @@ namespace VirtualDeckWeb.Controllers
             return View(model);
         }
 
+
+        public ActionResult OpenedPack(int id)
+        {
+            ViewData["userCardList"] = TempData["userCardsFromPack"];
+            ViewData["idUser"] = id;
+            return View();
+        }
+
+
         public ActionResult Edit()
         {
             SessionInitialize();

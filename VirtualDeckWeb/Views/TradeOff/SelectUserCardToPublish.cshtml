@@ -11,5 +11,123 @@
 
 <h2>Selecciona la carta que quieras intercambiar</h2>
 <hr />
+<form class="forms" asp-controller="" asp-action="">
+    <input type="text" placeholder="Buscar" name="search" />
+    <input class="bot-userInfo action-button" type="submit" value="Buscar" />
+</form>
 
-@Html.Partial("UserCardListPartial", UserCards)
+    <div class="container">
+        <div class="row">
+            @Html.Partial("UserCardListPartial", UserCards)
+        </div>
+    </div>
+
+        <ul class="pagination pagList">
+            @if (ViewBag.Total > 1 && ViewBag.Page <= ViewBag.MaxPage)
+            {
+                if (ViewBag.Page == 0)
+                {
+                    <li class="disabled">
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink("«", "SelectUserCardToPublish", new { page = 0, search = ViewBag.Search })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("«", "SelectUserCardToPublish", new { page = 0 })
+                        }
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink("«", "SelectUserCardToPublish", new { page = 0, search = ViewBag.Search })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("«", "SelectUserCardToPublish", new { page = 0 })
+                        }
+                    </li>
+                }
+                if (ViewBag.Total > 0)
+                {
+                    bool antes = false;
+                    bool desps = false;
+                    for (int i = 1; i <= ViewBag.Total; i++)
+                    {
+                        if (ViewBag.Page + 1 == i)
+                        {
+                            <li class="active">
+                                @if (ViewBag.Search != "")
+                                {
+                                    @Html.ActionLink(i.ToString(), "SelectUserCardToPublish", new { page = i - 1, search = ViewBag.Search })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink(i.ToString(), "SelectUserCardToPublish", new { page = i - 1 })
+                                }
+                            </li>
+                        }
+                        else if (ViewBag.Page + 1 == i - 1 || ViewBag.Page + 1 == i - 2 || ViewBag.Page + 1 == i + 1 || ViewBag.Page + 1 == i + 2)
+                        {
+                            <li>
+                                @if (ViewBag.Search != "")
+                                {
+                                    @Html.ActionLink(i.ToString(), "SelectUserCardToPublish", new { page = i - 1, search = ViewBag.Search })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink(i.ToString(), "SelectUserCardToPublish", new { page = i - 1 })
+                                }
+                            </li>
+                        }
+                        else
+                        {
+                            if (i < ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && antes == false)
+                            {
+                                <li>
+                                    <a>...</a>
+                                </li>
+
+                                antes = true;
+                            }
+                            if (i > ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && desps == false)
+                            {
+                                <li>
+                                    <a>...</a>
+                                </li>
+                                desps = true;
+                            }
+                        }
+                    }
+                }
+                if (ViewBag.Page == ViewBag.Total - 1)
+                {
+                    <li class="disabled">
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink("»", "SelectUserCardToPublish", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("»", "SelectUserCardToPublish", new { page = ViewBag.Total - 1 })
+                        }
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @if (ViewBag.Search != "")
+                        {
+                            @Html.ActionLink("»", "SelectUserCardToPublish", new { page = ViewBag.Total - 1, search = ViewBag.Search })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("»", "SelectUserCardToPublish", new { page = ViewBag.Total - 1 })
+                        }
+                    </li>
+                }
+            }
+        </ul>

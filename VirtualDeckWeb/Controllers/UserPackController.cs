@@ -3,23 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VirtualDeckGenNHibernate.CAD.VirtualDeck;
+using VirtualDeckGenNHibernate.CEN.VirtualDeck;
 using VirtualDeckGenNHibernate.CP.VirtualDeck;
 using VirtualDeckGenNHibernate.EN.VirtualDeck;
+using VirtualDeckWeb.Assemblers;
+using VirtualDeckWeb.Models;
 
 namespace VirtualDeckWeb.Controllers
 {
     public class UserPackController : BasicController
     {
         // GET: UserPack
-        public ActionResult Index(int idPack)
+        public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult Open(int idPack)
+        {
+            SessionInitialize();
             VirtualUserEN user = Session["User"] as VirtualUserEN;
+
+
+            IUserPackCAD userPackCAD = new UserPackCAD(session);
+            UserPackCEN userPackCEN = new UserPackCEN(userPackCAD);
+            UserPackEN userPackEN = userPackCEN.ReadOID(idPack);
+            IList<UserCardEN> packCards = userPackEN.UserCards;
+            IEnumerable<UserCardViewModel> userPackCards = new UserCardAssembler().ConvertListENToModel(packCards);
+            TempData["userCardsFromPack"] = userPackCards;
+
             UserPackCP userPackCP = new UserPackCP();
             userPackCP.OpenPack(idPack);
 
-            return RedirectToAction(actionName: "Details", controllerName: "VirtualUser", new { id = user.Id });
+            SessionClose();
+            return RedirectToAction(actionName: "OpenedPack", controllerName: "VirtualUser", new { id = user.Id});
         }
-
 
         // GET: UserPack/Details/5
         public ActionResult Details(int id)
