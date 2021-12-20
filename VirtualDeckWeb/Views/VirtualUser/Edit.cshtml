@@ -15,57 +15,44 @@
             if (user != null)
 
             {
-
-                using (Html.BeginForm("Edit", "VirtualUser", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    @Html.AntiForgeryToken()
-
-                    <div class="form-horizontal formDivHor">
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="centered-col-container">
+                    @using (Html.BeginForm("Edit", "VirtualUser", FormMethod.Post, new { @class = "default-form default-form-border", @enctype = "multipart/form-data"  }))
+                    {
+                        @Html.AntiForgeryToken()
                         @Html.HiddenFor(model => model.Id)
-
-                        <div class="form-group widthForm">
-                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2 labelDiv" })
-                            <div class="inputsEdit">
-                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @Value = user.UserName } })
-                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        <div class="default-form-group">
+                            @Html.LabelFor(model => model.UserName)
+                            <div class="text-box-container">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "text-box", @Value = user.UserName, @placeholder = "Introduce un nombre usuario" } })
+                                <span class="text-box-outline"></span>
                             </div>
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "error-message" })
                         </div>
 
-                        <div class="form-group widthForm">
-                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2 labelDiv" })
-                            <div class="formDiv inputsEdit">
-                                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @Value = user.Description } })
-                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                            </div>
+                        <div class="default-form-group">
+                            @Html.LabelFor(model => model.Description)
+                            @Html.TextAreaFor(model => model.Description, new { @class = "text-area", @Value = user.Description, @placeholder = "Introduce una descripción" })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "error-message" })
                         </div>
 
                         <div class="form-group widthForm imgDivForm">
-                            @Html.LabelFor(model => model.Img, htmlAttributes: new { @class = "control-label col-md-2 labelDiv" })
+                            @Html.LabelFor(model => model.Img)
                             <div id="foto-reg">
                                 <input class="notVisible" type="file" name="file" accept="image/*" onchange="previsualizarImagen(this);">
-                                <img id="photo-usu" class="imgForm" height="200" width="200" src="~/Resources/@Model.Img" alt="Foto del usuario" onclick="return cargarImagen(this.parentNode);">
+                                <img id="photo-usu" class="form-image" height="200" width="200" src="~/Resources/@Model.Img" alt="Foto del usuario" onclick="return cargarImagen(this.parentNode);">
                                 <footer class="foto-footer">
                                     <a class="action-button margin-a" onclick="return cargarImagen(this.parentNode.parentNode);">Buscar Foto</a>
-                                    <a class="action-button" onclick="return borrarFoto(this.parentNode.parentNode);">Borrar Foto</a>
+                                    <a class="cancel-button margin-a" onclick="return borrarFoto(this.parentNode.parentNode);">Borrar Foto</a>
                                 </footer>
                                 <input type="hidden" id="hiddenInput" name="DeletedImg" value="0" />
                             </div>
                         </div>
 
-                        <div class="form-group widthForm buttonsDiv">
-                            <div>
-                                <input class="bot-userInfo marginRightElem" type="submit" value="MODIFICAR" />
-
-                                @Html.ActionLink("VOLVER", "Details", new { Id = user.Id }, new { @class = "action-button marginLeftElem" })
-                            </div>
-                                    
-                                
-
+                        <div class="default-form-group">
+                            <input class="acept-button" type="submit" value="Modificar" />
                         </div>
-
-                    </div>
-                }
+                    }
+                </div>
 
             }
             else
