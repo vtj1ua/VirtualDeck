@@ -22,7 +22,11 @@
         </div>
         <div class="default-form-group">
             @Html.LabelFor(m => m.Password)
-            @Html.PasswordFor(m => m.Password, new { @class = "text-box", @placeholder = "Introduce la contraseña" })
+            <div class="text-box-container">
+                @Html.PasswordFor(m => m.Password, new { @class = "text-box", @placeholder = "Introduce la contraseña" })
+                <span class="text-box-outline"></span>
+            </div>
+
             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error-message" })
         </div>
 
