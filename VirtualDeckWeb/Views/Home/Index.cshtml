@@ -7,8 +7,8 @@
     ViewBag.Title = "Pagina Principal";
 }
 
-<h2>Novedades</h2>
-<hr/>
+<h2 class="centrarH2"><strong>Novedades</strong></h2>
+<hr class="marginHR" />
 <div id="news-carousel" class="carousel slide" data-ride="carousel">
 
     <div class="carousel-inner">
@@ -28,7 +28,8 @@
 @{
     if (Session["User"] != null)
     {
-        <h2>Recomendaciones</h2>
+        <h2 class="centrarH2"><strong>Recomendaciones</strong></h2>
+        <hr class="marginHR" />
         <div id="recommended-carousel" class="carousel slide" data-ride="carousel">
 
             <div class="carousel-inner">

@@ -131,11 +131,11 @@
             <li class="disabled">
                 @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                 {
-                    @Html.ActionLink("«", "Cards", new { page = 0, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
+                    @Html.ActionLink("❰❰", "Cards", new { page = 0, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                 }
                 else
                 {
-                    @Html.ActionLink("«", "Cards", new { page = 0 })
+                    @Html.ActionLink("❰❰", "Cards", new { page = 0 })
                 }
             </li>
         }
@@ -144,11 +144,11 @@
             <li>
                 @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                 {
-                    @Html.ActionLink("«", "Cards", new { page = 0, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
+                    @Html.ActionLink("❰❰", "Cards", new { page = 0, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                 }
                 else
                 {
-                    @Html.ActionLink("«", "Cards", new { page = 0 })
+                    @Html.ActionLink("❰❰", "Cards", new { page = 0 })
                 }
             </li>
         }
@@ -188,7 +188,7 @@
                 {
                     if (i < ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && antes == false)
                     {
-                        <li>
+                        <li class="puntosSusp">
                             <a>...</a>
                         </li>
 
@@ -196,7 +196,7 @@
                     }
                     if (i > ViewBag.Page + 1 && Math.Abs(i - (ViewBag.Page + 1)) >= 3 && desps == false)
                     {
-                        <li>
+                        <li class="puntosSusp">
                             <a>...</a>
                         </li>
                         desps = true;
@@ -209,11 +209,11 @@
             <li class="disabled">
                 @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                 {
-                    @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
+                    @Html.ActionLink("❱❱", "Cards", new { page = ViewBag.Total - 1, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                 }
                 else
                 {
-                    @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1 })
+                    @Html.ActionLink("❱❱", "Cards", new { page = ViewBag.Total - 1 })
                 }
             </li>
         }
@@ -222,11 +222,11 @@
             <li>
                 @if (this.ViewBag.FiltersAreSet != null && this.ViewBag.FiltersAreSet)
                 {
-                    @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
+                    @Html.ActionLink("❱❱", "Cards", new { page = ViewBag.Total - 1, search = ViewBag.Search, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice, type = ViewBag.Type, rarity = ViewBag.Rarity })
                 }
                 else
                 {
-                    @Html.ActionLink("»", "Cards", new { page = ViewBag.Total - 1 })
+                    @Html.ActionLink("❱❱", "Cards", new { page = ViewBag.Total - 1 })
                 }
             </li>
         }

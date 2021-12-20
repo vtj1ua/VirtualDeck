@@ -21,6 +21,7 @@ namespace VirtualDeckWeb.Assemblers
             user.Img = en.Img;
             user.CombatStatus = (int)en.CombatStatus;
             user.NumCards = en.UserCards.Count;
+            user.NumPacks = en.UserPacks.Count;
             user.DeletedImg = "0";
             return user;
 
