@@ -107,7 +107,7 @@
                 CardTypeEnum currentType = (CardTypeEnum)type;
                 if ((Model.CardTypes & currentType) != CardTypeEnum.None && cardTypes.ContainsKey(currentType))
                 {
-                    packCardTypes.Add(cardTypes[currentType]);
+                    packCardTypes.Add(currentType.ToString() + ".png");
                 }
             }
 
@@ -140,7 +140,12 @@
 
         <div>
             <label for="cantidad">En este sobre pueden aparecer cartas de tipo: </label>
-            <p>@String.Join(", ", packCardTypes.ToArray())</p>
+            <div>
+                @for (int i = 0; i < cardTypes.Count; ++i)
+                {
+                    <img src="~/Resources/IconTypes/@packCardTypes[i]" style="width: 2em;" />
+                }
+            </div>
         </div>
     </div>
 </div>

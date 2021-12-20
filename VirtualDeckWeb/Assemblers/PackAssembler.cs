@@ -20,8 +20,8 @@ namespace VirtualDeckWeb.Assemblers
             pack.RegistryDate = (DateTime)en.RegistryDate;
             pack.MaxNumCards = en.MaxNumCards;
             pack.MinNumCards = en.MinNumCards;
-            pack.CardTypes = en.CardTypes;
             pack.CardRarities = en.CardRarities;
+            pack.CardTypes = en.CardTypes;
             
 /*
             switch (en.CardTypes)
