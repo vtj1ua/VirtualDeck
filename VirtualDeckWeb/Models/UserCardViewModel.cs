@@ -13,6 +13,7 @@ namespace VirtualDeckWeb.Models
         public float Tokens { get; set; }
         public CardTypeEnum Type { get; set; }
         public RarityEnum Rarity { get; set; }
+        public string Rareza { get; set; }
         public int Speed { get; set; }
         public int Defense { get; set; }
         public int Attack { get; set; }

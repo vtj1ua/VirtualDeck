@@ -13,17 +13,27 @@ namespace VirtualDeckWeb.Controllers
     public class UserCardController : BasicController
     {
         // GET: UserCard
-        public ActionResult Index(int idUsuario, int idCarta)
+        public ActionResult Index()
         {
-            
-            //(Session["User"] as VirtualUserEN).Tokens = ;
+
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Destroy(FormCollection collection)
+        {
+            int idUsuario = Int32.Parse(collection.Get("idUsuario"));
+            int idCarta = Int32.Parse(collection.Get("idCarta"));
+            int tokens = Int32.Parse(collection.Get("tokens"));
+
+            (Session["User"] as VirtualUserEN).Tokens += tokens;
             UserCardCP userCardCP = new UserCardCP();
             userCardCP.DestroyCard(idCarta);
 
-           
+
             return RedirectToAction(actionName: "Details", controllerName: "VirtualUser", new { id = idUsuario });
         }
-
         // GET: UserCard/Details/5
         public ActionResult Details(int id)
         {

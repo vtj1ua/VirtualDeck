@@ -85,34 +85,42 @@ namespace VirtualDeckWeb.Assemblers
             {
                 case RarityEnum.Basic:
                     userCard.BackgroundImage = "Basic.png";
+                    userCard.Rareza = "Básica";
                     rarity = 5;
                     break;
                 case RarityEnum.Common:
                     userCard.BackgroundImage = "Common.png";
+                    userCard.Rareza = "Común";
                     rarity = 10;
                     break;
                 case RarityEnum.Uncommon:
                     userCard.BackgroundImage = "Uncommon.png";
+                    userCard.Rareza = "Poco común";
                     rarity = 20;
                     break;
                 case RarityEnum.Rare:
                     userCard.BackgroundImage = "Rare.png";
+                    userCard.Rareza = "Raro";
                     rarity = 40;
                     break;
                 case RarityEnum.Epic:
                     userCard.BackgroundImage = "Epic.png";
+                    userCard.Rareza = "Épico";
                     rarity = 80;
                     break;
                 case RarityEnum.Legendary:
                     userCard.BackgroundImage = "Legendary.png";
+                    userCard.Rareza = "Legendaria";
                     rarity = 160;
                     break;
                 case RarityEnum.Mythical:
                     userCard.BackgroundImage = "Mythical.png";
+                    userCard.Rareza = "Mítica";
                     rarity = 320;
                     break;
                 default:
                     userCard.BackgroundImage = "Common.png";
+                    userCard.Rareza = "Básica";
                     break;
             }
             userCard.Tokens = en.Card.Price * 0.10f + userCard.Level * rarity;

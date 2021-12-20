@@ -1,5 +1,7 @@
 ﻿@model VirtualDeckWeb.Models.PackViewModel
 @using VirtualDeckGenNHibernate.EN.VirtualDeck;
+@using VirtualDeckGenNHibernate.Enumerated.VirtualDeck;
+@using System.Collections.Generic;
 
 @{
     ViewBag.Title = "Detalle Sobre";
@@ -28,22 +30,23 @@
             {
                 <h3>@Html.DisplayFor(model => model.Name)</h3>
                 <p>@Html.DisplayFor(model => model.Description)</p>
+                
                 <div>
                     <label>Precio</label>
                     <p class="price">@Html.DisplayFor(model => model.Price)<img src="~/Resources/token.png" alt="Tokens" class="token"></p>
                 </div>
+                <div>
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);" />
+                </div>
+                <div>
+                    <label>Precio total</label>
+                    <p><span class="totalPrice">@Html.DisplayFor(model => model.Price)</span><span><img src="~/Resources/token.png" alt="Tokens" class="token"></span></p>
+                </div>
+
                 VirtualUserEN user = Session["User"] as VirtualUserEN;
                 if (user != null)
                 {
-                    <div>
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" id="cantidad" name="amount" min="1" value="1" max="50" onchange="changeTokens(this);" />
-                    </div>
-                    <div>
-                        <label>Precio total</label>
-                        <p><span class="totalPrice">@Html.DisplayFor(model => model.Price)</span><span><img src="~/Resources/token.png" alt="Tokens" class="token"></span></p>
-                    </div>
-
                     <input type="submit" value="Comprar" class="btn btn-default action-button" />
                 }
                 else
@@ -60,24 +63,85 @@
 
 
 <div class="container">
-    <h3>Caracterísitcas</h3>
+    <h3>Características</h3>
     <hr />
     <div class="description">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <label for="cantidad">Nombre</label>
+        <div>
+            <label for="cantidad">Nombre:</label>
             <p>@Html.DisplayFor(model => model.Name)</p>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <label for="cantidad">Descripción</label>
+        <div>
+            <label for="cantidad">Descripción:</label>
             <p>@Html.DisplayFor(model => model.Description)</p>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <label for="cantidad">Máximo de cartas</label>
+        <div>
+            <label for="cantidad">Máximo de cartas:</label>
             <p>@Html.DisplayFor(model => model.MaxNumCards)</p>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <label for="cantidad">Mínimo de cartas</label>
+        <div>
+            <label for="cantidad">Mínimo de cartas:</label>
             <p>@Html.DisplayFor(model => model.MinNumCards)</p>
+        </div>
+        @{
+            Dictionary<CardTypeEnum, string> cardTypes = new Dictionary<CardTypeEnum, string>()
+            {
+                { CardTypeEnum.Bug, "Bicho" },
+                { CardTypeEnum.Dragon, "Dragon" },
+                { CardTypeEnum.Electric, "Electrico" },
+                { CardTypeEnum.Fighting, "Lucha" },
+                { CardTypeEnum.Fire, "Fuego" },
+                { CardTypeEnum.Flying, "Volador" },
+                { CardTypeEnum.Ghost, "Fantasma" },
+                { CardTypeEnum.Grass, "Hierba" },
+                { CardTypeEnum.Ground, "Tierra" },
+                { CardTypeEnum.Ice, "Hielo" },
+                { CardTypeEnum.Normal, "Normal" },
+                { CardTypeEnum.Poison, "Veneno" },
+                { CardTypeEnum.Psychic, "Psíquico" },
+                { CardTypeEnum.Rock, "Roca" },
+                { CardTypeEnum.Water, "Agua" }
+            };
+
+            List<string> packCardTypes = new List<string>();
+            foreach (int type in Enum.GetValues(typeof(CardTypeEnum)))
+            {
+                CardTypeEnum currentType = (CardTypeEnum)type;
+                if ((Model.CardTypes & currentType) != CardTypeEnum.None && cardTypes.ContainsKey(currentType))
+                {
+                    packCardTypes.Add(cardTypes[currentType]);
+                }
+            }
+
+            Dictionary<RarityEnum, string> cardRarities = new Dictionary<RarityEnum, string>()
+            {
+                { RarityEnum.Basic, "Básica" },
+                { RarityEnum.Common, "Común" },
+                { RarityEnum.Uncommon, "Poco común" },
+                { RarityEnum.Rare, "Rara" },
+                { RarityEnum.Epic, "Épica" },
+                { RarityEnum.Legendary, "Legendaria" },
+                { RarityEnum.Mythical, "Mítica" }
+            };
+
+            List<string> packCardRarities = new List<string>();
+            foreach (int type in Enum.GetValues(typeof(RarityEnum)))
+            {
+                RarityEnum currentType = (RarityEnum)type;
+                if ((Model.CardRarities & currentType) != RarityEnum.None && cardRarities.ContainsKey(currentType))
+                {
+                    packCardRarities.Add(cardRarities[currentType]);
+                }
+            }
+        }
+
+        <div>
+            <label for="cantidad">En este sobre pueden aparecer cartas de rareza: </label>
+            <p>@String.Join(", ", packCardRarities.ToArray())</p>
+        </div>
+
+        <div>
+            <label for="cantidad">En este sobre pueden aparecer cartas de tipo: </label>
+            <p>@String.Join(", ", packCardTypes.ToArray())</p>
         </div>
     </div>
 </div>
