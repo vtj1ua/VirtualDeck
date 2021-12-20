@@ -127,7 +127,18 @@ namespace VirtualDeckWeb.Controllers
 
             IEnumerable<UserPackViewModel> userPackViewModelList = new UserPackAssembler().ConvertListENToModel(userPackENList);
 
-
+            string v = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+            if (v.Contains("page="))
+            {
+                this.ViewBag.Act = "Cards";
+            }else if (v.Contains("page1="))
+            {
+                this.ViewBag.Act = "Packs";
+            }
+            else
+            {
+                this.ViewBag.Act = "Cards";
+            }
 
 
             ViewData["userPackList"] = userPackViewModelList;

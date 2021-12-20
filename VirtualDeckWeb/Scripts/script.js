@@ -48,3 +48,13 @@ function changeTokens(input) {
 }
 
 
+function cambiarActive() {
+	let a = window.location.href;
+	if (a.includes("VirtualUser/Details")) {
+		if (a.includes("page=")) {
+			document.getElementById("navUsuarios").getElementsByTagName("li")[0].querySelector("a").click();
+		} else if (a.includes("page1=")) {
+			document.getElementById("navUsuarios").getElementsByTagName("li")[1].querySelector("a").click();
+		}
+	}
+}
