@@ -12,6 +12,7 @@ using VirtualDeckGenNHibernate.CP.VirtualDeck;
 
 namespace VirtualDeckWeb.Controllers
 {
+    [Authorize]
     public class TradeOffController : BasicController
     {
 

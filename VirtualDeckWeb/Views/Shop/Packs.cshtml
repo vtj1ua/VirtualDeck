@@ -133,6 +133,13 @@
     </div>
 </form>
 
+@if (Model.Count() == 0)
+{
+    <div class="centrarCom sinInter">
+        <h4>Sin Resultados</h4>
+    </div>
+}
+
 @Html.Partial("PackListShopPartial", Model)
 <ul class="pagination pagList">
     @if (ViewBag.Total > 1 && ViewBag.Page <= ViewBag.MaxPage)
@@ -243,3 +250,5 @@
         }
     }
 </ul>
+
+@Html.Partial("OperationResultPartial")

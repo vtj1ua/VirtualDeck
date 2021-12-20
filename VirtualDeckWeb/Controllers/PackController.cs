@@ -78,14 +78,16 @@ namespace VirtualDeckWeb.Controllers
                 int amount = Int32.Parse(collection.Get("amount"));
 
                 UserPackCEN userPackCEN = new UserPackCEN();
+                PackCEN packCEN = new PackCEN();
+                PackEN pack = packCEN.ReadOID(packId);
                 VirtualUserEN user = Session["User"] as VirtualUserEN;
 
                 PackCP packCP = new PackCP();
                 packCP.PurchaseUserPack(packId, user.Id, amount);
 
-                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Compra realizada", 
-                    "Tu compra se ha realizado correctamente");
-                return RedirectToAction("Details", "VirtualUser", new { id = user.Id });
+                TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Compra realizada",
+                    "Tu compra de '" + pack.Name + "' se ha realizado correctamente");
+                return RedirectToAction("Packs", "Shop");
             }
             catch
             {

@@ -25,15 +25,15 @@
             {
                 if (ViewBag.ButtonType == "VirtualUserDetails" || ViewBag.ButtonType == "SelectUserCardToPublish")
                 {
-                    <div class="centerDiv">
-                        <h3 style="margin-bottom:1em;">No tienes niguna carta :(</h3>
+                    <div class="centerDiv marginSinRes">
+                        <h4 style="margin-bottom:1em; font-style:italic;">No tienes niguna carta</h4>
                         @Html.ActionLink("Ir a la tienda", "Cards", "Shop", null, new { @class = "action-button" })
                     </div>
                 }
                 else if(ViewBag.ButtonType == "SelectToTrade")
                 {
-                    <div class="centerDiv">
-                        <h3 style="margin-bottom:1em;">No tienes niguna copia de esa carta :(</h3>
+                    <div class="centerDiv marginSinRes">
+                        <h4 style="margin-bottom: 1em; font-style: italic;">No tienes niguna copia de esa carta</h4>
                         @Html.ActionLink("Ir a la tienda", "Cards", "Shop", null, new { @class = "action-button" })
                     </div>
                 }
@@ -41,8 +41,8 @@
             }
             else
             {
-                <div class="centerDiv">
-                    <h3>El usuario no tiene cartas :(</h3>
+                <div class="centerDiv marginSinRes">
+                    <h4 style="font-style: italic;">El usuario no tiene cartas</h4>
                 </div>
             }
         }

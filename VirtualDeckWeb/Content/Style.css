@@ -1574,6 +1574,20 @@ width: 100%;
     margin-top:1em;
 }
 
+.marginSinRes{
+    margin-top:2.5em;
+}
+
+#Tabs>div{
+    margin-top:2em;
+}
+
+.h3card{
+    font-weight:bold;
+    border-bottom:1px solid;
+    padding-bottom:.2em;
+}
+
 .centrarH2{
     text-align:center;
 }
@@ -1665,6 +1679,11 @@ width: 100%;
         width: 25em;
         border-radius: 0.5em;
     }
+
+    .error-p {
+        margin-right: 1em;
+        margin-left: 1em;
+    }
 }
 
 @media all and (min-width:769px) {
@@ -1672,6 +1691,10 @@ width: 100%;
         padding: 2em 1.5em;
         background: var(--light-dark);
         border-radius: 0.5em;
+    }
+
+    .h3card{
+        margin-right: 2em;
     }
 }
 
