@@ -10,13 +10,13 @@
 
 @if (Session["user"] != null)
 {
-        VirtualUserEN en = Session["user"] as VirtualUserEN;
+    VirtualUserEN en = Session["user"] as VirtualUserEN;
 
-        int id = en.Id;
-        
-        <div>
-            <p class="userInfoTokens tokensTienda"><strong>Tokens: </strong><span>@en.Tokens <img src="~/Resources/token.png" /></span></p>
-        </div>
+    int id = en.Id;
+
+    <div>
+        <p class="userInfoTokens tokensTienda"><strong>Tokens: </strong><span>@en.Tokens <img src="~/Resources/token.png" /></span></p>
+    </div>
 
 }
 
@@ -120,6 +120,13 @@
         </div>
     </div>
 </form>
+
+@if (Model.Count() == 0)
+{
+    <div class="centrarCom sinInter">
+        <h4>Sin Resultados</h4>
+    </div>
+}
 
 
 @Html.Partial("CardListShopPartial", Model)
@@ -232,3 +239,5 @@
         }
     }
 </ul>
+
+@Html.Partial("OperationResultPartial")

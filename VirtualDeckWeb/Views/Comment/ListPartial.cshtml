@@ -6,15 +6,15 @@
     bool userIsLogged = (Session["User"] as VirtualUserEN) != null;
 }
 
-<h3>Comentarios</h3>
-<hr />
+<h3 class="centrarH2"><strong>Comentarios</strong></h3>
+<hr class="marginHR">
 @{
-    if(userIsLogged)
+    if (userIsLogged)
     {
         using (Html.BeginForm("Create", "Comment", FormMethod.Post, new { @class = "container" }))
         {
             @Html.AntiForgeryToken()
-            
+
 
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                 <textarea name="Text" rows="1" cols="100" class="textComment"></textarea>
@@ -22,9 +22,9 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <input type="hidden" name="ProductId" value="@Model.Item2.ProductId" />
                 <input type="submit" value="Publicar comentario" class="acept-button" />
-                </div>
+            </div>
         }
-    }  
+    }
 }
 
 @foreach (var item in Model.Item1)
@@ -35,10 +35,10 @@
     </div>
 }
 
-@if(Model.Item1.Count() == 0)
-            {
-      <div class="centrarCom">
-          <h4>Sin Comentarios</h4>
-      </div>
-            }
+@if (Model.Item1.Count() == 0)
+{
+    <div class="centrarCom">
+        <h4>Sin Comentarios</h4>
+    </div>
+}
 

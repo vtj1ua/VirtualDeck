@@ -48,7 +48,7 @@ namespace VirtualDeckWeb.Controllers
                 virtualUserEN.Tokens += model.Tokens;
                 TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Compra realizada", 
                     "Tu compra de '" + model.Name + "' se ha realizado correctamente");
-                return RedirectToAction("Details", "VirtualUser", new { id = virtualUserEN.Id });
+                return RedirectToAction("TokenPacks", "Shop");
             }
             catch
             {
