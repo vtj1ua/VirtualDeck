@@ -2,13 +2,16 @@
 
 <h3>Ataques</h3>
 <hr />
-@foreach (var item in Model)
-{
-
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 attack">
+<div class="containerAttacks">
+    @foreach (var item in Model)
+    {
+        string png = item.Type + ".png";
+        string type = item.Type.ToString();
+    <div class="attack @type">
+        <img src="~/Resources/IconTypes/@png">
         <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
-        <p>@Html.DisplayFor(modelItem => item.Type)</p>
+        @*<p>@Html.DisplayFor(modelItem => item.Type)</p>*@
         <p>@Html.DisplayFor(modelItem => item.Description)</p>
     </div>
-}
-
+    }
+</div>
