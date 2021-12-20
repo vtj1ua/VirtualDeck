@@ -22,50 +22,53 @@
         </div>
         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
             <div class="centered-col-container">
-                @using (Html.BeginForm("Buy", "TokenPack", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                @using (Html.BeginForm("Buy", "TokenPack", FormMethod.Post, new { @class = "default-form", role = "form", style="padding-top: 0; width: 350px;" }))
                 {
                     @Html.AntiForgeryToken()
-                    <h4>Introduzca los datos bancarios</h4>
-                    <hr />
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.AccountHolder, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.AccountHolder, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.AccountHolder, "", new { @class = "text-danger" })
+                    <h3 class="section-title">Introduzca los datos bancarios</h3>
+                                        
+                    <div class="default-form-group">
+                        @Html.LabelFor(m => m.AccountHolder)
+                        <div class="text-box-container">
+                            @Html.TextBoxFor(m => m.AccountHolder, new { @class = "text-box" })
+                            <span class="text-box-outline"></span>
                         </div>
+                        @Html.ValidationMessageFor(m => m.AccountHolder, "", new { @class = "error-message" })
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.ExpiryDate, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.ExpiryDate, "{0:dd/MM/yyyy}", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.ExpiryDate, "", new { @class = "text-danger" })
+                    <div class="default-form-group">
+                        @Html.LabelFor(m => m.ExpiryDate)
+                        <div class="text-box-container">
+                            @Html.TextBoxFor(m => m.ExpiryDate, "{0:dd/MM/yyyy}", new { @class = "text-box" })
+                            <span class="text-box-outline"></span>
                         </div>
+                        @Html.ValidationMessageFor(m => m.ExpiryDate, "", new { @class = "error-message" })
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.CardNumber, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.CardNumber, "", new { @class = "text-danger" })
+                    <div class="default-form-group">
+                        @Html.LabelFor(m => m.CardNumber)
+                        <div class="text-box-container">
+                            @Html.TextBoxFor(m => m.CardNumber, new { @class = "text-box" })
+                            <span class="text-box-outline"></span>
                         </div>
+                        @Html.ValidationMessageFor(m => m.CardNumber, "", new { @class = "error-message" })
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.CVV, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.CVV, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.CVV, "", new { @class = "text-danger" })
+                    <div class="default-form-group">
+                        @Html.LabelFor(m => m.CVV)
+                        <div class="text-box-container">
+                            @Html.TextBoxFor(m => m.CVV, new { @class = "text-box" })
+                            <span class="text-box-outline"></span>
                         </div>
+                        @Html.ValidationMessageFor(m => m.CVV, "", new { @class = "error-message" })
                     </div>
 
                     @Html.HiddenFor(m => m.Id)
                     @Html.HiddenFor(m => m.Name)
+                    @Html.HiddenFor(m => m.Tokens)
 
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Realizar compra" class="action-button" />
-                        </div>
+                    <div class="form-submit-group">
+                        <input type="submit" value="Realizar compra" class="action-button" />
                     </div>
                 }
             </div>
