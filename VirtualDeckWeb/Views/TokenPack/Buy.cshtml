@@ -1,20 +1,7 @@
 ﻿@model VirtualDeckWeb.Models.TokenPackViewModel
-@using VirtualDeckGenNHibernate.EN.VirtualDeck;
 
 @{
     ViewBag.Title = "Detalle Pack Tokens";
-}
-
-@if (Session["user"] != null)
-{
-    VirtualUserEN en = Session["user"] as VirtualUserEN;
-
-    int id = en.Id;
-
-    <div class="detalleTokens">
-        <p class="userInfoTokens tokensTienda"><strong>Tokens: </strong><span>@en.Tokens <img src="~/Resources/token.png" /></span></p>
-    </div>
-
 }
 
 <div class="container-fluid">
@@ -31,14 +18,14 @@
                         <h4>@Html.DisplayFor(modelItem => Model.Price) €</h4>
                     </div>
                 </div>
-            </div>
+            </div>  
         </div>
         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
             <div class="centered-col-container">
-                @using (Html.BeginForm("Buy", "TokenPack", FormMethod.Post, new { @class = "default-form", role = "form", style="padding-top: 0; width: 350px;" }))
+                @using (Html.BeginForm("Buy", "TokenPack", FormMethod.Post, new { @class = "default-form default-form-border", role = "form", style="padding-top: 0; width: 350px;" }))
                 {
                     @Html.AntiForgeryToken()
-                    <h3 class="section-title">Introduzca los datos bancarios</h3>
+                    <h3 class="section-title" style="font-weight: bold">Introduzca los datos bancarios</h3>
                                         
                     <div class="default-form-group">
                         @Html.LabelFor(m => m.AccountHolder)
@@ -137,9 +124,9 @@
                 </div>
             </div>
         }-->
-</div>
+    </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 

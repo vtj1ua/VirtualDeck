@@ -15,8 +15,8 @@ namespace VirtualDeckWeb.Controllers
         // GET: UserCard
         public ActionResult Index(int idUsuario, int idCarta)
         {
-           
-
+            
+            //(Session["User"] as VirtualUserEN).Tokens = ;
             UserCardCP userCardCP = new UserCardCP();
             userCardCP.DestroyCard(idCarta);
 
