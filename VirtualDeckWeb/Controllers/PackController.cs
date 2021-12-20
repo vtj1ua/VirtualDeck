@@ -84,7 +84,7 @@ namespace VirtualDeckWeb.Controllers
 
                 PackCP packCP = new PackCP();
                 packCP.PurchaseUserPack(packId, user.Id, amount);
-
+                user.Tokens -= pack.Price * amount;
                 TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Compra realizada",
                     "Tu compra de '" + pack.Name + "' se ha realizado correctamente");
                 return RedirectToAction("Packs", "Shop");

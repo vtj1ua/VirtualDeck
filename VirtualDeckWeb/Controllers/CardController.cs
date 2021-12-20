@@ -70,10 +70,10 @@ namespace VirtualDeckWeb.Controllers
                 CardCEN cardCEN = new CardCEN();
                 CardEN card = cardCEN.ReadOID(cardId);
                 VirtualUserEN user = Session["User"] as VirtualUserEN;
-
+                
                 CardCP cardCP = new CardCP();
                 cardCP.PurchaseUserCard(cardId, user.Id, amount);
-
+                user.Tokens -= card.Price * amount;
                 TempData["OperationResult"] = new OperationResultViewModel(ModalMessageType.Success, "Compra realizada",
                    "Tu compra de '" + card.Name + "' se ha realizado correctamente");
                 return RedirectToAction("Cards", "Shop");
