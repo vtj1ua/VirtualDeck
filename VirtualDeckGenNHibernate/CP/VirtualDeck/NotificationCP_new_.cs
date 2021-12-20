@@ -59,6 +59,13 @@ public VirtualDeckGenNHibernate.EN.VirtualDeck.NotificationEN New_ (int p_user, 
 
                 //Obtener el usuario desde aqui y enviarle el correo
                 //(Metelo dentro de otro try-catch, que si crashea lo de enviar la notificacion no se crea
+                try
+                {
+
+                }catch(Exception ex2)
+                {
+
+                }
 
                 SessionCommit ();
         }
